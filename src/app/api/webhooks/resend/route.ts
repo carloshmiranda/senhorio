@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { neon } from "@neondatabase/serverless";
+import { getDb } from "@/lib/db";
 import crypto from "crypto";
 
-const sql = neon(process.env.DATABASE_URL!);
+function getSql() {
+  return getDb();
+}
 
 // Resend webhook events: https://resend.com/docs/dashboard/webhooks/introduction
 export async function POST(req: NextRequest) {
@@ -34,13 +36,13 @@ export async function POST(req: NextRequest) {
 
     switch (type) {
       case "email.delivered":
-        await sql`UPDATE email_log SET status = 'delivered' WHERE resend_id = ${resendId} AND status = 'sent'`;
+        await getSql()`UPDATE email_log SET status = 'delivered' WHERE resend_id = ${resendId} AND status = 'sent'`;
         break;
 
       case "email.opened":
-        await sql`UPDATE email_log SET status = 'opened', opened_at = now() WHERE resend_id = ${resendId} AND status IN ('sent', 'delivered')`;
+        await getSql()`UPDATE email_log SET status = 'opened', opened_at = now() WHERE resend_id = ${resendId} AND status IN ('sent', 'delivered')`;
         // Update sequence open count
-        await sql`
+        await getSql()`
           UPDATE email_sequences SET open_count = open_count + 1
           WHERE id = (SELECT sequence_id FROM email_log WHERE resend_id = ${resendId} LIMIT 1)
           AND (SELECT sequence_id FROM email_log WHERE resend_id = ${resendId} LIMIT 1) IS NOT NULL
@@ -48,9 +50,9 @@ export async function POST(req: NextRequest) {
         break;
 
       case "email.clicked":
-        await sql`UPDATE email_log SET status = 'clicked', clicked_at = now() WHERE resend_id = ${resendId} AND status IN ('sent', 'delivered', 'opened')`;
+        await getSql()`UPDATE email_log SET status = 'clicked', clicked_at = now() WHERE resend_id = ${resendId} AND status IN ('sent', 'delivered', 'opened')`;
         // Update sequence click count
-        await sql`
+        await getSql()`
           UPDATE email_sequences SET click_count = click_count + 1
           WHERE id = (SELECT sequence_id FROM email_log WHERE resend_id = ${resendId} LIMIT 1)
           AND (SELECT sequence_id FROM email_log WHERE resend_id = ${resendId} LIMIT 1) IS NOT NULL
@@ -58,19 +60,19 @@ export async function POST(req: NextRequest) {
         break;
 
       case "email.bounced":
-        await sql`UPDATE email_log SET status = 'bounced', bounced_at = now() WHERE resend_id = ${resendId}`;
+        await getSql()`UPDATE email_log SET status = 'bounced', bounced_at = now() WHERE resend_id = ${resendId}`;
         // Mark waitlist entry as churned if it was a waitlist email
-        const [bouncedLog] = await sql`SELECT recipient FROM email_log WHERE resend_id = ${resendId}`;
+        const [bouncedLog] = await getSql()`SELECT recipient FROM email_log WHERE resend_id = ${resendId}`;
         if (bouncedLog) {
-          await sql`UPDATE waitlist SET status = 'churned' WHERE email = ${bouncedLog.recipient} AND status = 'waiting'`;
+          await getSql()`UPDATE waitlist SET status = 'churned' WHERE email = ${bouncedLog.recipient} AND status = 'waiting'`;
         }
         break;
 
       case "email.complained":
-        await sql`UPDATE email_log SET status = 'complained' WHERE resend_id = ${resendId}`;
-        const [complainedLog] = await sql`SELECT recipient FROM email_log WHERE resend_id = ${resendId}`;
+        await getSql()`UPDATE email_log SET status = 'complained' WHERE resend_id = ${resendId}`;
+        const [complainedLog] = await getSql()`SELECT recipient FROM email_log WHERE resend_id = ${resendId}`;
         if (complainedLog) {
-          await sql`UPDATE waitlist SET status = 'churned' WHERE email = ${complainedLog.recipient} AND status = 'waiting'`;
+          await getSql()`UPDATE waitlist SET status = 'churned' WHERE email = ${complainedLog.recipient} AND status = 'waiting'`;
         }
         break;
     }

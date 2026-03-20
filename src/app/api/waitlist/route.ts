@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { neon } from "@neondatabase/serverless";
+import { getDb } from "@/lib/db";
 
-const sql = neon(process.env.DATABASE_URL!);
+// Initialize database connection only when needed (runtime, not build-time)
+function getSql() {
+  return getDb();
+}
 
 function json(data: any, status = 200) {
   return NextResponse.json(data, { status });
@@ -18,7 +21,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Check for existing signup
-    const [existing] = await sql`SELECT id, referral_code, position FROM waitlist WHERE email = ${email}`;
+    const [existing] = await getSql()`SELECT id, referral_code, position FROM waitlist WHERE email = ${email}`;
     if (existing) {
       return json({
         ok: true,
@@ -32,7 +35,7 @@ export async function POST(req: NextRequest) {
     const referralCode = Math.random().toString(36).substring(2, 8).toUpperCase();
 
     // Get next position
-    const [{ count }] = await sql`SELECT COUNT(*) as count FROM waitlist`;
+    const [{ count }] = await getSql()`SELECT COUNT(*) as count FROM waitlist`;
     const position = Number(count) + 1;
 
     // Extract UTM params from referrer or body
@@ -44,16 +47,16 @@ export async function POST(req: NextRequest) {
     let source = "organic";
     let referredBy = null;
     if (ref) {
-      const [referrer] = await sql`SELECT id FROM waitlist WHERE referral_code = ${ref}`;
+      const [referrer] = await getSql()`SELECT id FROM waitlist WHERE referral_code = ${ref}`;
       if (referrer) {
         referredBy = referrer.id;
         source = "referral";
         // Increment referrer's count
-        await sql`UPDATE waitlist SET referral_count = referral_count + 1 WHERE id = ${referrer.id}`;
+        await getSql()`UPDATE waitlist SET referral_count = referral_count + 1 WHERE id = ${referrer.id}`;
       }
     }
 
-    const [entry] = await sql`
+    const [entry] = await getSql()`
       INSERT INTO waitlist (email, name, referral_code, referred_by, position, source, utm_source, utm_medium, utm_campaign)
       VALUES (${email}, ${name || null}, ${referralCode}, ${referredBy}, ${position}, ${source}, ${utmSource}, ${utmMedium}, ${utmCampaign})
       RETURNING id, referral_code, position
@@ -63,7 +66,7 @@ export async function POST(req: NextRequest) {
     const resendKey = process.env.RESEND_API_KEY;
     if (resendKey) {
       try {
-        const [welcomeEmail] = await sql`
+        const [welcomeEmail] = await getSql()`
           SELECT subject, body_html, body_text FROM email_sequences
           WHERE sequence = 'waitlist_welcome' AND step = 1 AND variant = 'a' AND is_active = true
         `;
@@ -88,12 +91,12 @@ export async function POST(req: NextRequest) {
           });
           if (res.ok) {
             const { id: resendId } = await res.json();
-            await sql`
+            await getSql()`
               INSERT INTO email_log (recipient, sequence_id, subject, resend_id)
               VALUES (${email}, ${welcomeEmail.id || null}, ${subject}, ${resendId})
             `;
             // Increment send count
-            await sql`UPDATE email_sequences SET send_count = send_count + 1 WHERE sequence = 'waitlist_welcome' AND step = 1 AND variant = 'a'`;
+            await getSql()`UPDATE email_sequences SET send_count = send_count + 1 WHERE sequence = 'waitlist_welcome' AND step = 1 AND variant = 'a'`;
           }
         }
       } catch (e) {
@@ -117,13 +120,13 @@ export async function GET(req: NextRequest) {
   const email = req.nextUrl.searchParams.get("email");
   if (!email) return json({ ok: false, error: "email param required" }, 400);
 
-  const [entry] = await sql`
+  const [entry] = await getSql()`
     SELECT position, referral_code, referral_count, status, created_at
     FROM waitlist WHERE email = ${email}
   `;
   if (!entry) return json({ ok: false, error: "Not found" }, 404);
 
-  const [{ count }] = await sql`SELECT COUNT(*) as count FROM waitlist WHERE status = 'waiting'`;
+  const [{ count }] = await getSql()`SELECT COUNT(*) as count FROM waitlist WHERE status = 'waiting'`;
 
   return json({
     ok: true,
