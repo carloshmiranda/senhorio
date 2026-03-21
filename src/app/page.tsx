@@ -68,7 +68,6 @@ function WaitlistForm() {
   const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [result, setResult] = useState<{ referral_code?: string; position?: number; already_signed_up?: boolean } | null>(null);
 
-  // Get referral code from URL
   const ref = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("ref") : null;
 
   async function handleSubmit(e: React.FormEvent) {
@@ -109,13 +108,13 @@ function WaitlistForm() {
             <CheckIcon />
           </div>
           <h3 className="text-2xl font-bold text-gray-900 mb-2">
-            {result.already_signed_up ? "You're already on the list!" : "Welcome to Senhorio!"}
+            {result.already_signed_up ? "Ja esta na lista!" : "Bem-vindo ao Senhorio!"}
           </h3>
           <p className="text-gray-600 mb-6">
-            You're <span className="font-bold text-blue-600">#{result.position}</span> on the waitlist.
+            Esta na posicao <span className="font-bold text-blue-600">#{result.position}</span> da lista de espera.
           </p>
           <div className="bg-gray-50 rounded-xl p-6">
-            <p className="text-gray-700 font-medium mb-3">Share your link to move up:</p>
+            <p className="text-gray-700 font-medium mb-3">Partilhe o seu link para subir na lista:</p>
             <div className="flex items-center gap-3">
               <input
                 readOnly
@@ -127,7 +126,7 @@ function WaitlistForm() {
                 onClick={() => navigator.clipboard.writeText(referralLink)}
                 className="px-4 py-3 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition"
               >
-                Copy
+                Copiar
               </button>
             </div>
           </div>
@@ -138,11 +137,11 @@ function WaitlistForm() {
 
   return (
     <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md mx-auto">
-      <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">Get Early Access</h3>
+      <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">Acesso Antecipado</h3>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
-          placeholder="Your name (optional)"
+          placeholder="O seu nome (opcional)"
           value={name}
           onChange={(e) => setName(e.target.value)}
           className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
@@ -150,7 +149,7 @@ function WaitlistForm() {
         <input
           type="email"
           required
-          placeholder="your@email.com"
+          placeholder="o-seu@email.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
@@ -160,16 +159,16 @@ function WaitlistForm() {
           disabled={state === "loading"}
           className="w-full px-6 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {state === "loading" ? "Joining..." : "Join the Waitlist"}
+          {state === "loading" ? "A registar..." : "Entrar na Lista de Espera"}
         </button>
         {ref && (
           <p className="text-sm text-gray-500 text-center">
-            ✨ Referred by a friend? You'll get priority access.
+            Referido por um amigo? Tera acesso prioritario.
           </p>
         )}
         {state === "error" && (
           <p className="text-sm text-red-500 text-center">
-            Something went wrong. Please try again.
+            Ocorreu um erro. Por favor, tente novamente.
           </p>
         )}
       </form>
@@ -180,38 +179,38 @@ function WaitlistForm() {
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-      {/* Navigation */}
+      {/* Navegacao */}
       <nav className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-blue-600 rounded-lg"></div>
           <span className="text-xl font-bold text-gray-900">Senhorio</span>
         </div>
         <div className="hidden md:flex items-center space-x-8">
-          <a href="#features" className="text-gray-600 hover:text-gray-900 transition">Features</a>
-          <a href="#pricing" className="text-gray-600 hover:text-gray-900 transition">Pricing</a>
+          <a href="#funcionalidades" className="text-gray-600 hover:text-gray-900 transition">Funcionalidades</a>
+          <a href="#precos" className="text-gray-600 hover:text-gray-900 transition">Precos</a>
           <a href="#faq" className="text-gray-600 hover:text-gray-900 transition">FAQ</a>
-          <Link href="/calculadora" className="text-blue-600 font-medium hover:text-blue-700 transition">Tax Calculator</Link>
+          <Link href="/calculadora" className="text-blue-600 font-medium hover:text-blue-700 transition">Simulador Fiscal</Link>
           <Link href="/blog" className="text-gray-600 hover:text-gray-900 transition">Blog</Link>
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero */}
       <section id="waitlist" className="max-w-7xl mx-auto px-6 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6">
-              Rental management{" "}
-              <span className="text-blue-600">built for Portugal</span>
+              Gestao de arrendamento{" "}
+              <span className="text-blue-600">feita para Portugal</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl">
-              The only platform designed specifically for Portuguese landlords. Track rents, generate compliant receipts, calculate taxes, and stay ahead of Portal das Finanças deadlines — all in one place.
+              A unica plataforma desenhada especificamente para senhorios portugueses. Acompanhe rendas, gere recibos, calcule impostos e cumpra prazos do Portal das Financas — tudo num so lugar.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start mb-8">
               <span className="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
-                ✓ 10x cheaper than accountants
+                10x mais barato que um contabilista
               </span>
               <span className="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-                ✓ Portuguese & English support
+                Disponivel em Portugues e Ingles
               </span>
             </div>
           </div>
@@ -220,13 +219,13 @@ export default function HomePage() {
             {LAUNCH_MODE !== "waitlist" && (
               <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md mx-auto">
                 <div className="text-center space-y-4">
-                  <h3 className="text-xl font-bold text-gray-900">Get Started Today</h3>
+                  <h3 className="text-xl font-bold text-gray-900">Comece Hoje</h3>
                   <div className="flex gap-4">
                     <Link href="/checkout" className="flex-1 px-6 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition text-center">
-                      Start Free Trial
+                      Experimentar Gratis
                     </Link>
                     <Link href="/calculadora" className="flex-1 px-6 py-4 border border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition text-center">
-                      Try Calculator
+                      Simulador
                     </Link>
                   </div>
                 </div>
@@ -236,25 +235,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Social Proof */}
+      {/* Dados */}
       <section className="max-w-7xl mx-auto px-6 py-16">
         <div className="bg-white rounded-2xl shadow-lg p-8">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Why Portuguese landlords choose Senhorio</h2>
-            <p className="text-gray-600">Built specifically for Portugal's unique rental laws and tax requirements</p>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Porque e que os senhorios portugueses escolhem o Senhorio</h2>
+            <p className="text-gray-600">Construido especificamente para as leis e requisitos fiscais de Portugal</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="text-3xl font-bold text-blue-600 mb-2">4</div>
-              <p className="text-gray-600">Tax regimes compared instantly</p>
+              <p className="text-gray-600">Regimes fiscais comparados instantaneamente</p>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-blue-600 mb-2">2026</div>
-              <p className="text-gray-600">Updated for latest IRS rules</p>
+              <p className="text-gray-600">Atualizado com as regras IRS mais recentes</p>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-blue-600 mb-2">PT + EN</div>
-              <p className="text-gray-600">Built for Portuguese landlords</p>
+              <p className="text-gray-600">Feito para senhorios portugueses</p>
             </div>
           </div>
         </div>
@@ -270,7 +269,7 @@ export default function HomePage() {
             Nova Taxa de 10% para Arrendamento
           </h2>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Descubra as mudanças fiscais de 2026 e como a nova taxa de 10% pode beneficiar o seu negócio.
+            Descubra as mudancas fiscais de 2026 e como a nova taxa de 10% pode beneficiar o seu negocio.
             Guia completo com simulador gratuito.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -290,12 +289,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="max-w-7xl mx-auto px-6 py-20">
+      {/* Funcionalidades */}
+      <section id="funcionalidades" className="max-w-7xl mx-auto px-6 py-20">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Everything you need to manage rentals</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Tudo o que precisa para gerir arrendamentos</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From tax calculations to receipt generation, Senhorio handles all the complex parts of rental management in Portugal.
+            De calculos fiscais a emissao de recibos, o Senhorio trata de toda a complexidade da gestao de arrendamento em Portugal.
           </p>
         </div>
 
@@ -303,38 +302,38 @@ export default function HomePage() {
           {[
             {
               icon: <CalculatorIcon />,
-              title: "Tax Calculator",
-              description: "Compare all 4 Portuguese tax regimes instantly. See exactly how much you'll owe in IRS and choose the best option for your situation.",
+              title: "Simulador Fiscal",
+              description: "Compare os 4 regimes fiscais portugueses instantaneamente. Veja exatamente quanto vai pagar de IRS e escolha a melhor opcao para a sua situacao.",
               link: "/calculadora"
             },
             {
               icon: <ReceiptIcon />,
-              title: "Digital Receipts",
-              description: "Generate Recibos de Renda that meet Portuguese legal requirements. Send to tenants automatically and keep organized records.",
+              title: "Recibos Digitais",
+              description: "Emissao de Recibos de Renda conforme os requisitos legais portugueses. Envie aos inquilinos automaticamente e mantenha registos organizados.",
               link: "#"
             },
             {
               icon: <TrendingIcon />,
-              title: "Rent Increases",
-              description: "Calculate legal rent increases using official INE coefficients. Stay compliant with NRAU regulations and maximize your income.",
+              title: "Atualizacao de Rendas",
+              description: "Calcule aumentos legais de renda usando os coeficientes oficiais do INE. Cumpra o NRAU e maximize o seu rendimento.",
               link: "/calculadora-rendas"
             },
             {
               icon: <ShieldIcon />,
-              title: "Tax Compliance",
-              description: "Track deductible expenses, monitor IRS deadlines, and export data ready for Portal das Finanças. Never miss a deadline again.",
+              title: "Conformidade Fiscal",
+              description: "Acompanhe despesas dedutiveis, monitorize prazos do IRS e exporte dados prontos para o Portal das Financas. Nunca mais perca um prazo.",
               link: "#"
             },
             {
               icon: <ClockIcon />,
-              title: "Automated Reminders",
-              description: "Get notified about late rent payments, tax deadlines, and important compliance dates. Stay on top of everything automatically.",
+              title: "Lembretes Automaticos",
+              description: "Receba notificacoes sobre rendas em atraso, prazos fiscais e datas importantes de conformidade. Fique sempre em dia automaticamente.",
               link: "#"
             },
             {
               icon: <DatabaseIcon />,
-              title: "Portfolio Dashboard",
-              description: "See all your properties, tenants, and income in one place. Track performance and identify opportunities to optimize.",
+              title: "Painel de Portfolio",
+              description: "Veja todos os seus imoveis, inquilinos e rendimentos num so lugar. Acompanhe o desempenho e identifique oportunidades de otimizacao.",
               link: "#"
             }
           ].map((feature, i) => (
@@ -346,7 +345,7 @@ export default function HomePage() {
               <p className="text-gray-600 mb-4">{feature.description}</p>
               {feature.link !== "#" && (
                 <Link href={feature.link} className="text-blue-600 font-medium hover:text-blue-700 transition">
-                  Try it now →
+                  Experimentar agora →
                 </Link>
               )}
             </div>
@@ -354,67 +353,67 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section id="pricing" className="max-w-7xl mx-auto px-6 py-20">
+      {/* Precos */}
+      <section id="precos" className="max-w-7xl mx-auto px-6 py-20">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Simple, transparent pricing</h2>
-          <p className="text-xl text-gray-600">Choose the plan that fits your portfolio size</p>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Precos simples e transparentes</h2>
+          <p className="text-xl text-gray-600">Escolha o plano que se adequa ao tamanho do seu portfolio</p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {[
             {
-              name: "Grátis",
+              name: "Gratis",
               price: "€0",
-              period: "forever",
-              description: "Perfect for trying out Senhorio",
+              period: "para sempre",
+              description: "Ideal para experimentar o Senhorio",
               features: [
-                "Tax calculator (all 4 regimes)",
-                "Rent increase calculator",
-                "1 property tracking",
-                "Basic compliance checklist",
-                "Email support"
+                "Simulador fiscal (todos os 4 regimes)",
+                "Calculadora de atualizacao de rendas",
+                "Acompanhamento de 1 imovel",
+                "Checklist basica de conformidade",
+                "Suporte por email"
               ],
-              cta: "Get Started",
+              cta: "Comecar",
               popular: false
             },
             {
               name: "Senhorio Pro",
               price: "€9",
-              period: "per month",
-              description: "For serious landlords managing multiple properties",
+              period: "por mes",
+              description: "Para senhorios com varios imoveis",
               features: [
-                "Up to 5 properties",
-                "Automated receipt generation",
-                "Expense tracking & categorization",
-                "IRS Annex F export",
-                "Email notifications",
-                "Priority support"
+                "Ate 5 imoveis",
+                "Emissao automatica de recibos",
+                "Registo e categorizacao de despesas",
+                "Exportacao para Anexo F do IRS",
+                "Notificacoes por email",
+                "Suporte prioritario"
               ],
-              cta: "Start Free Trial",
+              cta: "Experimentar Gratis",
               popular: true
             },
             {
               name: "Senhorio Premium",
               price: "€19",
-              period: "per month",
-              description: "For property management professionals",
+              period: "por mes",
+              description: "Para profissionais de gestao de imoveis",
               features: [
-                "Up to 20 properties",
-                "Multi-entity management",
-                "Accountant export (Excel/CSV)",
-                "API access",
-                "Custom reports",
-                "Phone support"
+                "Ate 20 imoveis",
+                "Gestao multi-entidade",
+                "Exportacao para contabilista (Excel/CSV)",
+                "Acesso API",
+                "Relatorios personalizados",
+                "Suporte telefonico"
               ],
-              cta: "Contact Sales",
+              cta: "Contactar",
               popular: false
             }
           ].map((plan, i) => (
             <div key={i} className={`bg-white rounded-2xl shadow-lg p-8 relative ${plan.popular ? 'ring-2 ring-blue-500 scale-105' : ''}`}>
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium">Most Popular</span>
+                  <span className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium">Mais Popular</span>
                 </div>
               )}
               <div className="text-center mb-8">
@@ -437,7 +436,7 @@ export default function HomePage() {
 
               {LAUNCH_MODE === "waitlist" ? (
                 <a href="#waitlist" className={`block w-full px-6 py-3 rounded-xl font-semibold transition text-center ${plan.popular ? 'bg-blue-600 text-white hover:bg-blue-700' : 'border border-gray-300 text-gray-700 hover:bg-gray-50'}`}>
-                  Join Waitlist
+                  Entrar na Lista de Espera
                 </a>
               ) : (
                 <button className={`w-full px-6 py-3 rounded-xl font-semibold transition ${plan.popular ? 'bg-blue-600 text-white hover:bg-blue-700' : 'border border-gray-300 text-gray-700 hover:bg-gray-50'}`}>
@@ -449,38 +448,38 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* FAQ */}
       <section id="faq" className="max-w-4xl mx-auto px-6 py-20">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently asked questions</h2>
-          <p className="text-xl text-gray-600">Common questions from Portuguese landlords</p>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Perguntas frequentes</h2>
+          <p className="text-xl text-gray-600">Duvidas comuns de senhorios portugueses</p>
         </div>
 
         <div className="space-y-6">
           {[
             {
-              q: "How does Senhorio help with Portuguese tax compliance?",
-              a: "Senhorio calculates your exact IRS obligations using all 4 Portuguese tax regimes (25% rate, 10% rate, aggregation, and simplificado). We track your deductible expenses and generate reports ready for Portal das Finanças, ensuring you never overpay or miss deadlines."
+              q: "Como e que o Senhorio ajuda com a conformidade fiscal portuguesa?",
+              a: "O Senhorio calcula as suas obrigacoes de IRS usando os 4 regimes fiscais portugueses (taxa de 25%, taxa de 10%, englobamento e regime simplificado). Acompanhamos as suas despesas dedutiveis e geramos relatorios prontos para o Portal das Financas, garantindo que nunca paga a mais nem perde prazos."
             },
             {
-              q: "Will Senhorio generate rent receipts (Recibos de Renda)?",
-              a: "Receipt generation is on our roadmap. When launched, receipts will follow Portuguese legal requirements including proper formatting and required fields. Currently, our tax calculator helps you compare regimes and plan your IRS obligations."
+              q: "O Senhorio vai emitir recibos de renda?",
+              a: "A emissao de recibos esta no nosso plano de desenvolvimento. Quando lancada, os recibos cumprirao os requisitos legais portugueses, incluindo formatacao adequada e campos obrigatorios. Atualmente, o nosso simulador fiscal ajuda-o a comparar regimes e planear as suas obrigacoes de IRS."
             },
             {
-              q: "Can I use Senhorio for properties outside Portugal?",
-              a: "Senhorio is specifically designed for Portuguese rental law and tax requirements. While you could track properties elsewhere, our tax calculations, legal compliance features, and receipt formats are built for Portugal only."
+              q: "Posso usar o Senhorio para imoveis fora de Portugal?",
+              a: "O Senhorio foi desenhado especificamente para a legislacao de arrendamento e requisitos fiscais portugueses. Embora possa acompanhar imoveis noutros paises, os nossos calculos fiscais, funcionalidades de conformidade e formatos de recibos sao feitos exclusivamente para Portugal."
             },
             {
-              q: "How accurate are the tax calculations?",
-              a: "Our tax calculations are based on official Portuguese tax law and updated for 2026 rules including the new 10% regime. However, Senhorio is an informational tool, not professional tax advice. For complex situations, consult a qualified accountant (contabilista certificado)."
+              q: "Os calculos fiscais sao precisos?",
+              a: "Os nossos calculos sao baseados na legislacao fiscal portuguesa oficial e atualizados para as regras de 2026, incluindo o novo regime de 10%. No entanto, o Senhorio e uma ferramenta informativa, nao constitui aconselhamento fiscal profissional. Para situacoes complexas, consulte um contabilista certificado."
             },
             {
-              q: "Do I need to know Portuguese to use Senhorio?",
-              a: "No! Senhorio is available in both Portuguese and English, making it perfect for expat landlords and non-resident investors. All features work in both languages."
+              q: "Preciso de saber portugues para usar o Senhorio?",
+              a: "Nao! O Senhorio esta disponivel em portugues e ingles, perfeito para senhorios expatriados e investidores nao residentes. Todas as funcionalidades funcionam em ambos os idiomas."
             },
             {
-              q: "What happens to my data if I cancel?",
-              a: "You can export all your data (receipts, expense records, property information) at any time. We keep your data for 30 days after cancellation in case you want to reactivate, then it's permanently deleted."
+              q: "O que acontece aos meus dados se cancelar?",
+              a: "Pode exportar todos os seus dados (recibos, registos de despesas, informacoes de imoveis) a qualquer momento. Mantemos os seus dados durante 30 dias apos o cancelamento para o caso de querer reativar, depois sao eliminados permanentemente."
             }
           ].map((faq, i) => (
             <div key={i} className="bg-white rounded-2xl shadow-lg p-8">
@@ -491,7 +490,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Rodape */}
       <footer className="bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="grid md:grid-cols-4 gap-8">
@@ -501,29 +500,28 @@ export default function HomePage() {
                 <span className="text-xl font-bold">Senhorio</span>
               </div>
               <p className="text-gray-400 mb-4">
-                The all-in-one rental management platform built for Portuguese landlords.
+                A plataforma completa de gestao de arrendamento feita para senhorios portugueses.
               </p>
               <p className="text-gray-400 text-sm">
-                © 2026 Senhorio. All rights reserved.
+                © 2026 Senhorio. Todos os direitos reservados.
               </p>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Product</h4>
+              <h4 className="font-semibold mb-4">Produto</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><Link href="/calculadora" className="hover:text-white transition">Tax Calculator</Link></li>
-                <li><Link href="/calculadora-rendas" className="hover:text-white transition">Rent Calculator</Link></li>
-                <li><a href="#features" className="hover:text-white transition">Features</a></li>
-                <li><a href="#pricing" className="hover:text-white transition">Pricing</a></li>
+                <li><Link href="/calculadora" className="hover:text-white transition">Simulador Fiscal</Link></li>
+                <li><Link href="/calculadora-rendas" className="hover:text-white transition">Calculadora de Rendas</Link></li>
+                <li><a href="#funcionalidades" className="hover:text-white transition">Funcionalidades</a></li>
+                <li><a href="#precos" className="hover:text-white transition">Precos</a></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Support</h4>
+              <h4 className="font-semibold mb-4">Suporte</h4>
               <ul className="space-y-2 text-gray-400">
                 <li><a href="#faq" className="hover:text-white transition">FAQ</a></li>
-                <li><a href="mailto:help@senhorio.pt" className="hover:text-white transition">Contact Support</a></li>
-                <li><a href="/help" className="hover:text-white transition">Help Center</a></li>
+                <li><a href="mailto:help@senhorio.pt" className="hover:text-white transition">Contactar Suporte</a></li>
                 <li><a href="/blog" className="hover:text-white transition">Blog</a></li>
               </ul>
             </div>
@@ -531,9 +529,9 @@ export default function HomePage() {
             <div>
               <h4 className="font-semibold mb-4">Legal</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="/privacy" className="hover:text-white transition">Privacy Policy</a></li>
-                <li><a href="/terms" className="hover:text-white transition">Terms of Service</a></li>
-                <li><a href="/cookies" className="hover:text-white transition">Cookie Policy</a></li>
+                <li><a href="/privacy" className="hover:text-white transition">Politica de Privacidade</a></li>
+                <li><a href="/terms" className="hover:text-white transition">Termos de Servico</a></li>
+                <li><a href="/cookies" className="hover:text-white transition">Politica de Cookies</a></li>
               </ul>
             </div>
           </div>

@@ -3,10 +3,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Senhorio",
-  description: "The all-in-one rental management platform for Portuguese landlords — track rents, issue receipts, calculate taxes, stay compliant.",
+  description: "Plataforma completa de gestao de arrendamento para senhorios portugueses — acompanhe rendas, emita recibos, calcule impostos, cumpra prazos.",
   openGraph: {
     title: "Senhorio",
-    description: "The all-in-one rental management platform for Portuguese landlords — track rents, issue receipts, calculate taxes, stay compliant.",
+    description: "Plataforma completa de gestao de arrendamento para senhorios portugueses — acompanhe rendas, emita recibos, calcule impostos, cumpra prazos.",
     type: "website",
   },
 };
@@ -18,7 +18,7 @@ const jsonLd = {
       "@type": "Organization",
       name: "Senhorio",
       url: "https://senhorio.vercel.app",
-      description: "The all-in-one rental management platform for Portuguese landlords — track rents, issue receipts, calculate taxes, stay compliant.",
+      description: "Plataforma completa de gestao de arrendamento para senhorios portugueses — acompanhe rendas, emita recibos, calcule impostos, cumpra prazos.",
     },
     {
       "@type": "WebSite",
