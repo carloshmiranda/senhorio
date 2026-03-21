@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { neon } from "@neondatabase/serverless";
+import { getDb } from "@/lib/db";
 import crypto from "crypto";
-
-const sql = neon(process.env.DATABASE_URL!);
 
 // Resend webhook events: https://resend.com/docs/dashboard/webhooks/introduction
 export async function POST(req: NextRequest) {
@@ -23,6 +21,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
+    const sql = getDb();
     const body = await req.json();
     const { type, data } = body;
 

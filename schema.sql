@@ -3,7 +3,9 @@
 
 CREATE TABLE IF NOT EXISTS customers (
   id              TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  name            TEXT,
   email           TEXT UNIQUE NOT NULL,
+  password_hash   TEXT,
   stripe_customer_id TEXT,
   status          TEXT NOT NULL DEFAULT 'active' CHECK (status IN ('active', 'churned', 'paused')),
   created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
@@ -72,3 +74,122 @@ CREATE TABLE IF NOT EXISTS email_log (
 CREATE INDEX IF NOT EXISTS idx_email_log_recipient ON email_log(recipient);
 CREATE INDEX IF NOT EXISTS idx_email_log_sequence ON email_log(sequence_id);
 CREATE INDEX IF NOT EXISTS idx_email_log_resend_id ON email_log(resend_id);
+
+-- ============================================================
+-- Core domain tables — landlord management
+-- ============================================================
+
+-- Properties: each rental unit owned by a landlord
+CREATE TABLE IF NOT EXISTS properties (
+  id              TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  owner_id        TEXT NOT NULL REFERENCES customers(id),
+  address         TEXT NOT NULL,
+  city            TEXT,
+  municipality    TEXT,
+  property_type   TEXT NOT NULL DEFAULT 'apartment' CHECK (property_type IN ('apartment', 'house', 'commercial', 'land')),
+  typology        TEXT CHECK (typology IN ('T0', 'T1', 'T2', 'T3', 'T4', 'T5+')),
+  area_m2         NUMERIC,
+  year_built      INTEGER,
+  license_number  TEXT,
+  fiscal_value    NUMERIC,            -- Valor Patrimonial Tributário (VPT)
+  status          TEXT NOT NULL DEFAULT 'active' CHECK (status IN ('active', 'inactive', 'sold')),
+  created_at      TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at      TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_properties_owner ON properties(owner_id);
+CREATE INDEX IF NOT EXISTS idx_properties_status ON properties(status);
+
+-- Tenants: people renting a property
+CREATE TABLE IF NOT EXISTS tenants (
+  id              TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  property_id     TEXT NOT NULL REFERENCES properties(id),
+  name            TEXT NOT NULL,
+  email           TEXT,
+  phone           TEXT,
+  nif             TEXT,                -- Número de Identificação Fiscal
+  contract_start  DATE NOT NULL,
+  contract_end    DATE,
+  contract_type   TEXT NOT NULL DEFAULT 'residential' CHECK (contract_type IN ('residential', 'commercial', 'student', 'temporary')),
+  rent_amount     NUMERIC NOT NULL,
+  payment_day     INTEGER NOT NULL DEFAULT 1 CHECK (payment_day >= 1 AND payment_day <= 31),
+  deposit_amount  NUMERIC,
+  status          TEXT NOT NULL DEFAULT 'active' CHECK (status IN ('active', 'ended', 'pending')),
+  created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_tenants_property ON tenants(property_id);
+CREATE INDEX IF NOT EXISTS idx_tenants_status ON tenants(status);
+
+-- Rental payments: tracks each month's rent
+CREATE TABLE IF NOT EXISTS rental_payments (
+  id              TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  tenant_id       TEXT NOT NULL REFERENCES tenants(id),
+  amount          NUMERIC NOT NULL,
+  due_date        DATE NOT NULL,
+  paid_date       DATE,
+  payment_method  TEXT CHECK (payment_method IN ('transfer', 'mbway', 'cash', 'check')),
+  status          TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'paid', 'overdue', 'partial')),
+  receipt_id      TEXT,
+  notes           TEXT,
+  created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_rental_payments_tenant ON rental_payments(tenant_id);
+CREATE INDEX IF NOT EXISTS idx_rental_payments_status ON rental_payments(status);
+CREATE INDEX IF NOT EXISTS idx_rental_payments_due_date ON rental_payments(due_date);
+
+-- Receipts: official rent receipts (Recibos de Renda)
+CREATE TABLE IF NOT EXISTS receipts (
+  id              TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  payment_id      TEXT REFERENCES rental_payments(id),
+  tenant_id       TEXT NOT NULL REFERENCES tenants(id),
+  property_id     TEXT NOT NULL REFERENCES properties(id),
+  receipt_number  INTEGER NOT NULL,    -- sequential per owner
+  amount          NUMERIC NOT NULL,
+  tax_regime      TEXT NOT NULL CHECK (tax_regime IN ('autonoma_25', 'autonoma_10', 'englobamento', 'simplificado')),
+  withholding_tax NUMERIC NOT NULL DEFAULT 0,
+  net_amount      NUMERIC NOT NULL,
+  issued_at       TIMESTAMPTZ,
+  sent_to_tenant_at TIMESTAMPTZ,
+  portal_submitted_at TIMESTAMPTZ,
+  pdf_url         TEXT,
+  status          TEXT NOT NULL DEFAULT 'draft' CHECK (status IN ('draft', 'issued', 'sent', 'submitted')),
+  created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_receipts_tenant ON receipts(tenant_id);
+CREATE INDEX IF NOT EXISTS idx_receipts_property ON receipts(property_id);
+
+-- Expenses: costs associated with a property
+CREATE TABLE IF NOT EXISTS expenses (
+  id              TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  property_id     TEXT NOT NULL REFERENCES properties(id),
+  category        TEXT NOT NULL CHECK (category IN ('maintenance', 'insurance', 'imu', 'condominium', 'mortgage_interest', 'legal', 'other')),
+  description     TEXT,
+  amount          NUMERIC NOT NULL,
+  date            DATE NOT NULL,
+  deductible      BOOLEAN NOT NULL DEFAULT true,
+  receipt_url     TEXT,
+  created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_expenses_property ON expenses(property_id);
+CREATE INDEX IF NOT EXISTS idx_expenses_date ON expenses(date);
+
+-- Tax summary: annual tax calculation per owner
+CREATE TABLE IF NOT EXISTS tax_summary (
+  id              TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  owner_id        TEXT NOT NULL REFERENCES customers(id),
+  year            INTEGER NOT NULL,
+  total_income    NUMERIC NOT NULL DEFAULT 0,
+  total_deductible_expenses NUMERIC NOT NULL DEFAULT 0,
+  taxable_income  NUMERIC NOT NULL DEFAULT 0,
+  best_regime     TEXT,
+  estimated_tax   NUMERIC NOT NULL DEFAULT 0,
+  created_at      TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at      TIMESTAMPTZ NOT NULL DEFAULT now(),
+  UNIQUE(owner_id, year)
+);
+
+CREATE INDEX IF NOT EXISTS idx_tax_summary_owner ON tax_summary(owner_id);

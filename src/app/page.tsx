@@ -191,6 +191,8 @@ export default function HomePage() {
           <a href="#faq" className="text-gray-600 hover:text-gray-900 transition">FAQ</a>
           <Link href="/calculadora" className="text-blue-600 font-medium hover:text-blue-700 transition">Simulador Fiscal</Link>
           <Link href="/blog" className="text-gray-600 hover:text-gray-900 transition">Blog</Link>
+          <Link href="/login" className="px-4 py-2 text-blue-600 font-medium hover:text-blue-700 transition">Entrar</Link>
+          <Link href="/register" className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition">Criar Conta</Link>
         </div>
       </nav>
 
