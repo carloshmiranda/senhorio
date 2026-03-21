@@ -2,9 +2,15 @@ import Stripe from "stripe";
 import { headers } from "next/headers";
 import { getDb } from "@/lib/db";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "sk_test_placeholder", {
+  apiVersion: "2025-02-24.acacia",
+});
 
 export async function POST(req: Request) {
+  if (!process.env.STRIPE_SECRET_KEY) {
+    return Response.json({ error: "Stripe not configured" }, { status: 503 });
+  }
+
   const body = await req.text();
   const headersList = await headers();
   const sig = headersList.get("stripe-signature");

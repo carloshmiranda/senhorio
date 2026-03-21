@@ -1,11 +1,16 @@
 import Stripe from "stripe";
 import { redirect } from "next/navigation";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "sk_test_placeholder", {
+  apiVersion: "2025-02-24.acacia",
+});
 
 export default function CheckoutPage() {
   async function createCheckout() {
     "use server";
+    if (!process.env.STRIPE_SECRET_KEY) {
+      throw new Error("Stripe not configured");
+    }
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
       line_items: [{ price: process.env.STRIPE_PRICE_ID!, quantity: 1 }],
