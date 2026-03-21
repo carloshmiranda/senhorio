@@ -145,13 +145,17 @@ export default function HomePage() {
         )}
       </header>
 
-      {/* Features placeholder */}
+      {/* Features */}
       <section id="features" className="max-w-4xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-3 gap-8">
-          {["Fast", "Simple", "Reliable"].map((feature, i) => (
+          {[
+            { title: "Rent Tracking", desc: "Monitor all your rental payments in one place. Get notified when rent is late and keep a complete payment history per tenant." },
+            { title: "Digital Receipts", desc: "Generate Recibos de Renda compliant with Portuguese tax law. Issue and send receipts to tenants automatically each month." },
+            { title: "Tax Compliance", desc: "Calculate your IRS obligations from rental income. Track deductible expenses and stay ready for Finanças deadlines." },
+          ].map((feature, i) => (
             <div key={i} className="p-6 border border-gray-200 rounded-xl">
-              <h3 className="font-semibold text-gray-900 mb-2">{feature}</h3>
-              <p className="text-sm text-gray-500">Description of this feature and why it matters to the user.</p>
+              <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
+              <p className="text-sm text-gray-500">{feature.desc}</p>
             </div>
           ))}
         </div>
