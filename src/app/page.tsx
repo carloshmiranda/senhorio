@@ -108,10 +108,10 @@ function WaitlistForm() {
             <CheckIcon />
           </div>
           <h3 className="text-2xl font-bold text-gray-900 mb-2">
-            {result.already_signed_up ? "Ja esta na lista!" : "Bem-vindo ao Senhorio!"}
+            {result.already_signed_up ? "Já está na lista!" : "Bem-vindo ao Senhorio!"}
           </h3>
           <p className="text-gray-600 mb-6">
-            Esta na posicao <span className="font-bold text-blue-600">#{result.position}</span> da lista de espera.
+            Está na posição <span className="font-bold text-blue-600">#{result.position}</span> da lista de espera.
           </p>
           <div className="bg-gray-50 rounded-xl p-6">
             <p className="text-gray-700 font-medium mb-3">Partilhe o seu link para subir na lista:</p>
@@ -163,7 +163,7 @@ function WaitlistForm() {
         </button>
         {ref && (
           <p className="text-sm text-gray-500 text-center">
-            Referido por um amigo? Tera acesso prioritario.
+            Referido por um amigo? Terá acesso prioritário.
           </p>
         )}
         {state === "error" && (
@@ -179,7 +179,7 @@ function WaitlistForm() {
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-      {/* Navegacao */}
+      {/* Navegação */}
       <nav className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-blue-600 rounded-lg"></div>
@@ -187,7 +187,7 @@ export default function HomePage() {
         </div>
         <div className="hidden md:flex items-center space-x-8">
           <a href="#funcionalidades" className="text-gray-600 hover:text-gray-900 transition">Funcionalidades</a>
-          <a href="#precos" className="text-gray-600 hover:text-gray-900 transition">Precos</a>
+          <a href="#precos" className="text-gray-600 hover:text-gray-900 transition">Preços</a>
           <a href="#faq" className="text-gray-600 hover:text-gray-900 transition">FAQ</a>
           <Link href="/calculadora" className="text-blue-600 font-medium hover:text-blue-700 transition">Simulador Fiscal</Link>
           <Link href="/blog" className="text-gray-600 hover:text-gray-900 transition">Blog</Link>
@@ -199,18 +199,18 @@ export default function HomePage() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6">
-              Gestao de arrendamento{" "}
+              Gestão de arrendamento{" "}
               <span className="text-blue-600">feita para Portugal</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl">
-              A unica plataforma desenhada especificamente para senhorios portugueses. Acompanhe rendas, gere recibos, calcule impostos e cumpra prazos do Portal das Financas — tudo num so lugar.
+              A única plataforma desenhada especificamente para senhorios portugueses. Acompanhe rendas, gere recibos, calcule impostos e cumpra prazos do Portal das Finanças — tudo num só lugar.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start mb-8">
               <span className="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
                 10x mais barato que um contabilista
               </span>
               <span className="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-                Disponivel em Portugues e Ingles
+                Disponível em Português e Inglês
               </span>
             </div>
           </div>
@@ -222,7 +222,7 @@ export default function HomePage() {
                   <h3 className="text-xl font-bold text-gray-900">Comece Hoje</h3>
                   <div className="flex gap-4">
                     <Link href="/checkout" className="flex-1 px-6 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition text-center">
-                      Experimentar Gratis
+                      Experimentar Grátis
                     </Link>
                     <Link href="/calculadora" className="flex-1 px-6 py-4 border border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition text-center">
                       Simulador
@@ -239,8 +239,8 @@ export default function HomePage() {
       <section className="max-w-7xl mx-auto px-6 py-16">
         <div className="bg-white rounded-2xl shadow-lg p-8">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Porque e que os senhorios portugueses escolhem o Senhorio</h2>
-            <p className="text-gray-600">Construido especificamente para as leis e requisitos fiscais de Portugal</p>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Porque é que os senhorios portugueses escolhem o Senhorio</h2>
+            <p className="text-gray-600">Construído especificamente para as leis e requisitos fiscais de Portugal</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
@@ -269,7 +269,7 @@ export default function HomePage() {
             Nova Taxa de 10% para Arrendamento
           </h2>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Descubra as mudancas fiscais de 2026 e como a nova taxa de 10% pode beneficiar o seu negocio.
+            Descubra as mudanças fiscais de 2026 e como a nova taxa de 10% pode beneficiar o seu negócio.
             Guia completo com simulador gratuito.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -294,7 +294,7 @@ export default function HomePage() {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Tudo o que precisa para gerir arrendamentos</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            De calculos fiscais a emissao de recibos, o Senhorio trata de toda a complexidade da gestao de arrendamento em Portugal.
+            De cálculos fiscais a emissão de recibos, o Senhorio trata de toda a complexidade da gestão de arrendamento em Portugal.
           </p>
         </div>
 
@@ -303,37 +303,37 @@ export default function HomePage() {
             {
               icon: <CalculatorIcon />,
               title: "Simulador Fiscal",
-              description: "Compare os 4 regimes fiscais portugueses instantaneamente. Veja exatamente quanto vai pagar de IRS e escolha a melhor opcao para a sua situacao.",
+              description: "Compare os 4 regimes fiscais portugueses instantaneamente. Veja exatamente quanto vai pagar de IRS e escolha a melhor opção para a sua situação.",
               link: "/calculadora"
             },
             {
               icon: <ReceiptIcon />,
               title: "Recibos Digitais",
-              description: "Emissao de Recibos de Renda conforme os requisitos legais portugueses. Envie aos inquilinos automaticamente e mantenha registos organizados.",
+              description: "Emissão de Recibos de Renda conforme os requisitos legais portugueses. Envie aos inquilinos automaticamente e mantenha registos organizados.",
               link: "#"
             },
             {
               icon: <TrendingIcon />,
-              title: "Atualizacao de Rendas",
+              title: "Atualização de Rendas",
               description: "Calcule aumentos legais de renda usando os coeficientes oficiais do INE. Cumpra o NRAU e maximize o seu rendimento.",
               link: "/calculadora-rendas"
             },
             {
               icon: <ShieldIcon />,
               title: "Conformidade Fiscal",
-              description: "Acompanhe despesas dedutiveis, monitorize prazos do IRS e exporte dados prontos para o Portal das Financas. Nunca mais perca um prazo.",
+              description: "Acompanhe despesas dedutíveis, monitorize prazos do IRS e exporte dados prontos para o Portal das Finanças. Nunca mais perca um prazo.",
               link: "#"
             },
             {
               icon: <ClockIcon />,
-              title: "Lembretes Automaticos",
-              description: "Receba notificacoes sobre rendas em atraso, prazos fiscais e datas importantes de conformidade. Fique sempre em dia automaticamente.",
+              title: "Lembretes Automáticos",
+              description: "Receba notificações sobre rendas em atraso, prazos fiscais e datas importantes de conformidade. Fique sempre em dia automaticamente.",
               link: "#"
             },
             {
               icon: <DatabaseIcon />,
-              title: "Painel de Portfolio",
-              description: "Veja todos os seus imoveis, inquilinos e rendimentos num so lugar. Acompanhe o desempenho e identifique oportunidades de otimizacao.",
+              title: "Painel de Portfólio",
+              description: "Veja todos os seus imóveis, inquilinos e rendimentos num só lugar. Acompanhe o desempenho e identifique oportunidades de otimização.",
               link: "#"
             }
           ].map((feature, i) => (
@@ -356,55 +356,55 @@ export default function HomePage() {
       {/* Precos */}
       <section id="precos" className="max-w-7xl mx-auto px-6 py-20">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Precos simples e transparentes</h2>
-          <p className="text-xl text-gray-600">Escolha o plano que se adequa ao tamanho do seu portfolio</p>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Preços simples e transparentes</h2>
+          <p className="text-xl text-gray-600">Escolha o plano que se adequa ao tamanho do seu portfólio</p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {[
             {
-              name: "Gratis",
+              name: "Grátis",
               price: "€0",
               period: "para sempre",
               description: "Ideal para experimentar o Senhorio",
               features: [
                 "Simulador fiscal (todos os 4 regimes)",
-                "Calculadora de atualizacao de rendas",
-                "Acompanhamento de 1 imovel",
-                "Checklist basica de conformidade",
+                "Calculadora de atualização de rendas",
+                "Acompanhamento de 1 imóvel",
+                "Checklist básica de conformidade",
                 "Suporte por email"
               ],
-              cta: "Comecar",
+              cta: "Começar",
               popular: false
             },
             {
               name: "Senhorio Pro",
               price: "€9",
-              period: "por mes",
-              description: "Para senhorios com varios imoveis",
+              period: "por mês",
+              description: "Para senhorios com vários imóveis",
               features: [
-                "Ate 5 imoveis",
-                "Emissao automatica de recibos",
-                "Registo e categorizacao de despesas",
-                "Exportacao para Anexo F do IRS",
-                "Notificacoes por email",
-                "Suporte prioritario"
+                "Até 5 imóveis",
+                "Emissão automática de recibos",
+                "Registo e categorização de despesas",
+                "Exportação para Anexo F do IRS",
+                "Notificações por email",
+                "Suporte prioritário"
               ],
-              cta: "Experimentar Gratis",
+              cta: "Experimentar Grátis",
               popular: true
             },
             {
               name: "Senhorio Premium",
               price: "€19",
-              period: "por mes",
-              description: "Para profissionais de gestao de imoveis",
+              period: "por mês",
+              description: "Para profissionais de gestão de imóveis",
               features: [
-                "Ate 20 imoveis",
-                "Gestao multi-entidade",
-                "Exportacao para contabilista (Excel/CSV)",
+                "Até 20 imóveis",
+                "Gestão multi-entidade",
+                "Exportação para contabilista (Excel/CSV)",
                 "Acesso API",
-                "Relatorios personalizados",
-                "Suporte telefonico"
+                "Relatórios personalizados",
+                "Suporte telefónico"
               ],
               cta: "Contactar",
               popular: false
@@ -452,34 +452,34 @@ export default function HomePage() {
       <section id="faq" className="max-w-4xl mx-auto px-6 py-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Perguntas frequentes</h2>
-          <p className="text-xl text-gray-600">Duvidas comuns de senhorios portugueses</p>
+          <p className="text-xl text-gray-600">Dúvidas comuns de senhorios portugueses</p>
         </div>
 
         <div className="space-y-6">
           {[
             {
-              q: "Como e que o Senhorio ajuda com a conformidade fiscal portuguesa?",
-              a: "O Senhorio calcula as suas obrigacoes de IRS usando os 4 regimes fiscais portugueses (taxa de 25%, taxa de 10%, englobamento e regime simplificado). Acompanhamos as suas despesas dedutiveis e geramos relatorios prontos para o Portal das Financas, garantindo que nunca paga a mais nem perde prazos."
+              q: "Como é que o Senhorio ajuda com a conformidade fiscal portuguesa?",
+              a: "O Senhorio calcula as suas obrigações de IRS usando os 4 regimes fiscais portugueses (taxa de 25%, taxa de 10%, englobamento e regime simplificado). Acompanhamos as suas despesas dedutíveis e geramos relatórios prontos para o Portal das Finanças, garantindo que nunca paga a mais nem perde prazos."
             },
             {
               q: "O Senhorio vai emitir recibos de renda?",
-              a: "A emissao de recibos esta no nosso plano de desenvolvimento. Quando lancada, os recibos cumprirao os requisitos legais portugueses, incluindo formatacao adequada e campos obrigatorios. Atualmente, o nosso simulador fiscal ajuda-o a comparar regimes e planear as suas obrigacoes de IRS."
+              a: "A emissão de recibos está no nosso plano de desenvolvimento. Quando lançada, os recibos cumprirão os requisitos legais portugueses, incluindo formatação adequada e campos obrigatórios. Atualmente, o nosso simulador fiscal ajuda-o a comparar regimes e planear as suas obrigações de IRS."
             },
             {
-              q: "Posso usar o Senhorio para imoveis fora de Portugal?",
-              a: "O Senhorio foi desenhado especificamente para a legislacao de arrendamento e requisitos fiscais portugueses. Embora possa acompanhar imoveis noutros paises, os nossos calculos fiscais, funcionalidades de conformidade e formatos de recibos sao feitos exclusivamente para Portugal."
+              q: "Posso usar o Senhorio para imóveis fora de Portugal?",
+              a: "O Senhorio foi desenhado especificamente para a legislação de arrendamento e requisitos fiscais portugueses. Embora possa acompanhar imóveis noutros países, os nossos cálculos fiscais, funcionalidades de conformidade e formatos de recibos são feitos exclusivamente para Portugal."
             },
             {
-              q: "Os calculos fiscais sao precisos?",
-              a: "Os nossos calculos sao baseados na legislacao fiscal portuguesa oficial e atualizados para as regras de 2026, incluindo o novo regime de 10%. No entanto, o Senhorio e uma ferramenta informativa, nao constitui aconselhamento fiscal profissional. Para situacoes complexas, consulte um contabilista certificado."
+              q: "Os cálculos fiscais são precisos?",
+              a: "Os nossos cálculos são baseados na legislação fiscal portuguesa oficial e atualizados para as regras de 2026, incluindo o novo regime de 10%. No entanto, o Senhorio é uma ferramenta informativa, não constitui aconselhamento fiscal profissional. Para situações complexas, consulte um contabilista certificado."
             },
             {
-              q: "Preciso de saber portugues para usar o Senhorio?",
-              a: "Nao! O Senhorio esta disponivel em portugues e ingles, perfeito para senhorios expatriados e investidores nao residentes. Todas as funcionalidades funcionam em ambos os idiomas."
+              q: "Preciso de saber português para usar o Senhorio?",
+              a: "Não! O Senhorio está disponível em português e inglês, perfeito para senhorios expatriados e investidores não residentes. Todas as funcionalidades funcionam em ambos os idiomas."
             },
             {
               q: "O que acontece aos meus dados se cancelar?",
-              a: "Pode exportar todos os seus dados (recibos, registos de despesas, informacoes de imoveis) a qualquer momento. Mantemos os seus dados durante 30 dias apos o cancelamento para o caso de querer reativar, depois sao eliminados permanentemente."
+              a: "Pode exportar todos os seus dados (recibos, registos de despesas, informações de imóveis) a qualquer momento. Mantemos os seus dados durante 30 dias após o cancelamento para o caso de querer reativar, depois são eliminados permanentemente."
             }
           ].map((faq, i) => (
             <div key={i} className="bg-white rounded-2xl shadow-lg p-8">
@@ -490,7 +490,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Rodape */}
+      {/* Rodapé */}
       <footer className="bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="grid md:grid-cols-4 gap-8">
@@ -500,7 +500,7 @@ export default function HomePage() {
                 <span className="text-xl font-bold">Senhorio</span>
               </div>
               <p className="text-gray-400 mb-4">
-                A plataforma completa de gestao de arrendamento feita para senhorios portugueses.
+                A plataforma completa de gestão de arrendamento feita para senhorios portugueses.
               </p>
               <p className="text-gray-400 text-sm">
                 © 2026 Senhorio. Todos os direitos reservados.
@@ -513,7 +513,7 @@ export default function HomePage() {
                 <li><Link href="/calculadora" className="hover:text-white transition">Simulador Fiscal</Link></li>
                 <li><Link href="/calculadora-rendas" className="hover:text-white transition">Calculadora de Rendas</Link></li>
                 <li><a href="#funcionalidades" className="hover:text-white transition">Funcionalidades</a></li>
-                <li><a href="#precos" className="hover:text-white transition">Precos</a></li>
+                <li><a href="#precos" className="hover:text-white transition">Preços</a></li>
               </ul>
             </div>
 
@@ -529,9 +529,9 @@ export default function HomePage() {
             <div>
               <h4 className="font-semibold mb-4">Legal</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="/privacy" className="hover:text-white transition">Politica de Privacidade</a></li>
-                <li><a href="/terms" className="hover:text-white transition">Termos de Servico</a></li>
-                <li><a href="/cookies" className="hover:text-white transition">Politica de Cookies</a></li>
+                <li><a href="/privacy" className="hover:text-white transition">Política de Privacidade</a></li>
+                <li><a href="/terms" className="hover:text-white transition">Termos de Serviço</a></li>
+                <li><a href="/cookies" className="hover:text-white transition">Política de Cookies</a></li>
               </ul>
             </div>
           </div>
