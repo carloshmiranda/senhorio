@@ -191,6 +191,7 @@ export default function HomePage() {
           <a href="#pricing" className="text-gray-600 hover:text-gray-900 transition">Pricing</a>
           <a href="#faq" className="text-gray-600 hover:text-gray-900 transition">FAQ</a>
           <Link href="/calculadora" className="text-blue-600 font-medium hover:text-blue-700 transition">Tax Calculator</Link>
+          <Link href="/blog" className="text-gray-600 hover:text-gray-900 transition">Blog</Link>
         </div>
       </nav>
 
@@ -255,6 +256,36 @@ export default function HomePage() {
               <div className="text-3xl font-bold text-blue-600 mb-2">5 min</div>
               <p className="text-gray-600">To complete monthly tax filings</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* IRS 2026 CTA */}
+      <section className="max-w-7xl mx-auto px-6 py-8">
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-8 text-center">
+          <div className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full font-medium mb-4">
+            IRS 2026
+          </div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            Nova Taxa de 10% para Arrendamento
+          </h2>
+          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            Descubra as mudanças fiscais de 2026 e como a nova taxa de 10% pode beneficiar o seu negócio.
+            Guia completo com simulador gratuito.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/blog/irs-arrendamento-2026-nova-taxa-10-porcento"
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition"
+            >
+              Ler Guia Completo
+            </Link>
+            <Link
+              href="/calculadora"
+              className="px-6 py-3 border border-blue-300 text-blue-700 rounded-lg font-medium hover:bg-blue-50 transition"
+            >
+              Calcular IRS 2026
+            </Link>
           </div>
         </div>
       </section>
