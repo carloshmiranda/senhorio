@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* Brand design tokens */
+:root {
+  --brand-primary: #2563eb;
+  --brand-primary-hover: #1d4ed8;
+}
+
 body {
   font-family: system-ui, -apple-system, sans-serif;
   margin: 0;
