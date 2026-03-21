@@ -323,24 +323,24 @@ export default function IRSArrendamento2026Page() {
         <section className="mt-16 border-t border-gray-200 pt-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Artigos Relacionados</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="border border-gray-200 rounded-xl p-6">
+            <Link href="/blog/como-calcular-atualizacoes-renda-2026" className="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition block">
               <h3 className="font-semibold text-gray-900 mb-2">
                 Como Calcular Atualizações de Renda 2026
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                Coefficient INE 2.24% e regras NRAU para aumentos de renda.
+                Coeficiente INE 2,24% e regras NRAU para aumentos de renda.
               </p>
-              <span className="text-blue-600 text-sm font-medium">Em breve →</span>
-            </div>
-            <div className="border border-gray-200 rounded-xl p-6">
+              <span className="text-blue-600 text-sm font-medium">Ler artigo →</span>
+            </Link>
+            <Link href="/blog/recibos-renda-eletronicos-guia-2026" className="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition block">
               <h3 className="font-semibold text-gray-900 mb-2">
-                Recibos de Renda Eletrónicos: Guia 2026
+                Recibos de Renda Eletrónicos: Guia Completo 2026
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                Como emitir recibos conformes com a legislação portuguesa.
+                Como emitir recibos eletrónicos no Portal das Finanças, prazos e coimas.
               </p>
-              <span className="text-blue-600 text-sm font-medium">Em breve →</span>
-            </div>
+              <span className="text-blue-600 text-sm font-medium">Ler artigo →</span>
+            </Link>
           </div>
         </section>
       </main>

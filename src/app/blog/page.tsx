@@ -13,6 +13,22 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    slug: "recibos-renda-eletronicos-guia-2026",
+    title: "Recibos de Renda Eletrónicos: Guia Completo para Senhorios 2026",
+    excerpt: "Tudo sobre recibos de renda eletrónicos em Portugal: obrigações legais, passo a passo no Portal das Finanças, campos obrigatórios, prazos, coimas e como automatizar.",
+    publishedAt: "2026-03-21",
+    readTime: "15 min",
+    tags: ["Recibos Eletrónicos", "Portal Finanças", "Obrigações Legais", "Guia 2026"],
+  },
+  {
+    slug: "como-calcular-atualizacoes-renda-2026",
+    title: "Como Calcular Atualizações de Renda 2026: Coeficiente INE e Regras NRAU",
+    excerpt: "Guia passo a passo para calcular atualizações de renda em 2026. Coeficiente INE de 2,24%, regras do NRAU, contratos habitacionais vs. comerciais e exemplos práticos.",
+    publishedAt: "2026-03-21",
+    readTime: "12 min",
+    tags: ["Atualização Rendas", "Coeficiente INE", "NRAU", "Calculadora"],
+  },
+  {
     slug: "irs-arrendamento-2026-nova-taxa-10-porcento",
     title: "IRS Arrendamento 2026: Tudo Sobre a Nova Taxa de 10%",
     excerpt: "Descubra as mudanças fiscais para senhorios em 2026. Nova taxa de 10%, regras de agregação e como calcular o seu IRS.",
