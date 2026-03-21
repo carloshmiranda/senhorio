@@ -112,10 +112,10 @@ export default function HomePage() {
       {/* Hero */}
       <header className="max-w-3xl mx-auto px-6 py-20 text-center">
         <h1 className="text-4xl font-bold tracking-tight text-gray-900 mb-4">
-          {"{{COMPANY_NAME}}"}
+          {"Senhorio"}
         </h1>
         <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
-          {"{{DESCRIPTION}}"}
+          {"The all-in-one rental management platform for Portuguese landlords — track rents, issue receipts, calculate taxes, stay compliant."}
         </p>
 
         {LAUNCH_MODE === "waitlist" && (
@@ -159,7 +159,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="max-w-3xl mx-auto px-6 py-12 text-center text-sm text-gray-400">
-        {"{{COMPANY_NAME}}"} · Built with care
+        {"Senhorio"} · Built with care
       </footer>
     </div>
   );

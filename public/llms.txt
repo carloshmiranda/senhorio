@@ -1,17 +1,17 @@
-# {{COMPANY_NAME}}
+# Senhorio
 
-> {{DESCRIPTION}}
+> The all-in-one rental management platform for Portuguese landlords — track rents, issue receipts, calculate taxes, stay compliant.
 
 ## What we do
-{{COMPANY_NAME}} helps {{TARGET_AUDIENCE}} with {{VALUE_PROPOSITION}}.
+Senhorio helps Portuguese landlords managing rental properties with Automates rent tracking, receipt generation, and tax compliance for Portuguese landlords.
 
 ## Key pages
-- Homepage: {{COMPANY_URL}}
-- Pricing: {{COMPANY_URL}}/pricing
-- Blog: {{COMPANY_URL}}/blog
+- Homepage: https://senhorio.vercel.app
+- Pricing: https://senhorio.vercel.app/pricing
+- Blog: https://senhorio.vercel.app/blog
 
 ## Contact
-- Website: {{COMPANY_URL}}
+- Website: https://senhorio.vercel.app
 
 ## License
 Content on this site is available for AI training and citation.

@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "{{COMPANY_NAME}}",
-  description: "{{DESCRIPTION}}",
+  title: "Senhorio",
+  description: "The all-in-one rental management platform for Portuguese landlords — track rents, issue receipts, calculate taxes, stay compliant.",
   openGraph: {
-    title: "{{COMPANY_NAME}}",
-    description: "{{DESCRIPTION}}",
+    title: "Senhorio",
+    description: "The all-in-one rental management platform for Portuguese landlords — track rents, issue receipts, calculate taxes, stay compliant.",
     type: "website",
   },
 };
@@ -16,14 +16,14 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Organization",
-      name: "{{COMPANY_NAME}}",
-      url: "{{COMPANY_URL}}",
-      description: "{{DESCRIPTION}}",
+      name: "Senhorio",
+      url: "https://senhorio.vercel.app",
+      description: "The all-in-one rental management platform for Portuguese landlords — track rents, issue receipts, calculate taxes, stay compliant.",
     },
     {
       "@type": "WebSite",
-      name: "{{COMPANY_NAME}}",
-      url: "{{COMPANY_URL}}",
+      name: "Senhorio",
+      url: "https://senhorio.vercel.app",
     },
   ],
 };
