@@ -32,6 +32,17 @@
   - Success confirmation flow implemented
 - **Impact**: Improves lead capture rate from high-intent calculator users
 
+### AIMI Calculator Email Capture
+- **Status**: ✅ Complete (PR #20)
+- **Description**: Added bilingual email capture to AIMI calculator for users who qualify for exemption savings
+- **Deliverables**:
+  - Email capture form appears when user qualifies for AIMI exemption (savings > €0)
+  - Bilingual support (Portuguese/English) matching existing AIMI calculator
+  - Rich metadata capture (rent, municipality, savings amount, language, exemption status)
+  - Success confirmation flow with consistent UX
+  - Integrated with existing waitlist API infrastructure
+- **Impact**: Captures high-intent leads discovering AIMI tax savings, enables targeted follow-up campaigns
+
 ## 🔄 In Progress
 
 _(None)_

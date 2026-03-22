@@ -114,7 +114,17 @@ const TEXTS = {
     // Results
     exemptLowRent: "Todas as rendas estão abaixo do limite de €2.300/mês",
     notExemptHighRent: "Uma ou mais rendas excedem €2.300/mês",
-    savingsEstimate: "Estimativa baseada na taxa AIMI de 0,4%"
+    savingsEstimate: "Estimativa baseada na taxa AIMI de 0,4%",
+    // Email capture
+    emailCaptureTitle: "Receba o seu relatório AIMI personalizado",
+    emailCaptureDescription: "Qualifica para a isenção AIMI! Receba um resumo detalhado com as suas poupanças e dicas para maximizar os benefícios fiscais.",
+    emailPlaceholder: "o-seu-email@exemplo.com",
+    receiveReport: "Receber Relatório",
+    sending: "A enviar...",
+    emailSuccessTitle: "Relatório enviado com sucesso!",
+    emailSuccessDescription: "Enviámos o seu relatório AIMI personalizado para",
+    emailSuccessNote: "Verifique a sua caixa de entrada (e pasta de spam) nos próximos minutos.",
+    emailFooterNote: "💡 Também receberá dicas fiscais exclusivas e atualizações sobre ferramentas para senhorios"
   },
   en: {
     pageTitle: "AIMI Exemption Calculator 2026",
@@ -162,7 +172,17 @@ const TEXTS = {
     // Results
     exemptLowRent: "All rents are below the €2,300/month threshold",
     notExemptHighRent: "One or more rents exceed €2,300/month",
-    savingsEstimate: "Estimate based on 0.4% AIMI rate"
+    savingsEstimate: "Estimate based on 0.4% AIMI rate",
+    // Email capture
+    emailCaptureTitle: "Receive your personalized AIMI report",
+    emailCaptureDescription: "You qualify for AIMI exemption! Receive a detailed summary with your savings and tips to maximize tax benefits.",
+    emailPlaceholder: "your-email@example.com",
+    receiveReport: "Get Report",
+    sending: "Sending...",
+    emailSuccessTitle: "Report sent successfully!",
+    emailSuccessDescription: "We've sent your personalized AIMI report to",
+    emailSuccessNote: "Check your inbox (and spam folder) in the next few minutes.",
+    emailFooterNote: "💡 You'll also receive exclusive tax tips and updates on landlord tools"
   }
 };
 
@@ -171,6 +191,9 @@ export default function AIMICalculatorPage() {
   const [municipality, setMunicipality] = useState<string>("lisboa");
   const [propertyCount, setPropertyCount] = useState<string>("1");
   const [language, setLanguage] = useState<'pt' | 'en'>('pt');
+  const [email, setEmail] = useState<string>("");
+  const [emailSubmitted, setEmailSubmitted] = useState<boolean>(false);
+  const [emailLoading, setEmailLoading] = useState<boolean>(false);
 
   const t = TEXTS[language];
   const selectedMunicipality = MUNICIPALITIES.find(m => m.code === municipality) || MUNICIPALITIES[0];
@@ -199,6 +222,42 @@ export default function AIMICalculatorPage() {
   }, [monthlyRent, propertyCount, t]);
 
   const totalAnnualRent = (parseFloat(monthlyRent) || 0) * 12;
+
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || emailSubmitted) return;
+
+    setEmailLoading(true);
+    try {
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          source: 'aimi_calculator',
+          metadata: {
+            monthlyRent: parseFloat(monthlyRent),
+            municipality,
+            propertyCount: parseInt(propertyCount),
+            language,
+            aimiExempt: result.exempt,
+            annualSavings: result.annualSavings,
+            reason: result.reason
+          }
+        }),
+      });
+
+      if (response.ok) {
+        setEmailSubmitted(true);
+      }
+    } catch (error) {
+      console.error('Error submitting email:', error);
+    } finally {
+      setEmailLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -384,6 +443,59 @@ export default function AIMICalculatorPage() {
             </div>
           </div>
         </div>
+
+        {/* Email Capture for AIMI Report */}
+        {result.exempt && result.annualSavings > 0 && !emailSubmitted && (
+          <div className="mt-8 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border border-green-200 p-6">
+            <div className="text-center">
+              <div className="text-2xl mb-2">📧</div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                {t.emailCaptureTitle}
+              </h3>
+              <p className="text-gray-700 mb-4">
+                {t.emailCaptureDescription}
+              </p>
+
+              <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto">
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder={t.emailPlaceholder}
+                    required
+                    className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                  <button
+                    type="submit"
+                    disabled={emailLoading || !email}
+                    className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition"
+                  >
+                    {emailLoading ? t.sending : t.receiveReport}
+                  </button>
+                </div>
+              </form>
+
+              <p className="text-xs text-gray-500 mt-3">
+                {t.emailFooterNote}
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Email Submitted Confirmation */}
+        {emailSubmitted && (
+          <div className="mt-8 bg-green-50 border border-green-200 rounded-xl p-6 text-center">
+            <div className="text-3xl mb-2">✅</div>
+            <h3 className="text-lg font-semibold text-green-800 mb-2">
+              {t.emailSuccessTitle}
+            </h3>
+            <p className="text-green-700">
+              {t.emailSuccessDescription} <strong>{email}</strong>.
+              {" " + t.emailSuccessNote}
+            </p>
+          </div>
+        )}
 
         {/* Important Notes */}
         <div className="mt-8 bg-yellow-50 border border-yellow-200 rounded-lg p-6">
