@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { track } from "@vercel/analytics";
 import PaymentIntentModal from "@/components/PaymentIntentModal";
@@ -77,8 +77,45 @@ function WaitlistForm() {
   const [name, setName] = useState("");
   const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [result, setResult] = useState<{ referral_code?: string; position?: number; already_signed_up?: boolean } | null>(null);
+  const [formEngaged, setFormEngaged] = useState(false);
+  const [formStartTime, setFormStartTime] = useState<number | null>(null);
+  const [emailFieldInteracted, setEmailFieldInteracted] = useState(false);
 
   const ref = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("ref") : null;
+
+  // Track form abandonment when component unmounts
+  React.useEffect(() => {
+    return () => {
+      if (formEngaged && state === "idle" && formStartTime) {
+        const timeSpent = Date.now() - formStartTime;
+        track("waitlist_form_abandoned", {
+          time_spent_ms: timeSpent,
+          email_filled: !!email,
+          name_filled: !!name,
+          email_field_interacted: emailFieldInteracted,
+        });
+      }
+    };
+  }, [formEngaged, state, formStartTime, email, name, emailFieldInteracted]);
+
+  const handleFormEngagement = () => {
+    if (!formEngaged) {
+      setFormEngaged(true);
+      setFormStartTime(Date.now());
+      track("waitlist_form_engaged", {
+        ref: ref || undefined,
+      });
+    }
+  };
+
+  const handleEmailFieldInteraction = () => {
+    if (!emailFieldInteracted) {
+      setEmailFieldInteracted(true);
+      track("waitlist_email_field_focused", {
+        ref: ref || undefined,
+      });
+    }
+  };
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -89,6 +126,9 @@ function WaitlistForm() {
     const utm_medium = urlParams.get("utm_medium");
     const utm_campaign = urlParams.get("utm_campaign");
 
+    // Track form completion time
+    const timeToComplete = formStartTime ? Date.now() - formStartTime : null;
+
     // Track waitlist signup attempt
     track("waitlist_signup_attempt", {
       ref: ref || undefined,
@@ -96,6 +136,8 @@ function WaitlistForm() {
       utm_medium: utm_medium || undefined,
       utm_campaign: utm_campaign || undefined,
       has_name: !!name,
+      time_to_complete_ms: timeToComplete || undefined,
+      form_engaged: formEngaged,
     });
 
     try {
@@ -121,6 +163,8 @@ function WaitlistForm() {
           utm_source: utm_source || undefined,
           utm_medium: utm_medium || undefined,
           utm_campaign: utm_campaign || undefined,
+          time_to_complete_ms: timeToComplete || undefined,
+          form_engaged: formEngaged,
         });
         setResult(data);
         setState("success");
@@ -201,6 +245,7 @@ function WaitlistForm() {
           placeholder="O seu nome (opcional)"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          onFocus={handleFormEngagement}
           className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
         />
         <input
@@ -209,6 +254,10 @@ function WaitlistForm() {
           placeholder="o-seu@email.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          onFocus={() => {
+            handleFormEngagement();
+            handleEmailFieldInteraction();
+          }}
           className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
         />
         <button
