@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { track } from "@vercel/analytics";
 
 const LAUNCH_MODE = process.env.NEXT_PUBLIC_LAUNCH_MODE || "waitlist";
 
@@ -82,6 +83,20 @@ function WaitlistForm() {
     e.preventDefault();
     setState("loading");
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const utm_source = urlParams.get("utm_source");
+    const utm_medium = urlParams.get("utm_medium");
+    const utm_campaign = urlParams.get("utm_campaign");
+
+    // Track waitlist signup attempt
+    track("waitlist_signup_attempt", {
+      ref: ref || undefined,
+      utm_source: utm_source || undefined,
+      utm_medium: utm_medium || undefined,
+      utm_campaign: utm_campaign || undefined,
+      has_name: !!name,
+    });
+
     try {
       const res = await fetch("/api/waitlist", {
         method: "POST",
@@ -90,19 +105,47 @@ function WaitlistForm() {
           email,
           name: name || undefined,
           ref: ref || undefined,
-          utm_source: new URLSearchParams(window.location.search).get("utm_source") || undefined,
-          utm_medium: new URLSearchParams(window.location.search).get("utm_medium") || undefined,
-          utm_campaign: new URLSearchParams(window.location.search).get("utm_campaign") || undefined,
+          utm_source: utm_source || undefined,
+          utm_medium: utm_medium || undefined,
+          utm_campaign: utm_campaign || undefined,
         }),
       });
       const data = await res.json();
       if (data.ok) {
+        // Track successful signup
+        track("waitlist_signup_success", {
+          position: data.position,
+          already_signed_up: data.already_signed_up,
+          ref: ref || undefined,
+          utm_source: utm_source || undefined,
+          utm_medium: utm_medium || undefined,
+          utm_campaign: utm_campaign || undefined,
+        });
+
         setResult(data);
         setState("success");
       } else {
+        // Track signup error
+        track("waitlist_signup_error", {
+          error: data.error || "unknown",
+          ref: ref || undefined,
+          utm_source: utm_source || undefined,
+          utm_medium: utm_medium || undefined,
+          utm_campaign: utm_campaign || undefined,
+        });
+
         setState("error");
       }
-    } catch {
+    } catch (err) {
+      // Track fetch error
+      track("waitlist_signup_error", {
+        error: "network_error",
+        ref: ref || undefined,
+        utm_source: utm_source || undefined,
+        utm_medium: utm_medium || undefined,
+        utm_campaign: utm_campaign || undefined,
+      });
+
       setState("error");
     }
   }
@@ -131,7 +174,13 @@ function WaitlistForm() {
                 onClick={(e) => (e.target as HTMLInputElement).select()}
               />
               <button
-                onClick={() => navigator.clipboard.writeText(referralLink)}
+                onClick={() => {
+                  navigator.clipboard.writeText(referralLink);
+                  track("referral_link_copied", {
+                    referral_code: result.referral_code,
+                    position: result.position,
+                  });
+                }}
                 className="px-4 py-3 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition"
               >
                 Copiar
@@ -197,10 +246,22 @@ export default function HomePage() {
           <a href="#funcionalidades" className="text-gray-600 hover:text-gray-900 transition">Funcionalidades</a>
           <a href="#precos" className="text-gray-600 hover:text-gray-900 transition">Preços</a>
           <a href="#faq" className="text-gray-600 hover:text-gray-900 transition">FAQ</a>
-          <Link href="/calculadora" className="text-blue-600 font-medium hover:text-blue-700 transition">Simulador Fiscal</Link>
+          <Link
+            href="/calculadora"
+            onClick={() => track("nav_link_click", { destination: "calculadora", source: "nav" })}
+            className="text-blue-600 font-medium hover:text-blue-700 transition"
+          >
+            Simulador Fiscal
+          </Link>
           <Link href="/blog" className="text-gray-600 hover:text-gray-900 transition">Blog</Link>
           {LAUNCH_MODE === "waitlist" ? (
-            <a href="#waitlist" className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition">Acesso Antecipado</a>
+            <a
+              href="#waitlist"
+              onClick={() => track("cta_click", { location: "nav", action: "acesso_antecipado" })}
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition"
+            >
+              Acesso Antecipado
+            </a>
           ) : (
             <>
               <Link href="/login" className="px-4 py-2 text-blue-600 font-medium hover:text-blue-700 transition">Entrar</Link>
@@ -291,12 +352,14 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/blog/irs-arrendamento-2026-nova-taxa-10-porcento"
+              onClick={() => track("content_click", { type: "blog", article: "irs-2026", source: "hero_cta" })}
               className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition"
             >
               Ler Guia Completo
             </Link>
             <Link
               href="/calculadora"
+              onClick={() => track("content_click", { type: "calculator", tool: "irs-2026", source: "hero_cta" })}
               className="px-6 py-3 border border-blue-300 text-blue-700 rounded-lg font-medium hover:bg-blue-50 transition"
             >
               Calcular IRS 2026
@@ -366,7 +429,14 @@ export default function HomePage() {
               <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
               <p className="text-gray-600 mb-4">{feature.description}</p>
               {feature.link !== "#" && (
-                <Link href={feature.link} className="text-blue-600 font-medium hover:text-blue-700 transition">
+                <Link
+                  href={feature.link}
+                  onClick={() => track("feature_link_click", {
+                    feature: feature.title.toLowerCase().replace(/\s+/g, "_"),
+                    destination: feature.link
+                  })}
+                  className="text-blue-600 font-medium hover:text-blue-700 transition"
+                >
                   Experimentar agora →
                 </Link>
               )}
@@ -457,7 +527,16 @@ export default function HomePage() {
               </ul>
 
               {LAUNCH_MODE === "waitlist" ? (
-                <a href="#waitlist" className={`block w-full px-6 py-3 rounded-xl font-semibold transition text-center ${plan.popular ? 'bg-blue-600 text-white hover:bg-blue-700' : 'border border-gray-300 text-gray-700 hover:bg-gray-50'}`}>
+                <a
+                  href="#waitlist"
+                  onClick={() => track("cta_click", {
+                    location: "pricing",
+                    action: "entrar_lista_espera",
+                    plan: plan.name.toLowerCase(),
+                    popular: plan.popular
+                  })}
+                  className={`block w-full px-6 py-3 rounded-xl font-semibold transition text-center ${plan.popular ? 'bg-blue-600 text-white hover:bg-blue-700' : 'border border-gray-300 text-gray-700 hover:bg-gray-50'}`}
+                >
                   Entrar na Lista de Espera
                 </a>
               ) : (
