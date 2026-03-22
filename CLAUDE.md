@@ -53,3 +53,5 @@
 - Make breaking API changes without updating the frontend
 - Deploy without running `npm run build` successfully
 - Ignore TypeScript errors
+- Show "Entrar", "Criar Conta", login/register links, or checkout CTAs on the landing page while LAUNCH_MODE is "waitlist" — ALL nav CTAs must point to the waitlist form (#waitlist). The dashboard/auth pages exist but are NOT linked from the landing page until launch.
+- Mix waitlist and account-creation flows — a visitor should see ONE clear action: join the waitlist
