@@ -205,3 +205,20 @@ CREATE TABLE IF NOT EXISTS pricing_clicks (
 
 CREATE INDEX IF NOT EXISTS idx_pricing_clicks_date ON pricing_clicks(date);
 CREATE INDEX IF NOT EXISTS idx_pricing_clicks_tier ON pricing_clicks(tier);
+
+-- Payment intents: captures email addresses when users show purchase intent
+CREATE TABLE IF NOT EXISTS payment_intents (
+  id              TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  email           TEXT NOT NULL,
+  name            TEXT,
+  plan            TEXT NOT NULL CHECK (plan IN ('gratis', 'pro', 'premium')),
+  source_path     TEXT NOT NULL DEFAULT '/',
+  metadata        JSONB,
+  status          TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'converted', 'abandoned')),
+  created_at      TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at      TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_payment_intents_email ON payment_intents(email);
+CREATE INDEX IF NOT EXISTS idx_payment_intents_plan ON payment_intents(plan);
+CREATE INDEX IF NOT EXISTS idx_payment_intents_created_at ON payment_intents(created_at);
