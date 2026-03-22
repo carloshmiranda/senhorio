@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { track } from "@vercel/analytics";
+import PaymentIntentModal from "@/components/PaymentIntentModal";
 
 const LAUNCH_MODE = process.env.NEXT_PUBLIC_LAUNCH_MODE || "waitlist";
 
@@ -233,6 +234,18 @@ function WaitlistForm() {
 }
 
 export default function HomePage() {
+  const [paymentIntentModal, setPaymentIntentModal] = useState({
+    isOpen: false,
+    selectedPlan: null as any
+  });
+
+  const handlePricingClick = (plan: any) => {
+    setPaymentIntentModal({
+      isOpen: true,
+      selectedPlan: plan
+    });
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Navegação */}
@@ -526,18 +539,20 @@ export default function HomePage() {
               </ul>
 
               {LAUNCH_MODE === "waitlist" ? (
-                <a
-                  href="#waitlist"
-                  onClick={() => track("cta_click", {
-                    location: "pricing",
-                    action: "entrar_lista_espera",
-                    plan: plan.name.toLowerCase(),
-                    popular: plan.popular
-                  })}
-                  className={`block w-full px-6 py-3 rounded-xl font-semibold transition text-center ${plan.popular ? 'bg-blue-600 text-white hover:bg-blue-700' : 'border border-gray-300 text-gray-700 hover:bg-gray-50'}`}
+                <button
+                  onClick={() => {
+                    track("pricing_cta_click", {
+                      location: "pricing",
+                      plan: plan.name.toLowerCase(),
+                      popular: plan.popular,
+                      price: plan.price
+                    });
+                    handlePricingClick(plan);
+                  }}
+                  className={`w-full px-6 py-3 rounded-xl font-semibold transition text-center ${plan.popular ? 'bg-blue-600 text-white hover:bg-blue-700' : 'border border-gray-300 text-gray-700 hover:bg-gray-50'}`}
                 >
-                  Entrar na Lista de Espera
-                </a>
+                  {plan.name === "Grátis" ? "Experimentar Grátis" : "Registar Interesse"}
+                </button>
               ) : (
                 <button className={`w-full px-6 py-3 rounded-xl font-semibold transition ${plan.popular ? 'bg-blue-600 text-white hover:bg-blue-700' : 'border border-gray-300 text-gray-700 hover:bg-gray-50'}`}>
                   {plan.cta}
@@ -662,6 +677,13 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
+
+      {/* Payment Intent Modal */}
+      <PaymentIntentModal
+        isOpen={paymentIntentModal.isOpen}
+        onClose={() => setPaymentIntentModal({ isOpen: false, selectedPlan: null })}
+        selectedPlan={paymentIntentModal.selectedPlan}
+      />
     </div>
   );
 }
