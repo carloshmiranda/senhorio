@@ -112,6 +112,7 @@ function WaitlistForm() {
       });
       const data = await res.json();
       if (data.ok) {
+<<<<<<< HEAD
         // Track successful signup
         track("waitlist_signup_success", {
           position: data.position,
@@ -122,6 +123,16 @@ function WaitlistForm() {
           utm_campaign: utm_campaign || undefined,
         });
 
+=======
+        // Track successful waitlist signup
+        track('Waitlist Signup', {
+          source: new URLSearchParams(window.location.search).get("utm_source") || 'direct',
+          medium: new URLSearchParams(window.location.search).get("utm_medium") || 'none',
+          campaign: new URLSearchParams(window.location.search).get("utm_campaign") || 'none',
+          hasReferrer: !!ref,
+          position: data.position
+        });
+>>>>>>> 67322eb (feat: enhance analytics implementation with event tracking)
         setResult(data);
         setState("success");
       } else {
@@ -248,8 +259,13 @@ export default function HomePage() {
           <a href="#faq" className="text-gray-600 hover:text-gray-900 transition">FAQ</a>
           <Link
             href="/calculadora"
+<<<<<<< HEAD
             onClick={() => track("nav_link_click", { destination: "calculadora", source: "nav" })}
             className="text-blue-600 font-medium hover:text-blue-700 transition"
+=======
+            className="text-blue-600 font-medium hover:text-blue-700 transition"
+            onClick={() => track('Calculator Click', { location: 'nav' })}
+>>>>>>> 67322eb (feat: enhance analytics implementation with event tracking)
           >
             Simulador Fiscal
           </Link>
@@ -257,8 +273,13 @@ export default function HomePage() {
           {LAUNCH_MODE === "waitlist" ? (
             <a
               href="#waitlist"
+<<<<<<< HEAD
               onClick={() => track("cta_click", { location: "nav", action: "acesso_antecipado" })}
               className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition"
+=======
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition"
+              onClick={() => track('Waitlist CTA Click', { location: 'nav' })}
+>>>>>>> 67322eb (feat: enhance analytics implementation with event tracking)
             >
               Acesso Antecipado
             </a>
@@ -361,6 +382,7 @@ export default function HomePage() {
               href="/calculadora"
               onClick={() => track("content_click", { type: "calculator", tool: "irs-2026", source: "hero_cta" })}
               className="px-6 py-3 border border-blue-300 text-blue-700 rounded-lg font-medium hover:bg-blue-50 transition"
+              onClick={() => track('Calculator Click', { location: 'irs-2026-cta' })}
             >
               Calcular IRS 2026
             </Link>
@@ -431,11 +453,16 @@ export default function HomePage() {
               {feature.link !== "#" && (
                 <Link
                   href={feature.link}
+<<<<<<< HEAD
                   onClick={() => track("feature_link_click", {
                     feature: feature.title.toLowerCase().replace(/\s+/g, "_"),
                     destination: feature.link
                   })}
                   className="text-blue-600 font-medium hover:text-blue-700 transition"
+=======
+                  className="text-blue-600 font-medium hover:text-blue-700 transition"
+                  onClick={() => track('Feature Click', { feature: feature.title, link: feature.link })}
+>>>>>>> 67322eb (feat: enhance analytics implementation with event tracking)
                 >
                   Experimentar agora →
                 </Link>
@@ -529,6 +556,7 @@ export default function HomePage() {
               {LAUNCH_MODE === "waitlist" ? (
                 <a
                   href="#waitlist"
+<<<<<<< HEAD
                   onClick={() => track("cta_click", {
                     location: "pricing",
                     action: "entrar_lista_espera",
@@ -536,6 +564,10 @@ export default function HomePage() {
                     popular: plan.popular
                   })}
                   className={`block w-full px-6 py-3 rounded-xl font-semibold transition text-center ${plan.popular ? 'bg-blue-600 text-white hover:bg-blue-700' : 'border border-gray-300 text-gray-700 hover:bg-gray-50'}`}
+=======
+                  className={`block w-full px-6 py-3 rounded-xl font-semibold transition text-center ${plan.popular ? 'bg-blue-600 text-white hover:bg-blue-700' : 'border border-gray-300 text-gray-700 hover:bg-gray-50'}`}
+                  onClick={() => track('Waitlist CTA Click', { location: 'pricing', plan: plan.name })}
+>>>>>>> 67322eb (feat: enhance analytics implementation with event tracking)
                 >
                   Entrar na Lista de Espera
                 </a>
@@ -611,9 +643,33 @@ export default function HomePage() {
             <div>
               <h4 className="font-semibold mb-4">Produto</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><Link href="/calculadora" className="hover:text-white transition">Simulador Fiscal</Link></li>
-                <li><Link href="/calculadora-rendas" className="hover:text-white transition">Calculadora de Rendas</Link></li>
-                <li><Link href="/aimi" className="hover:text-white transition">Isenção AIMI</Link></li>
+                <li>
+                  <Link
+                    href="/calculadora"
+                    className="hover:text-white transition"
+                    onClick={() => track('Footer Link Click', { page: 'calculadora' })}
+                  >
+                    Simulador Fiscal
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/calculadora-rendas"
+                    className="hover:text-white transition"
+                    onClick={() => track('Footer Link Click', { page: 'calculadora-rendas' })}
+                  >
+                    Calculadora de Rendas
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/aimi"
+                    className="hover:text-white transition"
+                    onClick={() => track('Footer Link Click', { page: 'aimi' })}
+                  >
+                    Isenção AIMI
+                  </Link>
+                </li>
                 <li><a href="#funcionalidades" className="hover:text-white transition">Funcionalidades</a></li>
                 <li><a href="#precos" className="hover:text-white transition">Preços</a></li>
               </ul>
