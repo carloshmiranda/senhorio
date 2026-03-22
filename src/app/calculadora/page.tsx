@@ -362,6 +362,30 @@ export default function TaxCalculatorPage() {
           </p>
         </div>
 
+        {/* Other calculators */}
+        <div className="mt-8 bg-green-50 rounded-xl p-6 text-center">
+          <h3 className="text-lg font-semibold text-green-900 mb-2">
+            Outras Calculadoras Úteis
+          </h3>
+          <p className="text-green-700 mb-4">
+            Explore as nossas outras ferramentas fiscais especializadas para senhorios portugueses.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/calculadora-rendas"
+              className="px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition"
+            >
+              Calculadora de Aumentos de Renda
+            </Link>
+            <Link
+              href="/aimi"
+              className="px-6 py-3 border border-green-300 text-green-700 rounded-lg font-medium hover:bg-green-50 transition"
+            >
+              Verificar Isenção AIMI 2026
+            </Link>
+          </div>
+        </div>
+
         {/* CTA to waitlist */}
         <div className="mt-8 bg-blue-50 rounded-xl p-6 text-center">
           <h3 className="text-lg font-semibold text-blue-900 mb-2">
