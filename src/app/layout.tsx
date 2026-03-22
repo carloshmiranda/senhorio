@@ -3,12 +3,21 @@ import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://senhorio.vercel.app"),
   title: "Senhorio",
   description: "Plataforma completa de gestão de arrendamento para senhorios portugueses — acompanhe rendas, emita recibos, calcule impostos, cumpra prazos.",
   openGraph: {
     title: "Senhorio",
     description: "Plataforma completa de gestão de arrendamento para senhorios portugueses — acompanhe rendas, emita recibos, calcule impostos, cumpra prazos.",
     type: "website",
+    url: "https://senhorio.vercel.app",
+    siteName: "Senhorio",
+    locale: "pt_PT",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Senhorio",
+    description: "Plataforma completa de gestão de arrendamento para senhorios portugueses — acompanhe rendas, emita recibos, calcule impostos, cumpra prazos.",
   },
 };
 
