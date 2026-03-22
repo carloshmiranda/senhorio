@@ -13,6 +13,14 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    slug: "portugal-rental-property-tax-guide-2026",
+    title: "Portugal Rental Property Tax Guide 2026: Complete Tax Overview for Landlords",
+    excerpt: "Complete 2026 tax guide for Portugal rental property owners. New 10% tax rate, AIMI exemptions, rent increase rules, and compliance requirements for expat and resident landlords.",
+    publishedAt: "2026-03-22",
+    readTime: "18 min",
+    tags: ["Complete Guide", "2026 Tax Rules", "AIMI Exemption", "Compliance"],
+  },
+  {
     slug: "imposto-10-porcento-rendas-portugal-2026",
     title: "Imposto 10% Rendas Portugal 2026: Guia Completo da Nova Taxa",
     excerpt: "Guia completo sobre o imposto de 10% em rendas de casa em Portugal para 2026. Saiba quando aplicar, vantagens, desvantagens e como calcular com exemplos práticos.",
