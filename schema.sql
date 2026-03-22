@@ -193,3 +193,15 @@ CREATE TABLE IF NOT EXISTS tax_summary (
 );
 
 CREATE INDEX IF NOT EXISTS idx_tax_summary_owner ON tax_summary(owner_id);
+
+-- Pricing clicks: tracks fake-door CTA clicks for SaaS pricing validation
+CREATE TABLE IF NOT EXISTS pricing_clicks (
+  id              TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  date            DATE NOT NULL DEFAULT CURRENT_DATE,
+  tier            TEXT NOT NULL,
+  source_path     TEXT NOT NULL DEFAULT '/pricing',
+  created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_pricing_clicks_date ON pricing_clicks(date);
+CREATE INDEX IF NOT EXISTS idx_pricing_clicks_tier ON pricing_clicks(tier);
