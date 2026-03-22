@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
+import { sendWaitlistWelcomeEmail } from "@/lib/email";
 
 function json(data: any, status = 200) {
   return NextResponse.json(data, { status });
@@ -58,46 +59,14 @@ export async function POST(req: NextRequest) {
       RETURNING id, referral_code, position
     `;
 
-    // Send confirmation email if Resend is configured
-    const resendKey = process.env.RESEND_API_KEY;
-    if (resendKey) {
-      try {
-        const [welcomeEmail] = await sql`
-          SELECT subject, body_html, body_text FROM email_sequences
-          WHERE sequence = 'waitlist_welcome' AND step = 1 AND variant = 'a' AND is_active = true
-        `;
-        if (welcomeEmail) {
-          const subject = welcomeEmail.subject.replace("{{POSITION}}", String(position));
-          const bodyHtml = welcomeEmail.body_html
-            .replace(/\{\{NAME\}\}/g, name || "there")
-            .replace(/\{\{POSITION\}\}/g, String(position))
-            .replace(/\{\{REFERRAL_CODE\}\}/g, referralCode)
-            .replace(/\{\{REFERRAL_LINK\}\}/g, `${process.env.NEXT_PUBLIC_URL}?ref=${referralCode}`);
-
-          const res = await fetch("https://api.resend.com/emails", {
-            method: "POST",
-            headers: { Authorization: `Bearer ${resendKey}`, "Content-Type": "application/json" },
-            body: JSON.stringify({
-              from: `Senhorio <hello@${process.env.SENDING_DOMAIN || "resend.dev"}>`,
-              to: email,
-              subject,
-              html: bodyHtml,
-              text: welcomeEmail.body_text || undefined,
-            }),
-          });
-          if (res.ok) {
-            const { id: resendId } = await res.json();
-            await sql`
-              INSERT INTO email_log (recipient, sequence_id, subject, resend_id)
-              VALUES (${email}, ${welcomeEmail.id || null}, ${subject}, ${resendId})
-            `;
-            // Increment send count
-            await sql`UPDATE email_sequences SET send_count = send_count + 1 WHERE sequence = 'waitlist_welcome' AND step = 1 AND variant = 'a'`;
-          }
-        }
-      } catch (e) {
-        console.error("Waitlist email failed (non-blocking):", e);
+    // Send welcome email using email library
+    try {
+      const emailResult = await sendWaitlistWelcomeEmail(email, name);
+      if (!emailResult.success) {
+        console.warn("Welcome email failed (non-blocking):", emailResult.error);
       }
+    } catch (e) {
+      console.error("Welcome email failed (non-blocking):", e);
     }
 
     return json({
