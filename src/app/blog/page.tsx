@@ -13,6 +13,14 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    slug: "portugal-landlord-tax-calculator-2026",
+    title: "Portugal Landlord Tax Calculator 2026: Complete Guide for Expat & Non-Resident Landlords",
+    excerpt: "Free Portugal landlord tax calculator for 2026. Compare all 4 tax regimes including the new 10% rate. Essential guide for expat and non-resident property investors with practical examples.",
+    publishedAt: "2026-03-22",
+    readTime: "12 min",
+    tags: ["English Guide", "2026 Tax Rules", "Free Calculator", "Expat Friendly"],
+  },
+  {
     slug: "isencao-aimi-2026-qualificar-nova-isencao",
     title: "Isenção AIMI 2026: Como Qualificar para a Nova Isenção de Arrendamento Acessível",
     excerpt: "Descubra como qualificar para a isenção AIMI 2026 com rendas até €2.300/mês. Guia completo com critérios, exemplos práticos e poupanças estimadas.",
