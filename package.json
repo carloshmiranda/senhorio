@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "setup-db": "node scripts/setup-database.js",
+    "setup-emails": "node scripts/setup-email-sequences.js",
     "db:schema": "node scripts/setup-database.js",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
@@ -18,6 +19,7 @@
     "next": "^15.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "resend": "^6.9.4",
     "stripe": "^17.0.0"
   },
   "devDependencies": {
