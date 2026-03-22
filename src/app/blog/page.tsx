@@ -13,6 +13,14 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    slug: "imposto-10-porcento-rendas-portugal-2026",
+    title: "Imposto 10% Rendas Portugal 2026: Guia Completo da Nova Taxa",
+    excerpt: "Guia completo sobre o imposto de 10% em rendas de casa em Portugal para 2026. Saiba quando aplicar, vantagens, desvantagens e como calcular com exemplos práticos.",
+    publishedAt: "2026-03-22",
+    readTime: "15 min",
+    tags: ["Imposto 10%", "Guia 2026", "IRS Arrendamento", "Calculadora"],
+  },
+  {
     slug: "portugal-landlord-tax-calculator-2026",
     title: "Portugal Landlord Tax Calculator 2026: Complete Guide for Expat & Non-Resident Landlords",
     excerpt: "Free Portugal landlord tax calculator for 2026. Compare all 4 tax regimes including the new 10% rate. Essential guide for expat and non-resident property investors with practical examples.",
