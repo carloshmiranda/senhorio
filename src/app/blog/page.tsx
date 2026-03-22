@@ -13,6 +13,14 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    slug: "isencao-aimi-2026-qualificar-nova-isencao",
+    title: "Isenção AIMI 2026: Como Qualificar para a Nova Isenção de Arrendamento Acessível",
+    excerpt: "Descubra como qualificar para a isenção AIMI 2026 com rendas até €2.300/mês. Guia completo com critérios, exemplos práticos e poupanças estimadas.",
+    publishedAt: "2026-03-22",
+    readTime: "12 min",
+    tags: ["Isenção AIMI", "AIMI 2026", "Habitação Acessível", "Calculadora"],
+  },
+  {
     slug: "recibos-renda-eletronicos-guia-2026",
     title: "Recibos de Renda Eletrónicos: Guia Completo para Senhorios 2026",
     excerpt: "Tudo sobre recibos de renda eletrónicos em Portugal: obrigações legais, passo a passo no Portal das Finanças, campos obrigatórios, prazos, coimas e como automatizar.",
