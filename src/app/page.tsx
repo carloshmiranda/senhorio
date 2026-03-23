@@ -449,8 +449,8 @@ export default function HomePage() {
             {
               icon: <ReceiptIcon />,
               title: "Recibos Digitais",
-              description: "Emissão de Recibos de Renda conforme os requisitos legais portugueses. Envie aos inquilinos automaticamente e mantenha registos organizados.",
-              link: "#"
+              description: "Gere recibos de renda eletrónicos gratuitos e conformes com a legislação portuguesa. Simples, rápido e sem necessidade de registo.",
+              link: "/recibos"
             },
             {
               icon: <TrendingIcon />,
@@ -690,6 +690,15 @@ export default function HomePage() {
                     onClick={() => track('Footer Link Click', { page: 'calculadora-rendas' })}
                   >
                     Calculadora de Rendas
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/recibos"
+                    className="hover:text-white transition"
+                    onClick={() => track('Footer Link Click', { page: 'recibos' })}
+                  >
+                    Gerador de Recibos
                   </Link>
                 </li>
                 <li>
