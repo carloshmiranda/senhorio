@@ -13,6 +13,14 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    slug: "declaracao-irs-arrendamento-2026-guia-completo",
+    title: "Declaração IRS Arrendamento 2026: Guia Completo Passo a Passo",
+    excerpt: "Guia completo para declarar rendas no IRS 2026. Anexo F, Portal das Finanças, documentos necessários, prazos, erros comuns e estratégias de otimização fiscal para senhorios.",
+    publishedAt: "2026-03-23",
+    readTime: "20 min",
+    tags: ["IRS 2026", "Declaração Arrendamento", "Anexo F", "Portal Finanças", "Guia Fiscal"],
+  },
+  {
     slug: "portugal-rental-property-tax-guide-2026",
     title: "Portugal Rental Property Tax Guide 2026: Complete Tax Overview for Landlords",
     excerpt: "Complete 2026 tax guide for Portugal rental property owners. New 10% tax rate, AIMI exemptions, rent increase rules, and compliance requirements for expat and resident landlords.",
