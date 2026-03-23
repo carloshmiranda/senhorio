@@ -2,9 +2,12 @@
 /**
  * Email sequences setup script for Senhorio
  *
- * This script populates the email_sequences table with welcome email templates
- * for the waitlist flow. Templates support variables like {{NAME}}, {{POSITION}}, etc.
+ * This script populates the email_sequences table with email templates for:
+ * 1. Waitlist welcome flow
+ * 2. Tax calculator follow-up
+ * 3. AIMI calculator follow-up
  *
+ * Templates support variables like {{NAME}}, {{POSITION}}, etc.
  * Run with: node scripts/setup-email-sequences.js
  */
 
@@ -22,8 +25,10 @@ async function setupEmailSequences() {
     console.log('   node scripts/setup-email-sequences.js\n');
     console.log('📋 Once database is configured, this script will:');
     console.log('   ✨ Create waitlist welcome email template');
+    console.log('   ✨ Create tax calculator follow-up sequence');
+    console.log('   ✨ Create AIMI calculator follow-up sequence');
     console.log('   ✨ Support variable substitution (name, position, referral links)');
-    console.log('   ✨ Enable automatic email sending for new waitlist signups');
+    console.log('   ✨ Enable automatic email sending for signups and calculator users');
     process.exit(1);
   }
 
@@ -32,12 +37,15 @@ async function setupEmailSequences() {
     const { neon } = await import('@neondatabase/serverless');
     const sql = neon(process.env.DATABASE_URL);
 
-    // Define welcome email template
-    const welcomeEmailTemplate = {
-      sequence: 'waitlist_welcome',
-      step: 1,
-      subject: 'Bem-vindo à lista de espera do Senhorio! (Posição #{{POSITION}})',
-      body_html: `
+    // Define all email templates
+    const emailTemplates = [
+    {
+      name: "Waitlist Welcome",
+      template: {
+        sequence: 'waitlist_welcome',
+        step: 1,
+        subject: 'Bem-vindo à lista de espera do Senhorio! (Posição #{{POSITION}})',
+        body_html: `
 <!DOCTYPE html>
 <html>
 <head>
@@ -124,7 +132,7 @@ async function setupEmailSequences() {
   </div>
 </body>
 </html>`.trim(),
-      body_text: `
+        body_text: `
 Olá {{NAME}}!
 
 Bem-vindo à lista de espera do Senhorio! 🏠
@@ -151,90 +159,264 @@ Visite: ${process.env.NEXT_PUBLIC_URL || 'https://senhorio.vercel.app'}
 Obrigado por fazer parte da comunidade Senhorio!
 Equipa Senhorio
 `.trim(),
-      delay_hours: 0,
-      variant: 'a',
-      is_active: true
-    };
+        delay_hours: 0,
+        variant: 'a',
+        is_active: true
+      }
+    },
 
-    // Check if template already exists
-    const [existingTemplate] = await sql`
-      SELECT id FROM email_sequences
-      WHERE sequence = ${welcomeEmailTemplate.sequence}
-      AND step = ${welcomeEmailTemplate.step}
-      AND variant = ${welcomeEmailTemplate.variant}
-    `;
+    // ================================================
+    // Calculator Follow-up Sequence
+    // ================================================
+    {
+      name: "Calculator Follow-up",
+      template: {
+        sequence: 'calculator_followup',
+        step: 1,
+        subject: 'Precisa de ajuda com os seus impostos de arrendamento?',
+        body_html: `
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+  <h1 style="color: #2563eb; font-size: 24px; margin-bottom: 20px;">
+    Olá {{NAME}}! 📊
+  </h1>
 
-    if (existingTemplate) {
-      console.log('⚠️  Welcome email template already exists, updating...');
-      await sql`
-        UPDATE email_sequences SET
-          subject = ${welcomeEmailTemplate.subject},
-          body_html = ${welcomeEmailTemplate.body_html},
-          body_text = ${welcomeEmailTemplate.body_text},
-          delay_hours = ${welcomeEmailTemplate.delay_hours},
-          is_active = ${welcomeEmailTemplate.is_active},
-          updated_at = now()
-        WHERE sequence = ${welcomeEmailTemplate.sequence}
-        AND step = ${welcomeEmailTemplate.step}
-        AND variant = ${welcomeEmailTemplate.variant}
+  <p style="font-size: 16px; line-height: 1.5; margin-bottom: 15px;">
+    Vimos que usou a nossa calculadora de impostos de arrendamento. Esperamos que tenha sido útil!
+  </p>
+
+  <p style="font-size: 16px; line-height: 1.5; margin-bottom: 15px;">
+    Gerir impostos de arrendamento pode ser complicado, especialmente com as mudanças de 2026. Estamos aqui para tornar isso mais simples.
+  </p>
+
+  <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin: 20px 0;">
+    <h4 style="color: #92400e; margin-top: 0;">🚀 Novidade: Plataforma completa em breve!</h4>
+    <p style="margin-bottom: 10px;">Estamos a finalizar uma plataforma que vai automatizar toda a gestão de impostos de arrendamento:</p>
+    <ul style="margin: 0; padding-left: 20px;">
+      <li>Comparação automática dos 4 regimes fiscais</li>
+      <li>Geração de recibos eletrónicos</li>
+      <li>Cálculo automático de retenções</li>
+      <li>Exportação para Portal das Finanças</li>
+    </ul>
+  </div>
+
+  <div style="text-align: center; margin: 30px 0;">
+    <a href="${process.env.NEXT_PUBLIC_URL || 'https://senhorio.vercel.app'}?utm_source=calculator_email&utm_medium=email&utm_campaign=calculator_followup#waitlist"
+       style="background: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block;">
+      Junte-se à Lista de Espera Gratuita
+    </a>
+  </div>
+
+  <p style="font-size: 14px; color: #64748b; text-align: center; margin-top: 20px;">
+    Sem spam. Apenas atualizações importantes sobre impostos de arrendamento.
+  </p>
+
+  <hr style="border: none; height: 1px; background: #e2e8f0; margin: 30px 0;">
+
+  <div style="color: #94a3b8; font-size: 12px; text-align: center;">
+    <p>Senhorio - Simplificamos os impostos de arrendamento</p>
+    <p>${process.env.NEXT_PUBLIC_URL || 'https://senhorio.vercel.app'}</p>
+  </div>
+</div>`,
+        body_text: `Olá {{NAME}}!
+
+Vimos que usou a nossa calculadora de impostos de arrendamento. Esperamos que tenha sido útil!
+
+Gerir impostos de arrendamento pode ser complicado, especialmente com as mudanças de 2026. Estamos aqui para tornar isso mais simples.
+
+🚀 NOVIDADE: Plataforma completa em breve!
+Estamos a finalizar uma plataforma que vai automatizar toda a gestão de impostos de arrendamento:
+• Comparação automática dos 4 regimes fiscais
+• Geração de recibos eletrónicos
+• Cálculo automático de retenções
+• Exportação para Portal das Finanças
+
+Junte-se à nossa lista de espera gratuita:
+${process.env.NEXT_PUBLIC_URL || 'https://senhorio.vercel.app'}?utm_source=calculator_email#waitlist
+
+Sem spam. Apenas atualizações importantes sobre impostos de arrendamento.
+
+---
+Senhorio - Simplificamos os impostos de arrendamento`,
+        delay_hours: 2,
+        variant: 'a',
+        is_active: true
+      }
+    },
+
+    // ================================================
+    // AIMI Calculator Sequence
+    // ================================================
+    {
+      name: "AIMI Calculator Follow-up",
+      template: {
+        sequence: 'aimi_calculator',
+        step: 1,
+        subject: 'A sua isenção AIMI pode poupar-lhe centenas de euros!',
+        body_html: `
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+  <h1 style="color: #16a34a; font-size: 24px; margin-bottom: 20px;">
+    Parabéns, {{NAME}}! 🎉
+  </h1>
+
+  <p style="font-size: 16px; line-height: 1.5; margin-bottom: 15px;">
+    Vimos que qualifica para a <strong>isenção AIMI de arrendamento</strong> introduzida em 2026. Isso pode representar poupanças significativas!
+  </p>
+
+  <div style="background: #dcfce7; border-left: 4px solid #16a34a; padding: 15px; margin: 20px 0;">
+    <h4 style="color: #15803d; margin-top: 0;">💰 O que isto significa para si:</h4>
+    <ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+      <li>Não paga AIMI sobre propriedades arrendadas</li>
+      <li>Poupanças anuais podem ir até €500+ por propriedade</li>
+      <li>Aplicação automática se cumprir os requisitos</li>
+      <li>Válido para propriedades arrendadas em 2026</li>
+    </ul>
+  </div>
+
+  <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin: 20px 0;">
+    <h4 style="color: #92400e; margin-top: 0;">⚠️ Importante: Confirme os requisitos</h4>
+    <p style="margin: 0;">Para garantir a isenção, precisa de cumprir todas as condições legais. A nossa plataforma vai ajudá-lo a verificar e documentar tudo automaticamente.</p>
+  </div>
+
+  <div style="text-align: center; margin: 30px 0;">
+    <a href="${process.env.NEXT_PUBLIC_URL || 'https://senhorio.vercel.app'}?utm_source=aimi_email&utm_medium=email&utm_campaign=aimi_exemption#waitlist"
+       style="background: #16a34a; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block;">
+      Garantir Acesso Prioritário
+    </a>
+  </div>
+
+  <p style="font-size: 16px; line-height: 1.5; margin: 20px 0;">
+    <strong>Próximos passos:</strong> Estamos a finalizar uma plataforma que automatiza toda a gestão fiscal de senhorios, incluindo verificação automática da isenção AIMI.
+  </p>
+
+  <p style="font-size: 14px; color: #64748b; text-align: center; margin-top: 20px;">
+    Junte-se à lista de espera e seja dos primeiros a aceder quando lançarmos.
+  </p>
+
+  <hr style="border: none; height: 1px; background: #e2e8f0; margin: 30px 0;">
+
+  <div style="color: #94a3b8; font-size: 12px; text-align: center;">
+    <p>Senhorio - Maximizamos as suas poupanças fiscais</p>
+    <p>${process.env.NEXT_PUBLIC_URL || 'https://senhorio.vercel.app'}</p>
+  </div>
+</div>`,
+        body_text: `Parabéns, {{NAME}}!
+
+Vimos que qualifica para a isenção AIMI de arrendamento introduzida em 2026. Isso pode representar poupanças significativas!
+
+💰 O QUE ISTO SIGNIFICA PARA SI:
+• Não paga AIMI sobre propriedades arrendadas
+• Poupanças anuais podem ir até €500+ por propriedade
+• Aplicação automática se cumprir os requisitos
+• Válido para propriedades arrendadas em 2026
+
+⚠️ IMPORTANTE: CONFIRME OS REQUISITOS
+Para garantir a isenção, precisa de cumprir todas as condições legais. A nossa plataforma vai ajudá-lo a verificar e documentar tudo automaticamente.
+
+PRÓXIMOS PASSOS:
+Estamos a finalizar uma plataforma que automatiza toda a gestão fiscal de senhorios, incluindo verificação automática da isenção AIMI.
+
+Garanta o seu acesso prioritário:
+${process.env.NEXT_PUBLIC_URL || 'https://senhorio.vercel.app'}?utm_source=aimi_email#waitlist
+
+---
+Senhorio - Maximizamos as suas poupanças fiscais`,
+        delay_hours: 1,
+        variant: 'a',
+        is_active: true
+      }
+    }
+    ];
+
+    // Process each email template
+    for (const emailTemplate of emailTemplates) {
+      console.log(`\n📧 Processing ${emailTemplate.name}...`);
+      const template = emailTemplate.template;
+
+      // Check if template already exists
+      const [existingTemplate] = await sql`
+        SELECT id FROM email_sequences
+        WHERE sequence = ${template.sequence}
+        AND step = ${template.step}
+        AND variant = ${template.variant}
       `;
-      console.log('✅ Welcome email template updated successfully');
-    } else {
-      console.log('📝 Creating new welcome email template...');
-      await sql`
-        INSERT INTO email_sequences (
-          sequence, step, subject, body_html, body_text,
-          delay_hours, variant, is_active
-        ) VALUES (
-          ${welcomeEmailTemplate.sequence},
-          ${welcomeEmailTemplate.step},
-          ${welcomeEmailTemplate.subject},
-          ${welcomeEmailTemplate.body_html},
-          ${welcomeEmailTemplate.body_text},
-          ${welcomeEmailTemplate.delay_hours},
-          ${welcomeEmailTemplate.variant},
-          ${welcomeEmailTemplate.is_active}
-        )
-      `;
-      console.log('✅ Welcome email template created successfully');
+
+      if (existingTemplate) {
+        console.log(`⚠️  ${emailTemplate.name} already exists, updating...`);
+        await sql`
+          UPDATE email_sequences SET
+            subject = ${template.subject},
+            body_html = ${template.body_html},
+            body_text = ${template.body_text},
+            delay_hours = ${template.delay_hours},
+            is_active = ${template.is_active},
+            updated_at = now()
+          WHERE sequence = ${template.sequence}
+          AND step = ${template.step}
+          AND variant = ${template.variant}
+        `;
+        console.log(`✅ ${emailTemplate.name} updated successfully`);
+      } else {
+        console.log(`📝 Creating new ${emailTemplate.name}...`);
+        await sql`
+          INSERT INTO email_sequences (
+            sequence, step, subject, body_html, body_text,
+            delay_hours, variant, is_active
+          ) VALUES (
+            ${template.sequence},
+            ${template.step},
+            ${template.subject},
+            ${template.body_html},
+            ${template.body_text},
+            ${template.delay_hours},
+            ${template.variant},
+            ${template.is_active}
+          )
+        `;
+        console.log(`✅ ${emailTemplate.name} created successfully`);
+      }
     }
 
-    // Verify the template was created/updated
-    const [template] = await sql`
+    // Verify all templates were created/updated
+    const allTemplates = await sql`
       SELECT sequence, step, subject, variant, is_active, send_count, created_at
       FROM email_sequences
+      ORDER BY sequence, step, variant
+    `;
+
+    if (allTemplates.length > 0) {
+      console.log('\n📊 Email sequences summary:');
+      console.table(allTemplates.map(template => ({
+        sequence: template.sequence,
+        step: template.step,
+        subject: template.subject.substring(0, 40) + '...',
+        variant: template.variant,
+        active: template.is_active ? '✅' : '❌',
+        sent: template.send_count || 0,
+        created: new Date(template.created_at).toLocaleDateString('pt-PT')
+      })));
+    }
+
+    // Test email template variables with waitlist welcome
+    const [waitlistTemplate] = await sql`
+      SELECT subject FROM email_sequences
       WHERE sequence = 'waitlist_welcome' AND step = 1 AND variant = 'a'
     `;
 
-    if (template) {
-      console.log('\n📊 Email sequence summary:');
-      console.log(`   Sequence: ${template.sequence}`);
-      console.log(`   Step: ${template.step}`);
-      console.log(`   Subject: ${template.subject.substring(0, 50)}...`);
-      console.log(`   Variant: ${template.variant}`);
-      console.log(`   Active: ${template.is_active ? '✅' : '❌'}`);
-      console.log(`   Emails sent: ${template.send_count || 0}`);
-      console.log(`   Created: ${new Date(template.created_at).toLocaleDateString('pt-PT')}`);
+    if (waitlistTemplate) {
+      console.log('\n🧪 Testing template variables...');
+      const testSubject = waitlistTemplate.subject
+        .replace('{{POSITION}}', '42');
+      console.log(`   Test subject: ${testSubject}`);
+      console.log('✅ Template variables work correctly');
     }
-
-    // Test email template rendering
-    console.log('\n🧪 Testing template variables...');
-    const testSubject = template.subject
-      .replace('{{POSITION}}', '42');
-    const testBodyPreview = template.subject
-      .replace(/\{\{NAME\}\}/g, 'João Silva')
-      .replace(/\{\{POSITION\}\}/g, '42')
-      .replace(/\{\{REFERRAL_CODE\}\}/g, 'ABC123')
-      .replace(/\{\{REFERRAL_LINK\}\}/g, 'https://senhorio.vercel.app?ref=ABC123');
-
-    console.log(`   Test subject: ${testSubject}`);
-    console.log('✅ Template variables work correctly');
 
     console.log('\n🎉 Email sequences setup completed successfully!');
     console.log('\n💡 Next steps:');
     console.log('   1. New waitlist signups will automatically receive welcome emails');
-    console.log('   2. Monitor email delivery in the email_log table');
-    console.log('   3. Check email metrics via send_count, open_count, click_count');
+    console.log('   2. Calculator users who provide email will get follow-up sequences');
+    console.log('   3. AIMI calculator users who qualify will get targeted follow-ups');
+    console.log('   4. Monitor email delivery in the email_log table');
+    console.log('   5. Check email metrics via send_count, open_count, click_count');
 
   } catch (error) {
     console.error('❌ Email sequences setup failed:', error);
