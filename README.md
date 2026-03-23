@@ -71,10 +71,13 @@ senhorio/
 ### Current (MVP)
 - ✅ Tax regime calculator (4 Portuguese tax regimes)
 - ✅ Rent increase calculator (INE coefficient 2.24%)
+- ✅ AIMI exemption checker for 2026
 - ✅ Professional landing page
 - ✅ SEO blog content
 - ✅ User dashboard with JWT authentication
 - ✅ Waitlist management with referral tracking
+- ✅ Email sequences automation (welcome, calculator follow-ups)
+- ✅ Email management interface and CLI tools
 
 ### Coming Soon (Core Product)
 - 🔄 Property portfolio dashboard
@@ -97,13 +100,36 @@ npm run start        # Start production server
 npm run setup-db     # Set up database and apply schema
 ```
 
+### Email Management Scripts
+
+```bash
+# Interactive email management
+node scripts/manage-email-sequences.js
+
+# Setup email templates (requires DATABASE_URL)
+node scripts/setup-email-sequences.js
+
+# Verify waitlist and email setup
+node scripts/verify-waitlist.js
+```
+
 ## API Routes
 
+### Core APIs
 - `POST /api/waitlist` - Join waitlist with referral tracking
 - `GET /api/waitlist?email=...` - Check waitlist position
 - `POST /api/auth` - User authentication
 - `GET /api/properties` - List user properties
 - `POST /api/payments` - Process rent payments
+
+### Email Management APIs
+- `GET /api/email-sequences` - List email sequences
+- `POST /api/email-sequences` - Create email sequence
+- `PUT /api/email-sequences?id=...` - Update email sequence
+- `DELETE /api/email-sequences?id=...` - Delete email sequence
+
+### Admin Interfaces
+- `/admin/email-status` - Email sequences management dashboard
 
 ## Environment Variables
 
