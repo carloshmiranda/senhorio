@@ -13,6 +13,14 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    slug: "simulador-fiscal-senhorios-2026",
+    title: "Simulador Fiscal para Senhorios 2026: Calculadora de Impostos Grátis",
+    excerpt: "Simulador fiscal gratuito para senhorios portugueses. Compare os 4 regimes fiscais, calcule IRS, simule poupanças e otimize impostos com ferramentas automáticas. Inclui nova taxa 10%.",
+    publishedAt: "2026-03-23",
+    readTime: "14 min",
+    tags: ["Simulador Fiscal", "Calculadora Grátis", "4 Regimes", "Taxa 10%"],
+  },
+  {
     slug: "declaracao-irs-arrendamento-2026-guia-completo",
     title: "Declaração IRS Arrendamento 2026: Guia Completo Passo a Passo",
     excerpt: "Guia completo para declarar rendas no IRS 2026. Anexo F, Portal das Finanças, documentos necessários, prazos, erros comuns e estratégias de otimização fiscal para senhorios.",
