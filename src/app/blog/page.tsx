@@ -13,6 +13,14 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    slug: "declaracao-irs-arrendamento-2026-guia-completo",
+    title: "Declaração IRS Arrendamento 2026: Guia Completo Passo a Passo",
+    excerpt: "Guia completo para declarar rendas no IRS 2026. Anexo F, Portal das Finanças, documentos necessários, prazos, erros comuns e estratégias de otimização fiscal para senhorios.",
+    publishedAt: "2026-03-23",
+    readTime: "20 min",
+    tags: ["IRS 2026", "Declaração Arrendamento", "Anexo F", "Portal Finanças", "Guia Fiscal"],
+  },
+  {
     slug: "portugal-expat-landlord-compliance-guide-2026",
     title: "Portugal Expat Landlord Compliance Guide 2026: Complete Legal Obligations for Non-Resident Property Owners",
     excerpt: "Essential compliance guide for expat landlords in Portugal 2026. Tax obligations, rental receipts, AIMI exemptions, and legal requirements for non-resident property investors.",
