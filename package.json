@@ -9,6 +9,8 @@
     "setup-db": "node scripts/setup-database.js",
     "setup-emails": "node scripts/setup-email-sequences.js",
     "db:schema": "node scripts/setup-database.js",
+    "db:provision": "node scripts/provision-database.js",
+    "db:configure": "node scripts/configure-database.js",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:smoke": "playwright test tests/e2e/smoke.spec.ts"
