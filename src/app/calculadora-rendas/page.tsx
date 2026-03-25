@@ -2,6 +2,8 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import StructuredData from "@/components/StructuredData";
+import { CALCULATOR_STRUCTURED_DATA } from "@/lib/structured-data";
 
 // INE coefficients by year (2026 is the current year)
 const INE_COEFFICIENTS = {
@@ -121,6 +123,10 @@ export default function RentIncreaseCalculatorPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <StructuredData
+        webAppData={CALCULATOR_STRUCTURED_DATA.rentCalculator.webApp}
+        faqData={CALCULATOR_STRUCTURED_DATA.rentCalculator.faqs}
+      />
       {/* Header */}
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-6xl mx-auto px-6 py-4">
