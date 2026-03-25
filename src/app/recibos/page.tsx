@@ -3,6 +3,8 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { track } from "@vercel/analytics";
+import StructuredData from "@/components/StructuredData";
+import { CALCULATOR_STRUCTURED_DATA } from "@/lib/structured-data";
 
 interface ReceiptData {
   // Landlord details
@@ -144,6 +146,10 @@ export default function ReceiptGeneratorPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <StructuredData
+        webAppData={CALCULATOR_STRUCTURED_DATA.receiptGenerator.webApp}
+        faqData={CALCULATOR_STRUCTURED_DATA.receiptGenerator.faqs}
+      />
       {/* Header */}
       <header className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-6xl mx-auto px-6 py-4">

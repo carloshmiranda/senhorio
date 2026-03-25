@@ -2,6 +2,8 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import StructuredData from "@/components/StructuredData";
+import { CALCULATOR_STRUCTURED_DATA } from "@/lib/structured-data";
 
 // Portuguese municipalities with their tax rates (simplified for example)
 const MUNICIPALITIES = [
@@ -159,6 +161,10 @@ export default function TaxCalculatorPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <StructuredData
+        webAppData={CALCULATOR_STRUCTURED_DATA.taxCalculator.webApp}
+        faqData={CALCULATOR_STRUCTURED_DATA.taxCalculator.faqs}
+      />
       {/* Header */}
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-6xl mx-auto px-6 py-4">
