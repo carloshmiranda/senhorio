@@ -308,11 +308,11 @@ export default function HomePage() {
           <a href="#precos" className="text-gray-600 hover:text-gray-900 transition">Preços</a>
           <a href="#faq" className="text-gray-600 hover:text-gray-900 transition">FAQ</a>
           <Link
-            href="/calculadora"
-            onClick={() => track("nav_link_click", { destination: "calculadora", source: "nav" })}
+            href="/planeador-fiscal-2026"
+            onClick={() => track("nav_link_click", { destination: "planeador-fiscal-2026", source: "nav" })}
             className="text-blue-600 font-medium hover:text-blue-700 transition"
           >
-            Simulador Fiscal
+            Planeador Fiscal 2026
           </Link>
           <Link href="/blog" className="text-gray-600 hover:text-gray-900 transition">Blog</Link>
           {LAUNCH_MODE === "waitlist" ? (
@@ -362,8 +362,8 @@ export default function HomePage() {
                     <Link href="/checkout" className="flex-1 px-6 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition text-center">
                       Experimentar Grátis
                     </Link>
-                    <Link href="/calculadora" className="flex-1 px-6 py-4 border border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition text-center">
-                      Simulador
+                    <Link href="/planeador-fiscal-2026" className="flex-1 px-6 py-4 border border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition text-center">
+                      Planeador 2026
                     </Link>
                   </div>
                 </div>
@@ -442,9 +442,9 @@ export default function HomePage() {
           {[
             {
               icon: <CalculatorIcon />,
-              title: "Simulador Fiscal",
-              description: "Compare os 4 regimes fiscais portugueses instantaneamente. Veja exatamente quanto vai pagar de IRS e escolha a melhor opção para a sua situação.",
-              link: "/calculadora"
+              title: "Planeador Fiscal 2026",
+              description: "Novo! Simulador completo dos regimes fiscais 2026: 10% renda moderada, RSAA 0% e isenção AIMI. Descubra quanto pode poupar com as novas mudanças fiscais.",
+              link: "/planeador-fiscal-2026"
             },
             {
               icon: <ReceiptIcon />,
@@ -676,11 +676,11 @@ export default function HomePage() {
               <ul className="space-y-2 text-gray-400">
                 <li>
                   <Link
-                    href="/calculadora"
+                    href="/planeador-fiscal-2026"
                     className="hover:text-white transition"
-                    onClick={() => track('Footer Link Click', { page: 'calculadora' })}
+                    onClick={() => track('Footer Link Click', { page: 'planeador-fiscal-2026' })}
                   >
-                    Simulador Fiscal
+                    Planeador Fiscal 2026
                   </Link>
                 </li>
                 <li>
