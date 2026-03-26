@@ -72,11 +72,47 @@ function CheckIcon() {
   );
 }
 
+// Simple Toast Component
+function Toast({ message, type, onClose }: { message: string; type: "success" | "error"; onClose: () => void }) {
+  React.useEffect(() => {
+    const timer = setTimeout(onClose, 5000); // Auto-close after 5 seconds
+    return () => clearTimeout(timer);
+  }, [onClose]);
+
+  return (
+    <div className={`fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-sm ${
+      type === "success"
+        ? "bg-green-50 border border-green-200 text-green-800"
+        : "bg-red-50 border border-red-200 text-red-800"
+    }`}>
+      <div className="flex items-center gap-3">
+        <div className={`w-5 h-5 rounded-full flex items-center justify-center ${
+          type === "success" ? "bg-green-200" : "bg-red-200"
+        }`}>
+          {type === "success" ? (
+            <CheckIcon />
+          ) : (
+            <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+            </svg>
+          )}
+        </div>
+        <span className="font-medium">{message}</span>
+        <button onClick={onClose} className={`ml-auto ${type === "success" ? "text-green-600 hover:text-green-700" : "text-red-600 hover:text-red-700"}`}>
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function WaitlistForm() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [result, setResult] = useState<{ referral_code?: string; position?: number; already_signed_up?: boolean } | null>(null);
+  const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
   const [formEngaged, setFormEngaged] = useState(false);
   const [formStartTime, setFormStartTime] = useState<number | null>(null);
   const [emailFieldInteracted, setEmailFieldInteracted] = useState(false);
@@ -147,18 +183,12 @@ function WaitlistForm() {
         body: JSON.stringify({
           email,
           name: name || undefined,
-          ref: ref || undefined,
-          utm_source: utm_source || undefined,
-          utm_medium: utm_medium || undefined,
-          utm_campaign: utm_campaign || undefined,
         }),
       });
       const data = await res.json();
       if (data.ok) {
         // Track successful signup
         track("waitlist_signup_success", {
-          position: data.position,
-          already_signed_up: data.already_signed_up,
           ref: ref || undefined,
           utm_source: utm_source || undefined,
           utm_medium: utm_medium || undefined,
@@ -166,8 +196,14 @@ function WaitlistForm() {
           time_to_complete_ms: timeToComplete || undefined,
           form_engaged: formEngaged,
         });
-        setResult(data);
+
+        setToast({ message: data.message || "Juntou-se à lista de espera com sucesso!", type: "success" });
         setState("success");
+
+        // Reset form after successful submission
+        setEmail("");
+        setName("");
+        setTimeout(() => setState("idle"), 2000);
       } else {
         // Track signup error
         track("waitlist_signup_error", {
@@ -178,7 +214,9 @@ function WaitlistForm() {
           utm_campaign: utm_campaign || undefined,
         });
 
+        setToast({ message: data.error || "Ocorreu um erro. Por favor, tente novamente.", type: "error" });
         setState("error");
+        setTimeout(() => setState("idle"), 2000);
       }
     } catch (err) {
       // Track fetch error
@@ -190,95 +228,59 @@ function WaitlistForm() {
         utm_campaign: utm_campaign || undefined,
       });
 
+      setToast({ message: "Erro de conexão. Por favor, tente novamente.", type: "error" });
       setState("error");
+      setTimeout(() => setState("idle"), 2000);
     }
   }
 
-  if (state === "success" && result) {
-    const referralLink = `${window.location.origin}?ref=${result.referral_code}`;
-    return (
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md mx-auto">
-        <div className="text-center">
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <CheckIcon />
-          </div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-2">
-            {result.already_signed_up ? "Já está na lista!" : "Bem-vindo ao Senhorio!"}
-          </h3>
-          <p className="text-gray-600 mb-6">
-            Está na posição <span className="font-bold text-blue-600">#{result.position}</span> da lista de espera.
-          </p>
-          <div className="bg-gray-50 rounded-xl p-6">
-            <p className="text-gray-700 font-medium mb-3">Partilhe o seu link para subir na lista:</p>
-            <div className="flex items-center gap-3">
-              <input
-                readOnly
-                value={referralLink}
-                className="flex-1 px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-700 text-sm"
-                onClick={(e) => (e.target as HTMLInputElement).select()}
-              />
-              <button
-                onClick={() => {
-                  navigator.clipboard.writeText(referralLink);
-                  track("referral_link_copied", {
-                    referral_code: result.referral_code,
-                    position: result.position,
-                  });
-                }}
-                className="px-4 py-3 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition"
-              >
-                Copiar
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md mx-auto">
-      <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">Acesso Antecipado</h3>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="text"
-          placeholder="O seu nome (opcional)"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          onFocus={handleFormEngagement}
-          className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+    <>
+      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md mx-auto">
+        <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">Acesso Antecipado</h3>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="text"
+            placeholder="O seu nome (opcional)"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            onFocus={handleFormEngagement}
+            className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+          />
+          <input
+            type="email"
+            required
+            placeholder="o-seu@email.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            onFocus={() => {
+              handleFormEngagement();
+              handleEmailFieldInteraction();
+            }}
+            className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+          />
+          <button
+            type="submit"
+            disabled={state === "loading"}
+            className="w-full px-6 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {state === "loading" ? "A registar..." : "Entrar na Lista de Espera"}
+          </button>
+          {ref && (
+            <p className="text-sm text-gray-500 text-center">
+              Referido por um amigo? Terá acesso prioritário.
+            </p>
+          )}
+        </form>
+      </div>
+      {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast(null)}
         />
-        <input
-          type="email"
-          required
-          placeholder="o-seu@email.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          onFocus={() => {
-            handleFormEngagement();
-            handleEmailFieldInteraction();
-          }}
-          className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-        />
-        <button
-          type="submit"
-          disabled={state === "loading"}
-          className="w-full px-6 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {state === "loading" ? "A registar..." : "Entrar na Lista de Espera"}
-        </button>
-        {ref && (
-          <p className="text-sm text-gray-500 text-center">
-            Referido por um amigo? Terá acesso prioritário.
-          </p>
-        )}
-        {state === "error" && (
-          <p className="text-sm text-red-500 text-center">
-            Ocorreu um erro. Por favor, tente novamente.
-          </p>
-        )}
-      </form>
-    </div>
+      )}
+    </>
   );
 }
 

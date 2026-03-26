@@ -136,20 +136,11 @@ export default function TaxCalculatorPage() {
         },
         body: JSON.stringify({
           email,
-          source: 'tax_calculator',
-          metadata: {
-            monthlyRent: parseFloat(monthlyRent),
-            municipality,
-            propertyCount: parseInt(propertyCount),
-            residency,
-            bestRegime: bestRegime.name,
-            annualTax: bestRegime.annualTax,
-            annualSavings: bestRegime.savings || 0
-          }
         }),
       });
 
-      if (response.ok) {
+      const data = await response.json();
+      if (data.ok) {
         setEmailSubmitted(true);
       }
     } catch (error) {
