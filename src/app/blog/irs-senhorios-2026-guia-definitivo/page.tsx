@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "IRS Senhorios 2026: Guia Definitivo - Nova Taxa 10%, RSAA e Anexo F | Senhorio",
-  description: "Guia completo IRS arrendamento 2026: nova taxa 10% para rendas ≤€2.300, regime RSAA 0%, Anexo F passo a passo. Simule e poupe €1.080-€4.140/ano. Deadline 1 abril.",
+  description: "Guia completo IRS arrendamento 2026: nova taxa 10% para rendas ≤€2.300, regime RSAA 0%, Anexo F passo a passo. Simule e poupe €1.080-€4.140/ano. Entrega 1 abril-30 junho.",
   keywords: [
     "IRS arrendamento 2026",
     "IRS senhorios 2026",
@@ -90,12 +90,12 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
                 </svg>
               </div>
               <div className="ml-3">
-                <h3 className="text-sm font-medium text-red-800">
-                  🚨 Deadline IRS 2026: 1 de Abril
+                <h3 className="text-sm font-medium text-green-800">
+                  📅 IRS 2026: Período de Entrega Aberto
                 </h3>
-                <div className="mt-2 text-sm text-red-700">
+                <div className="mt-2 text-sm text-green-700">
                   <p>
-                    O prazo para entrega da declaração de IRS 2026 termina em <strong>1 de abril</strong>.
+                    O IRS 2026 pode ser entregue de <strong>1 de abril a 30 de junho</strong>.
                     Este guia ajuda-o a escolher o regime fiscal ideal e maximizar as suas poupanças.
                   </p>
                 </div>
@@ -216,7 +216,7 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
                 </ul>
                 <ul className="text-green-800 space-y-2 text-sm">
                   <li>✅ Portal das Finanças reformulado</li>
-                  <li>✅ Deadline estendido até <strong>1 de abril</strong></li>
+                  <li>✅ Período de entrega: <strong>1 de abril a 30 de junho</strong></li>
                   <li>✅ Maior flexibilidade na escolha do regime</li>
                   <li>✅ Dedução automática de 4% (predial)</li>
                 </ul>
@@ -625,7 +625,7 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
               <div className="bg-red-50 border border-red-200 rounded-xl p-6">
                 <h4 className="text-red-900 font-semibold mb-3">🚨 Prazos Críticos 2026</h4>
                 <ul className="text-red-800 space-y-2 text-sm">
-                  <li>• <strong>1 Abril:</strong> Deadline IRS 2026</li>
+                  <li>• <strong>1 Abril - 30 Junho:</strong> Período entrega IRS 2026</li>
                   <li>• <strong>15 Julho:</strong> Pagamento em prestações</li>
                   <li>• <strong>31 Janeiro 2027:</strong> Opção regime seguinte</li>
                   <li>• <strong>Mensal:</strong> Recibos eletrónicos (até dia 10)</li>
@@ -726,8 +726,8 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
                   resposta: "Geralmente sim, especialmente se os juros anuais > €500. Use o simulador para confirmar a melhor opção."
                 },
                 {
-                  pergunta: "O que acontece se entregar o IRS após 1 de abril?",
-                  resposta: "Coima mínima €102. Se entregar até 15 de maio, coima reduz para €51. Após esta data, coima aumenta progressivamente."
+                  pergunta: "O que acontece se entregar o IRS após 30 de junho?",
+                  resposta: "A entrega fora de prazo (após 30 de junho) resulta em coima mínima de €102 a €765, dependendo do atraso. Recomendamos entregar sempre dentro do prazo oficial."
                 }
               ].map((item, index) => (
                 <details key={index} className="border border-gray-200 rounded-xl p-6">
