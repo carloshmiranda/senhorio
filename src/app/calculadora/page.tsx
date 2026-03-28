@@ -70,14 +70,15 @@ export default function TaxCalculatorPage() {
         requirements: ["Todas as propriedades são elegíveis"],
       },
       {
-        name: "Regime Simplificado",
+        name: "Nova Taxa 10% (2026)",
         rate: 10,
         annualTax: reducedTax,
         eligible: reducedEligible,
-        description: "Redução significativa para rendas moderadas",
+        description: "Novo regime 2026 para rendas moderadas",
         requirements: [
           "Renda mensal ≤ €2.300",
-          "Propriedade arrendada por período superior a 2 anos"
+          "Contratos de arrendamento habitacional",
+          "Válido a partir de 2026"
         ],
       },
       {
@@ -163,15 +164,35 @@ export default function TaxCalculatorPage() {
             ← Voltar ao início
           </Link>
           <h1 className="text-2xl font-bold text-gray-900 mt-2">
-            Calculadora de Regimes Fiscais IRS 2026
+            Calculadora IRS 2026 - Nova Taxa 10% para Rendas Moderadas
           </h1>
           <p className="text-gray-600 mt-1">
-            Compare todos os regimes fiscais e descubra quanto pode poupar
+            Compare a nova taxa de 10% (≤€2.300) com outros regimes fiscais e descubra o incentivo perverso
           </p>
         </div>
       </header>
 
       <div className="max-w-6xl mx-auto px-6 py-8">
+        {/* 2026 Update Highlight */}
+        <div className="bg-blue-600 text-white rounded-xl p-6 mb-8">
+          <div className="flex items-start">
+            <div className="text-3xl mr-4">🆕</div>
+            <div>
+              <h2 className="text-xl font-bold mb-2">Nova Lei IRS 2026: Taxa Especial 10%</h2>
+              <p className="text-blue-100 mb-3">
+                A partir de 2026, rendas até €2.300/mês beneficiam de uma taxa reduzida de apenas 10%,
+                em vez dos habituais 25%.
+              </p>
+              <div className="bg-blue-500/30 rounded-lg p-3">
+                <p className="text-sm font-medium">
+                  ⚠️ <strong>Atenção:</strong> Esta medida cria um incentivo perverso -
+                  rendas de €2.300 podem gerar mais lucro líquido que rendas de €2.600!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Input Form */}
           <div className="bg-white rounded-xl shadow-sm p-6">
@@ -440,6 +461,80 @@ export default function TaxCalculatorPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Perverse Incentive Demo */}
+        <div className="mt-8 bg-orange-50 border border-orange-200 rounded-xl p-6">
+          <h2 className="text-xl font-semibold text-gray-900 mb-6">
+            ⚠️ O Incentivo Perverso da Taxa 10%
+          </h2>
+          <p className="text-gray-700 mb-6">
+            A nova taxa de 10% cria uma situação paradoxal: rendas mais baixas podem gerar mais lucro líquido que rendas mais altas.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* €2,300 rent */}
+            <div className="bg-white rounded-lg border border-green-300 p-5">
+              <div className="flex items-center mb-3">
+                <span className="text-2xl mr-2">✅</span>
+                <h3 className="text-lg font-semibold text-green-800">Renda €2.300/mês</h3>
+              </div>
+              <div className="space-y-2 text-sm">
+                <div className="flex justify-between">
+                  <span>Renda anual:</span>
+                  <span className="font-medium">€27.600</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Taxa aplicável:</span>
+                  <span className="font-medium text-green-600">10%</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Imposto:</span>
+                  <span className="font-medium">€2.760</span>
+                </div>
+                <div className="flex justify-between border-t pt-2">
+                  <span className="font-semibold">Lucro líquido:</span>
+                  <span className="font-bold text-green-600">€24.840</span>
+                </div>
+              </div>
+            </div>
+
+            {/* €2,600 rent */}
+            <div className="bg-white rounded-lg border border-red-300 p-5">
+              <div className="flex items-center mb-3">
+                <span className="text-2xl mr-2">❌</span>
+                <h3 className="text-lg font-semibold text-red-800">Renda €2.600/mês</h3>
+              </div>
+              <div className="space-y-2 text-sm">
+                <div className="flex justify-between">
+                  <span>Renda anual:</span>
+                  <span className="font-medium">€31.200</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Taxa aplicável:</span>
+                  <span className="font-medium text-red-600">25%</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Imposto:</span>
+                  <span className="font-medium">€7.800</span>
+                </div>
+                <div className="flex justify-between border-t pt-2">
+                  <span className="font-semibold">Lucro líquido:</span>
+                  <span className="font-bold text-red-600">€23.400</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 bg-orange-100 rounded-lg p-4 text-center">
+            <p className="text-orange-800 font-semibold text-lg">
+              Resultado: €2.300/mês rende €1.440 mais por ano que €2.600/mês!
+            </p>
+            <p className="text-orange-700 text-sm mt-2">
+              Esta diferença incentiva proprietários a manter rendas artificialmente baixas no limite de €2.300,
+              reduzindo a oferta de habitação em faixas de preço intermédias.
+            </p>
           </div>
         </div>
 
