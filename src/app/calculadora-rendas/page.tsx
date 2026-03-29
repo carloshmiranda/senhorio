@@ -28,6 +28,9 @@ export default function RentIncreaseCalculatorPage() {
   const [contractDate, setContractDate] = useState<string>("2020-01-01");
   const [propertyType, setPropertyType] = useState<"residential" | "commercial">("residential");
   const [lastIncreaseDate, setLastIncreaseDate] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [emailSubmitted, setEmailSubmitted] = useState<boolean>(false);
+  const [emailLoading, setEmailLoading] = useState<boolean>(false);
 
   const contractRules = useMemo((): ContractRule[] => {
     const rent = parseFloat(currentRent) || 0;
@@ -120,6 +123,44 @@ export default function RentIncreaseCalculatorPage() {
     const months = today.getMonth() - start.getMonth();
     return { years, months: months < 0 ? months + 12 : months };
   }, [contractDate]);
+
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || emailSubmitted) return;
+
+    setEmailLoading(true);
+    try {
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          source: 'rent_increase_calculator',
+          metadata: {
+            currentRent: parseFloat(currentRent),
+            contractDate,
+            propertyType,
+            lastIncreaseDate,
+            maxIncrease: newMaxRent - (parseFloat(currentRent) || 0),
+            newMaxRent,
+            applicableRule: applicableRule.name,
+            coefficient: applicableRule.coefficient
+          }
+        }),
+      });
+
+      const data = await response.json();
+      if (data.ok) {
+        setEmailSubmitted(true);
+      }
+    } catch (error) {
+      console.error('Error submitting email:', error);
+    } finally {
+      setEmailLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -369,6 +410,60 @@ export default function RentIncreaseCalculatorPage() {
             especializado em arrendamento urbano para aconselhamento personalizado sobre o seu caso específico.
           </p>
         </div>
+
+        {/* Email Capture for Tax Deadlines */}
+        {maxIncrease > 0 && !emailSubmitted && (
+          <div className="mt-8 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-xl border border-orange-200 p-6">
+            <div className="text-center">
+              <div className="text-2xl mb-2">📅</div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Receba alertas de prazos fiscais
+              </h3>
+              <p className="text-gray-700 mb-4">
+                Nunca perca os prazos importantes! Receba lembretes sobre comunicações de aumentos,
+                declarações de rendas e outras obrigações fiscais para senhorios portugueses.
+              </p>
+
+              <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto">
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="o-seu-email@exemplo.com"
+                    required
+                    className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  />
+                  <button
+                    type="submit"
+                    disabled={emailLoading || !email}
+                    className="px-6 py-3 bg-orange-600 text-white rounded-lg font-medium hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition"
+                  >
+                    {emailLoading ? 'A enviar...' : 'Receber Alertas'}
+                  </button>
+                </div>
+              </form>
+
+              <p className="text-xs text-gray-500 mt-3">
+                💡 Também receberá dicas fiscais exclusivas e atualizações sobre novas ferramentas para senhorios
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Email Submitted Confirmation */}
+        {emailSubmitted && (
+          <div className="mt-8 bg-green-50 border border-green-200 rounded-xl p-6 text-center">
+            <div className="text-3xl mb-2">✅</div>
+            <h3 className="text-lg font-semibold text-green-800 mb-2">
+              Alertas configurados com sucesso!
+            </h3>
+            <p className="text-green-700">
+              Enviámos a confirmação para <strong>{email}</strong>.
+              Nunca mais perderá um prazo fiscal importante!
+            </p>
+          </div>
+        )}
 
         {/* CTA */}
         <div className="mt-8 bg-blue-50 rounded-xl p-6 text-center">
