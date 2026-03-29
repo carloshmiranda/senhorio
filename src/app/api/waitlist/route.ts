@@ -4,11 +4,11 @@ function json(data: any, status = 200) {
   return NextResponse.json(data, { status });
 }
 
-// POST /api/waitlist — join the waitlist
+// POST /api/waitlist — join the waitlist or verify email
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { email, name } = body as { email?: string; name?: string };
+    const { email, name, verify_only } = body as { email?: string; name?: string; verify_only?: boolean };
 
     if (!email || !email.includes("@")) {
       return json({ ok: false, error: "Valid email is required" }, 400);
@@ -24,6 +24,36 @@ export async function POST(req: NextRequest) {
       // Import Resend dynamically
       const { Resend } = await import('resend');
       const resend = new Resend(resendKey);
+
+      if (verify_only) {
+        // Verify if email exists in waitlist
+        try {
+          // Try to get contact list and find the email
+          const contacts = await resend.contacts.list();
+
+          if (contacts.error) {
+            console.error("Error listing contacts:", contacts.error);
+            return json({ ok: false, error: "Could not verify email" }, 500);
+          }
+
+          const contactExists = contacts.data?.data?.some(contact =>
+            contact.email.toLowerCase() === email.toLowerCase()
+          );
+
+          if (contactExists) {
+            return json({
+              ok: true,
+              message: "Email found in waitlist",
+              verified: true
+            });
+          } else {
+            return json({ ok: false, error: "Email not found in waitlist" }, 404);
+          }
+        } catch (verifyError: any) {
+          console.error("Email verification error:", verifyError);
+          return json({ ok: false, error: "Could not verify email" }, 500);
+        }
+      }
 
       // Create contact in Resend
       const contact = await resend.contacts.create({
