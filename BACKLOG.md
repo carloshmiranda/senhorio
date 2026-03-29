@@ -71,20 +71,84 @@ _(None)_
   - Database integration with email_sequences table
 - **Impact**: Enables automated user engagement, waitlist conversion, and viral growth through professional email communication
 
+## ✅ Done (2026-03-29)
+
+### Pricing Page A/B Testing
+- **Status**: ✅ Complete
+- **Description**: Implemented A/B testing for pricing page with three distinct messaging variants
+- **Deliverables**:
+  - `PricingABTest.tsx` component with 3 variants (control, value_focused, compliance_focused)
+  - Session-based variant assignment for consistent user experience
+  - Analytics tracking for variant exposure, assignment, and CTA clicks
+  - Integration with payment intent capture modal
+- **Impact**: Enables data-driven optimization of pricing page conversion rates
+
+### Payment Intent Capture
+- **Status**: ✅ Complete
+- **Description**: Implemented email capture system for users who show purchase intent by clicking pricing plans
+- **Deliverables**:
+  - `PaymentIntentModal.tsx` component for email capture after pricing CTA clicks
+  - `/api/payment-intent` endpoint for storing user interest with plan details
+  - Rich metadata capture including UTM parameters, plan details, and user context
+  - Success/error handling and analytics tracking
+- **Impact**: Captures high-intent leads who show willingness to pay, enabling targeted follow-up
+
+### Waitlist Survey
+- **Status**: ✅ Complete
+- **Description**: Comprehensive survey system to validate willingness to pay and feature priorities
+- **Deliverables**:
+  - `/survey` page with multi-step form (email verification → survey → success)
+  - `/api/waitlist-survey` endpoint with detailed response analytics
+  - Survey captures willingness to pay, maximum price, valuable features, current solutions
+  - Admin statistics endpoint for analyzing survey responses
+  - Integration with existing waitlist system for user verification
+- **Impact**: Validates product-market fit and pricing with engaged waitlist users
+
+### Auth System
+- **Status**: ✅ Complete
+- **Description**: Full user authentication system with JWT tokens and secure password handling
+- **Deliverables**:
+  - `auth.ts` library with JWT token creation/verification and password hashing
+  - `/api/auth` endpoint handling login, register, logout, and session checking
+  - `/login` and `/register` pages with form validation and error handling
+  - Cookie-based authentication with secure httpOnly settings
+  - Edge-runtime compatible implementation using Web Crypto API
+- **Impact**: Enables secure user accounts and access to dashboard features
+
+### Property Dashboard
+- **Status**: ✅ Complete
+- **Description**: Basic portfolio management dashboard with property and payment tracking
+- **Deliverables**:
+  - `/dashboard` page displaying property statistics and recent payments
+  - `/api/properties` endpoint for property management
+  - `/api/payments` endpoint for payment tracking
+  - Dashboard shows total properties, active tenants, monthly income, payment status
+  - Integration with authentication system for user-specific data
+- **Impact**: Provides core portfolio management functionality for logged-in users
+
+### Stripe Integration
+- **Status**: ✅ Complete
+- **Description**: Payment processing system with subscription management
+- **Deliverables**:
+  - `/checkout` page with Stripe Checkout session creation
+  - `/api/webhooks/stripe` endpoint handling subscription lifecycle events
+  - Customer status tracking (active/churned) based on Stripe events
+  - Secure webhook signature verification
+  - Integration with customer database for subscription management
+- **Impact**: Enables subscription billing and payment processing for the MVP
+
 ## 📋 Todo
 
-### Phase: Validate (Current)
-_(All current validate phase tasks complete)_
+### Phase: MVP Enhancement (Next)
+- [ ] **Property Management** - Add/edit/delete properties and tenant information
+- [ ] **Receipt Generation** - Generate legal Portuguese rental receipts
+- [ ] **Tax Report Export** - Export data formatted for Portal das Finanças
+- [ ] **Email Notifications** - Payment reminders and deadline alerts
 
-### Phase: Test Intent (Next)
-- [ ] **Pricing Page A/B Testing** - Test different pricing copy and track clicks
-- [ ] **Payment Intent Capture** - Email capture on "buy" button clicks
-- [ ] **Waitlist Survey** - Validate willingness to pay after 50+ signups
-
-### Phase: Build MVP (Future)
-- [ ] **Auth System** - User registration and authentication
-- [ ] **Property Dashboard** - Basic portfolio management
-- [ ] **Stripe Integration** - Payment processing setup
+### Phase: Scale & Optimize (Future)
+- [ ] **Advanced Analytics** - Detailed reporting on portfolio performance
+- [ ] **Mobile App** - Native iOS/Android applications
+- [ ] **API Integration** - Connect with accounting software and banks
 
 ## 🐛 Known Issues
 
@@ -96,4 +160,4 @@ _(None currently)_
 
 ---
 
-**Last Updated**: 2026-03-23 by Engineer Agent (Cycle 7)
+**Last Updated**: 2026-03-29 by Engineer Agent (Cycle 8)
