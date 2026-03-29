@@ -19,15 +19,27 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const router = useRouter();
   const [user, setUser] = useState<{ name?: string; email: string } | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("/api/auth")
       .then((r) => r.json())
       .then((d) => {
-        if (d.ok && d.user) setUser(d.user);
+        if (d.ok && d.user) {
+          setUser(d.user);
+          setLoading(false);
+        } else {
+          // No user found, redirect to login with return URL
+          const currentPath = window.location.pathname + window.location.search;
+          router.push(`/login?redirect=${encodeURIComponent(currentPath)}`);
+        }
       })
-      .catch(() => {});
-  }, []);
+      .catch(() => {
+        // Auth check failed, redirect to login
+        const currentPath = window.location.pathname + window.location.search;
+        router.push(`/login?redirect=${encodeURIComponent(currentPath)}`);
+      });
+  }, [router]);
 
   async function handleLogout() {
     await fetch("/api/auth", {
@@ -36,6 +48,19 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       body: JSON.stringify({ action: "logout" }),
     });
     router.push("/login");
+  }
+
+  // Show loading screen while checking auth
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-8 h-8 bg-blue-600 rounded-lg mx-auto mb-4"></div>
+          <div className="text-lg font-semibold text-gray-900 mb-2">Senhorio</div>
+          <div className="text-sm text-gray-500">A carregar...</div>
+        </div>
+      </div>
+    );
   }
 
   return (
