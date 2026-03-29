@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { track } from "@vercel/analytics";
 import PaymentIntentModal from "@/components/PaymentIntentModal";
+import PricingABTest from "@/components/PricingABTest";
 
 const LAUNCH_MODE = process.env.NEXT_PUBLIC_LAUNCH_MODE || "waitlist";
 
@@ -307,7 +308,7 @@ export default function HomePage() {
         </div>
         <div className="hidden md:flex items-center space-x-8">
           <a href="#funcionalidades" className="text-gray-600 hover:text-gray-900 transition">Funcionalidades</a>
-          <a href="#precos" className="text-gray-600 hover:text-gray-900 transition">Preços</a>
+          <a href="#pricing" className="text-gray-600 hover:text-gray-900 transition">Preços</a>
           <a href="#faq" className="text-gray-600 hover:text-gray-900 transition">FAQ</a>
           <Link
             href="/calculadora"
@@ -508,111 +509,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Precos */}
-      <section id="precos" className="max-w-7xl mx-auto px-6 py-20">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Preços simples e transparentes</h2>
-          <p className="text-xl text-gray-600">Escolha o plano que se adequa ao tamanho do seu portfólio</p>
-        </div>
-
-        <div className="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {[
-            {
-              name: "Grátis",
-              price: "€0",
-              period: "para sempre",
-              description: "Ideal para experimentar o Senhorio",
-              features: [
-                "Simulador fiscal (todos os 4 regimes)",
-                "Calculadora de atualização de rendas",
-                "Acompanhamento de 1 imóvel",
-                "Checklist básica de conformidade",
-                "Suporte por email"
-              ],
-              cta: "Começar",
-              popular: false
-            },
-            {
-              name: "Senhorio Pro",
-              price: "€9",
-              period: "por mês",
-              description: "Para senhorios com vários imóveis",
-              features: [
-                "Até 5 imóveis",
-                "Emissão automática de recibos",
-                "Registo e categorização de despesas",
-                "Exportação para Anexo F do IRS",
-                "Notificações por email",
-                "Suporte prioritário"
-              ],
-              cta: "Experimentar Grátis",
-              popular: true
-            },
-            {
-              name: "Senhorio Premium",
-              price: "€19",
-              period: "por mês",
-              description: "Para profissionais de gestão de imóveis",
-              features: [
-                "Até 20 imóveis",
-                "Gestão multi-entidade",
-                "Exportação para contabilista (Excel/CSV)",
-                "Acesso API",
-                "Relatórios personalizados",
-                "Suporte telefónico"
-              ],
-              cta: "Contactar",
-              popular: false
-            }
-          ].map((plan, i) => (
-            <div key={i} className={`bg-white rounded-2xl shadow-lg p-8 relative ${plan.popular ? 'ring-2 ring-blue-500 scale-105' : ''}`}>
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium">Mais Popular</span>
-                </div>
-              )}
-              <div className="text-center mb-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                <div className="mb-2">
-                  <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
-                  <span className="text-gray-600">/{plan.period}</span>
-                </div>
-                <p className="text-gray-600">{plan.description}</p>
-              </div>
-
-              <ul className="space-y-4 mb-8">
-                {plan.features.map((feature, j) => (
-                  <li key={j} className="flex items-center">
-                    <CheckIcon />
-                    <span className="ml-3 text-gray-700">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {LAUNCH_MODE === "waitlist" ? (
-                <button
-                  onClick={() => {
-                    track("pricing_cta_click", {
-                      location: "pricing",
-                      plan: plan.name.toLowerCase(),
-                      popular: plan.popular,
-                      price: plan.price
-                    });
-                    handlePricingClick(plan);
-                  }}
-                  className={`w-full px-6 py-3 rounded-xl font-semibold transition text-center ${plan.popular ? 'bg-blue-600 text-white hover:bg-blue-700' : 'border border-gray-300 text-gray-700 hover:bg-gray-50'}`}
-                >
-                  {plan.name === "Grátis" ? "Experimentar Grátis" : "Registar Interesse"}
-                </button>
-              ) : (
-                <button className={`w-full px-6 py-3 rounded-xl font-semibold transition ${plan.popular ? 'bg-blue-600 text-white hover:bg-blue-700' : 'border border-gray-300 text-gray-700 hover:bg-gray-50'}`}>
-                  {plan.cta}
-                </button>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Preços A/B Test */}
+      <PricingABTest onPricingClick={handlePricingClick} />
 
       {/* FAQ */}
       <section id="faq" className="max-w-4xl mx-auto px-6 py-20">
@@ -713,7 +611,7 @@ export default function HomePage() {
                   </Link>
                 </li>
                 <li><a href="#funcionalidades" className="hover:text-white transition">Funcionalidades</a></li>
-                <li><a href="#precos" className="hover:text-white transition">Preços</a></li>
+                <li><a href="#pricing" className="hover:text-white transition">Preços</a></li>
               </ul>
             </div>
 
