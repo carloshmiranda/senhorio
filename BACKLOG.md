@@ -137,10 +137,23 @@ _(None)_
   - Integration with customer database for subscription management
 - **Impact**: Enables subscription billing and payment processing for the MVP
 
+## ✅ Done (2026-04-01)
+
+### Property Management
+- **Status**: ✅ Complete
+- **Description**: Full property and tenant management system with comprehensive CRUD operations
+- **Deliverables**:
+  - `/dashboard/properties/page.tsx` - Complete property management interface with add/edit/delete
+  - `/dashboard/properties/[id]/page.tsx` - Comprehensive tenant management for each property
+  - `/api/properties` and `/api/tenants` - Full CRUD APIs with proper validation and authorization
+  - Dashboard integration showing real-time stats (total properties, active tenants, monthly income)
+  - Portuguese-localized forms with proper field validation (VPT, typology, contract types)
+  - Empty state onboarding and responsive design
+- **Impact**: Landlords can now fully manage their rental property portfolio and tenant relationships
+
 ## 📋 Todo
 
 ### Phase: MVP Enhancement (Next)
-- [ ] **Property Management** - Add/edit/delete properties and tenant information
 - [ ] **Receipt Generation** - Generate legal Portuguese rental receipts
 - [ ] **Tax Report Export** - Export data formatted for Portal das Finanças
 - [ ] **Email Notifications** - Payment reminders and deadline alerts
