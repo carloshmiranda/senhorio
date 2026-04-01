@@ -4,6 +4,10 @@
 :root {
   --brand-primary: #2563eb;
   --brand-primary-hover: #1d4ed8;
+  --brand-amber: #f59e0b;
+  --brand-amber-hover: #d97706;
+  --brand-amber-light: #fef3c7;
+  --brand-amber-dark: #92400e;
 }
 
 body {
