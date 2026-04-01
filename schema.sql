@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS tenants (
   rent_amount     NUMERIC NOT NULL,
   payment_day     INTEGER NOT NULL DEFAULT 1 CHECK (payment_day >= 1 AND payment_day <= 31),
   deposit_amount  NUMERIC,
-  status          TEXT NOT NULL DEFAULT 'active' CHECK (status IN ('active', 'ended', 'pending')),
+  status          TEXT NOT NULL DEFAULT 'active' CHECK (status IN ('active', 'inactive', 'terminated')),
   created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
@@ -142,20 +142,24 @@ CREATE INDEX IF NOT EXISTS idx_rental_payments_due_date ON rental_payments(due_d
 -- Receipts: official rent receipts (Recibos de Renda)
 CREATE TABLE IF NOT EXISTS receipts (
   id              TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
-  payment_id      TEXT REFERENCES rental_payments(id),
   tenant_id       TEXT NOT NULL REFERENCES tenants(id),
   property_id     TEXT NOT NULL REFERENCES properties(id),
-  receipt_number  INTEGER NOT NULL,    -- sequential per owner
+  receipt_number  TEXT NOT NULL UNIQUE,        -- formatted receipt number (e.g. "20260401-001")
   amount          NUMERIC NOT NULL,
-  tax_regime      TEXT NOT NULL CHECK (tax_regime IN ('autonoma_25', 'autonoma_10', 'englobamento', 'simplificado')),
-  withholding_tax NUMERIC NOT NULL DEFAULT 0,
-  net_amount      NUMERIC NOT NULL,
-  issued_at       TIMESTAMPTZ,
+  period_month    INTEGER NOT NULL CHECK (period_month >= 1 AND period_month <= 12),
+  period_year     INTEGER NOT NULL CHECK (period_year >= 2020 AND period_year <= 2030),
+  issue_date      DATE NOT NULL,
+  -- Future tax compliance fields (will be added later)
+  payment_id      TEXT REFERENCES rental_payments(id),
+  tax_regime      TEXT CHECK (tax_regime IN ('autonoma_25', 'autonoma_10', 'englobamento', 'simplificado')),
+  withholding_tax NUMERIC DEFAULT 0,
+  net_amount      NUMERIC,
   sent_to_tenant_at TIMESTAMPTZ,
   portal_submitted_at TIMESTAMPTZ,
   pdf_url         TEXT,
-  status          TEXT NOT NULL DEFAULT 'draft' CHECK (status IN ('draft', 'issued', 'sent', 'submitted')),
-  created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
+  status          TEXT NOT NULL DEFAULT 'issued' CHECK (status IN ('draft', 'issued', 'sent', 'submitted')),
+  created_at      TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at      TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
 CREATE INDEX IF NOT EXISTS idx_receipts_tenant ON receipts(tenant_id);
