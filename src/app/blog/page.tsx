@@ -13,6 +13,14 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    slug: "irs-2026-guia-completo-simulador",
+    title: "IRS 2026: Guia Completo dos 3 Regimes Fiscais com Simulador",
+    excerpt: "O guia definitivo para senhorios portugueses sobre os três regimes fiscais do IRS 2026. RSAA 0%, renda moderada 10%, regime geral 25%, com exemplos práticos e simulador fiscal gratuito.",
+    publishedAt: "2026-04-02",
+    readTime: "25 min",
+    tags: ["IRS 2026", "RSAA 0%", "Taxa 10%", "Regime Geral", "Guia Completo", "Simulador"],
+  },
+  {
     slug: "simulador-fiscal-senhorios-2026",
     title: "Simulador Fiscal para Senhorios 2026: Calculadora de Impostos Grátis",
     excerpt: "Simulador fiscal gratuito para senhorios portugueses. Compare os 4 regimes fiscais, calcule IRS, simule poupanças e otimize impostos com ferramentas automáticas. Inclui nova taxa 10%.",
