@@ -28,12 +28,12 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
         p.address as property_address,
         p.city as property_city,
         p.municipality as property_municipality,
-        u.name as landlord_name,
-        u.email as landlord_email
+        c.name as landlord_name,
+        c.email as landlord_email
       FROM receipts r
       JOIN tenants t ON t.id = r.tenant_id
       JOIN properties p ON p.id = r.property_id
-      JOIN users u ON u.id = p.owner_id
+      JOIN customers c ON c.id = p.owner_id
       WHERE r.id = ${receiptId} AND p.owner_id = ${user.userId}
     `;
 
