@@ -54,7 +54,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
 
+    // Blog posts - New practical guides
+    {
+      url: `${baseUrl}/blog/despesas-dedutiveis-arrendamento-2026`,
+      lastModified: new Date("2026-04-04"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog/registo-contrato-arrendamento-at-2026`,
+      lastModified: new Date("2026-04-04"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+
     // Blog posts - IRS & Tax content
+    {
+      url: `${baseUrl}/blog/irs-2026-guia-completo-simulador`,
+      lastModified: new Date("2026-04-02"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog/irs-senhorios-2026-guia-definitivo`,
+      lastModified: new Date("2026-04-01"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
     {
       url: `${baseUrl}/blog/irs-arrendamento-2026-nova-taxa-10-porcento`,
       lastModified: new Date("2026-03-21"),

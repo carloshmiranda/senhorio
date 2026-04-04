@@ -13,6 +13,22 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    slug: "registo-contrato-arrendamento-at-2026",
+    title: "Registo de Contrato de Arrendamento na AT 2026: Guia Completo",
+    excerpt: "Como registar o contrato de arrendamento na Autoridade Tributária em 2026. Prazos obrigatórios, documentos necessários, passo a passo no Portal das Finanças e coimas por incumprimento.",
+    publishedAt: "2026-04-04",
+    readTime: "11 min",
+    tags: ["Obrigação Legal", "Portal Finanças", "Contrato Arrendamento", "AT"],
+  },
+  {
+    slug: "despesas-dedutiveis-arrendamento-2026",
+    title: "Despesas Dedutíveis no Arrendamento 2026: Tudo o que Pode Declarar no IRS",
+    excerpt: "Guia completo das despesas dedutíveis no IRS de arrendamento 2026. Obras, condomínio, seguros, juros, IMI — saiba o que pode e não pode deduzir, com tabela resumo e exemplos com cálculos reais.",
+    publishedAt: "2026-04-04",
+    readTime: "13 min",
+    tags: ["Despesas Dedutíveis", "IRS 2026", "Englobamento", "Guia Prático"],
+  },
+  {
     slug: "irs-2026-guia-completo-simulador",
     title: "IRS 2026: Guia Completo dos 3 Regimes Fiscais com Simulador",
     excerpt: "O guia definitivo para senhorios portugueses sobre os três regimes fiscais do IRS 2026. RSAA 0%, renda moderada 10%, regime geral 25%, com exemplos práticos e simulador fiscal gratuito.",
