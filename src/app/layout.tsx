@@ -1,8 +1,23 @@
 import type { Metadata } from "next";
+import { IBM_Plex_Sans, Source_Sans_3 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import IrsAnnouncementBanner from "@/components/IrsAnnouncementBanner";
 import "./globals.css";
+
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const sourceSans3 = Source_Sans_3({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://senhorio.vercel.app"),
@@ -42,7 +57,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt">
+    <html lang="pt" className={`${ibmPlexSans.variable} ${sourceSans3.variable}`}>
       <head>
         <script
           type="application/ld+json"

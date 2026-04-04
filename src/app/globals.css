@@ -1,9 +1,27 @@
 @import "tailwindcss";
 
+@theme {
+  /* Brand color scale — teal (Real Estate/Property palette) */
+  --color-brand-50: #F0FDFA;
+  --color-brand-100: #CCFBF1;
+  --color-brand-200: #99F6E4;
+  --color-brand-300: #5EEAD4;
+  --color-brand-400: #2DD4BF;
+  --color-brand-500: #14B8A6;
+  --color-brand-600: #0F766E;
+  --color-brand-700: #0D6460;
+  --color-brand-800: #134E4A;
+  --color-brand-900: #0D3B38;
+
+  /* Typography */
+  --font-sans: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
 /* Brand design tokens */
 :root {
-  --brand-primary: #2563eb;
-  --brand-primary-hover: #1d4ed8;
+  --brand-primary: #0F766E;
+  --brand-primary-hover: #0D6460;
   --brand-amber: #f59e0b;
   --brand-amber-hover: #d97706;
   --brand-amber-light: #fef3c7;
@@ -11,6 +29,15 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
   margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
