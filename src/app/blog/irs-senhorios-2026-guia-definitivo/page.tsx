@@ -106,7 +106,7 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
           {/* Article Header */}
           <header className="mb-8">
             <div className="flex flex-wrap gap-2 mb-4">
-              <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full font-medium">
+              <span className="px-3 py-1 bg-brand-100 text-brand-700 text-sm rounded-full font-medium">
                 IRS 2026
               </span>
               <span className="px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full font-medium">
@@ -129,7 +129,7 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
               Nova taxa 10% para rendas moderadas, regime RSAA 0%, e guia completo do Anexo F passo a passo.
             </p>
 
-            <div className="flex items-center gap-4 text-sm text-gray-500 border-l-4 border-blue-500 pl-4">
+            <div className="flex items-center gap-4 text-sm text-gray-500 border-l-4 border-brand-500 pl-4">
               <time dateTime="2026-03-28T12:00:00.000Z">
                 28 de março de 2026
               </time>
@@ -141,7 +141,7 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
           </header>
 
           {/* Savings Calculator CTA */}
-          <div className="not-prose bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-xl p-6 mb-8">
+          <div className="not-prose bg-gradient-to-r from-green-50 to-brand-50 border border-green-200 rounded-xl p-6 mb-8">
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0">
                 <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
@@ -165,7 +165,7 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
                   </Link>
                   <Link
                     href="/calculadora-aimi"
-                    className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition"
+                    className="inline-flex items-center px-4 py-2 bg-brand-600 text-white rounded-lg font-medium hover:bg-brand-700 transition"
                   >
                     🏠 Calculadora AIMI →
                   </Link>
@@ -179,18 +179,18 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
             <h3 className="text-lg font-semibold text-gray-900 mb-4">📋 Índice Completo</h3>
             <div className="grid md:grid-cols-2 gap-4">
               <ol className="space-y-2 text-sm">
-                <li><a href="#revolucao-fiscal-2026" className="text-blue-600 hover:text-blue-800">1. Revolução Fiscal 2026</a></li>
-                <li><a href="#taxa-10-porcento" className="text-blue-600 hover:text-blue-800">2. Nova Taxa 10% (≤€2.300/mês)</a></li>
-                <li><a href="#regime-rsaa" className="text-blue-600 hover:text-blue-800">3. Regime RSAA 0%</a></li>
-                <li><a href="#comparacao-regimes" className="text-blue-600 hover:text-blue-800">4. Comparação dos 4 Regimes</a></li>
-                <li><a href="#anexo-f-passo-a-passo" className="text-blue-600 hover:text-blue-800">5. Anexo F: Guia Passo a Passo</a></li>
+                <li><a href="#revolucao-fiscal-2026" className="text-brand-600 hover:text-brand-800">1. Revolução Fiscal 2026</a></li>
+                <li><a href="#taxa-10-porcento" className="text-brand-600 hover:text-brand-800">2. Nova Taxa 10% (≤€2.300/mês)</a></li>
+                <li><a href="#regime-rsaa" className="text-brand-600 hover:text-brand-800">3. Regime RSAA 0%</a></li>
+                <li><a href="#comparacao-regimes" className="text-brand-600 hover:text-brand-800">4. Comparação dos 4 Regimes</a></li>
+                <li><a href="#anexo-f-passo-a-passo" className="text-brand-600 hover:text-brand-800">5. Anexo F: Guia Passo a Passo</a></li>
               </ol>
               <ol start={6} className="space-y-2 text-sm">
-                <li><a href="#simulacoes-praticas" className="text-blue-600 hover:text-blue-800">6. Simulações Práticas</a></li>
-                <li><a href="#estrategias-otimizacao" className="text-blue-600 hover:text-blue-800">7. Estratégias de Otimização</a></li>
-                <li><a href="#senhorios-nao-residentes" className="text-blue-600 hover:text-blue-800">8. Senhorios Não-Residentes</a></li>
-                <li><a href="#prazos-documentos" className="text-blue-600 hover:text-blue-800">9. Prazos e Documentos</a></li>
-                <li><a href="#erros-comuns" className="text-blue-600 hover:text-blue-800">10. Erros Mais Comuns</a></li>
+                <li><a href="#simulacoes-praticas" className="text-brand-600 hover:text-brand-800">6. Simulações Práticas</a></li>
+                <li><a href="#estrategias-otimizacao" className="text-brand-600 hover:text-brand-800">7. Estratégias de Otimização</a></li>
+                <li><a href="#senhorios-nao-residentes" className="text-brand-600 hover:text-brand-800">8. Senhorios Não-Residentes</a></li>
+                <li><a href="#prazos-documentos" className="text-brand-600 hover:text-brand-800">9. Prazos e Documentos</a></li>
+                <li><a href="#erros-comuns" className="text-brand-600 hover:text-brand-800">10. Erros Mais Comuns</a></li>
               </ol>
             </div>
           </nav>
@@ -251,12 +251,12 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
                   <tr>
                     <td className="px-4 py-4 text-sm text-gray-900 font-medium">Dedução de Despesas</td>
                     <td className="px-4 py-4 text-sm text-gray-600">❌ Não permitido</td>
-                    <td className="px-4 py-4 text-sm text-blue-600">Simplicidade máxima</td>
+                    <td className="px-4 py-4 text-sm text-brand-600">Simplicidade máxima</td>
                   </tr>
                   <tr>
                     <td className="px-4 py-4 text-sm text-gray-900 font-medium">Agregação Familiar</td>
                     <td className="px-4 py-4 text-sm text-gray-600">✅ Opcional</td>
-                    <td className="px-4 py-4 text-sm text-blue-600">Flexibilidade total</td>
+                    <td className="px-4 py-4 text-sm text-brand-600">Flexibilidade total</td>
                   </tr>
                   <tr>
                     <td className="px-4 py-4 text-sm text-gray-900 font-medium">Complexidade</td>
@@ -300,9 +300,9 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
             <h3>🏠 Critérios para RSAA 0%</h3>
 
             <div className="not-prose grid md:grid-cols-2 gap-6 mb-6">
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
-                <h4 className="text-blue-900 font-semibold mb-3">✅ Requisitos de Elegibilidade</h4>
-                <ul className="text-blue-800 space-y-2 text-sm">
+              <div className="bg-brand-50 border border-brand-200 rounded-xl p-6">
+                <h4 className="text-brand-900 font-semibold mb-3">✅ Requisitos de Elegibilidade</h4>
+                <ul className="text-brand-800 space-y-2 text-sm">
                   <li>• Renda ≤80% valor médio da zona</li>
                   <li>• Contrato mínimo 5 anos</li>
                   <li>• Certificação energética ≥C</li>
@@ -348,9 +348,9 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
                     <td className="px-3 py-4 text-sm text-gray-600">Habitação acessível</td>
                     <td className="px-3 py-4 text-sm text-green-600">🟢 Baixa</td>
                   </tr>
-                  <tr className="bg-blue-25">
-                    <td className="px-3 py-4 text-sm font-medium text-blue-900">Taxa 10%</td>
-                    <td className="px-3 py-4 text-sm text-blue-700">10%</td>
+                  <tr className="bg-brand-50">
+                    <td className="px-3 py-4 text-sm font-medium text-brand-900">Taxa 10%</td>
+                    <td className="px-3 py-4 text-sm text-brand-700">10%</td>
                     <td className="px-3 py-4 text-sm text-gray-600">❌ Não</td>
                     <td className="px-3 py-4 text-sm text-gray-600">Rendas ≤€2.300, poucas despesas</td>
                     <td className="px-3 py-4 text-sm text-green-600">🟢 Baixa</td>
@@ -380,16 +380,16 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
               Seguindo este guia, consegue preencher corretamente e maximizar as suas deduções.
             </p>
 
-            <div className="not-prose bg-blue-50 border border-blue-200 rounded-xl p-6 mb-6">
-              <h4 className="text-blue-900 font-semibold mb-3">📋 Documentos Necessários para o Anexo F</h4>
+            <div className="not-prose bg-brand-50 border border-brand-200 rounded-xl p-6 mb-6">
+              <h4 className="text-brand-900 font-semibold mb-3">📋 Documentos Necessários para o Anexo F</h4>
               <div className="grid md:grid-cols-2 gap-4">
-                <ul className="text-blue-800 space-y-2 text-sm">
+                <ul className="text-brand-800 space-y-2 text-sm">
                   <li>• ✅ Recibos de renda (todos os meses)</li>
                   <li>• ✅ Faturas de obras e reparações</li>
                   <li>• ✅ Seguros da propriedade</li>
                   <li>• ✅ Comissões de mediação</li>
                 </ul>
-                <ul className="text-blue-800 space-y-2 text-sm">
+                <ul className="text-brand-800 space-y-2 text-sm">
                   <li>• ✅ Juros de empréstimos habitação</li>
                   <li>• ✅ IMI pago</li>
                   <li>• ✅ Taxas municipais</li>
@@ -459,8 +459,8 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
 
             <div className="not-prose space-y-8 mb-8">
               {/* Simulação 1 */}
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-xl p-6">
-                <h4 className="text-blue-900 font-bold mb-4">💰 Simulação 1: T1 em Lisboa - Poupança €1.080/ano</h4>
+              <div className="bg-gradient-to-r from-brand-50 to-purple-50 border border-brand-200 rounded-xl p-6">
+                <h4 className="text-brand-900 font-bold mb-4">💰 Simulação 1: T1 em Lisboa - Poupança €1.080/ano</h4>
                 <div className="grid md:grid-cols-3 gap-6">
                   <div>
                     <h5 className="font-semibold text-gray-900 mb-2">📊 Dados</h5>
@@ -476,7 +476,7 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
                     <ul className="space-y-1 text-sm">
                       <li>• Taxa 25%: <span className="text-red-600 font-medium">€1.950</span></li>
                       <li>• Taxa 10%: <span className="text-green-600 font-medium">€780</span></li>
-                      <li>• Englobamento: <span className="text-blue-600">€1.088</span></li>
+                      <li>• Englobamento: <span className="text-brand-600">€1.088</span></li>
                     </ul>
                   </div>
                   <div className="bg-white rounded-lg p-4 border border-green-200">
@@ -492,7 +492,7 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
               </div>
 
               {/* Simulação 2 */}
-              <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-xl p-6">
+              <div className="bg-gradient-to-r from-green-50 to-brand-50 border border-green-200 rounded-xl p-6">
                 <h4 className="text-green-900 font-bold mb-4">🏡 Simulação 2: T3 Porto c/ Empréstimo - Poupança €2.340/ano</h4>
                 <div className="grid md:grid-cols-3 gap-6">
                   <div>
@@ -631,9 +631,9 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
                   <li>• <strong>Mensal:</strong> Recibos eletrónicos (até dia 10)</li>
                 </ul>
               </div>
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
-                <h4 className="text-blue-900 font-semibold mb-3">📋 Checklist Documentos</h4>
-                <ul className="text-blue-800 space-y-2 text-sm">
+              <div className="bg-brand-50 border border-brand-200 rounded-xl p-6">
+                <h4 className="text-brand-900 font-semibold mb-3">📋 Checklist Documentos</h4>
+                <ul className="text-brand-800 space-y-2 text-sm">
                   <li>• ✅ Recibos renda (12 meses)</li>
                   <li>• ✅ Faturas despesas dedutíveis</li>
                   <li>• ✅ Extratos bancários empréstimos</li>
@@ -731,7 +731,7 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
                 }
               ].map((item, index) => (
                 <details key={index} className="border border-gray-200 rounded-xl p-6">
-                  <summary className="font-semibold text-gray-900 cursor-pointer hover:text-blue-600 transition">
+                  <summary className="font-semibold text-gray-900 cursor-pointer hover:text-brand-600 transition">
                     {item.pergunta}
                   </summary>
                   <p className="text-gray-600 mt-3 text-sm leading-relaxed">
@@ -742,7 +742,7 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
             </div>
 
             {/* Final CTA */}
-            <div className="not-prose mt-12 bg-gradient-to-r from-green-500 to-blue-600 rounded-xl p-8 text-white text-center">
+            <div className="not-prose mt-12 bg-gradient-to-r from-green-500 to-brand-600 rounded-xl p-8 text-white text-center">
               <h3 className="text-2xl font-bold mb-4">
                 💡 Maximize as Suas Poupanças Fiscais Agora
               </h3>
@@ -759,7 +759,7 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
                 </Link>
                 <Link
                   href="/#waitlist"
-                  className="px-6 py-3 border border-white text-white rounded-lg font-medium hover:bg-white hover:text-blue-600 transition"
+                  className="px-6 py-3 border border-white text-white rounded-lg font-medium hover:bg-white hover:text-brand-600 transition"
                 >
                   📧 Alertas Fiscais Gratuitos
                 </Link>
@@ -779,16 +779,16 @@ export default function IRSSenhorios2026GuiaDefinitivo() {
               <p className="text-gray-600 text-sm mb-4">
                 Coeficiente INE 2,24% e regras NRAU para aumentos legais de renda.
               </p>
-              <span className="text-blue-600 text-sm font-medium">Ler artigo →</span>
+              <span className="text-brand-600 text-sm font-medium">Ler artigo →</span>
             </Link>
-            <Link href="/calculadora" className="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition block bg-blue-50">
-              <h3 className="font-semibold text-blue-900 mb-2">
+            <Link href="/calculadora" className="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition block bg-brand-50">
+              <h3 className="font-semibold text-brand-900 mb-2">
                 🧮 Simulador IRS Senhorios 2026
               </h3>
-              <p className="text-blue-700 text-sm mb-4">
+              <p className="text-brand-700 text-sm mb-4">
                 Compare os 4 regimes fiscais e descubra a sua poupança exata.
               </p>
-              <span className="text-blue-600 text-sm font-medium">Usar simulador →</span>
+              <span className="text-brand-600 text-sm font-medium">Usar simulador →</span>
             </Link>
             <Link href="/calculadora-aimi" className="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition block bg-green-50">
               <h3 className="font-semibold text-green-900 mb-2">

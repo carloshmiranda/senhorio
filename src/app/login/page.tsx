@@ -49,11 +49,11 @@ function LoginForm() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gradient-to-br from-brand-50 via-white to-brand-50 flex items-center justify-center px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center space-x-2 mb-6">
-            <div className="w-10 h-10 bg-blue-600 rounded-lg"></div>
+            <div className="w-10 h-10 bg-brand-600 rounded-lg"></div>
             <span className="text-2xl font-bold text-gray-900">Senhorio</span>
           </Link>
           <h1 className="text-3xl font-bold text-gray-900">Iniciar Sessão</h1>
@@ -73,7 +73,7 @@ function LoginForm() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="o-seu@email.com"
-                className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent transition"
               />
             </div>
 
@@ -88,7 +88,7 @@ function LoginForm() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="A sua password"
-                className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent transition"
               />
             </div>
 
@@ -101,7 +101,7 @@ function LoginForm() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-6 py-3 bg-brand-600 text-white rounded-xl font-semibold hover:bg-brand-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? "A entrar..." : "Entrar"}
             </button>
@@ -110,7 +110,7 @@ function LoginForm() {
           <div className="mt-6 text-center">
             <p className="text-gray-600 text-sm">
               Ainda não tem conta?{" "}
-              <Link href="/register" className="text-blue-600 font-medium hover:text-blue-700">
+              <Link href="/register" className="text-brand-600 font-medium hover:text-brand-700">
                 Criar conta
               </Link>
             </p>

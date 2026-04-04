@@ -44,7 +44,7 @@ export default function RegistoContratoArrendamento2026Page() {
               <span className="px-3 py-1 bg-red-100 text-red-700 text-sm rounded-full font-medium">
                 Obrigação Legal
               </span>
-              <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full font-medium">
+              <span className="px-3 py-1 bg-brand-100 text-brand-700 text-sm rounded-full font-medium">
                 Portal das Finanças
               </span>
               <span className="px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full font-medium">
@@ -89,14 +89,14 @@ export default function RegistoContratoArrendamento2026Page() {
             <nav className="not-prose bg-gray-50 rounded-xl p-6 mb-8">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Índice</h3>
               <ol className="space-y-2 text-sm">
-                <li><a href="#obrigacao-legal" className="text-blue-600 hover:text-blue-800">1. Porquê é obrigatório registar?</a></li>
-                <li><a href="#o-que-registar" className="text-blue-600 hover:text-blue-800">2. O que tem de comunicar à AT</a></li>
-                <li><a href="#passo-a-passo" className="text-blue-600 hover:text-blue-800">3. Passo a passo no Portal das Finanças</a></li>
-                <li><a href="#documentos" className="text-blue-600 hover:text-blue-800">4. Documentos necessários</a></li>
-                <li><a href="#prazos" className="text-blue-600 hover:text-blue-800">5. Prazos e situações especiais</a></li>
-                <li><a href="#coimas" className="text-blue-600 hover:text-blue-800">6. Coimas por incumprimento</a></li>
-                <li><a href="#alteracoes" className="text-blue-600 hover:text-blue-800">7. Alterações e rescisões de contrato</a></li>
-                <li><a href="#faq" className="text-blue-600 hover:text-blue-800">8. Perguntas frequentes</a></li>
+                <li><a href="#obrigacao-legal" className="text-brand-600 hover:text-brand-800">1. Porquê é obrigatório registar?</a></li>
+                <li><a href="#o-que-registar" className="text-brand-600 hover:text-brand-800">2. O que tem de comunicar à AT</a></li>
+                <li><a href="#passo-a-passo" className="text-brand-600 hover:text-brand-800">3. Passo a passo no Portal das Finanças</a></li>
+                <li><a href="#documentos" className="text-brand-600 hover:text-brand-800">4. Documentos necessários</a></li>
+                <li><a href="#prazos" className="text-brand-600 hover:text-brand-800">5. Prazos e situações especiais</a></li>
+                <li><a href="#coimas" className="text-brand-600 hover:text-brand-800">6. Coimas por incumprimento</a></li>
+                <li><a href="#alteracoes" className="text-brand-600 hover:text-brand-800">7. Alterações e rescisões de contrato</a></li>
+                <li><a href="#faq" className="text-brand-600 hover:text-brand-800">8. Perguntas frequentes</a></li>
               </ol>
             </nav>
 
@@ -176,7 +176,7 @@ export default function RegistoContratoArrendamento2026Page() {
                 },
               ].map((s) => (
                 <div key={s.step} className="flex gap-4 bg-gray-50 rounded-xl p-5">
-                  <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
+                  <div className="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
                     {s.step}
                   </div>
                   <div>
@@ -194,9 +194,9 @@ export default function RegistoContratoArrendamento2026Page() {
             </p>
 
             <div className="not-prose grid md:grid-cols-2 gap-4 mb-6">
-              <div className="bg-blue-50 rounded-xl p-5">
-                <h4 className="font-semibold text-blue-900 mb-3">Sobre o imóvel</h4>
-                <ul className="text-blue-800 space-y-1 text-sm">
+              <div className="bg-brand-50 rounded-xl p-5">
+                <h4 className="font-semibold text-brand-900 mb-3">Sobre o imóvel</h4>
+                <ul className="text-brand-800 space-y-1 text-sm">
                   <li>• Artigo matricial (caderneta predial)</li>
                   <li>• Fração (se for apartamento: fração A, B...)</li>
                   <li>• Morada completa com código postal</li>
@@ -309,9 +309,9 @@ export default function RegistoContratoArrendamento2026Page() {
               arrendamento naquele imóvel.
             </p>
 
-            <div className="not-prose bg-blue-50 border border-blue-200 rounded-xl p-5 my-6">
-              <h4 className="text-blue-900 font-semibold mb-2">Sobre os recibos eletrónicos</h4>
-              <p className="text-blue-800 text-sm">
+            <div className="not-prose bg-brand-50 border border-brand-200 rounded-xl p-5 my-6">
+              <h4 className="text-brand-900 font-semibold mb-2">Sobre os recibos eletrónicos</h4>
+              <p className="text-brand-800 text-sm">
                 Registar o contrato na AT é o passo inicial. Depois, cada mês, tem de emitir
                 recibos eletrónicos no Portal das Finanças para cada renda recebida.
                 Os dois processos estão relacionados mas são distintos.{" "}
@@ -353,24 +353,24 @@ export default function RegistoContratoArrendamento2026Page() {
               ))}
             </div>
 
-            <div className="not-prose mt-10 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 text-white text-center">
+            <div className="not-prose mt-10 bg-gradient-to-r from-brand-600 to-brand-700 rounded-xl p-8 text-white text-center">
               <h3 className="text-xl font-bold mb-3">
                 Gerencie todos os seus arrendamentos num só lugar
               </h3>
-              <p className="text-blue-100 mb-6 text-sm max-w-lg mx-auto">
+              <p className="text-brand-100 mb-6 text-sm max-w-lg mx-auto">
                 O Senhorio ajuda-o a controlar prazos, rendas, recibos e obrigações fiscais —
                 tudo em português e desenhado para a realidade dos senhorios portugueses.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link
                   href="/#waitlist"
-                  className="px-6 py-3 bg-white text-blue-600 rounded-lg font-medium hover:bg-gray-100 transition text-sm"
+                  className="px-6 py-3 bg-white text-brand-600 rounded-lg font-medium hover:bg-gray-100 transition text-sm"
                 >
                   Entrar na Lista de Espera
                 </Link>
                 <Link
                   href="/blog/recibos-renda-eletronicos-guia-2026"
-                  className="px-6 py-3 border border-white text-white rounded-lg font-medium hover:bg-white hover:text-blue-600 transition text-sm"
+                  className="px-6 py-3 border border-white text-white rounded-lg font-medium hover:bg-white hover:text-brand-600 transition text-sm"
                 >
                   Ver Guia de Recibos
                 </Link>
@@ -388,21 +388,21 @@ export default function RegistoContratoArrendamento2026Page() {
                 Recibos de Renda Eletrónicos: Guia 2026
               </h3>
               <p className="text-gray-500 text-xs mb-3">Como emitir no Portal das Finanças.</p>
-              <span className="text-blue-600 text-xs font-medium">Ler artigo →</span>
+              <span className="text-brand-600 text-xs font-medium">Ler artigo →</span>
             </Link>
             <Link href="/blog/como-calcular-atualizacoes-renda-2026" className="border border-gray-200 rounded-xl p-5 hover:shadow-lg transition block">
               <h3 className="font-semibold text-gray-900 mb-2 text-sm">
                 Atualização de Rendas 2026
               </h3>
               <p className="text-gray-500 text-xs mb-3">Coeficiente INE 2,24% e regras NRAU.</p>
-              <span className="text-blue-600 text-xs font-medium">Ler artigo →</span>
+              <span className="text-brand-600 text-xs font-medium">Ler artigo →</span>
             </Link>
             <Link href="/blog/despesas-dedutiveis-arrendamento-2026" className="border border-gray-200 rounded-xl p-5 hover:shadow-lg transition block">
               <h3 className="font-semibold text-gray-900 mb-2 text-sm">
                 Despesas Dedutíveis no IRS 2026
               </h3>
               <p className="text-gray-500 text-xs mb-3">O que pode declarar para pagar menos.</p>
-              <span className="text-blue-600 text-xs font-medium">Ler artigo →</span>
+              <span className="text-brand-600 text-xs font-medium">Ler artigo →</span>
             </Link>
           </div>
         </section>

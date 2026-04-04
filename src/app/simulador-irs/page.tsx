@@ -145,7 +145,7 @@ export default function SimuladorIRSPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
+    <div className="min-h-screen bg-gradient-to-br from-brand-50 via-white to-green-50">
       {/* Header with 2026 highlight */}
       <header className="bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-6xl mx-auto px-6 py-6">
@@ -174,7 +174,7 @@ export default function SimuladorIRSPage() {
 
       <div className="max-w-6xl mx-auto px-6 py-8">
         {/* Key benefits banner */}
-        <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-xl p-6 mb-8">
+        <div className="bg-gradient-to-r from-brand-600 to-brand-700 text-white rounded-xl p-6 mb-8">
           <div className="grid md:grid-cols-3 gap-4 text-center">
             <div>
               <div className="text-2xl font-bold">10%</div>
@@ -210,7 +210,7 @@ export default function SimuladorIRSPage() {
                   placeholder="1200"
                   min="0"
                   step="50"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent text-lg"
                 />
                 <p className="text-sm text-gray-500 mt-1">
                   {parseFloat(monthlyRent) <= 2300 ?
@@ -228,7 +228,7 @@ export default function SimuladorIRSPage() {
                     onClick={() => setResidency("resident")}
                     className={`px-4 py-3 border rounded-lg font-medium transition ${
                       residency === "resident"
-                        ? "border-blue-500 bg-blue-50 text-blue-700"
+                        ? "border-brand-500 bg-brand-50 text-brand-700"
                         : "border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
                     }`}
                   >
@@ -238,7 +238,7 @@ export default function SimuladorIRSPage() {
                     onClick={() => setResidency("non-resident")}
                     className={`px-4 py-3 border rounded-lg font-medium transition ${
                       residency === "non-resident"
-                        ? "border-blue-500 bg-blue-50 text-blue-700"
+                        ? "border-brand-500 bg-brand-50 text-brand-700"
                         : "border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
                     }`}
                   >
@@ -256,7 +256,7 @@ export default function SimuladorIRSPage() {
                     onClick={() => setPropertyType("single")}
                     className={`px-4 py-3 border rounded-lg font-medium transition ${
                       propertyType === "single"
-                        ? "border-blue-500 bg-blue-50 text-blue-700"
+                        ? "border-brand-500 bg-brand-50 text-brand-700"
                         : "border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
                     }`}
                   >
@@ -266,7 +266,7 @@ export default function SimuladorIRSPage() {
                     onClick={() => setPropertyType("multiple")}
                     className={`px-4 py-3 border rounded-lg font-medium transition ${
                       propertyType === "multiple"
-                        ? "border-blue-500 bg-blue-50 text-blue-700"
+                        ? "border-brand-500 bg-brand-50 text-brand-700"
                         : "border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
                     }`}
                   >
@@ -334,7 +334,7 @@ export default function SimuladorIRSPage() {
 
         {/* Email Capture */}
         {bestScenario && bestScenario.savings && bestScenario.savings > 0 && !emailSubmitted && (
-          <div className="mt-8 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border-2 border-green-300 p-6">
+          <div className="mt-8 bg-gradient-to-r from-green-50 to-brand-50 rounded-xl border-2 border-green-300 p-6">
             <div className="text-center">
               <div className="text-3xl mb-3">💰</div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
@@ -399,7 +399,7 @@ export default function SimuladorIRSPage() {
                 className={`bg-white rounded-xl shadow-lg p-6 border-2 transition ${
                   scenario === bestScenario
                     ? "border-green-400 shadow-green-100"
-                    : "border-gray-200 hover:border-blue-300"
+                    : "border-gray-200 hover:border-brand-300"
                 }`}
               >
                 <div className="flex items-center justify-between mb-4">
@@ -412,7 +412,7 @@ export default function SimuladorIRSPage() {
                     </span>
                   )}
                   {scenario === bestScenario && (
-                    <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+                    <span className="px-2 py-1 bg-brand-100 text-brand-800 text-xs font-medium rounded-full">
                       Recomendado
                     </span>
                   )}
@@ -465,14 +465,14 @@ export default function SimuladorIRSPage() {
         </div>
 
         {/* 2026 Changes Highlight */}
-        <div className="mt-8 bg-blue-50 border border-blue-200 rounded-xl p-6">
-          <h3 className="text-xl font-bold text-blue-900 mb-4">
+        <div className="mt-8 bg-brand-50 border border-brand-200 rounded-xl p-6">
+          <h3 className="text-xl font-bold text-brand-900 mb-4">
             📋 Mudanças Fiscais de 2026 para Arrendamento
           </h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h4 className="font-semibold text-blue-800 mb-2">Novas Vantagens</h4>
-              <ul className="text-sm text-blue-700 space-y-2">
+              <h4 className="font-semibold text-brand-800 mb-2">Novas Vantagens</h4>
+              <ul className="text-sm text-brand-700 space-y-2">
                 <li>✅ Taxa reduzida de 10% para rendas até €2.300/mês</li>
                 <li>✅ Aplicável a contratos novos e existentes</li>
                 <li>✅ Válido de 2026 a 2029 (4 anos)</li>
@@ -480,8 +480,8 @@ export default function SimuladorIRSPage() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-blue-800 mb-2">Como Aplicar</h4>
-              <ul className="text-sm text-blue-700 space-y-2">
+              <h4 className="font-semibold text-brand-800 mb-2">Como Aplicar</h4>
+              <ul className="text-sm text-brand-700 space-y-2">
                 <li>📝 Opção automática na declaração IRS 2027</li>
                 <li>📝 Sem necessidade de procedimentos especiais</li>
                 <li>📝 Aplica-se ao rendimento de 2026 em diante</li>
@@ -525,7 +525,7 @@ export default function SimuladorIRSPage() {
         </div>
 
         {/* CTA to waitlist */}
-        <div className="mt-8 bg-blue-600 text-white rounded-xl p-6 text-center">
+        <div className="mt-8 bg-brand-600 text-white rounded-xl p-6 text-center">
           <h3 className="text-xl font-bold mb-2">
             Quer gerir as suas propriedades profissionalmente?
           </h3>
@@ -535,7 +535,7 @@ export default function SimuladorIRSPage() {
           </p>
           <Link
             href="/"
-            className="inline-block px-8 py-3 bg-white text-blue-600 rounded-lg font-medium hover:bg-gray-50 transition"
+            className="inline-block px-8 py-3 bg-white text-brand-600 rounded-lg font-medium hover:bg-gray-50 transition"
           >
             Juntar à Lista de Espera
           </Link>

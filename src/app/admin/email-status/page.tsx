@@ -65,7 +65,7 @@ export default function EmailStatusPage() {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-brand-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Loading email status...</p>
         </div>
       </div>
@@ -137,9 +137,9 @@ export default function EmailStatusPage() {
               <h2 className="text-xl font-semibold text-gray-900 mb-4">Email Sequences Overview</h2>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                <div className="bg-blue-50 p-4 rounded-lg">
-                  <div className="text-2xl font-bold text-blue-600">{status.sequencesCount}</div>
-                  <div className="text-sm text-blue-800">Active Sequences</div>
+                <div className="bg-brand-50 p-4 rounded-lg">
+                  <div className="text-2xl font-bold text-brand-600">{status.sequencesCount}</div>
+                  <div className="text-sm text-brand-800">Active Sequences</div>
                 </div>
                 <div className="bg-green-50 p-4 rounded-lg">
                   <div className="text-2xl font-bold text-green-600">
@@ -238,12 +238,12 @@ export default function EmailStatusPage() {
                   </ol>
                 </div>
 
-                <div className="p-4 bg-blue-50 border border-blue-200 rounded-md">
-                  <h3 className="text-sm font-medium text-blue-800 mb-2">Available Email Templates</h3>
-                  <p className="text-sm text-blue-700 mb-2">
+                <div className="p-4 bg-brand-50 border border-brand-200 rounded-md">
+                  <h3 className="text-sm font-medium text-brand-800 mb-2">Available Email Templates</h3>
+                  <p className="text-sm text-brand-700 mb-2">
                     These templates are ready to be configured once the database is set up:
                   </p>
-                  <ul className="text-sm text-blue-700 space-y-1">
+                  <ul className="text-sm text-brand-700 space-y-1">
                     <li>• <strong>Waitlist Welcome</strong> - Sent immediately when someone joins</li>
                     <li>• <strong>Calculator Follow-up</strong> - Sent 2h after using tax calculator</li>
                     <li>• <strong>AIMI Calculator Follow-up</strong> - Sent 1h after AIMI calculation</li>
@@ -282,7 +282,7 @@ export default function EmailStatusPage() {
           <div className="mt-6 text-center">
             <button
               onClick={fetchEmailStatus}
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-600"
             >
               🔄 Refresh Status
             </button>

@@ -42,7 +42,7 @@ export default function IRSArrendamento2026Page() {
           {/* Article Header */}
           <header className="mb-8">
             <div className="flex flex-wrap gap-2 mb-4">
-              <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full font-medium">
+              <span className="px-3 py-1 bg-brand-100 text-brand-700 text-sm rounded-full font-medium">
                 IRS 2026
               </span>
               <span className="px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full font-medium">
@@ -63,7 +63,7 @@ export default function IRSArrendamento2026Page() {
               corretamente o seu IRS sobre rendimentos de arrendamento.
             </p>
 
-            <div className="flex items-center gap-4 text-sm text-gray-500 border-l-4 border-blue-500 pl-4">
+            <div className="flex items-center gap-4 text-sm text-gray-500 border-l-4 border-brand-500 pl-4">
               <time dateTime="2026-03-21T10:00:00.000Z">
                 21 de março de 2026
               </time>
@@ -75,16 +75,16 @@ export default function IRSArrendamento2026Page() {
           {/* Content */}
           <div className="prose prose-gray prose-lg max-w-none">
             {/* Quick Calculator CTA */}
-            <div className="not-prose bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
-              <h3 className="text-lg font-semibold text-blue-900 mb-2">
+            <div className="not-prose bg-brand-50 border border-brand-200 rounded-xl p-6 mb-8">
+              <h3 className="text-lg font-semibold text-brand-900 mb-2">
                 🧮 Calcule o Seu IRS Agora
               </h3>
-              <p className="text-blue-700 mb-4">
+              <p className="text-brand-700 mb-4">
                 Use o nosso simulador gratuito para comparar as diferentes opções fiscais de 2026.
               </p>
               <Link
                 href="/calculadora"
-                className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition"
+                className="inline-flex items-center px-4 py-2 bg-brand-600 text-white rounded-lg font-medium hover:bg-brand-700 transition"
               >
                 Abrir Simulador IRS 2026 →
               </Link>
@@ -94,13 +94,13 @@ export default function IRSArrendamento2026Page() {
             <nav className="not-prose bg-gray-50 rounded-xl p-6 mb-8">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Índice</h3>
               <ol className="space-y-2 text-sm">
-                <li><a href="#novidades-2026" className="text-blue-600 hover:text-blue-800">1. Principais Novidades Fiscais de 2026</a></li>
-                <li><a href="#taxa-10-porcento" className="text-blue-600 hover:text-blue-800">2. Nova Taxa de 10%: Como Funciona</a></li>
-                <li><a href="#regimes-fiscais" className="text-blue-600 hover:text-blue-800">3. Comparação dos Regimes Fiscais</a></li>
-                <li><a href="#agregacao-familiar" className="text-blue-600 hover:text-blue-800">4. Agregação Familiar: Novas Regras</a></li>
-                <li><a href="#calculadora-pratica" className="text-blue-600 hover:text-blue-800">5. Como Calcular o Seu IRS</a></li>
-                <li><a href="#exemplos-praticos" className="text-blue-600 hover:text-blue-800">6. Exemplos Práticos</a></li>
-                <li><a href="#deadlines-obrigacoes" className="text-blue-600 hover:text-blue-800">7. Prazos e Obrigações</a></li>
+                <li><a href="#novidades-2026" className="text-brand-600 hover:text-brand-800">1. Principais Novidades Fiscais de 2026</a></li>
+                <li><a href="#taxa-10-porcento" className="text-brand-600 hover:text-brand-800">2. Nova Taxa de 10%: Como Funciona</a></li>
+                <li><a href="#regimes-fiscais" className="text-brand-600 hover:text-brand-800">3. Comparação dos Regimes Fiscais</a></li>
+                <li><a href="#agregacao-familiar" className="text-brand-600 hover:text-brand-800">4. Agregação Familiar: Novas Regras</a></li>
+                <li><a href="#calculadora-pratica" className="text-brand-600 hover:text-brand-800">5. Como Calcular o Seu IRS</a></li>
+                <li><a href="#exemplos-praticos" className="text-brand-600 hover:text-brand-800">6. Exemplos Práticos</a></li>
+                <li><a href="#deadlines-obrigacoes" className="text-brand-600 hover:text-brand-800">7. Prazos e Obrigações</a></li>
               </ol>
             </nav>
 
@@ -259,7 +259,7 @@ export default function IRSArrendamento2026Page() {
                   </div>
                   <div>
                     <p><strong>Melhor opção: Englobamento</strong></p>
-                    <ul className="text-blue-600 space-y-1">
+                    <ul className="text-brand-600 space-y-1">
                       <li>• Rendimento tributável: €10,000</li>
                       <li>• Aproveitamento de deduções</li>
                       <li>• Menor carga fiscal</li>
@@ -282,9 +282,9 @@ export default function IRSArrendamento2026Page() {
                   </ul>
                 </div>
 
-                <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
-                  <h4 className="text-blue-900 font-semibold mb-3">📋 Documentos Necessários</h4>
-                  <ul className="text-blue-800 space-y-2 text-sm">
+                <div className="bg-brand-50 border border-brand-200 rounded-xl p-6">
+                  <h4 className="text-brand-900 font-semibold mb-3">📋 Documentos Necessários</h4>
+                  <ul className="text-brand-800 space-y-2 text-sm">
                     <li>• Recibos de renda pagos</li>
                     <li>• Faturas de despesas dedutíveis</li>
                     <li>• Caderneta predial</li>
@@ -294,23 +294,23 @@ export default function IRSArrendamento2026Page() {
               </div>
             </div>
 
-            <div className="not-prose mt-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-8 text-white text-center">
+            <div className="not-prose mt-12 bg-gradient-to-r from-brand-500 to-purple-600 rounded-xl p-8 text-white text-center">
               <h3 className="text-xl font-bold mb-4">
                 Simplifique a Sua Gestão Fiscal
               </h3>
-              <p className="mb-6 text-blue-100">
+              <p className="mb-6 text-brand-100">
                 O Senhorio ajuda a calcular, comparar e otimizar os seus impostos automaticamente.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/calculadora"
-                  className="px-6 py-3 bg-white text-blue-600 rounded-lg font-medium hover:bg-gray-100 transition"
+                  className="px-6 py-3 bg-white text-brand-600 rounded-lg font-medium hover:bg-gray-100 transition"
                 >
                   Usar Calculadora Gratuita
                 </Link>
                 <Link
                   href="/"
-                  className="px-6 py-3 border border-white text-white rounded-lg font-medium hover:bg-white hover:text-blue-600 transition"
+                  className="px-6 py-3 border border-white text-white rounded-lg font-medium hover:bg-white hover:text-brand-600 transition"
                 >
                   Saber Mais sobre o Senhorio
                 </Link>
@@ -330,7 +330,7 @@ export default function IRSArrendamento2026Page() {
               <p className="text-gray-600 text-sm mb-4">
                 Coeficiente INE 2,24% e regras NRAU para aumentos de renda.
               </p>
-              <span className="text-blue-600 text-sm font-medium">Ler artigo →</span>
+              <span className="text-brand-600 text-sm font-medium">Ler artigo →</span>
             </Link>
             <Link href="/blog/recibos-renda-eletronicos-guia-2026" className="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition block">
               <h3 className="font-semibold text-gray-900 mb-2">
@@ -339,7 +339,7 @@ export default function IRSArrendamento2026Page() {
               <p className="text-gray-600 text-sm mb-4">
                 Como emitir recibos eletrónicos no Portal das Finanças, prazos e coimas.
               </p>
-              <span className="text-blue-600 text-sm font-medium">Ler artigo →</span>
+              <span className="text-brand-600 text-sm font-medium">Ler artigo →</span>
             </Link>
           </div>
         </section>

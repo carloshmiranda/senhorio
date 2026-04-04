@@ -203,7 +203,7 @@ export default function RentIncreaseCalculatorPage() {
                   placeholder="800"
                   min="0"
                   step="10"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -215,7 +215,7 @@ export default function RentIncreaseCalculatorPage() {
                   type="date"
                   value={contractDate}
                   onChange={(e) => setContractDate(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -228,7 +228,7 @@ export default function RentIncreaseCalculatorPage() {
                     onClick={() => setPropertyType("residential")}
                     className={`px-4 py-3 border rounded-lg font-medium transition ${
                       propertyType === "residential"
-                        ? "border-blue-500 bg-blue-50 text-blue-700"
+                        ? "border-brand-500 bg-brand-50 text-brand-700"
                         : "border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
                     }`}
                   >
@@ -238,7 +238,7 @@ export default function RentIncreaseCalculatorPage() {
                     onClick={() => setPropertyType("commercial")}
                     className={`px-4 py-3 border rounded-lg font-medium transition ${
                       propertyType === "commercial"
-                        ? "border-blue-500 bg-blue-50 text-blue-700"
+                        ? "border-brand-500 bg-brand-50 text-brand-700"
                         : "border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
                     }`}
                   >
@@ -255,7 +255,7 @@ export default function RentIncreaseCalculatorPage() {
                   type="date"
                   value={lastIncreaseDate}
                   onChange={(e) => setLastIncreaseDate(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
                 <p className="text-sm text-gray-500 mt-1">
                   Se nunca houve aumento, deixe em branco
@@ -300,14 +300,14 @@ export default function RentIncreaseCalculatorPage() {
                 </div>
               </div>
 
-              <div className="bg-blue-50 rounded-lg p-4 mt-4">
-                <p className="text-sm text-blue-700 font-medium mb-1">
+              <div className="bg-brand-50 rounded-lg p-4 mt-4">
+                <p className="text-sm text-brand-700 font-medium mb-1">
                   Regime Aplicável
                 </p>
-                <p className="text-blue-800 font-semibold">
+                <p className="text-brand-800 font-semibold">
                   {applicableRule.name}
                 </p>
-                <p className="text-sm text-blue-600">
+                <p className="text-sm text-brand-600">
                   {applicableRule.description}
                 </p>
               </div>
@@ -322,7 +322,7 @@ export default function RentIncreaseCalculatorPage() {
           </h2>
 
           <div className="grid md:grid-cols-1 gap-6">
-            <div className="bg-white rounded-xl shadow-sm p-6 border-2 border-blue-200">
+            <div className="bg-white rounded-xl shadow-sm p-6 border-2 border-brand-200">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
                 {applicableRule.name}
               </h3>
@@ -337,7 +337,7 @@ export default function RentIncreaseCalculatorPage() {
                     <p className="text-sm font-medium text-gray-700 mb-2">
                       Coeficiente de Atualização:
                     </p>
-                    <p className="text-2xl font-bold text-blue-600">
+                    <p className="text-2xl font-bold text-brand-600">
                       {applicableRule.coefficient}%
                     </p>
                   </div>
@@ -388,11 +388,11 @@ export default function RentIncreaseCalculatorPage() {
             </ul>
           </div>
 
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <h3 className="font-semibold text-blue-800 mb-2">
+          <div className="bg-brand-50 border border-brand-200 rounded-lg p-4">
+            <h3 className="font-semibold text-brand-800 mb-2">
               Como Proceder
             </h3>
-            <ul className="text-sm text-blue-700 space-y-2">
+            <ul className="text-sm text-brand-700 space-y-2">
               <li>• Envie carta registada ao inquilino com 30 dias de antecedência</li>
               <li>• Indique claramente o valor do novo aumento</li>
               <li>• Mencione o coeficiente INE 2026 (2,24%) como fundamento</li>
@@ -466,17 +466,17 @@ export default function RentIncreaseCalculatorPage() {
         )}
 
         {/* CTA */}
-        <div className="mt-8 bg-blue-50 rounded-xl p-6 text-center">
-          <h3 className="text-lg font-semibold text-blue-900 mb-2">
+        <div className="mt-8 bg-brand-50 rounded-xl p-6 text-center">
+          <h3 className="text-lg font-semibold text-brand-900 mb-2">
             Precisa de gerir mais propriedades?
           </h3>
-          <p className="text-blue-700 mb-4">
+          <p className="text-brand-700 mb-4">
             A plataforma Senhorio vai ajudá-lo a gerir todas as suas propriedades,
             controlar aumentos de renda, e manter-se em conformidade com a lei portuguesa.
           </p>
           <Link
             href="/"
-            className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition"
+            className="inline-block px-6 py-3 bg-brand-600 text-white rounded-lg font-medium hover:bg-brand-700 transition"
           >
             Juntar à Lista de Espera
           </Link>

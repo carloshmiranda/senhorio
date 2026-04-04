@@ -20,7 +20,7 @@ export default function CookiesPage() {
       {/* Header */}
       <header className="border-b border-gray-200">
         <div className="max-w-4xl mx-auto px-6 py-6">
-          <Link href="/" className="text-sm text-blue-600 hover:text-blue-700 transition">
+          <Link href="/" className="text-sm text-brand-600 hover:text-brand-700 transition">
             ← Voltar ao Senhorio
           </Link>
           <h1 className="text-3xl font-bold text-gray-900 mt-4">
@@ -80,19 +80,19 @@ export default function CookiesPage() {
           <p className="text-gray-600 mb-4">
             Utilizamos o Vercel Analytics para compreender como o site é usado:
           </p>
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+          <div className="bg-brand-50 border border-brand-200 rounded-lg p-4 mb-6">
             <div className="space-y-3">
               <div>
-                <strong className="text-blue-900">Vercel Analytics</strong>
-                <p className="text-sm text-blue-800">Recolhe dados anónimos sobre visualizações de páginas e comportamento</p>
-                <p className="text-xs text-blue-600">Duração: 26 meses</p>
-                <p className="text-xs text-blue-600">Finalidade: Melhorar a performance e experiência do utilizador</p>
+                <strong className="text-brand-900">Vercel Analytics</strong>
+                <p className="text-sm text-brand-800">Recolhe dados anónimos sobre visualizações de páginas e comportamento</p>
+                <p className="text-xs text-brand-600">Duração: 26 meses</p>
+                <p className="text-xs text-brand-600">Finalidade: Melhorar a performance e experiência do utilizador</p>
               </div>
               <div>
-                <strong className="text-blue-900">Vercel Speed Insights</strong>
-                <p className="text-sm text-blue-800">Monitoriza a velocidade de carregamento do site</p>
-                <p className="text-xs text-blue-600">Duração: 26 meses</p>
-                <p className="text-xs text-blue-600">Finalidade: Otimizar performance técnica</p>
+                <strong className="text-brand-900">Vercel Speed Insights</strong>
+                <p className="text-sm text-brand-800">Monitoriza a velocidade de carregamento do site</p>
+                <p className="text-xs text-brand-600">Duração: 26 meses</p>
+                <p className="text-xs text-brand-600">Finalidade: Otimizar performance técnica</p>
               </div>
             </div>
           </div>
@@ -136,8 +136,8 @@ export default function CookiesPage() {
                 <tr>
                   <td className="px-4 py-3 text-sm text-gray-900">Vercel Analytics</td>
                   <td className="px-4 py-3 text-sm text-gray-600">Analytics anónimos do website</td>
-                  <td className="px-4 py-3 text-sm text-blue-600">
-                    <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener" className="hover:text-blue-700">
+                  <td className="px-4 py-3 text-sm text-brand-600">
+                    <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener" className="hover:text-brand-700">
                       Ver política →
                     </a>
                   </td>
@@ -145,8 +145,8 @@ export default function CookiesPage() {
                 <tr>
                   <td className="px-4 py-3 text-sm text-gray-900">Vercel Speed Insights</td>
                   <td className="px-4 py-3 text-sm text-gray-600">Monitorização de performance</td>
-                  <td className="px-4 py-3 text-sm text-blue-600">
-                    <a href="https://vercel.com/docs/speed-insights/privacy-policy" target="_blank" rel="noopener" className="hover:text-blue-700">
+                  <td className="px-4 py-3 text-sm text-brand-600">
+                    <a href="https://vercel.com/docs/speed-insights/privacy-policy" target="_blank" rel="noopener" className="hover:text-brand-700">
                       Ver política →
                     </a>
                   </td>
@@ -233,9 +233,9 @@ export default function CookiesPage() {
           </div>
         </section>
 
-        <section className="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-12">
-          <h3 className="text-lg font-semibold text-blue-900 mb-2">Compromisso com a Privacidade</h3>
-          <p className="text-blue-800 text-sm">
+        <section className="bg-brand-50 border border-brand-200 rounded-lg p-6 mt-12">
+          <h3 className="text-lg font-semibold text-brand-900 mb-2">Compromisso com a Privacidade</h3>
+          <p className="text-brand-800 text-sm">
             O Senhorio utiliza cookies de forma responsável e transparente. Não utilizamos cookies
             para rastreamento invasivo ou partilha de dados com terceiros para fins publicitários.
             O nosso foco é melhorar a sua experiência e fornecer as melhores ferramentas para

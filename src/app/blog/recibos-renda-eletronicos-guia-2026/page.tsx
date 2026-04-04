@@ -46,7 +46,7 @@ export default function RecibosRendaEletronicosPage() {
               <span className="px-3 py-1 bg-emerald-100 text-emerald-700 text-sm rounded-full font-medium">
                 Recibos Eletrónicos
               </span>
-              <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full font-medium">
+              <span className="px-3 py-1 bg-brand-100 text-brand-700 text-sm rounded-full font-medium">
                 Portal Finanças
               </span>
               <span className="px-3 py-1 bg-purple-100 text-purple-700 text-sm rounded-full font-medium">
@@ -96,17 +96,17 @@ export default function RecibosRendaEletronicosPage() {
             <nav className="not-prose bg-gray-50 rounded-xl p-6 mb-8">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Índice</h3>
               <ol className="space-y-2 text-sm">
-                <li><a href="#obrigacao-legal" className="text-blue-600 hover:text-blue-800">1. Obrigação Legal: Quem Deve Emitir Recibos Eletrónicos</a></li>
-                <li><a href="#portal-financas" className="text-blue-600 hover:text-blue-800">2. Como Aceder ao Portal das Finanças</a></li>
-                <li><a href="#passo-a-passo" className="text-blue-600 hover:text-blue-800">3. Passo a Passo: Emitir um Recibo</a></li>
-                <li><a href="#campos-obrigatorios" className="text-blue-600 hover:text-blue-800">4. Campos Obrigatórios do Recibo</a></li>
-                <li><a href="#prazos-legais" className="text-blue-600 hover:text-blue-800">5. Prazos Legais para Emissão</a></li>
-                <li><a href="#coimas-penalizacoes" className="text-blue-600 hover:text-blue-800">6. Coimas e Penalizações</a></li>
-                <li><a href="#situacoes-especiais" className="text-blue-600 hover:text-blue-800">7. Situações Especiais</a></li>
-                <li><a href="#retificacao-anulacao" className="text-blue-600 hover:text-blue-800">8. Retificação e Anulação de Recibos</a></li>
-                <li><a href="#irs-declaracao" className="text-blue-600 hover:text-blue-800">9. Recibos e Declaração de IRS</a></li>
-                <li><a href="#automatizacao" className="text-blue-600 hover:text-blue-800">10. Automatização: O Futuro dos Recibos</a></li>
-                <li><a href="#faq" className="text-blue-600 hover:text-blue-800">11. Perguntas Frequentes</a></li>
+                <li><a href="#obrigacao-legal" className="text-brand-600 hover:text-brand-800">1. Obrigação Legal: Quem Deve Emitir Recibos Eletrónicos</a></li>
+                <li><a href="#portal-financas" className="text-brand-600 hover:text-brand-800">2. Como Aceder ao Portal das Finanças</a></li>
+                <li><a href="#passo-a-passo" className="text-brand-600 hover:text-brand-800">3. Passo a Passo: Emitir um Recibo</a></li>
+                <li><a href="#campos-obrigatorios" className="text-brand-600 hover:text-brand-800">4. Campos Obrigatórios do Recibo</a></li>
+                <li><a href="#prazos-legais" className="text-brand-600 hover:text-brand-800">5. Prazos Legais para Emissão</a></li>
+                <li><a href="#coimas-penalizacoes" className="text-brand-600 hover:text-brand-800">6. Coimas e Penalizações</a></li>
+                <li><a href="#situacoes-especiais" className="text-brand-600 hover:text-brand-800">7. Situações Especiais</a></li>
+                <li><a href="#retificacao-anulacao" className="text-brand-600 hover:text-brand-800">8. Retificação e Anulação de Recibos</a></li>
+                <li><a href="#irs-declaracao" className="text-brand-600 hover:text-brand-800">9. Recibos e Declaração de IRS</a></li>
+                <li><a href="#automatizacao" className="text-brand-600 hover:text-brand-800">10. Automatização: O Futuro dos Recibos</a></li>
+                <li><a href="#faq" className="text-brand-600 hover:text-brand-800">11. Perguntas Frequentes</a></li>
               </ol>
             </nav>
 
@@ -131,9 +131,9 @@ export default function RecibosRendaEletronicosPage() {
               <li>Cedência de uso de imóvel</li>
             </ul>
 
-            <div className="not-prose bg-blue-50 border border-blue-200 rounded-xl p-6 mb-6">
-              <h4 className="text-blue-900 font-semibold mb-2">💡 Quem está dispensado?</h4>
-              <ul className="text-blue-800 space-y-1 text-sm">
+            <div className="not-prose bg-brand-50 border border-brand-200 rounded-xl p-6 mb-6">
+              <h4 className="text-brand-900 font-semibold mb-2">💡 Quem está dispensado?</h4>
+              <ul className="text-brand-800 space-y-1 text-sm">
                 <li>• Senhorios com idade igual ou superior a <strong>65 anos</strong> que não disponham de acesso à internet (devem comunicar à AT)</li>
                 <li>• Senhorios com <strong>incapacidade reconhecida</strong> que impossibilite o uso de meios digitais</li>
                 <li>• Nestes casos, podem emitir recibos em papel, mas devem comunicar os rendimentos à AT por outros meios</li>
@@ -351,13 +351,13 @@ export default function RecibosRendaEletronicosPage() {
                 </p>
               </div>
 
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
-                <h4 className="text-blue-900 font-semibold mb-3">Prazo para registo do contrato</h4>
-                <p className="text-blue-800 text-sm mb-2">
+              <div className="bg-brand-50 border border-brand-200 rounded-xl p-6">
+                <h4 className="text-brand-900 font-semibold mb-3">Prazo para registo do contrato</h4>
+                <p className="text-brand-800 text-sm mb-2">
                   O contrato de arrendamento deve ser comunicado à AT no prazo de <strong>30 dias</strong>
                   após a celebração.
                 </p>
-                <p className="text-blue-700 text-xs">
+                <p className="text-brand-700 text-xs">
                   O registo é pré-requisito para a emissão de recibos eletrónicos.
                 </p>
               </div>
@@ -665,24 +665,24 @@ export default function RecibosRendaEletronicosPage() {
               </details>
             </div>
 
-            <div className="not-prose mt-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-8 text-white text-center">
+            <div className="not-prose mt-12 bg-gradient-to-r from-brand-500 to-purple-600 rounded-xl p-8 text-white text-center">
               <h3 className="text-xl font-bold mb-4">
                 Simplifique a Gestão dos Seus Imóveis
               </h3>
-              <p className="mb-6 text-blue-100">
+              <p className="mb-6 text-brand-100">
                 O Senhorio é a plataforma que automatiza recibos, calcula impostos e gere
                 contratos para senhorios portugueses.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/#waitlist"
-                  className="px-6 py-3 bg-white text-blue-600 rounded-lg font-medium hover:bg-gray-100 transition"
+                  className="px-6 py-3 bg-white text-brand-600 rounded-lg font-medium hover:bg-gray-100 transition"
                 >
                   Entrar na Lista de Espera
                 </Link>
                 <Link
                   href="/calculadora"
-                  className="px-6 py-3 border border-white text-white rounded-lg font-medium hover:bg-white hover:text-blue-600 transition"
+                  className="px-6 py-3 border border-white text-white rounded-lg font-medium hover:bg-white hover:text-brand-600 transition"
                 >
                   Usar Calculadora IRS Gratuita
                 </Link>
@@ -702,7 +702,7 @@ export default function RecibosRendaEletronicosPage() {
               <p className="text-gray-600 text-sm mb-4">
                 Guia completo sobre a nova taxa fixa de 10% e comparação de regimes fiscais.
               </p>
-              <span className="text-blue-600 text-sm font-medium">Ler artigo →</span>
+              <span className="text-brand-600 text-sm font-medium">Ler artigo →</span>
             </Link>
             <Link href="/blog/como-calcular-atualizacoes-renda-2026" className="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition block">
               <h3 className="font-semibold text-gray-900 mb-2">
@@ -711,7 +711,7 @@ export default function RecibosRendaEletronicosPage() {
               <p className="text-gray-600 text-sm mb-4">
                 Coeficiente INE 2,24%, regras NRAU e exemplos práticos de cálculo.
               </p>
-              <span className="text-blue-600 text-sm font-medium">Ler artigo →</span>
+              <span className="text-brand-600 text-sm font-medium">Ler artigo →</span>
             </Link>
           </div>
         </section>

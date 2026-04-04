@@ -44,7 +44,7 @@ export default function PortugalLandlordTaxCalculator2026Page() {
           {/* Article Header */}
           <header className="mb-8">
             <div className="flex flex-wrap gap-2 mb-4">
-              <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full font-medium">
+              <span className="px-3 py-1 bg-brand-100 text-brand-700 text-sm rounded-full font-medium">
                 English Guide
               </span>
               <span className="px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full font-medium">
@@ -68,7 +68,7 @@ export default function PortugalLandlordTaxCalculator2026Page() {
               property investors with practical examples and English-language support.
             </p>
 
-            <div className="flex items-center gap-4 text-sm text-gray-500 border-l-4 border-blue-500 pl-4">
+            <div className="flex items-center gap-4 text-sm text-gray-500 border-l-4 border-brand-500 pl-4">
               <time dateTime="2026-03-22T14:00:00.000Z">
                 March 22, 2026
               </time>
@@ -80,16 +80,16 @@ export default function PortugalLandlordTaxCalculator2026Page() {
           {/* Content */}
           <div className="prose prose-gray prose-lg max-w-none">
             {/* Quick Calculator CTA */}
-            <div className="not-prose bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
-              <h3 className="text-lg font-semibold text-blue-900 mb-2">
+            <div className="not-prose bg-brand-50 border border-brand-200 rounded-xl p-6 mb-8">
+              <h3 className="text-lg font-semibold text-brand-900 mb-2">
                 🧮 Calculate Your Portugal Tax Now
               </h3>
-              <p className="text-blue-700 mb-4">
+              <p className="text-brand-700 mb-4">
                 Use our free bilingual calculator to compare all tax regimes and find the best option for your Portuguese rental properties.
               </p>
               <Link
                 href="/calculadora"
-                className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition"
+                className="inline-flex items-center px-4 py-2 bg-brand-600 text-white rounded-lg font-medium hover:bg-brand-700 transition"
               >
                 Open Free Tax Calculator →
               </Link>
@@ -99,13 +99,13 @@ export default function PortugalLandlordTaxCalculator2026Page() {
             <nav className="not-prose bg-gray-50 rounded-xl p-6 mb-8">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Table of Contents</h3>
               <ol className="space-y-2 text-sm">
-                <li><a href="#overview-2026" className="text-blue-600 hover:text-blue-800">1. Portugal Landlord Tax Overview 2026</a></li>
-                <li><a href="#new-10-percent-rate" className="text-blue-600 hover:text-blue-800">2. New 10% Fixed Tax Rate</a></li>
-                <li><a href="#four-tax-regimes" className="text-blue-600 hover:text-blue-800">3. All 4 Tax Regimes Explained</a></li>
-                <li><a href="#expat-considerations" className="text-blue-600 hover:text-blue-800">4. Special Rules for Expats & Non-Residents</a></li>
-                <li><a href="#calculator-examples" className="text-blue-600 hover:text-blue-800">5. Practical Calculator Examples</a></li>
-                <li><a href="#deadlines-compliance" className="text-blue-600 hover:text-blue-800">6. Tax Deadlines & Compliance</a></li>
-                <li><a href="#common-mistakes" className="text-blue-600 hover:text-blue-800">7. Common Mistakes to Avoid</a></li>
+                <li><a href="#overview-2026" className="text-brand-600 hover:text-brand-800">1. Portugal Landlord Tax Overview 2026</a></li>
+                <li><a href="#new-10-percent-rate" className="text-brand-600 hover:text-brand-800">2. New 10% Fixed Tax Rate</a></li>
+                <li><a href="#four-tax-regimes" className="text-brand-600 hover:text-brand-800">3. All 4 Tax Regimes Explained</a></li>
+                <li><a href="#expat-considerations" className="text-brand-600 hover:text-brand-800">4. Special Rules for Expats & Non-Residents</a></li>
+                <li><a href="#calculator-examples" className="text-brand-600 hover:text-brand-800">5. Practical Calculator Examples</a></li>
+                <li><a href="#deadlines-compliance" className="text-brand-600 hover:text-brand-800">6. Tax Deadlines & Compliance</a></li>
+                <li><a href="#common-mistakes" className="text-brand-600 hover:text-brand-800">7. Common Mistakes to Avoid</a></li>
               </ol>
             </nav>
 
@@ -306,7 +306,7 @@ export default function PortugalLandlordTaxCalculator2026Page() {
                   </div>
                   <div>
                     <p><strong>Best Option: Progressive Rates</strong></p>
-                    <ul className="text-blue-600 space-y-1">
+                    <ul className="text-brand-600 space-y-1">
                       <li>• Taxable income: €15,000 (after deductions)</li>
                       <li>• Tax liability: ~€2,175 (14.5% rate)</li>
                       <li>• Net income: €21,825</li>
@@ -332,7 +332,7 @@ export default function PortugalLandlordTaxCalculator2026Page() {
                   </div>
                   <div>
                     <p><strong>Best Option: Progressive Rates</strong></p>
-                    <ul className="text-blue-600 space-y-1">
+                    <ul className="text-brand-600 space-y-1">
                       <li>• Taxable income: €36,000</li>
                       <li>• Tax liability: ~€8,640 (24% avg rate)</li>
                       <li>• Net income: €45,360</li>
@@ -358,9 +358,9 @@ export default function PortugalLandlordTaxCalculator2026Page() {
                   </ul>
                 </div>
 
-                <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
-                  <h4 className="text-blue-900 font-semibold mb-3">📋 Required Documentation</h4>
-                  <ul className="text-blue-800 space-y-2 text-sm">
+                <div className="bg-brand-50 border border-brand-200 rounded-xl p-6">
+                  <h4 className="text-brand-900 font-semibold mb-3">📋 Required Documentation</h4>
+                  <ul className="text-brand-800 space-y-2 text-sm">
                     <li>• Rental receipts and contracts</li>
                     <li>• Property registration documents</li>
                     <li>• Expense invoices (if claiming deductions)</li>
@@ -395,24 +395,24 @@ export default function PortugalLandlordTaxCalculator2026Page() {
               <li>First-time compliance setup</li>
             </ul>
 
-            <div className="not-prose mt-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-8 text-white text-center">
+            <div className="not-prose mt-12 bg-gradient-to-r from-brand-500 to-purple-600 rounded-xl p-8 text-white text-center">
               <h3 className="text-xl font-bold mb-4">
                 Simplify Your Portugal Tax Compliance
               </h3>
-              <p className="mb-6 text-blue-100">
+              <p className="mb-6 text-brand-100">
                 Senhorio provides bilingual tools designed for expat and non-resident landlords.
                 Calculate, compare, and optimize your Portuguese rental income taxes automatically.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/calculadora"
-                  className="px-6 py-3 bg-white text-blue-600 rounded-lg font-medium hover:bg-gray-100 transition"
+                  className="px-6 py-3 bg-white text-brand-600 rounded-lg font-medium hover:bg-gray-100 transition"
                 >
                   Use Free Tax Calculator
                 </Link>
                 <Link
                   href="/aimi"
-                  className="px-6 py-3 border border-white text-white rounded-lg font-medium hover:bg-white hover:text-blue-600 transition"
+                  className="px-6 py-3 border border-white text-white rounded-lg font-medium hover:bg-white hover:text-brand-600 transition"
                 >
                   Check AIMI Exemption
                 </Link>
@@ -432,7 +432,7 @@ export default function PortugalLandlordTaxCalculator2026Page() {
               <p className="text-gray-600 text-sm mb-4">
                 Complete guide to the new 10% tax rate in Portuguese for local landlords.
               </p>
-              <span className="text-blue-600 text-sm font-medium">Read article →</span>
+              <span className="text-brand-600 text-sm font-medium">Read article →</span>
             </Link>
             <Link href="/blog/isencao-aimi-2026-qualificar-nova-isencao" className="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition block">
               <h3 className="font-semibold text-gray-900 mb-2">
@@ -441,7 +441,7 @@ export default function PortugalLandlordTaxCalculator2026Page() {
               <p className="text-gray-600 text-sm mb-4">
                 How to qualify for the AIMI tax exemption with rentals under €2,300/month.
               </p>
-              <span className="text-blue-600 text-sm font-medium">Read article →</span>
+              <span className="text-brand-600 text-sm font-medium">Read article →</span>
             </Link>
           </div>
         </section>

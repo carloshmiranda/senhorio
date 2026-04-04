@@ -46,7 +46,7 @@ export default function AtualizacoesRenda2026Page() {
               <span className="px-3 py-1 bg-orange-100 text-orange-700 text-sm rounded-full font-medium">
                 Atualização Rendas
               </span>
-              <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full font-medium">
+              <span className="px-3 py-1 bg-brand-100 text-brand-700 text-sm rounded-full font-medium">
                 Coeficiente INE
               </span>
               <span className="px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full font-medium">
@@ -95,16 +95,16 @@ export default function AtualizacoesRenda2026Page() {
             <nav className="not-prose bg-gray-50 rounded-xl p-6 mb-8">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Índice</h3>
               <ol className="space-y-2 text-sm">
-                <li><a href="#o-que-e-atualizacao" className="text-blue-600 hover:text-blue-800">1. O Que É a Atualização de Rendas?</a></li>
-                <li><a href="#coeficiente-ine-2026" className="text-blue-600 hover:text-blue-800">2. Coeficiente INE 2026: O Valor Atual</a></li>
-                <li><a href="#nrau-regras" className="text-blue-600 hover:text-blue-800">3. Regras do NRAU para Atualização de Rendas</a></li>
-                <li><a href="#habitacional-vs-comercial" className="text-blue-600 hover:text-blue-800">4. Contratos Habitacionais vs. Comerciais</a></li>
-                <li><a href="#passo-a-passo" className="text-blue-600 hover:text-blue-800">5. Passo a Passo: Como Calcular</a></li>
-                <li><a href="#exemplos-praticos" className="text-blue-600 hover:text-blue-800">6. Exemplos Práticos com Cálculos</a></li>
-                <li><a href="#comunicacao-inquilino" className="text-blue-600 hover:text-blue-800">7. Como Comunicar ao Inquilino</a></li>
-                <li><a href="#excecoes-limites" className="text-blue-600 hover:text-blue-800">8. Exceções e Limites Legais</a></li>
-                <li><a href="#historico-coeficientes" className="text-blue-600 hover:text-blue-800">9. Histórico de Coeficientes INE</a></li>
-                <li><a href="#erros-comuns" className="text-blue-600 hover:text-blue-800">10. Erros Comuns a Evitar</a></li>
+                <li><a href="#o-que-e-atualizacao" className="text-brand-600 hover:text-brand-800">1. O Que É a Atualização de Rendas?</a></li>
+                <li><a href="#coeficiente-ine-2026" className="text-brand-600 hover:text-brand-800">2. Coeficiente INE 2026: O Valor Atual</a></li>
+                <li><a href="#nrau-regras" className="text-brand-600 hover:text-brand-800">3. Regras do NRAU para Atualização de Rendas</a></li>
+                <li><a href="#habitacional-vs-comercial" className="text-brand-600 hover:text-brand-800">4. Contratos Habitacionais vs. Comerciais</a></li>
+                <li><a href="#passo-a-passo" className="text-brand-600 hover:text-brand-800">5. Passo a Passo: Como Calcular</a></li>
+                <li><a href="#exemplos-praticos" className="text-brand-600 hover:text-brand-800">6. Exemplos Práticos com Cálculos</a></li>
+                <li><a href="#comunicacao-inquilino" className="text-brand-600 hover:text-brand-800">7. Como Comunicar ao Inquilino</a></li>
+                <li><a href="#excecoes-limites" className="text-brand-600 hover:text-brand-800">8. Exceções e Limites Legais</a></li>
+                <li><a href="#historico-coeficientes" className="text-brand-600 hover:text-brand-800">9. Histórico de Coeficientes INE</a></li>
+                <li><a href="#erros-comuns" className="text-brand-600 hover:text-brand-800">10. Erros Comuns a Evitar</a></li>
               </ol>
             </nav>
 
@@ -126,9 +126,9 @@ export default function AtualizacoesRenda2026Page() {
               de vida sem aumentos abusivos.
             </p>
 
-            <div className="not-prose bg-blue-50 border border-blue-200 rounded-xl p-6 mb-6">
-              <h4 className="text-blue-900 font-semibold mb-2">💡 Conceitos-Chave</h4>
-              <ul className="text-blue-800 space-y-1 text-sm">
+            <div className="not-prose bg-brand-50 border border-brand-200 rounded-xl p-6 mb-6">
+              <h4 className="text-brand-900 font-semibold mb-2">💡 Conceitos-Chave</h4>
+              <ul className="text-brand-800 space-y-1 text-sm">
                 <li>• <strong>Coeficiente INE:</strong> Percentagem máxima de aumento de renda, publicada anualmente</li>
                 <li>• <strong>NRAU:</strong> Lei n.º 6/2006 — regime legal do arrendamento urbano</li>
                 <li>• <strong>IPC:</strong> Índice de Preços no Consumidor, base do cálculo</li>
@@ -646,7 +646,7 @@ Com os melhores cumprimentos,
               <p className="text-gray-600 text-sm mb-4">
                 Guia completo sobre a nova taxa fixa de 10% e comparação de regimes fiscais.
               </p>
-              <span className="text-blue-600 text-sm font-medium">Ler artigo →</span>
+              <span className="text-brand-600 text-sm font-medium">Ler artigo →</span>
             </Link>
             <Link href="/blog/recibos-renda-eletronicos-guia-2026" className="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition block">
               <h3 className="font-semibold text-gray-900 mb-2">
@@ -655,7 +655,7 @@ Com os melhores cumprimentos,
               <p className="text-gray-600 text-sm mb-4">
                 Como emitir recibos eletrónicos no Portal das Finanças, prazos e penalizações.
               </p>
-              <span className="text-blue-600 text-sm font-medium">Ler artigo →</span>
+              <span className="text-brand-600 text-sm font-medium">Ler artigo →</span>
             </Link>
           </div>
         </section>

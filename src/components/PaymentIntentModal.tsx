@@ -122,7 +122,7 @@ export default function PaymentIntentModal({ isOpen, onClose, selectedPlan }: Pa
             </p>
             <button
               onClick={onClose}
-              className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition"
+              className="w-full bg-brand-600 text-white py-3 rounded-lg font-medium hover:bg-brand-700 transition"
             >
               Continuar
             </button>
@@ -131,8 +131,8 @@ export default function PaymentIntentModal({ isOpen, onClose, selectedPlan }: Pa
           /* Form State */
           <>
             <div className="mb-6">
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                <p className="text-blue-800 text-sm">
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-4">
+                <p className="text-brand-800 text-sm">
                   <strong>🚀 Lançamento em breve!</strong>
                   <br />
                   O Senhorio está quase pronto. Registe o seu interesse e será um dos primeiros a ter acesso.
@@ -151,7 +151,7 @@ export default function PaymentIntentModal({ isOpen, onClose, selectedPlan }: Pa
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="o-seu-email@exemplo.com"
                   required
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -164,7 +164,7 @@ export default function PaymentIntentModal({ isOpen, onClose, selectedPlan }: Pa
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="O seu nome"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -185,7 +185,7 @@ export default function PaymentIntentModal({ isOpen, onClose, selectedPlan }: Pa
                 <button
                   type="submit"
                   disabled={state === "loading" || !email}
-                  className="flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition"
+                  className="flex-1 px-6 py-3 bg-brand-600 text-white rounded-lg font-medium hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition"
                 >
                   {state === "loading" ? "A registar..." : "Registar Interesse"}
                 </button>

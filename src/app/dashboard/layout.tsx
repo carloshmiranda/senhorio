@@ -56,7 +56,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-8 h-8 bg-blue-600 rounded-lg mx-auto mb-4"></div>
+          <div className="w-8 h-8 bg-brand-600 rounded-lg mx-auto mb-4"></div>
           <div className="text-lg font-semibold text-gray-900 mb-2">Senhorio</div>
           <div className="text-sm text-gray-500">A carregar...</div>
         </div>
@@ -69,7 +69,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       {/* Mobile header */}
       <div className="lg:hidden bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-blue-600 rounded-lg"></div>
+          <div className="w-8 h-8 bg-brand-600 rounded-lg"></div>
           <span className="text-lg font-bold text-gray-900">Senhorio</span>
         </div>
         <button
@@ -91,7 +91,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <div className="h-full flex flex-col">
             {/* Logo */}
             <div className="hidden lg:flex items-center space-x-2 px-6 py-5 border-b border-gray-200">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg"></div>
+              <div className="w-8 h-8 bg-brand-600 rounded-lg"></div>
               <span className="text-lg font-bold text-gray-900">Senhorio</span>
             </div>
 
@@ -106,7 +106,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                     onClick={() => setSidebarOpen(false)}
                     className={`flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition ${
                       isActive
-                        ? "bg-blue-50 text-blue-700"
+                        ? "bg-brand-50 text-brand-700"
                         : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
                     }`}
                   >

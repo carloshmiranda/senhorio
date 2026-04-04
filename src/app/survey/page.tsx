@@ -123,7 +123,7 @@ export default function WaitlistSurveyPage() {
 
   if (step === 'success') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-brand-50 via-white to-brand-50 flex items-center justify-center p-4">
         <div className="max-w-2xl mx-auto">
           <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -141,9 +141,9 @@ export default function WaitlistSurveyPage() {
               exatamente o que os senhorios portugueses precisam.
             </p>
 
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
-              <h2 className="font-semibold text-blue-900 mb-3">O que acontece agora?</h2>
-              <ul className="text-blue-800 text-sm space-y-2 text-left">
+            <div className="bg-brand-50 border border-brand-200 rounded-lg p-6 mb-8">
+              <h2 className="font-semibold text-brand-900 mb-3">O que acontece agora?</h2>
+              <ul className="text-brand-800 text-sm space-y-2 text-left">
                 <li>• Vamos analisar todas as respostas do survey</li>
                 <li>• Ajustaremos o produto com base no vosso feedback</li>
                 <li>• Assim que estivermos prontos, contatamos-lhe primeiro</li>
@@ -154,13 +154,13 @@ export default function WaitlistSurveyPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/"
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition"
+                className="px-6 py-3 bg-brand-600 text-white rounded-lg font-medium hover:bg-brand-700 transition"
               >
                 Voltar ao Site
               </Link>
               <Link
                 href="/calculadora"
-                className="px-6 py-3 border border-blue-300 text-blue-700 rounded-lg font-medium hover:bg-blue-50 transition"
+                className="px-6 py-3 border border-brand-300 text-brand-700 rounded-lg font-medium hover:bg-brand-50 transition"
               >
                 Usar Simulador Grátis
               </Link>
@@ -172,12 +172,12 @@ export default function WaitlistSurveyPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-brand-50 via-white to-brand-50 py-12 px-4">
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center space-x-2 mb-6">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg"></div>
+            <div className="w-8 h-8 bg-brand-600 rounded-lg"></div>
             <span className="text-xl font-bold text-gray-900">Senhorio</span>
           </Link>
 
@@ -203,7 +203,7 @@ export default function WaitlistSurveyPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="o-seu-email@exemplo.com"
                   required
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
                 <p className="text-sm text-gray-500 mt-1">
                   Usaremos isto para confirmar que está na nossa lista de espera
@@ -219,7 +219,7 @@ export default function WaitlistSurveyPage() {
               <button
                 type="submit"
                 disabled={loading || !email}
-                className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition"
+                className="w-full px-6 py-3 bg-brand-600 text-white rounded-lg font-medium hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition"
               >
                 {loading ? "A verificar..." : "Continuar"}
               </button>
@@ -239,7 +239,7 @@ export default function WaitlistSurveyPage() {
                 <div className="space-y-3">
                   {[
                     { value: 'definitely', label: 'Definitivamente pagaria', color: 'bg-green-100 border-green-300 text-green-800' },
-                    { value: 'probably', label: 'Provavelmente pagaria', color: 'bg-blue-100 border-blue-300 text-blue-800' },
+                    { value: 'probably', label: 'Provavelmente pagaria', color: 'bg-brand-100 border-brand-300 text-brand-800' },
                     { value: 'maybe', label: 'Talvez pagaria', color: 'bg-yellow-100 border-yellow-300 text-yellow-800' },
                     { value: 'probably_not', label: 'Provavelmente não pagaria', color: 'bg-orange-100 border-orange-300 text-orange-800' },
                     { value: 'definitely_not', label: 'Definitivamente não pagaria', color: 'bg-red-100 border-red-300 text-red-800' }
@@ -279,7 +279,7 @@ export default function WaitlistSurveyPage() {
                       placeholder="15"
                       value={surveyData.max_monthly_price}
                       onChange={(e) => setSurveyData(prev => ({ ...prev, max_monthly_price: e.target.value }))}
-                      className="w-24 px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-24 px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-600"
                     />
                     <span className="text-gray-700">por mês</span>
                   </div>
@@ -303,7 +303,7 @@ export default function WaitlistSurveyPage() {
                         onChange={() => handleFeatureToggle(feature)}
                         className="mr-3"
                       />
-                      <span className={`px-3 py-2 rounded-lg border flex-1 text-sm ${surveyData.most_valuable_features.includes(feature) ? 'bg-blue-100 border-blue-300 text-blue-800' : 'bg-gray-50 border-gray-200 text-gray-700'} transition`}>
+                      <span className={`px-3 py-2 rounded-lg border flex-1 text-sm ${surveyData.most_valuable_features.includes(feature) ? 'bg-brand-100 border-brand-300 text-brand-800' : 'bg-gray-50 border-gray-200 text-gray-700'} transition`}>
                         {feature}
                       </span>
                     </label>
@@ -324,7 +324,7 @@ export default function WaitlistSurveyPage() {
                   value={surveyData.current_solution}
                   onChange={(e) => setSurveyData(prev => ({ ...prev, current_solution: e.target.value }))}
                   rows={3}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-600"
                 />
               </div>
 
@@ -341,7 +341,7 @@ export default function WaitlistSurveyPage() {
                   value={surveyData.feedback}
                   onChange={(e) => setSurveyData(prev => ({ ...prev, feedback: e.target.value }))}
                   rows={4}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-600"
                 />
               </div>
 
@@ -354,7 +354,7 @@ export default function WaitlistSurveyPage() {
               <button
                 type="submit"
                 disabled={loading || !surveyData.willingness_to_pay}
-                className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition"
+                className="w-full px-6 py-3 bg-brand-600 text-white rounded-lg font-medium hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition"
               >
                 {loading ? "A guardar respostas..." : "Enviar Respostas"}
               </button>

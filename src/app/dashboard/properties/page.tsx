@@ -201,7 +201,7 @@ export default function PropertiesPage() {
             resetForm();
             setShowForm(!showForm);
           }}
-          className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition"
+          className="px-4 py-2 bg-brand-600 text-white text-sm font-medium rounded-lg hover:bg-brand-700 transition"
         >
           {showForm ? "Cancelar" : "+ Adicionar Imóvel"}
         </button>
@@ -225,7 +225,7 @@ export default function PropertiesPage() {
                   value={form.address}
                   onChange={(e) => setForm({ ...form, address: e.target.value })}
                   placeholder="Rua, número, andar"
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -238,7 +238,7 @@ export default function PropertiesPage() {
                   value={form.city}
                   onChange={(e) => setForm({ ...form, city: e.target.value })}
                   placeholder="Ex: Lisboa"
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -251,7 +251,7 @@ export default function PropertiesPage() {
                   value={form.municipality}
                   onChange={(e) => setForm({ ...form, municipality: e.target.value })}
                   placeholder="Ex: Lisboa"
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -262,7 +262,7 @@ export default function PropertiesPage() {
                 <select
                   value={form.property_type}
                   onChange={(e) => setForm({ ...form, property_type: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 >
                   <option value="apartment">Apartamento</option>
                   <option value="house">Moradia</option>
@@ -278,7 +278,7 @@ export default function PropertiesPage() {
                 <select
                   value={form.typology}
                   onChange={(e) => setForm({ ...form, typology: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 >
                   <option value="">Selecionar</option>
                   <option value="T0">T0</option>
@@ -299,7 +299,7 @@ export default function PropertiesPage() {
                   value={form.area_m2}
                   onChange={(e) => setForm({ ...form, area_m2: e.target.value })}
                   placeholder="Ex: 85"
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -312,7 +312,7 @@ export default function PropertiesPage() {
                   value={form.year_built}
                   onChange={(e) => setForm({ ...form, year_built: e.target.value })}
                   placeholder="Ex: 2005"
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -325,7 +325,7 @@ export default function PropertiesPage() {
                   value={form.license_number}
                   onChange={(e) => setForm({ ...form, license_number: e.target.value })}
                   placeholder="Número da licença"
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -339,7 +339,7 @@ export default function PropertiesPage() {
                   value={form.fiscal_value}
                   onChange={(e) => setForm({ ...form, fiscal_value: e.target.value })}
                   placeholder="Ex: 120000"
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -350,7 +350,7 @@ export default function PropertiesPage() {
                 <select
                   value={form.status}
                   onChange={(e) => setForm({ ...form, status: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 >
                   <option value="active">Ativo</option>
                   <option value="inactive">Inativo</option>
@@ -376,7 +376,7 @@ export default function PropertiesPage() {
               <button
                 type="submit"
                 disabled={saving}
-                className="px-6 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition disabled:opacity-50"
+                className="px-6 py-2 bg-brand-600 text-white text-sm font-medium rounded-lg hover:bg-brand-700 transition disabled:opacity-50"
               >
                 {saving
                   ? (editingProperty ? "A atualizar..." : "A guardar...")
@@ -398,7 +398,7 @@ export default function PropertiesPage() {
           <p className="text-gray-500 mb-6">Adicione o seu primeiro imóvel para começar a gerir o arrendamento.</p>
           <button
             onClick={() => setShowForm(true)}
-            className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition"
+            className="px-6 py-3 bg-brand-600 text-white font-medium rounded-lg hover:bg-brand-700 transition"
           >
             + Adicionar Primeiro Imóvel
           </button>
@@ -451,7 +451,7 @@ export default function PropertiesPage() {
                       </a>
                       <button
                         onClick={() => startEdit(property)}
-                        className="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition"
+                        className="p-2 text-gray-600 hover:text-brand-600 hover:bg-brand-50 rounded-lg transition"
                         title="Editar imóvel"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

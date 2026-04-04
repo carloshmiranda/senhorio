@@ -73,7 +73,7 @@ export default function SurveyResultsPage() {
   const getWillingnessColor = (value: string) => {
     const colors = {
       'definitely': 'text-green-600 bg-green-50',
-      'probably': 'text-blue-600 bg-blue-50',
+      'probably': 'text-brand-600 bg-brand-50',
       'maybe': 'text-yellow-600 bg-yellow-50',
       'probably_not': 'text-orange-600 bg-orange-50',
       'definitely_not': 'text-red-600 bg-red-50'
@@ -106,7 +106,7 @@ export default function SurveyResultsPage() {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-600 mx-auto mb-4"></div>
           <p className="text-gray-600">A carregar resultados do survey...</p>
         </div>
       </div>
@@ -138,7 +138,7 @@ export default function SurveyResultsPage() {
                 onClick={() => setActiveTab('overview')}
                 className={`py-2 px-1 border-b-2 font-medium text-sm ${
                   activeTab === 'overview'
-                    ? 'border-blue-500 text-blue-600'
+                    ? 'border-brand-500 text-brand-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
@@ -148,7 +148,7 @@ export default function SurveyResultsPage() {
                 onClick={() => setActiveTab('responses')}
                 className={`py-2 px-1 border-b-2 font-medium text-sm ${
                   activeTab === 'responses'
-                    ? 'border-blue-500 text-blue-600'
+                    ? 'border-brand-500 text-brand-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
@@ -184,7 +184,7 @@ export default function SurveyResultsPage() {
 
               <div className="bg-white rounded-lg shadow p-6">
                 <h3 className="text-sm font-medium text-gray-500">Preço Médio</h3>
-                <p className="text-3xl font-bold text-blue-600">
+                <p className="text-3xl font-bold text-brand-600">
                   €{stats.overview.avg_max_price?.toFixed(2) || '0'}
                 </p>
                 <p className="text-sm text-gray-600 mt-1">por mês</p>
@@ -219,7 +219,7 @@ export default function SurveyResultsPage() {
                         <div
                           className={`h-2 rounded-full ${
                             item.willingness_to_pay === 'definitely' ? 'bg-green-500' :
-                            item.willingness_to_pay === 'probably' ? 'bg-blue-500' :
+                            item.willingness_to_pay === 'probably' ? 'bg-brand-500' :
                             item.willingness_to_pay === 'maybe' ? 'bg-yellow-500' :
                             item.willingness_to_pay === 'probably_not' ? 'bg-orange-500' :
                             'bg-red-500'
@@ -245,8 +245,8 @@ export default function SurveyResultsPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-7 gap-4">
                 {stats.price_distribution.map((item) => (
                   <div key={item.price_range} className="text-center">
-                    <div className="bg-blue-100 rounded-lg p-4">
-                      <p className="text-2xl font-bold text-blue-600">{item.count}</p>
+                    <div className="bg-brand-100 rounded-lg p-4">
+                      <p className="text-2xl font-bold text-brand-600">{item.count}</p>
                       <p className="text-xs text-gray-600 mt-1">{item.price_range}</p>
                     </div>
                   </div>
@@ -280,7 +280,7 @@ export default function SurveyResultsPage() {
                     <h4 className="text-sm font-medium text-gray-900 mb-2">Funcionalidades Mais Valiosas</h4>
                     <div className="flex flex-wrap gap-1">
                       {response.most_valuable_features.map((feature, i) => (
-                        <span key={i} className="inline-block px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">
+                        <span key={i} className="inline-block px-2 py-1 bg-brand-100 text-brand-800 text-xs rounded">
                           {feature}
                         </span>
                       ))}
@@ -315,7 +315,7 @@ export default function SurveyResultsPage() {
                 <p className="text-gray-500">Ainda não há respostas ao survey.</p>
                 <Link
                   href="/survey"
-                  className="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700"
+                  className="inline-block mt-4 px-4 py-2 bg-brand-600 text-white rounded-lg text-sm hover:bg-brand-700"
                 >
                   Ver Survey
                 </Link>

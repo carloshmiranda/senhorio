@@ -174,16 +174,16 @@ export default function TaxCalculatorPage() {
 
       <div className="max-w-6xl mx-auto px-6 py-8">
         {/* 2026 Update Highlight */}
-        <div className="bg-blue-600 text-white rounded-xl p-6 mb-8">
+        <div className="bg-brand-600 text-white rounded-xl p-6 mb-8">
           <div className="flex items-start">
             <div className="text-3xl mr-4">🆕</div>
             <div>
               <h2 className="text-xl font-bold mb-2">Nova Lei IRS 2026: Taxa Especial 10%</h2>
-              <p className="text-blue-100 mb-3">
+              <p className="text-brand-100 mb-3">
                 A partir de 2026, rendas até €2.300/mês beneficiam de uma taxa reduzida de apenas 10%,
                 em vez dos habituais 25%.
               </p>
-              <div className="bg-blue-500/30 rounded-lg p-3">
+              <div className="bg-brand-500/30 rounded-lg p-3">
                 <p className="text-sm font-medium">
                   ⚠️ <strong>Atenção:</strong> Esta medida cria um incentivo perverso -
                   rendas de €2.300 podem gerar mais lucro líquido que rendas de €2.600!
@@ -212,7 +212,7 @@ export default function TaxCalculatorPage() {
                   placeholder="1000"
                   min="0"
                   step="50"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -223,7 +223,7 @@ export default function TaxCalculatorPage() {
                 <select
                   value={municipality}
                   onChange={(e) => setMunicipality(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 >
                   {MUNICIPALITIES.map((muni) => (
                     <option key={muni.code} value={muni.code}>
@@ -240,7 +240,7 @@ export default function TaxCalculatorPage() {
                 <select
                   value={propertyCount}
                   onChange={(e) => setPropertyCount(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 >
                   {[1,2,3,4,5].map((num) => (
                     <option key={num} value={num}>
@@ -259,7 +259,7 @@ export default function TaxCalculatorPage() {
                     onClick={() => setResidency("resident")}
                     className={`px-4 py-3 border rounded-lg font-medium transition ${
                       residency === "resident"
-                        ? "border-blue-500 bg-blue-50 text-blue-700"
+                        ? "border-brand-500 bg-brand-50 text-brand-700"
                         : "border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
                     }`}
                   >
@@ -269,7 +269,7 @@ export default function TaxCalculatorPage() {
                     onClick={() => setResidency("non-resident")}
                     className={`px-4 py-3 border rounded-lg font-medium transition ${
                       residency === "non-resident"
-                        ? "border-blue-500 bg-blue-50 text-blue-700"
+                        ? "border-brand-500 bg-brand-50 text-brand-700"
                         : "border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
                     }`}
                   >
@@ -330,7 +330,7 @@ export default function TaxCalculatorPage() {
 
         {/* Email Capture for Tax Report */}
         {bestRegime && bestRegime.savings && bestRegime.savings > 0 && !emailSubmitted && (
-          <div className="mt-8 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border border-green-200 p-6">
+          <div className="mt-8 bg-gradient-to-r from-green-50 to-brand-50 rounded-xl border border-green-200 p-6">
             <div className="text-center">
               <div className="text-2xl mb-2">📧</div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -349,12 +349,12 @@ export default function TaxCalculatorPage() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="o-seu-email@exemplo.com"
                     required
-                    className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                   />
                   <button
                     type="submit"
                     disabled={emailLoading || !email}
-                    className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition"
+                    className="px-6 py-3 bg-brand-600 text-white rounded-lg font-medium hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition"
                   >
                     {emailLoading ? 'A enviar...' : 'Receber Relatório'}
                   </button>
@@ -396,7 +396,7 @@ export default function TaxCalculatorPage() {
                   regime === bestRegime && regime.eligible
                     ? "border-green-400 bg-green-50"
                     : regime.eligible
-                    ? "border-gray-200 hover:border-blue-300"
+                    ? "border-gray-200 hover:border-brand-300"
                     : "border-gray-200 bg-gray-50 opacity-75"
                 }`}
               >
@@ -572,16 +572,16 @@ export default function TaxCalculatorPage() {
         </div>
 
         {/* CTA to waitlist */}
-        <div className="mt-8 bg-blue-50 rounded-xl p-6 text-center">
-          <h3 className="text-lg font-semibold text-blue-900 mb-2">
+        <div className="mt-8 bg-brand-50 rounded-xl p-6 text-center">
+          <h3 className="text-lg font-semibold text-brand-900 mb-2">
             Quer gerir as suas propriedades de forma mais eficiente?
           </h3>
-          <p className="text-blue-700 mb-4">
+          <p className="text-brand-700 mb-4">
             Junte-se à nossa lista de espera para ter acesso antecipado à plataforma completa Senhorio.
           </p>
           <Link
             href="/"
-            className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition"
+            className="inline-block px-6 py-3 bg-brand-600 text-white rounded-lg font-medium hover:bg-brand-700 transition"
           >
             Juntar à Lista de Espera
           </Link>
