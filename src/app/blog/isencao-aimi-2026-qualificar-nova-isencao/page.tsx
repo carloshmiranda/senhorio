@@ -36,7 +36,7 @@ export default function AIMIExemptionBlogPost() {
           </Link>
           <div className="mt-4">
             <div className="flex flex-wrap gap-2 mb-3">
-              <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm font-medium rounded-full">
+              <span className="px-3 py-1 bg-brand-100 text-brand-700 text-sm font-medium rounded-full">
                 Isenção AIMI
               </span>
               <span className="px-3 py-1 bg-green-100 text-green-700 text-sm font-medium rounded-full">
@@ -65,9 +65,9 @@ export default function AIMIExemptionBlogPost() {
         <div className="prose prose-lg prose-gray max-w-none">
 
           {/* Introduction */}
-          <div className="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-r-lg mb-8">
-            <p className="text-blue-800 font-medium mb-2">💡 Resumo Rápido</p>
-            <p className="text-blue-700">
+          <div className="bg-brand-50 border-l-4 border-brand-400 p-6 rounded-r-lg mb-8">
+            <p className="text-brand-800 font-medium mb-2">💡 Resumo Rápido</p>
+            <p className="text-brand-700">
               A partir de 2026, senhorios com rendas até <strong>€2.300 por mês por propriedade</strong> podem qualificar-se
               para isenção total do AIMI. Esta medida visa promover habitação acessível e pode poupar-lhe <strong>milhares de euros por ano</strong>.
             </p>
@@ -157,22 +157,22 @@ export default function AIMIExemptionBlogPost() {
             determina instantaneamente se qualifica para a isenção 2026.
           </p>
 
-          <div className="bg-blue-50 border border-blue-200 rounded-xl p-8 text-center my-8">
-            <h3 className="text-lg font-semibold text-blue-900 mb-4">
+          <div className="bg-brand-50 border border-brand-200 rounded-xl p-8 text-center my-8">
+            <h3 className="text-lg font-semibold text-brand-900 mb-4">
               🧮 Calculadora Isenção AIMI 2026
             </h3>
-            <p className="text-blue-700 mb-6">
+            <p className="text-brand-700 mb-6">
               Introduza os dados das suas propriedades e descubra se qualifica para a isenção.
               Cálculo instantâneo com estimativa de poupanças anuais.
             </p>
             <div className="space-y-3">
               <Link
                 href="/aimi"
-                className="inline-block px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+                className="inline-block px-8 py-4 bg-brand-600 text-white font-semibold rounded-lg hover:bg-brand-700 transition"
               >
                 Verificar Elegibilidade AIMI →
               </Link>
-              <p className="text-blue-600 text-sm">Disponível em Português e Inglês • 100% Gratuito</p>
+              <p className="text-brand-600 text-sm">Disponível em Português e Inglês • 100% Gratuito</p>
             </div>
           </div>
 
@@ -282,14 +282,14 @@ export default function AIMIExemptionBlogPost() {
             <strong>Próximos Passos:</strong>
           </p>
           <ol className="ml-6 space-y-2 my-4">
-            <li>1. Use a nossa <Link href="/aimi" className="text-blue-600 hover:text-blue-700 font-medium">calculadora AIMI</Link> para verificar elegibilidade</li>
+            <li>1. Use a nossa <Link href="/aimi" className="text-brand-600 hover:text-brand-700 font-medium">calculadora AIMI</Link> para verificar elegibilidade</li>
             <li>2. Ajuste rendas se necessário (antes do prazo de março)</li>
             <li>3. Prepare e submeta a documentação exigida</li>
             <li>4. Mantenha-se atualizado com mudanças legislativas</li>
           </ol>
 
           {/* CTA Section */}
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-8 text-center mt-12">
+          <div className="bg-gradient-to-r from-brand-50 to-brand-50 border border-brand-200 rounded-xl p-8 text-center mt-12">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Simplifique a Gestão do Seu Portfólio
             </h3>
@@ -300,13 +300,13 @@ export default function AIMIExemptionBlogPost() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/calculadora"
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition"
+                className="px-6 py-3 bg-brand-600 text-white rounded-lg font-medium hover:bg-brand-700 transition"
               >
                 Simulador Fiscal Completo
               </Link>
               <Link
                 href="/calculadora-rendas"
-                className="px-6 py-3 border border-blue-300 text-blue-700 rounded-lg font-medium hover:bg-blue-50 transition"
+                className="px-6 py-3 border border-brand-300 text-brand-700 rounded-lg font-medium hover:bg-brand-50 transition"
               >
                 Calculadora de Rendas 2026
               </Link>

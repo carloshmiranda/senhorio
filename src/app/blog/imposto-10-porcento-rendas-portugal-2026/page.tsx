@@ -26,7 +26,7 @@ export default function Imposto10PorcentoRendasPortugal() {
           </Link>
           <div className="mt-4">
             <div className="flex flex-wrap gap-2 mb-3">
-              <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded font-medium">
+              <span className="px-2 py-1 bg-brand-100 text-brand-700 text-xs rounded font-medium">
                 Imposto 10%
               </span>
               <span className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded font-medium">
@@ -56,15 +56,15 @@ export default function Imposto10PorcentoRendasPortugal() {
         <div className="prose prose-lg prose-gray max-w-none">
 
           {/* Introduction */}
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
-            <h2 className="text-xl font-semibold text-blue-900 mb-3">
+          <div className="bg-brand-50 border border-brand-200 rounded-lg p-6 mb-8">
+            <h2 className="text-xl font-semibold text-brand-900 mb-3">
               🎯 Resumo Executivo
             </h2>
-            <p className="text-blue-800 mb-2">
+            <p className="text-brand-800 mb-2">
               O <strong>imposto de 10% sobre rendas em Portugal</strong> é uma das quatro opções fiscais disponíveis para senhorios em 2026.
               É uma taxa fixa aplicada sobre o valor bruto das rendas, sem deduções.
             </p>
-            <ul className="text-blue-800 space-y-1 text-sm">
+            <ul className="text-brand-800 space-y-1 text-sm">
               <li>✅ <strong>Vantajoso para:</strong> Senhorios com poucas despesas dedutíveis</li>
               <li>✅ <strong>Simplicidade:</strong> Sem necessidade de guardar faturas</li>
               <li>❌ <strong>Desvantagem:</strong> Não permite dedução de despesas reais</li>
@@ -89,25 +89,25 @@ export default function Imposto10PorcentoRendasPortugal() {
           <div className="bg-gray-50 rounded-lg p-6 my-6">
             <ol className="space-y-3">
               <li className="flex items-start">
-                <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</span>
+                <span className="bg-brand-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</span>
                 <div>
                   <strong>Taxa fixa de 10%</strong> - Sobre rendas brutas (sem deduções)
                 </div>
               </li>
               <li className="flex items-start">
-                <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">2</span>
+                <span className="bg-brand-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">2</span>
                 <div>
                   <strong>Englobamento</strong> - Rendas somadas aos outros rendimentos
                 </div>
               </li>
               <li className="flex items-start">
-                <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">3</span>
+                <span className="bg-brand-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">3</span>
                 <div>
                   <strong>Regime simplificado</strong> - Com dedução automática de 65%
                 </div>
               </li>
               <li className="flex items-start">
-                <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">4</span>
+                <span className="bg-brand-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">4</span>
                 <div>
                   <strong>Contabilidade organizada</strong> - Com dedução de despesas reais
                 </div>
@@ -173,9 +173,9 @@ export default function Imposto10PorcentoRendasPortugal() {
           </p>
 
           <div className="space-y-6 my-8">
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-              <h3 className="font-semibold text-blue-900 mb-3">🏠 Propriedades Novas ou Bem Conservadas</h3>
-              <p className="text-blue-800">
+            <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+              <h3 className="font-semibold text-brand-900 mb-3">🏠 Propriedades Novas ou Bem Conservadas</h3>
+              <p className="text-brand-800">
                 Imóveis com poucas despesas de manutenção, onde as despesas dedutíveis são inferiores a 35% das rendas brutas.
               </p>
             </div>
@@ -213,8 +213,8 @@ export default function Imposto10PorcentoRendasPortugal() {
                 <p className="font-semibold text-gray-800">Comparação de Regimes:</p>
                 <div className="grid md:grid-cols-2 gap-4 mt-2">
                   <div>
-                    <p className="text-sm font-medium text-blue-700">Taxa 10%:</p>
-                    <p className="text-lg font-bold text-blue-800">€900</p>
+                    <p className="text-sm font-medium text-brand-700">Taxa 10%:</p>
+                    <p className="text-lg font-bold text-brand-800">€900</p>
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-700">Simplificado (35% ded.):</p>
@@ -243,8 +243,8 @@ export default function Imposto10PorcentoRendasPortugal() {
                 <p className="font-semibold text-gray-800">Comparação de Regimes:</p>
                 <div className="grid md:grid-cols-2 gap-4 mt-2">
                   <div>
-                    <p className="text-sm font-medium text-blue-700">Taxa 10%:</p>
-                    <p className="text-lg font-bold text-blue-800">€1.440</p>
+                    <p className="text-sm font-medium text-brand-700">Taxa 10%:</p>
+                    <p className="text-lg font-bold text-brand-800">€1.440</p>
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-700">Contab. Organizada:</p>
@@ -334,24 +334,24 @@ export default function Imposto10PorcentoRendasPortugal() {
           </div>
 
           {/* CTA Section */}
-          <div className="bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded-xl p-8 my-12 text-center">
-            <h2 className="text-2xl font-bold text-blue-900 mb-4">
+          <div className="bg-gradient-to-r from-brand-50 to-brand-100 border border-brand-200 rounded-xl p-8 my-12 text-center">
+            <h2 className="text-2xl font-bold text-brand-900 mb-4">
               💡 Calcule o Seu Imposto de Rendas
             </h2>
-            <p className="text-blue-800 mb-6">
+            <p className="text-brand-800 mb-6">
               Use a nossa calculadora gratuita para comparar todos os regimes fiscais e descobrir
               qual é mais vantajoso para a sua situação.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/calculadora"
-                className="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition inline-flex items-center justify-center"
+                className="px-8 py-4 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700 transition inline-flex items-center justify-center"
               >
                 🧮 Calculadora Fiscal Gratuita
               </Link>
               <Link
                 href="/calculadora-rendas"
-                className="px-8 py-4 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition inline-flex items-center justify-center"
+                className="px-8 py-4 border-2 border-brand-600 text-brand-600 rounded-lg font-semibold hover:bg-brand-50 transition inline-flex items-center justify-center"
               >
                 📈 Calculadora de Rendas
               </Link>
@@ -381,7 +381,7 @@ export default function Imposto10PorcentoRendasPortugal() {
           </div>
 
           <p>
-            <strong>Recomendação:</strong> Use a nossa <Link href="/calculadora" className="text-blue-600 hover:text-blue-800 underline">calculadora fiscal gratuita</Link> para
+            <strong>Recomendação:</strong> Use a nossa <Link href="/calculadora" className="text-brand-600 hover:text-brand-800 underline">calculadora fiscal gratuita</Link> para
             comparar todos os regimes e tomar uma decisão informada sobre o seu imposto de rendas em 2026.
           </p>
 

@@ -191,7 +191,7 @@ export default function ReceiptsPage() {
             resetForm();
             setShowForm(!showForm);
           }}
-          className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition"
+          className="px-4 py-2 bg-brand-600 text-white text-sm font-medium rounded-lg hover:bg-brand-700 transition"
           disabled={tenants.length === 0}
         >
           {showForm ? "Cancelar" : "+ Gerar Recibo"}
@@ -212,7 +212,7 @@ export default function ReceiptsPage() {
                   required
                   value={form.tenant_id}
                   onChange={(e) => setForm({ ...form, tenant_id: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 >
                   <option value="">Selecionar inquilino</option>
                   {tenants.map((tenant) => (
@@ -234,7 +234,7 @@ export default function ReceiptsPage() {
                   value={form.amount}
                   onChange={(e) => setForm({ ...form, amount: e.target.value })}
                   placeholder="Valor da renda"
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -245,7 +245,7 @@ export default function ReceiptsPage() {
                 <select
                   value={form.period_month}
                   onChange={(e) => setForm({ ...form, period_month: parseInt(e.target.value) })}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 >
                   {monthNames.map((month, index) => (
                     <option key={index + 1} value={index + 1}>{month}</option>
@@ -264,7 +264,7 @@ export default function ReceiptsPage() {
                   max="2030"
                   value={form.period_year}
                   onChange={(e) => setForm({ ...form, period_year: parseInt(e.target.value) })}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -277,7 +277,7 @@ export default function ReceiptsPage() {
                   required
                   value={form.issue_date}
                   onChange={(e) => setForm({ ...form, issue_date: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -290,13 +290,13 @@ export default function ReceiptsPage() {
                   value={form.receipt_number}
                   onChange={(e) => setForm({ ...form, receipt_number: e.target.value })}
                   placeholder="Gerado automaticamente se vazio"
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
             </div>
 
             {selectedTenant && (
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-4">
                 <h4 className="font-medium text-gray-900 mb-2">Detalhes do Inquilino</h4>
                 <div className="text-sm text-gray-600 space-y-1">
                   <p><strong>Nome:</strong> {selectedTenant.name}</p>
@@ -325,7 +325,7 @@ export default function ReceiptsPage() {
               <button
                 type="submit"
                 disabled={generating}
-                className="px-6 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition disabled:opacity-50"
+                className="px-6 py-2 bg-brand-600 text-white text-sm font-medium rounded-lg hover:bg-brand-700 transition disabled:opacity-50"
               >
                 {generating ? "A gerar..." : "Gerar Recibo"}
               </button>
@@ -344,7 +344,7 @@ export default function ReceiptsPage() {
           <p className="text-gray-500 mb-6">Para gerar recibos, primeiro precisa de adicionar inquilinos aos seus imóveis.</p>
           <Link
             href="/dashboard/properties"
-            className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition"
+            className="px-6 py-3 bg-brand-600 text-white font-medium rounded-lg hover:bg-brand-700 transition"
           >
             Gerir Imóveis
           </Link>
@@ -388,7 +388,7 @@ export default function ReceiptsPage() {
                     <Link
                       href={`/dashboard/receipts/${receipt.id}`}
                       target="_blank"
-                      className="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition"
+                      className="p-2 text-gray-600 hover:text-brand-600 hover:bg-brand-50 rounded-lg transition"
                       title="Ver recibo"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

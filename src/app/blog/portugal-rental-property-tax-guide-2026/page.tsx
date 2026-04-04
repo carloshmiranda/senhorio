@@ -45,11 +45,11 @@ export default function PortugalRentalPropertyTaxGuide() {
         <div className="prose prose-lg prose-gray max-w-none">
 
           {/* Introduction */}
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
-            <h2 className="text-xl font-bold text-blue-900 mb-3 mt-0">
+          <div className="bg-brand-50 border border-brand-200 rounded-lg p-6 mb-8">
+            <h2 className="text-xl font-bold text-brand-900 mb-3 mt-0">
               🇵🇹 2026 Tax Changes Summary
             </h2>
-            <ul className="text-blue-800 mb-0">
+            <ul className="text-brand-800 mb-0">
               <li><strong>New 10% tax option</strong> for rental income (replaces complex calculations)</li>
               <li><strong>AIMI exemption</strong> for affordable rental properties (≤€2,300/month)</li>
               <li><strong>Rent increase cap</strong> of 2.24% for 2026 (INE coefficient)</li>
@@ -130,14 +130,14 @@ export default function PortugalRentalPropertyTaxGuide() {
           <h3>Potential Savings</h3>
           <p>AIMI is calculated at 0.4% of property's patrimonial value for individuals. For a property valued at €300,000, AIMI would normally be €1,200 annually. The exemption eliminates this cost entirely for qualifying properties.</p>
 
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 my-8">
-            <h3 className="text-blue-900 mt-0">🔍 Check Your AIMI Eligibility</h3>
-            <p className="text-blue-800 mb-4">
+          <div className="bg-brand-50 border border-brand-200 rounded-lg p-6 my-8">
+            <h3 className="text-brand-900 mt-0">🔍 Check Your AIMI Eligibility</h3>
+            <p className="text-brand-800 mb-4">
               Our AIMI exemption calculator helps you determine if your rental properties qualify for the 2026 exemption and estimates your potential savings.
             </p>
             <Link
               href="/aimi"
-              className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition"
+              className="inline-block bg-brand-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-brand-700 transition"
             >
               Check AIMI Exemption →
             </Link>
@@ -301,7 +301,7 @@ export default function PortugalRentalPropertyTaxGuide() {
           </ul>
 
           {/* CTA Section */}
-          <div className="bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200 rounded-xl p-8 my-12 text-center">
+          <div className="bg-gradient-to-r from-brand-50 to-green-50 border border-brand-200 rounded-xl p-8 my-12 text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Simplify Your Rental Property Taxes
             </h3>
@@ -313,7 +313,7 @@ export default function PortugalRentalPropertyTaxGuide() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-2xl mx-auto">
               <Link
                 href="/calculadora"
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition"
+                className="px-6 py-3 bg-brand-600 text-white rounded-lg font-medium hover:bg-brand-700 transition"
               >
                 🧮 Tax Calculator
               </Link>
@@ -346,9 +346,9 @@ export default function PortugalRentalPropertyTaxGuide() {
             </p>
             <p className="mt-4">
               <strong>Last updated:</strong> March 22, 2026 |
-              <strong> Related tools:</strong> <Link href="/calculadora" className="text-blue-600 hover:text-blue-700">Tax Calculator</Link>,
-              <Link href="/aimi" className="text-blue-600 hover:text-blue-700"> AIMI Exemption Checker</Link>,
-              <Link href="/calculadora-rendas" className="text-blue-600 hover:text-blue-700"> Rent Increase Calculator</Link>
+              <strong> Related tools:</strong> <Link href="/calculadora" className="text-brand-600 hover:text-brand-700">Tax Calculator</Link>,
+              <Link href="/aimi" className="text-brand-600 hover:text-brand-700"> AIMI Exemption Checker</Link>,
+              <Link href="/calculadora-rendas" className="text-brand-600 hover:text-brand-700"> Rent Increase Calculator</Link>
             </p>
           </div>
         </div>

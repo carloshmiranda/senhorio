@@ -20,7 +20,7 @@ export default function TermsPage() {
       {/* Header */}
       <header className="border-b border-gray-200">
         <div className="max-w-4xl mx-auto px-6 py-6">
-          <Link href="/" className="text-sm text-blue-600 hover:text-blue-700 transition">
+          <Link href="/" className="text-sm text-brand-600 hover:text-brand-700 transition">
             ← Voltar ao Senhorio
           </Link>
           <h1 className="text-3xl font-bold text-gray-900 mt-4">
@@ -226,9 +226,9 @@ export default function TermsPage() {
           </div>
         </section>
 
-        <section className="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-12">
-          <h3 className="text-lg font-semibold text-blue-900 mb-2">Sobre o Desenvolvimento do Senhorio</h3>
-          <p className="text-blue-800 text-sm">
+        <section className="bg-brand-50 border border-brand-200 rounded-lg p-6 mt-12">
+          <h3 className="text-lg font-semibold text-brand-900 mb-2">Sobre o Desenvolvimento do Senhorio</h3>
+          <p className="text-brand-800 text-sm">
             O Senhorio está em desenvolvimento ativo. Estes Termos aplicam-se à versão atual
             e serão atualizados conforme novas funcionalidades são lançadas. Utilizadores da
             lista de espera serão notificados de mudanças significativas nos termos de serviço.

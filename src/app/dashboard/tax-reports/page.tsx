@@ -143,7 +143,7 @@ export default function TaxReportsPage() {
           <select
             value={selectedYear}
             onChange={(e) => setSelectedYear(parseInt(e.target.value))}
-            className="px-4 py-2 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-4 py-2 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-600"
           >
             {availableYears.map(year => (
               <option key={year} value={year}>{year}</option>
@@ -185,7 +185,7 @@ export default function TaxReportsPage() {
             </div>
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
               <h3 className="text-sm font-medium text-gray-500 mb-2">Rendimento Líquido</h3>
-              <p className="text-3xl font-bold text-blue-600">€{report.summary.total_net_income.toFixed(2)}</p>
+              <p className="text-3xl font-bold text-brand-600">€{report.summary.total_net_income.toFixed(2)}</p>
             </div>
           </div>
 
@@ -201,7 +201,7 @@ export default function TaxReportsPage() {
               <button
                 onClick={() => exportReport('csv')}
                 disabled={exporting}
-                className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition disabled:opacity-50 flex items-center"
+                className="px-6 py-3 bg-brand-600 text-white font-medium rounded-lg hover:bg-brand-700 transition disabled:opacity-50 flex items-center"
               >
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -306,9 +306,9 @@ export default function TaxReportsPage() {
           </div>
 
           {/* Help Section */}
-          <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
-            <h3 className="text-lg font-semibold text-blue-900 mb-3">Como usar no Portal das Finanças</h3>
-            <div className="space-y-2 text-sm text-blue-800">
+          <div className="bg-brand-50 border border-brand-200 rounded-xl p-6">
+            <h3 className="text-lg font-semibold text-brand-900 mb-3">Como usar no Portal das Finanças</h3>
+            <div className="space-y-2 text-sm text-brand-800">
               <p>1. <strong>Faça download do ficheiro CSV</strong> clicando em "Exportar CSV"</p>
               <p>2. <strong>Aceda ao Portal das Finanças</strong> e navegue para a secção de IRS</p>
               <p>3. <strong>Use os dados do resumo</strong> para preencher os valores de rendas prediais</p>
@@ -327,7 +327,7 @@ export default function TaxReportsPage() {
           <p className="text-gray-500 mb-6">Não foi encontrada atividade fiscal para {selectedYear}.</p>
           <Link
             href="/dashboard/properties"
-            className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition"
+            className="px-6 py-3 bg-brand-600 text-white font-medium rounded-lg hover:bg-brand-700 transition"
           >
             Adicionar Imóveis
           </Link>

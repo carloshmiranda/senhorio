@@ -502,7 +502,7 @@ export default function ReceiptGeneratorPage() {
               <div className="mb-6 print:mb-4">
                 <button
                   onClick={printReceipt}
-                  className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors print:hidden"
+                  className="bg-brand-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-brand-700 transition-colors print:hidden"
                 >
                   Imprimir / Guardar PDF
                 </button>

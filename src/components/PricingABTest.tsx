@@ -210,9 +210,9 @@ export default function PricingABTest({ onPricingClick }: PricingABTestProps) {
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {variant.plans.map((plan, i) => (
-            <div key={i} className={`bg-white rounded-2xl shadow-lg p-8 relative ${plan.popular ? 'ring-2 ring-blue-500 scale-105' : ''}`}>
+            <div key={i} className={`bg-white rounded-2xl shadow-lg p-8 relative ${plan.popular ? 'ring-2 ring-brand-600 scale-105' : ''}`}>
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-6 py-2 rounded-full text-sm font-semibold">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-brand-500 text-white px-6 py-2 rounded-full text-sm font-semibold">
                   Mais Popular
                 </div>
               )}
@@ -237,7 +237,7 @@ export default function PricingABTest({ onPricingClick }: PricingABTestProps) {
 
               <button
                 onClick={() => handlePlanClick(plan)}
-                className={`w-full px-6 py-3 rounded-xl font-semibold transition text-center ${plan.popular ? 'bg-blue-600 text-white hover:bg-blue-700' : 'border border-gray-300 text-gray-700 hover:bg-gray-50'}`}
+                className={`w-full px-6 py-3 rounded-xl font-semibold transition text-center ${plan.popular ? 'bg-brand-600 text-white hover:bg-brand-700' : 'border border-gray-300 text-gray-700 hover:bg-gray-50'}`}
               >
                 {plan.cta}
               </button>

@@ -73,7 +73,7 @@ export default function DeclaracaoIRSArrendamentoPage() {
             </Link>
             <div className="mt-4">
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">IRS 2026</span>
+                <span className="px-2 py-1 bg-brand-100 text-brand-800 text-xs rounded">IRS 2026</span>
                 <span className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Declaração Arrendamento</span>
                 <span className="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Anexo F</span>
                 <span className="px-2 py-1 bg-orange-100 text-orange-800 text-xs rounded">Portal Finanças</span>
@@ -99,12 +99,12 @@ export default function DeclaracaoIRSArrendamentoPage() {
           <div className="prose prose-gray max-w-none">
 
             {/* Introduction */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
-              <h2 className="text-xl font-semibold text-blue-900 mb-3">📋 Sumário Executivo</h2>
-              <p className="text-blue-800 mb-4">
+            <div className="bg-brand-50 border border-brand-200 rounded-lg p-6 mb-8">
+              <h2 className="text-xl font-semibold text-brand-900 mb-3">📋 Sumário Executivo</h2>
+              <p className="text-brand-800 mb-4">
                 A declaração de IRS para rendimentos de arrendamento em 2026 apresenta mudanças significativas com a nova taxa de 10% e atualizações no Anexo F. Este guia completo cobre todo o processo, desde a preparação de documentos até ao envio final.
               </p>
-              <div className="grid md:grid-cols-2 gap-4 text-sm text-blue-700">
+              <div className="grid md:grid-cols-2 gap-4 text-sm text-brand-700">
                 <div>
                   <strong>🗓️ Prazos Críticos:</strong>
                   <ul className="mt-1 space-y-1">
@@ -132,17 +132,17 @@ export default function DeclaracaoIRSArrendamentoPage() {
                 <div>
                   <strong>Preparação:</strong>
                   <ul className="mt-1 space-y-1 text-gray-600">
-                    <li>• <a href="#documentos" className="hover:text-blue-600">Documentos necessários</a></li>
-                    <li>• <a href="#regime-tributacao" className="hover:text-blue-600">Escolha do regime</a></li>
-                    <li>• <a href="#calculo-rendimentos" className="hover:text-blue-600">Cálculo de rendimentos</a></li>
+                    <li>• <a href="#documentos" className="hover:text-brand-600">Documentos necessários</a></li>
+                    <li>• <a href="#regime-tributacao" className="hover:text-brand-600">Escolha do regime</a></li>
+                    <li>• <a href="#calculo-rendimentos" className="hover:text-brand-600">Cálculo de rendimentos</a></li>
                   </ul>
                 </div>
                 <div>
                   <strong>Declaração:</strong>
                   <ul className="mt-1 space-y-1 text-gray-600">
-                    <li>• <a href="#anexo-f" className="hover:text-blue-600">Preenchimento Anexo F</a></li>
-                    <li>• <a href="#portal-financas" className="hover:text-blue-600">Portal das Finanças</a></li>
-                    <li>• <a href="#erros-comuns" className="hover:text-blue-600">Erros a evitar</a></li>
+                    <li>• <a href="#anexo-f" className="hover:text-brand-600">Preenchimento Anexo F</a></li>
+                    <li>• <a href="#portal-financas" className="hover:text-brand-600">Portal das Finanças</a></li>
+                    <li>• <a href="#erros-comuns" className="hover:text-brand-600">Erros a evitar</a></li>
                   </ul>
                 </div>
               </div>
@@ -235,7 +235,7 @@ export default function DeclaracaoIRSArrendamentoPage() {
                       <li>• Menos vantajoso para imóveis com muitos custos</li>
                       <li>• Não permite amortizações</li>
                     </ul>
-                    <div className="bg-blue-100 p-3 rounded text-sm text-blue-800">
+                    <div className="bg-brand-100 p-3 rounded text-sm text-brand-800">
                       <strong>💡 Ideal para:</strong> Rendas altas com despesas baixas
                     </div>
                   </div>
@@ -263,7 +263,7 @@ export default function DeclaracaoIRSArrendamentoPage() {
                       <li>• Necessidade de comprovar todas as despesas</li>
                       <li>• Processo mais complexo</li>
                     </ul>
-                    <div className="bg-blue-100 p-3 rounded text-sm text-blue-800">
+                    <div className="bg-brand-100 p-3 rounded text-sm text-brand-800">
                       <strong>💡 Ideal para:</strong> Imóveis com muitas despesas dedutíveis
                     </div>
                   </div>
@@ -281,14 +281,14 @@ export default function DeclaracaoIRSArrendamentoPage() {
               </div>
             </div>
 
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
-              <h3 className="text-lg font-semibold text-blue-900 mb-3">🧮 Calculadora de Regime Óptimo</h3>
-              <p className="text-blue-800 mb-4">
+            <div className="bg-brand-50 border border-brand-200 rounded-lg p-6 mb-8">
+              <h3 className="text-lg font-semibold text-brand-900 mb-3">🧮 Calculadora de Regime Óptimo</h3>
+              <p className="text-brand-800 mb-4">
                 Não tem a certeza de qual regime escolher? Utilize a nossa calculadora gratuita para comparar os 4 regimes e descobrir qual resulta numa menor carga fiscal.
               </p>
               <Link
                 href="/calculadora"
-                className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition"
+                className="inline-block bg-brand-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-brand-700 transition"
               >
                 Calcular Regime Óptimo →
               </Link>
@@ -356,7 +356,7 @@ export default function DeclaracaoIRSArrendamentoPage() {
                     <h4 className="font-medium text-green-800 mb-3">Cálculos por Regime:</h4>
                     <div className="space-y-3 text-sm">
                       <div className="bg-white p-3 rounded border">
-                        <strong className="text-blue-700">Regime 10%:</strong>
+                        <strong className="text-brand-700">Regime 10%:</strong>
                         <div className="mt-1">
                           Rendimento: €10.400<br/>
                           Imposto: €1.040
@@ -417,12 +417,12 @@ export default function DeclaracaoIRSArrendamentoPage() {
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">📋 Guia de Preenchimento Campo a Campo</h3>
 
                 <div className="space-y-4">
-                  <div className="bg-blue-50 p-4 rounded">
-                    <h4 className="font-medium text-blue-900 mb-2">Campo 401 - Rendimento Bruto (Regime Geral)</h4>
-                    <p className="text-blue-800 text-sm mb-2">
+                  <div className="bg-brand-50 p-4 rounded">
+                    <h4 className="font-medium text-brand-900 mb-2">Campo 401 - Rendimento Bruto (Regime Geral)</h4>
+                    <p className="text-brand-800 text-sm mb-2">
                       Soma de todas as rendas recebidas + encargos + outros proveitos para imóveis no regime geral.
                     </p>
-                    <div className="bg-blue-100 p-3 rounded text-sm text-blue-800">
+                    <div className="bg-brand-100 p-3 rounded text-sm text-brand-800">
                       <strong>💡 Dica:</strong> Inclua apenas rendimentos de imóveis que optem pelo regime geral ou de habitação.
                     </div>
                   </div>
@@ -487,16 +487,16 @@ export default function DeclaracaoIRSArrendamentoPage() {
             </p>
 
             <div className="space-y-6 mb-8">
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-blue-900 mb-3">🔗 Acesso ao Portal</h3>
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-brand-900 mb-3">🔗 Acesso ao Portal</h3>
                 <div className="space-y-3">
-                  <p className="text-blue-800">
-                    <strong>URL:</strong> <span className="font-mono bg-blue-100 px-2 py-1 rounded">https://www.portaldasfinancas.gov.pt</span>
+                  <p className="text-brand-800">
+                    <strong>URL:</strong> <span className="font-mono bg-brand-100 px-2 py-1 rounded">https://www.portaldasfinancas.gov.pt</span>
                   </p>
                   <div className="grid md:grid-cols-2 gap-4 text-sm">
                     <div>
-                      <p className="font-medium text-blue-800 mb-2">Opções de Login:</p>
-                      <ul className="text-blue-700 space-y-1">
+                      <p className="font-medium text-brand-800 mb-2">Opções de Login:</p>
+                      <ul className="text-brand-700 space-y-1">
                         <li>• NIF + Senha</li>
                         <li>• Cartão de Cidadão</li>
                         <li>• Chave Móvel Digital</li>
@@ -504,8 +504,8 @@ export default function DeclaracaoIRSArrendamentoPage() {
                       </ul>
                     </div>
                     <div>
-                      <p className="font-medium text-blue-800 mb-2">Horários de Funcionamento:</p>
-                      <ul className="text-blue-700 space-y-1">
+                      <p className="font-medium text-brand-800 mb-2">Horários de Funcionamento:</p>
+                      <ul className="text-brand-700 space-y-1">
                         <li>• Segunda a Sexta: 07h00-22h00</li>
                         <li>• Sábados: 09h00-18h00</li>
                         <li>• Domingos: 09h00-15h00</li>
@@ -573,7 +573,7 @@ export default function DeclaracaoIRSArrendamentoPage() {
                     }
                   ].map((item, index) => (
                     <div key={index} className="flex gap-4 p-4 bg-gray-50 rounded-lg">
-                      <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                      <div className="flex-shrink-0 w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
                         {item.step}
                       </div>
                       <div>
@@ -686,7 +686,7 @@ export default function DeclaracaoIRSArrendamentoPage() {
               <h3 className="text-lg font-semibold text-gray-900 mb-4">🗓️ Datas Importantes para Senhorios</h3>
               <div className="space-y-3">
                 <div className="flex items-center gap-4 p-3 bg-white rounded border">
-                  <div className="text-blue-600 font-bold">1 ABR - 30 JUN</div>
+                  <div className="text-brand-600 font-bold">1 ABR - 30 JUN</div>
                   <div>
                     <span className="font-medium">Entrega da Declaração IRS 2025</span>
                     <div className="text-sm text-gray-600">Portal das Finanças disponível 24/7</div>
@@ -744,19 +744,19 @@ export default function DeclaracaoIRSArrendamentoPage() {
                 </div>
               </div>
 
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-blue-900 mb-3">🔧 Ferramentas Gratuitas Senhorio</h3>
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-brand-900 mb-3">🔧 Ferramentas Gratuitas Senhorio</h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <Link href="/calculadora" className="block bg-white border border-blue-200 p-4 rounded hover:shadow-md transition">
-                      <h4 className="font-medium text-blue-900 mb-2">Calculadora de Regimes</h4>
-                      <p className="text-blue-700 text-sm">Compare os 4 regimes fiscais e descubra qual poupa mais impostos</p>
+                    <Link href="/calculadora" className="block bg-white border border-brand-200 p-4 rounded hover:shadow-md transition">
+                      <h4 className="font-medium text-brand-900 mb-2">Calculadora de Regimes</h4>
+                      <p className="text-brand-700 text-sm">Compare os 4 regimes fiscais e descubra qual poupa mais impostos</p>
                     </Link>
                   </div>
                   <div>
-                    <Link href="/calculadora-rendas" className="block bg-white border border-blue-200 p-4 rounded hover:shadow-md transition">
-                      <h4 className="font-medium text-blue-900 mb-2">Calculadora de Atualizações</h4>
-                      <p className="text-blue-700 text-sm">Calcule atualizações de renda com o coeficiente INE oficial 2,24%</p>
+                    <Link href="/calculadora-rendas" className="block bg-white border border-brand-200 p-4 rounded hover:shadow-md transition">
+                      <h4 className="font-medium text-brand-900 mb-2">Calculadora de Atualizações</h4>
+                      <p className="text-brand-700 text-sm">Calcule atualizações de renda com o coeficiente INE oficial 2,24%</p>
                     </Link>
                   </div>
                 </div>
@@ -764,23 +764,23 @@ export default function DeclaracaoIRSArrendamentoPage() {
             </div>
 
             {/* CTA Section */}
-            <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg p-8 text-center text-white mt-12">
+            <div className="bg-gradient-to-r from-brand-600 to-brand-700 rounded-lg p-8 text-center text-white mt-12">
               <h2 className="text-2xl font-bold mb-4">
                 Simplifique a Sua Declaração IRS 2026
               </h2>
-              <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+              <p className="text-brand-100 mb-6 max-w-2xl mx-auto">
                 Junte-se a milhares de senhorios que já usam as nossas ferramentas gratuitas para calcular impostos e otimizar a sua carga fiscal.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/calculadora"
-                  className="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition"
+                  className="bg-white text-brand-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition"
                 >
                   Calcular Impostos Grátis
                 </Link>
                 <Link
                   href="/#waitlist"
-                  className="bg-blue-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-400 transition"
+                  className="bg-brand-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-brand-400 transition"
                 >
                   Receber Alertas Fiscais
                 </Link>

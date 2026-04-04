@@ -291,7 +291,7 @@ export default function AIMICalculatorPage() {
                   onClick={() => setLanguage(lang.code)}
                   className={`px-3 py-2 rounded-lg text-sm font-medium transition ${
                     language === lang.code
-                      ? "bg-blue-100 text-blue-700 border border-blue-200"
+                      ? "bg-brand-100 text-brand-700 border border-brand-200"
                       : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
                   }`}
                 >
@@ -323,7 +323,7 @@ export default function AIMICalculatorPage() {
                   placeholder="1500"
                   min="0"
                   step="100"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -334,7 +334,7 @@ export default function AIMICalculatorPage() {
                 <select
                   value={municipality}
                   onChange={(e) => setMunicipality(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 >
                   <option value="">{t.municipalityPlaceholder}</option>
                   {MUNICIPALITIES.map((muni) => (
@@ -352,7 +352,7 @@ export default function AIMICalculatorPage() {
                 <select
                   value={propertyCount}
                   onChange={(e) => setPropertyCount(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 >
                   {[1,2,3,4,5,6,7,8,9,10].map((num) => (
                     <option key={num} value={num}>
@@ -452,7 +452,7 @@ export default function AIMICalculatorPage() {
 
         {/* Email Capture for AIMI Report */}
         {result.exempt && result.annualSavings > 0 && !emailSubmitted && (
-          <div className="mt-8 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border border-green-200 p-6">
+          <div className="mt-8 bg-gradient-to-r from-green-50 to-brand-50 rounded-xl border border-green-200 p-6">
             <div className="text-center">
               <div className="text-2xl mb-2">📧</div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -470,12 +470,12 @@ export default function AIMICalculatorPage() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder={t.emailPlaceholder}
                     required
-                    className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                   />
                   <button
                     type="submit"
                     disabled={emailLoading || !email}
-                    className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition"
+                    className="px-6 py-3 bg-brand-600 text-white rounded-lg font-medium hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition"
                   >
                     {emailLoading ? t.sending : t.receiveReport}
                   </button>
@@ -526,29 +526,29 @@ export default function AIMICalculatorPage() {
         </div>
 
         {/* CTA to other calculators */}
-        <div className="mt-8 bg-blue-50 rounded-xl p-6 text-center">
-          <h3 className="text-lg font-semibold text-blue-900 mb-2">
+        <div className="mt-8 bg-brand-50 rounded-xl p-6 text-center">
+          <h3 className="text-lg font-semibold text-brand-900 mb-2">
             {t.ctaTitle}
           </h3>
-          <p className="text-blue-700 mb-4">
+          <p className="text-brand-700 mb-4">
             {t.ctaDescription}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/calculadora"
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition"
+              className="px-6 py-3 bg-brand-600 text-white rounded-lg font-medium hover:bg-brand-700 transition"
             >
               {language === 'pt' ? 'Simulador Fiscal' : 'Tax Calculator'}
             </Link>
             <Link
               href="/calculadora-rendas"
-              className="px-6 py-3 border border-blue-300 text-blue-700 rounded-lg font-medium hover:bg-blue-50 transition"
+              className="px-6 py-3 border border-brand-300 text-brand-700 rounded-lg font-medium hover:bg-brand-50 transition"
             >
               {language === 'pt' ? 'Calculadora de Rendas' : 'Rent Calculator'}
             </Link>
             <Link
               href="/#waitlist"
-              className="px-6 py-3 border border-blue-300 text-blue-700 rounded-lg font-medium hover:bg-blue-50 transition"
+              className="px-6 py-3 border border-brand-300 text-brand-700 rounded-lg font-medium hover:bg-brand-50 transition"
             >
               {t.joinWaitlist}
             </Link>

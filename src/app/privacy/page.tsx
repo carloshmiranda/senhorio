@@ -20,7 +20,7 @@ export default function PrivacyPage() {
       {/* Header */}
       <header className="border-b border-gray-200">
         <div className="max-w-4xl mx-auto px-6 py-6">
-          <Link href="/" className="text-sm text-blue-600 hover:text-blue-700 transition">
+          <Link href="/" className="text-sm text-brand-600 hover:text-brand-700 transition">
             ← Voltar ao Senhorio
           </Link>
           <h1 className="text-3xl font-bold text-gray-900 mt-4">
@@ -108,7 +108,7 @@ export default function PrivacyPage() {
             <li>• <strong>Limitação:</strong> Restringir como processamos os seus dados</li>
           </ul>
           <p className="text-gray-600 mt-4">
-            Para exercer qualquer destes direitos, contacte-nos em: <a href="mailto:privacy@senhorio.pt" className="text-blue-600 hover:text-blue-700">privacy@senhorio.pt</a>
+            Para exercer qualquer destes direitos, contacte-nos em: <a href="mailto:privacy@senhorio.pt" className="text-brand-600 hover:text-brand-700">privacy@senhorio.pt</a>
           </p>
         </section>
 
@@ -154,9 +154,9 @@ export default function PrivacyPage() {
           </div>
         </section>
 
-        <section className="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-12">
-          <h3 className="text-lg font-semibold text-blue-900 mb-2">Sobre o Senhorio</h3>
-          <p className="text-blue-800 text-sm">
+        <section className="bg-brand-50 border border-brand-200 rounded-lg p-6 mt-12">
+          <h3 className="text-lg font-semibold text-brand-900 mb-2">Sobre o Senhorio</h3>
+          <p className="text-brand-800 text-sm">
             O Senhorio é uma plataforma de gestão de arrendamento desenvolvida especificamente para
             senhorios portugueses. Estamos comprometidos com a transparência e proteção da sua privacidade
             enquanto lhe fornecemos as ferramentas necessárias para gerir os seus imóveis em conformidade

@@ -291,7 +291,7 @@ export default function PropertyTenantsPage({ params }: { params: Promise<{ id: 
               resetForm();
               setShowForm(!showForm);
             }}
-            className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition"
+            className="px-4 py-2 bg-brand-600 text-white text-sm font-medium rounded-lg hover:bg-brand-700 transition"
           >
             {showForm ? "Cancelar" : "+ Adicionar Inquilino"}
           </button>
@@ -316,7 +316,7 @@ export default function PropertyTenantsPage({ params }: { params: Promise<{ id: 
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   placeholder="Nome completo do inquilino"
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -329,7 +329,7 @@ export default function PropertyTenantsPage({ params }: { params: Promise<{ id: 
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   placeholder="email@exemplo.com"
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -342,7 +342,7 @@ export default function PropertyTenantsPage({ params }: { params: Promise<{ id: 
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   placeholder="912 345 678"
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -355,7 +355,7 @@ export default function PropertyTenantsPage({ params }: { params: Promise<{ id: 
                   value={form.nif}
                   onChange={(e) => setForm({ ...form, nif: e.target.value })}
                   placeholder="123456789"
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -368,7 +368,7 @@ export default function PropertyTenantsPage({ params }: { params: Promise<{ id: 
                   required
                   value={form.contract_start}
                   onChange={(e) => setForm({ ...form, contract_start: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -380,7 +380,7 @@ export default function PropertyTenantsPage({ params }: { params: Promise<{ id: 
                   type="date"
                   value={form.contract_end}
                   onChange={(e) => setForm({ ...form, contract_end: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -391,7 +391,7 @@ export default function PropertyTenantsPage({ params }: { params: Promise<{ id: 
                 <select
                   value={form.contract_type}
                   onChange={(e) => setForm({ ...form, contract_type: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 >
                   <option value="residential">Habitação</option>
                   <option value="commercial">Comercial</option>
@@ -411,7 +411,7 @@ export default function PropertyTenantsPage({ params }: { params: Promise<{ id: 
                   value={form.rent_amount}
                   onChange={(e) => setForm({ ...form, rent_amount: e.target.value })}
                   placeholder="750.00"
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -422,7 +422,7 @@ export default function PropertyTenantsPage({ params }: { params: Promise<{ id: 
                 <select
                   value={form.payment_day}
                   onChange={(e) => setForm({ ...form, payment_day: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 >
                   {Array.from({ length: 31 }, (_, i) => i + 1).map((day) => (
                     <option key={day} value={day}>Dia {day}</option>
@@ -440,7 +440,7 @@ export default function PropertyTenantsPage({ params }: { params: Promise<{ id: 
                   value={form.deposit_amount}
                   onChange={(e) => setForm({ ...form, deposit_amount: e.target.value })}
                   placeholder="750.00"
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 />
               </div>
 
@@ -451,7 +451,7 @@ export default function PropertyTenantsPage({ params }: { params: Promise<{ id: 
                 <select
                   value={form.status}
                   onChange={(e) => setForm({ ...form, status: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent"
                 >
                   <option value="active">Ativo</option>
                   <option value="inactive">Inativo</option>
@@ -477,7 +477,7 @@ export default function PropertyTenantsPage({ params }: { params: Promise<{ id: 
               <button
                 type="submit"
                 disabled={saving}
-                className="px-6 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition disabled:opacity-50"
+                className="px-6 py-2 bg-brand-600 text-white text-sm font-medium rounded-lg hover:bg-brand-700 transition disabled:opacity-50"
               >
                 {saving
                   ? (editingTenant ? "A atualizar..." : "A guardar...")
@@ -499,7 +499,7 @@ export default function PropertyTenantsPage({ params }: { params: Promise<{ id: 
           <p className="text-gray-500 mb-6">Adicione o primeiro inquilino deste imóvel.</p>
           <button
             onClick={() => setShowForm(true)}
-            className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition"
+            className="px-6 py-3 bg-brand-600 text-white font-medium rounded-lg hover:bg-brand-700 transition"
           >
             + Adicionar Primeiro Inquilino
           </button>
@@ -552,7 +552,7 @@ export default function PropertyTenantsPage({ params }: { params: Promise<{ id: 
                     <div className="flex flex-col space-y-2">
                       <button
                         onClick={() => startEdit(tenant)}
-                        className="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition"
+                        className="p-2 text-gray-600 hover:text-brand-600 hover:bg-brand-50 rounded-lg transition"
                         title="Editar inquilino"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

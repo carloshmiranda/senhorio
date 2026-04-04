@@ -28,7 +28,7 @@ export default function Page() {
       <article className="max-w-4xl mx-auto px-6 py-12">
         <header className="mb-8">
           <div className="flex flex-wrap gap-2 mb-4">
-            <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded">Expat Guide</span>
+            <span className="px-3 py-1 bg-brand-100 text-brand-700 text-sm rounded">Expat Guide</span>
             <span className="px-3 py-1 bg-green-100 text-green-700 text-sm rounded">2026 Tax Rules</span>
             <span className="px-3 py-1 bg-purple-100 text-purple-700 text-sm rounded">Compliance</span>
             <span className="px-3 py-1 bg-orange-100 text-orange-700 text-sm rounded">Legal Requirements</span>
@@ -56,12 +56,12 @@ export default function Page() {
           <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 mb-8">
             <h2 className="text-lg font-semibold text-gray-900 mb-4">Quick Navigation</h2>
             <ul className="space-y-2 text-sm">
-              <li><a href="#tax-obligations" className="text-blue-600 hover:text-blue-700">Tax Obligations for Non-Residents</a></li>
-              <li><a href="#rental-receipts" className="text-blue-600 hover:text-blue-700">Rental Receipt Requirements</a></li>
-              <li><a href="#aimi-exemptions" className="text-blue-600 hover:text-blue-700">AIMI Exemptions for Expats</a></li>
-              <li><a href="#fiscal-representation" className="text-blue-600 hover:text-blue-700">Fiscal Representation Requirements</a></li>
-              <li><a href="#compliance-checklist" className="text-blue-600 hover:text-blue-700">Annual Compliance Checklist</a></li>
-              <li><a href="#common-mistakes" className="text-blue-600 hover:text-blue-700">Common Compliance Mistakes</a></li>
+              <li><a href="#tax-obligations" className="text-brand-600 hover:text-brand-700">Tax Obligations for Non-Residents</a></li>
+              <li><a href="#rental-receipts" className="text-brand-600 hover:text-brand-700">Rental Receipt Requirements</a></li>
+              <li><a href="#aimi-exemptions" className="text-brand-600 hover:text-brand-700">AIMI Exemptions for Expats</a></li>
+              <li><a href="#fiscal-representation" className="text-brand-600 hover:text-brand-700">Fiscal Representation Requirements</a></li>
+              <li><a href="#compliance-checklist" className="text-brand-600 hover:text-brand-700">Annual Compliance Checklist</a></li>
+              <li><a href="#common-mistakes" className="text-brand-600 hover:text-brand-700">Common Compliance Mistakes</a></li>
             </ul>
           </div>
 
@@ -70,9 +70,9 @@ export default function Page() {
             As an expat landlord in Portugal, you face unique compliance challenges that Portuguese residents don't encounter. Language barriers, unfamiliar tax systems, and complex legal requirements can make property management feel overwhelming. This comprehensive guide covers everything you need to know about staying compliant as a non-resident property owner in Portugal for 2026.
           </p>
 
-          <div className="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8">
-            <h3 className="text-lg font-semibold text-blue-900 mb-3">🎯 Key Changes for 2026</h3>
-            <ul className="space-y-2 text-blue-800">
+          <div className="bg-brand-50 border-l-4 border-brand-400 p-6 mb-8">
+            <h3 className="text-lg font-semibold text-brand-900 mb-3">🎯 Key Changes for 2026</h3>
+            <ul className="space-y-2 text-brand-800">
               <li><strong>New 10% Tax Rate:</strong> Simplified taxation option for rental income</li>
               <li><strong>AIMI Exemptions Expanded:</strong> More properties qualify for affordable housing exemptions</li>
               <li><strong>Digital Receipts Mandatory:</strong> All rental receipts must be issued electronically</li>
@@ -211,7 +211,7 @@ export default function Page() {
                   <li><strong>€800K property:</strong> Save €2,250/year in AIMI</li>
                   <li><strong>€1M property:</strong> Save €3,000/year in AIMI</li>
                 </ul>
-                <Link href="/calculadora-aimi" className="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
+                <Link href="/calculadora-aimi" className="inline-block mt-4 bg-brand-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-brand-700 transition">
                   Check AIMI Exemption →
                 </Link>
               </div>
@@ -256,9 +256,9 @@ export default function Page() {
 
             <h3 className="text-2xl font-semibold text-gray-900 mb-4">Choosing a Fiscal Representative</h3>
 
-            <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
-              <h4 className="text-lg font-semibold text-blue-900 mb-3">Selection Criteria</h4>
-              <ul className="space-y-2 text-blue-800">
+            <div className="bg-brand-50 border border-brand-200 rounded-xl p-6 mb-8">
+              <h4 className="text-lg font-semibold text-brand-900 mb-3">Selection Criteria</h4>
+              <ul className="space-y-2 text-brand-800">
                 <li><strong>Professional qualifications:</strong> Certified accountant or tax lawyer</li>
                 <li><strong>English proficiency:</strong> Clear communication in your language</li>
                 <li><strong>Property experience:</strong> Specialization in real estate taxation</li>
@@ -367,7 +367,7 @@ export default function Page() {
               Managing rental properties in Portugal as an expat doesn't have to be overwhelming. Our platform helps you calculate the optimal tax regime, check AIMI exemptions, and stay compliant with Portuguese regulations.
             </p>
             <div className="space-y-4">
-              <Link href="/calculadora" className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition mr-4">
+              <Link href="/calculadora" className="inline-block bg-brand-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-brand-700 transition mr-4">
                 Calculate Your Taxes →
               </Link>
               <Link href="/calculadora-aimi" className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition">

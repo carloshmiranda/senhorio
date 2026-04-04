@@ -86,18 +86,18 @@ export default function IRS2026GuiaCompletoSimulador() {
         <main className="max-w-4xl mx-auto px-6 py-12">
           <article>
             {/* Alert Banner */}
-            <div className="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8">
+            <div className="bg-brand-50 border-l-4 border-brand-400 p-6 mb-8">
               <div className="flex">
                 <div className="flex-shrink-0">
-                  <svg className="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+                  <svg className="h-5 w-5 text-brand-400" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                   </svg>
                 </div>
                 <div className="ml-3">
-                  <h3 className="text-sm font-medium text-blue-800">
+                  <h3 className="text-sm font-medium text-brand-800">
                     🎯 IRS 2026: Escolha o Regime Fiscal Ideal
                   </h3>
-                  <div className="mt-2 text-sm text-blue-700">
+                  <div className="mt-2 text-sm text-brand-700">
                     <p>
                       Este guia completo explica os <strong>3 regimes fiscais</strong> disponíveis para senhorios em 2026.
                       Use o nosso <Link href="/simulador-irs" className="font-medium underline">simulador fiscal gratuito</Link> para encontrar a melhor opção para o seu caso.
@@ -115,7 +115,7 @@ export default function IRS2026GuiaCompletoSimulador() {
                 <span>25 min de leitura</span>
                 <span>•</span>
                 <div className="flex flex-wrap gap-2">
-                  <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded">IRS 2026</span>
+                  <span className="bg-brand-100 text-brand-800 px-2 py-1 rounded">IRS 2026</span>
                   <span className="bg-green-100 text-green-800 px-2 py-1 rounded">RSAA 0%</span>
                   <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded">Taxa 10%</span>
                   <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded">Regime Geral</span>
@@ -141,19 +141,19 @@ export default function IRS2026GuiaCompletoSimulador() {
                 <div>
                   <h3 className="font-medium text-gray-900 mb-2">Regimes Fiscais</h3>
                   <ul className="text-sm text-gray-600 space-y-1">
-                    <li><a href="#rsaa-0" className="hover:text-blue-600">• RSAA 0%</a></li>
-                    <li><a href="#renda-moderada-10" className="hover:text-blue-600">• Renda Moderada 10%</a></li>
-                    <li><a href="#regime-geral-25" className="hover:text-blue-600">• Regime Geral 25%</a></li>
-                    <li><a href="#efeito-degrau" className="hover:text-blue-600">• Efeito Degrau €2.300</a></li>
+                    <li><a href="#rsaa-0" className="hover:text-brand-600">• RSAA 0%</a></li>
+                    <li><a href="#renda-moderada-10" className="hover:text-brand-600">• Renda Moderada 10%</a></li>
+                    <li><a href="#regime-geral-25" className="hover:text-brand-600">• Regime Geral 25%</a></li>
+                    <li><a href="#efeito-degrau" className="hover:text-brand-600">• Efeito Degrau €2.300</a></li>
                   </ul>
                 </div>
                 <div>
                   <h3 className="font-medium text-gray-900 mb-2">Ferramentas Práticas</h3>
                   <ul className="text-sm text-gray-600 space-y-1">
-                    <li><a href="#exemplos-praticos" className="hover:text-blue-600">• Exemplos Práticos</a></li>
-                    <li><a href="#prazos-entrega" className="hover:text-blue-600">• Prazos de Entrega</a></li>
-                    <li><a href="#simulador" className="hover:text-blue-600">• Simulador Fiscal</a></li>
-                    <li><a href="#estrategias" className="hover:text-blue-600">• Estratégias de Optimização</a></li>
+                    <li><a href="#exemplos-praticos" className="hover:text-brand-600">• Exemplos Práticos</a></li>
+                    <li><a href="#prazos-entrega" className="hover:text-brand-600">• Prazos de Entrega</a></li>
+                    <li><a href="#simulador" className="hover:text-brand-600">• Simulador Fiscal</a></li>
+                    <li><a href="#estrategias" className="hover:text-brand-600">• Estratégias de Optimização</a></li>
                   </ul>
                 </div>
               </div>
@@ -175,16 +175,16 @@ export default function IRS2026GuiaCompletoSimulador() {
             </section>
 
             {/* CTA to Simulator */}
-            <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-8 text-center mb-12">
+            <div className="bg-gradient-to-r from-brand-500 to-brand-600 rounded-lg p-8 text-center mb-12">
               <h2 className="text-2xl font-bold text-white mb-4">
                 🧮 Calcule Agora o Seu IRS 2026
               </h2>
-              <p className="text-blue-100 mb-6">
+              <p className="text-brand-100 mb-6">
                 Compare os 3 regimes fiscais instantaneamente com o nosso simulador gratuito
               </p>
               <Link
                 href="/simulador-irs"
-                className="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg hover:bg-blue-50 transition"
+                className="inline-block bg-white text-brand-600 font-semibold px-8 py-3 rounded-lg hover:bg-brand-50 transition"
               >
                 Aceder ao Simulador Fiscal Gratuito →
               </Link>
@@ -500,8 +500,8 @@ export default function IRS2026GuiaCompletoSimulador() {
                     </ul>
                   </div>
                 </div>
-                <div className="mt-4 p-3 bg-blue-50 rounded">
-                  <p className="text-sm text-blue-700">
+                <div className="mt-4 p-3 bg-brand-50 rounded">
+                  <p className="text-sm text-brand-700">
                     <strong>Nota:</strong> No regime geral, o valor exato depende dos outros rendimentos do agregado.
                     Esta simulação assume um cenário típico.
                   </p>
@@ -613,22 +613,22 @@ export default function IRS2026GuiaCompletoSimulador() {
                 5. Prazos de Entrega do IRS 2026
               </h2>
 
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
-                <h3 className="text-lg font-semibold text-blue-800 mb-3">
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-6 mb-6">
+                <h3 className="text-lg font-semibold text-brand-800 mb-3">
                   📅 Calendário Fiscal 2026
                 </h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <h4 className="font-medium text-blue-800 mb-2">Prazos Principais</h4>
-                    <ul className="text-blue-700 space-y-1">
+                    <h4 className="font-medium text-brand-800 mb-2">Prazos Principais</h4>
+                    <ul className="text-brand-700 space-y-1">
                       <li>• <strong>Início:</strong> 1 de abril de 2027</li>
                       <li>• <strong>Fim:</strong> 30 de junho de 2027</li>
                       <li>• <strong>Via electrónica:</strong> Até 31 de julho de 2027</li>
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-medium text-blue-800 mb-2">Datas Importantes</h4>
-                    <ul className="text-blue-700 space-y-1">
+                    <h4 className="font-medium text-brand-800 mb-2">Datas Importantes</h4>
+                    <ul className="text-brand-700 space-y-1">
                       <li>• <strong>1º pagamento:</strong> 31 de julho de 2027</li>
                       <li>• <strong>2º pagamento:</strong> 15 de setembro de 2027</li>
                       <li>• <strong>3º pagamento:</strong> 15 de dezembro de 2027</li>
@@ -721,8 +721,8 @@ export default function IRS2026GuiaCompletoSimulador() {
                     </div>
                   </div>
 
-                  <div className="mt-4 p-3 bg-blue-50 rounded">
-                    <p className="text-sm text-blue-700">
+                  <div className="mt-4 p-3 bg-brand-50 rounded">
+                    <p className="text-sm text-brand-700">
                       <strong>Recomendação:</strong> Se João pretende manter o arrendamento estável por 5+ anos
                       e para habitação permanente, o RSAA oferece uma poupança de €2.520/ano (€12.600 em 5 anos).
                     </p>
@@ -770,8 +770,8 @@ export default function IRS2026GuiaCompletoSimulador() {
                     </div>
                   </div>
 
-                  <div className="mt-4 p-3 bg-blue-50 rounded">
-                    <p className="text-sm text-blue-700">
+                  <div className="mt-4 p-3 bg-brand-50 rounded">
+                    <p className="text-sm text-brand-700">
                       <strong>Nota:</strong> Com renda superior a €2.300, apenas o regime geral é possível.
                       As despesas elevadas tornam-no mais atrativo neste caso específico.
                     </p>
@@ -921,9 +921,9 @@ export default function IRS2026GuiaCompletoSimulador() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-4">
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                    <h4 className="font-semibold text-blue-800 mb-2">📅 Timing Estratégico</h4>
-                    <ul className="text-sm text-blue-700 space-y-1">
+                  <div className="bg-brand-50 border border-brand-200 rounded-lg p-4">
+                    <h4 className="font-semibold text-brand-800 mb-2">📅 Timing Estratégico</h4>
+                    <ul className="text-sm text-brand-700 space-y-1">
                       <li>• Concentrar obras em anos específicos</li>
                       <li>• Planear aquisições e vendas</li>
                       <li>• Distribuir rendimentos entre anos</li>
@@ -1002,23 +1002,23 @@ export default function IRS2026GuiaCompletoSimulador() {
             </section>
 
             {/* Final CTA */}
-            <div className="text-center bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-8 text-white">
+            <div className="text-center bg-gradient-to-r from-brand-500 to-brand-600 rounded-lg p-8 text-white">
               <h2 className="text-2xl font-bold mb-4">
                 Optimize o Seu IRS 2026 Agora
               </h2>
-              <p className="text-blue-100 mb-6">
+              <p className="text-brand-100 mb-6">
                 Não deixe para última hora. Use o nosso simulador fiscal e tome decisões informadas sobre o seu arrendamento.
               </p>
               <div className="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
                 <Link
                   href="/simulador-irs"
-                  className="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg hover:bg-blue-50 transition"
+                  className="inline-block bg-white text-brand-600 font-semibold px-8 py-3 rounded-lg hover:bg-brand-50 transition"
                 >
                   Calcular o Meu IRS →
                 </Link>
                 <Link
                   href="/blog"
-                  className="inline-block bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-800 transition"
+                  className="inline-block bg-brand-700 text-white font-semibold px-8 py-3 rounded-lg hover:bg-brand-800 transition"
                 >
                   Mais Guias Fiscais
                 </Link>
@@ -1040,7 +1040,7 @@ export default function IRS2026GuiaCompletoSimulador() {
                 <div className="mt-4 md:mt-0">
                   <Link
                     href="/blog"
-                    className="text-sm text-blue-600 hover:text-blue-800 transition"
+                    className="text-sm text-brand-600 hover:text-brand-800 transition"
                   >
                     ← Voltar ao Blog
                   </Link>

@@ -108,7 +108,7 @@ export default function DashboardPage() {
   ];
 
   const colorMap: Record<string, string> = {
-    blue: "bg-blue-50 text-blue-600",
+    blue: "bg-brand-50 text-brand-600",
     green: "bg-green-50 text-green-600",
     yellow: "bg-yellow-50 text-yellow-600",
     red: "bg-red-50 text-red-600",
@@ -140,7 +140,7 @@ export default function DashboardPage() {
         <h1 className="text-2xl font-bold text-gray-900">Painel de Gestão</h1>
         <Link
           href="/dashboard/properties"
-          className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition"
+          className="px-4 py-2 bg-brand-600 text-white text-sm font-medium rounded-lg hover:bg-brand-700 transition"
         >
           + Adicionar Imóvel
         </Link>
@@ -171,7 +171,7 @@ export default function DashboardPage() {
       <div className="bg-white rounded-xl shadow-sm border border-gray-100">
         <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
           <h2 className="text-lg font-semibold text-gray-900">Pagamentos Recentes</h2>
-          <Link href="/dashboard/payments" className="text-sm text-blue-600 font-medium hover:text-blue-700">
+          <Link href="/dashboard/payments" className="text-sm text-brand-600 font-medium hover:text-brand-700">
             Ver todos
           </Link>
         </div>
@@ -210,11 +210,11 @@ export default function DashboardPage() {
 
       {/* Quick start guide for empty state */}
       {stats.totalProperties === 0 && (
-        <div className="mt-8 bg-blue-50 border border-blue-200 rounded-xl p-8">
+        <div className="mt-8 bg-brand-50 border border-brand-200 rounded-xl p-8">
           <h3 className="text-lg font-bold text-gray-900 mb-4">Como começar</h3>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="flex items-start space-x-3">
-              <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
+              <div className="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
                 1
               </div>
               <div>
@@ -223,7 +223,7 @@ export default function DashboardPage() {
               </div>
             </div>
             <div className="flex items-start space-x-3">
-              <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
+              <div className="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
                 2
               </div>
               <div>
@@ -232,7 +232,7 @@ export default function DashboardPage() {
               </div>
             </div>
             <div className="flex items-start space-x-3">
-              <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
+              <div className="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
                 3
               </div>
               <div>

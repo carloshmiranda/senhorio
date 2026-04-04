@@ -41,7 +41,7 @@ export default function DespesasDedutiveis2026Page() {
           {/* Article Header */}
           <header className="mb-8">
             <div className="flex flex-wrap gap-2 mb-4">
-              <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full font-medium">
+              <span className="px-3 py-1 bg-brand-100 text-brand-700 text-sm rounded-full font-medium">
                 IRS 2026
               </span>
               <span className="px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full font-medium">
@@ -63,7 +63,7 @@ export default function DespesasDedutiveis2026Page() {
               e valores reais.
             </p>
 
-            <div className="flex items-center gap-4 text-sm text-gray-500 border-l-4 border-blue-500 pl-4">
+            <div className="flex items-center gap-4 text-sm text-gray-500 border-l-4 border-brand-500 pl-4">
               <time dateTime="2026-04-04T10:00:00.000Z">4 de abril de 2026</time>
               <span>•</span>
               <span>13 minutos de leitura</span>
@@ -74,17 +74,17 @@ export default function DespesasDedutiveis2026Page() {
           <div className="prose prose-gray prose-lg max-w-none">
 
             {/* Calculator CTA */}
-            <div className="not-prose bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
-              <h3 className="text-lg font-semibold text-blue-900 mb-2">
+            <div className="not-prose bg-brand-50 border border-brand-200 rounded-xl p-6 mb-8">
+              <h3 className="text-lg font-semibold text-brand-900 mb-2">
                 Calcule quanto poupa com as deduções
               </h3>
-              <p className="text-blue-700 mb-4 text-sm">
+              <p className="text-brand-700 mb-4 text-sm">
                 Introduza as suas rendas e despesas no nosso simulador e veja automaticamente
                 se compensa o regime de englobamento (com deduções) ou a taxa fixa de 10%.
               </p>
               <Link
                 href="/calculadora"
-                className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition text-sm"
+                className="inline-flex items-center px-4 py-2 bg-brand-600 text-white rounded-lg font-medium hover:bg-brand-700 transition text-sm"
               >
                 Abrir Simulador Fiscal Gratuito →
               </Link>
@@ -94,14 +94,14 @@ export default function DespesasDedutiveis2026Page() {
             <nav className="not-prose bg-gray-50 rounded-xl p-6 mb-8">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Índice</h3>
               <ol className="space-y-2 text-sm">
-                <li><a href="#quando-deduzir" className="text-blue-600 hover:text-blue-800">1. Quando Faz Sentido Deduzir Despesas?</a></li>
-                <li><a href="#despesas-permitidas" className="text-blue-600 hover:text-blue-800">2. Despesas Totalmente Dedutíveis</a></li>
-                <li><a href="#obras" className="text-blue-600 hover:text-blue-800">3. Obras e Reparações: Regras Especiais</a></li>
-                <li><a href="#imi-aimi" className="text-blue-600 hover:text-blue-800">4. IMI e AIMI: Dedução Parcial</a></li>
-                <li><a href="#nao-dedutivel" className="text-blue-600 hover:text-blue-800">5. O que NÃO Pode Deduzir</a></li>
-                <li><a href="#tabela-resumo" className="text-blue-600 hover:text-blue-800">6. Tabela Resumo Completa</a></li>
-                <li><a href="#exemplos" className="text-blue-600 hover:text-blue-800">7. Exemplos Práticos com Cálculos</a></li>
-                <li><a href="#documentacao" className="text-blue-600 hover:text-blue-800">8. Documentação Necessária</a></li>
+                <li><a href="#quando-deduzir" className="text-brand-600 hover:text-brand-800">1. Quando Faz Sentido Deduzir Despesas?</a></li>
+                <li><a href="#despesas-permitidas" className="text-brand-600 hover:text-brand-800">2. Despesas Totalmente Dedutíveis</a></li>
+                <li><a href="#obras" className="text-brand-600 hover:text-brand-800">3. Obras e Reparações: Regras Especiais</a></li>
+                <li><a href="#imi-aimi" className="text-brand-600 hover:text-brand-800">4. IMI e AIMI: Dedução Parcial</a></li>
+                <li><a href="#nao-dedutivel" className="text-brand-600 hover:text-brand-800">5. O que NÃO Pode Deduzir</a></li>
+                <li><a href="#tabela-resumo" className="text-brand-600 hover:text-brand-800">6. Tabela Resumo Completa</a></li>
+                <li><a href="#exemplos" className="text-brand-600 hover:text-brand-800">7. Exemplos Práticos com Cálculos</a></li>
+                <li><a href="#documentacao" className="text-brand-600 hover:text-brand-800">8. Documentação Necessária</a></li>
               </ol>
             </nav>
 
@@ -228,7 +228,7 @@ export default function DespesasDedutiveis2026Page() {
 
             <p>
               Utilize a nossa{" "}
-              <Link href="/aimi" className="text-blue-600 hover:text-blue-700 underline">
+              <Link href="/aimi" className="text-brand-600 hover:text-brand-700 underline">
                 calculadora de isenção AIMI
               </Link>{" "}
               para verificar se qualifica para a isenção de 2026.
@@ -328,9 +328,9 @@ export default function DespesasDedutiveis2026Page() {
                   <div>
                     <p className="font-medium text-gray-700 mb-2">Comparação fiscal:</p>
                     <ul className="space-y-1">
-                      <li className="text-blue-700">• Taxa 10%: €11.400 × 10% = <strong>€1.140</strong></li>
+                      <li className="text-brand-700">• Taxa 10%: €11.400 × 10% = <strong>€1.140</strong></li>
                       <li className="text-green-700">• Englobamento (28.5%): €7.270 × 28.5% = <strong>€2.072</strong></li>
-                      <li className="text-blue-700 font-semibold mt-2">→ Taxa 10% poupa €932 neste caso</li>
+                      <li className="text-brand-700 font-semibold mt-2">→ Taxa 10% poupa €932 neste caso</li>
                     </ul>
                   </div>
                 </div>
@@ -356,15 +356,15 @@ export default function DespesasDedutiveis2026Page() {
                     <ul className="space-y-1">
                       <li className="text-orange-700">• Taxa 10%: €16.800 × 10% = <strong>€1.680</strong></li>
                       <li className="text-green-700">• Englobamento (35%): €7.000 × 35% = <strong>€2.450</strong></li>
-                      <li className="text-blue-700 font-semibold mt-2">→ Neste caso, taxa 10% ainda é melhor</li>
+                      <li className="text-brand-700 font-semibold mt-2">→ Neste caso, taxa 10% ainda é melhor</li>
                       <li className="text-gray-500 text-xs mt-1">Mas com despesas ainda maiores ou taxa marginal mais baixa, o englobamento pode ganhar</li>
                     </ul>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-5">
-                <p className="text-blue-800 text-sm">
+              <div className="bg-brand-50 border border-brand-200 rounded-xl p-5">
+                <p className="text-brand-800 text-sm">
                   <strong>Conclusão prática:</strong> Na maioria dos casos em 2026, a taxa de 10%
                   acaba por ser mais vantajosa porque incide sobre o bruto mas a taxa é muito baixa.
                   O englobamento só compensa se tiver despesas muito elevadas (acima de 40-50%
@@ -407,24 +407,24 @@ export default function DespesasDedutiveis2026Page() {
               </div>
             </div>
 
-            <div className="not-prose mt-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 text-white text-center">
+            <div className="not-prose mt-12 bg-gradient-to-r from-brand-600 to-brand-700 rounded-xl p-8 text-white text-center">
               <h3 className="text-xl font-bold mb-3">
                 Não deixe dinheiro na mesa
               </h3>
-              <p className="text-blue-100 mb-6 text-sm max-w-lg mx-auto">
+              <p className="text-brand-100 mb-6 text-sm max-w-lg mx-auto">
                 O simulador fiscal do Senhorio calcula automaticamente se vale a pena deduzir despesas
                 ou optar pela taxa fixa de 10%. Em segundos, tem a resposta.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link
                   href="/calculadora"
-                  className="px-6 py-3 bg-white text-blue-600 rounded-lg font-medium hover:bg-gray-100 transition text-sm"
+                  className="px-6 py-3 bg-white text-brand-600 rounded-lg font-medium hover:bg-gray-100 transition text-sm"
                 >
                   Simular Agora — É Grátis
                 </Link>
                 <Link
                   href="/blog/declaracao-irs-arrendamento-2026-guia-completo"
-                  className="px-6 py-3 border border-white text-white rounded-lg font-medium hover:bg-white hover:text-blue-600 transition text-sm"
+                  className="px-6 py-3 border border-white text-white rounded-lg font-medium hover:bg-white hover:text-brand-600 transition text-sm"
                 >
                   Ver Guia Declaração IRS
                 </Link>
@@ -442,21 +442,21 @@ export default function DespesasDedutiveis2026Page() {
                 Declaração IRS Arrendamento 2026: Passo a Passo
               </h3>
               <p className="text-gray-500 text-xs mb-3">Anexo F, Portal das Finanças e prazos.</p>
-              <span className="text-blue-600 text-xs font-medium">Ler artigo →</span>
+              <span className="text-brand-600 text-xs font-medium">Ler artigo →</span>
             </Link>
             <Link href="/blog/imposto-10-porcento-rendas-portugal-2026" className="border border-gray-200 rounded-xl p-5 hover:shadow-lg transition block">
               <h3 className="font-semibold text-gray-900 mb-2 text-sm">
                 Imposto 10% Rendas Portugal 2026
               </h3>
               <p className="text-gray-500 text-xs mb-3">Tudo sobre a nova taxa fixa.</p>
-              <span className="text-blue-600 text-xs font-medium">Ler artigo →</span>
+              <span className="text-brand-600 text-xs font-medium">Ler artigo →</span>
             </Link>
             <Link href="/blog/isencao-aimi-2026-qualificar-nova-isencao" className="border border-gray-200 rounded-xl p-5 hover:shadow-lg transition block">
               <h3 className="font-semibold text-gray-900 mb-2 text-sm">
                 Isenção AIMI 2026: Como Qualificar
               </h3>
               <p className="text-gray-500 text-xs mb-3">Critérios e poupanças estimadas.</p>
-              <span className="text-blue-600 text-xs font-medium">Ler artigo →</span>
+              <span className="text-brand-600 text-xs font-medium">Ler artigo →</span>
             </Link>
           </div>
         </section>
