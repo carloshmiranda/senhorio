@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import SocialShareButtons from "@/components/SocialShareButtons";
 
 interface TaxScenario {
   name: string;
@@ -489,6 +490,15 @@ export default function SimuladorIRSPage() {
               </ul>
             </div>
           </div>
+        </div>
+
+        {/* Social Share Buttons */}
+        <div className="mt-8">
+          <SocialShareButtons
+            page="simulador-irs"
+            title="Simulador IRS Arrendamento 2026"
+            description="Descubra quanto pode poupar com as novas taxas fiscais de 2026"
+          />
         </div>
 
         {/* Legal disclaimer */}
