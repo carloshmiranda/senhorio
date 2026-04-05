@@ -14,24 +14,28 @@ interface IndexNowPayload {
   urlList: string[]
 }
 
-// All content URLs to submit to IndexNow (14 blog URLs + 4 tool pages = 18 total)
+// All content URLs to submit to IndexNow (17 blog URLs + 5 tool pages = 22 total)
 const CONTENT_URLS = [
-  // Blog URLs (14)
+  // Blog URLs (17)
   '/blog/como-calcular-atualizacoes-renda-2026',
   '/blog/declaracao-irs-arrendamento-2026-guia-completo',
+  '/blog/despesas-dedutiveis-arrendamento-2026',
   '/blog/imposto-10-porcento-rendas-portugal-2026',
   '/blog/inquilino-nao-paga-renda-o-que-fazer',
-  '/blog/irs-arrendamento-2026-nova-taxa-10-porcento',
-  '/blog/despesas-dedutiveis-arrendamento-2026',
   '/blog/irs-2026-guia-completo-simulador',
+  '/blog/irs-arrendamento-2026-nova-taxa-10-porcento',
   '/blog/irs-senhorios-2026-guia-definitivo',
   '/blog/isencao-aimi-2026-qualificar-nova-isencao',
-  '/blog/registo-contrato-arrendamento-at-2026',
-  '/blog/recibos-renda-eletronicos-guia-2026',
-  '/blog/portugal-landlord-tax-calculator-2026',
-  '/blog/portugal-expat-landlord-compliance-guide-2026',
   '/blog/mapa-rendas-modelo-2-arrendamento-2026',
-  // Tool pages (4)
+  '/blog/portugal-expat-landlord-compliance-guide-2026',
+  '/blog/portugal-landlord-tax-calculator-2026',
+  '/blog/portugal-rental-property-tax-guide-2026',
+  '/blog/recibos-renda-eletronicos-guia-2026',
+  '/blog/registo-contrato-arrendamento-at-2026',
+  '/blog/simulador-fiscal-senhorios-2026',
+  '/blog/software-gestao-arrendamento-portugal-2026',
+  // Tool pages (5)
+  '/aimi',
   '/calculadora-rendas',
   '/calculadora',
   '/simulador-irs',
