@@ -13,6 +13,30 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    slug: "software-gestao-arrendamento-portugal-2026",
+    title: "Software de Gestão de Arrendamento em Portugal: O Que Deve Ter em 2026",
+    excerpt: "O que um bom software de gestão de arrendamento deve fazer no contexto português. Funcionalidades essenciais, o que evitar ao escolher e como avaliar uma solução antes de a adotar.",
+    publishedAt: "2026-04-05",
+    readTime: "12 min",
+    tags: ["Gestão de Arrendamento", "Ferramentas", "Guia Prático"],
+  },
+  {
+    slug: "inquilino-nao-paga-renda-o-que-fazer",
+    title: "Inquilino Não Paga Renda: O Que Fazer em 2026",
+    excerpt: "Guia legal passo a passo para senhorios com rendas em atraso. Da notificação obrigatória ao procedimento de despejo no BALP, passando pelos erros que podem atrasar o processo.",
+    publishedAt: "2026-04-05",
+    readTime: "14 min",
+    tags: ["Renda em Atraso", "Guia Legal", "BALP", "Despejo"],
+  },
+  {
+    slug: "mapa-rendas-modelo-2-arrendamento-2026",
+    title: "Mapa de Rendas 2026: Como Preencher o Modelo 2 na AT",
+    excerpt: "Guia completo para preencher o Mapa de Rendas (Modelo 2) na Autoridade Tributária em 2026. Prazo de entrega, campos obrigatórios, situações especiais e erros a evitar.",
+    publishedAt: "2026-04-05",
+    readTime: "10 min",
+    tags: ["Modelo 2", "Portal Finanças", "Obrigação Legal", "IRS 2026"],
+  },
+  {
     slug: "registo-contrato-arrendamento-at-2026",
     title: "Registo de Contrato de Arrendamento na AT 2026: Guia Completo",
     excerpt: "Como registar o contrato de arrendamento na Autoridade Tributária em 2026. Prazos obrigatórios, documentos necessários, passo a passo no Portal das Finanças e coimas por incumprimento.",
