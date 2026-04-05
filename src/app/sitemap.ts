@@ -125,6 +125,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/blog/software-gestao-arrendamento-portugal-2026`,
+      lastModified: new Date("2026-03-14"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
 
     // English content for expats
     {
