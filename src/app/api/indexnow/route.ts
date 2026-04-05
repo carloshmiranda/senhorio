@@ -14,25 +14,28 @@ interface IndexNowPayload {
   urlList: string[]
 }
 
-// All content URLs to submit to IndexNow
+// All content URLs to submit to IndexNow (14 blog URLs + 4 tool pages = 18 total)
 const CONTENT_URLS = [
-  // Blog URLs
-  '/blog/irs-senhorios-2026',
-  '/blog/simulador-irs-arrendamento',
-  '/blog/taxa-10-rendas-moderadas',
-  '/blog/recibo-renda-eletronico',
-  '/blog/aimi-2026',
-  '/blog/englobamento-rendas',
-  '/blog/contrato-arrendamento-tipo',
-  '/blog/atualizar-rendas-2026',
+  // Blog URLs (14)
+  '/blog/como-calcular-atualizacoes-renda-2026',
+  '/blog/declaracao-irs-arrendamento-2026-guia-completo',
+  '/blog/imposto-10-porcento-rendas-portugal-2026',
   '/blog/inquilino-nao-paga-renda-o-que-fazer',
-  '/blog/software-gestao-arrendamento-portugal-2026',
+  '/blog/irs-arrendamento-2026-nova-taxa-10-porcento',
+  '/blog/despesas-dedutiveis-arrendamento-2026',
+  '/blog/irs-2026-guia-completo-simulador',
+  '/blog/irs-senhorios-2026-guia-definitivo',
+  '/blog/isencao-aimi-2026-qualificar-nova-isencao',
+  '/blog/registo-contrato-arrendamento-at-2026',
+  '/blog/recibos-renda-eletronicos-guia-2026',
+  '/blog/portugal-landlord-tax-calculator-2026',
+  '/blog/portugal-expat-landlord-compliance-guide-2026',
   '/blog/mapa-rendas-modelo-2-arrendamento-2026',
-  // Tool pages
+  // Tool pages (4)
+  '/calculadora-rendas',
   '/calculadora',
   '/simulador-irs',
   '/recibos',
-  '/aimi',
 ]
 
 export async function GET() {
