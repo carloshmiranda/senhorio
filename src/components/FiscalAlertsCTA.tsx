@@ -31,7 +31,7 @@ export default function FiscalAlertsCTA({ source = "unknown", className = "" }: 
     setError("");
 
     try {
-      const response = await fetch('/api/fiscal-alerts', {
+      const response = await fetch('/api/waitlist', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,11 +47,11 @@ export default function FiscalAlertsCTA({ source = "unknown", className = "" }: 
       if (data.ok) {
         setIsSubmitted(true);
       } else {
-        setError(data.error || "Erro ao subscrever alertas. Tente novamente.");
+        setError(data.error || "Erro ao juntar-se à lista de espera. Tente novamente.");
       }
     } catch (error) {
-      console.error('Error subscribing to fiscal alerts:', error);
-      setError("Erro ao subscrever alertas. Tente novamente.");
+      console.error('Error joining waitlist:', error);
+      setError("Erro ao juntar-se à lista de espera. Tente novamente.");
     } finally {
       setIsSubmitting(false);
     }
