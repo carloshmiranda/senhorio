@@ -151,10 +151,24 @@ _(None)_
   - Empty state onboarding and responsive design
 - **Impact**: Landlords can now fully manage their rental property portfolio and tenant relationships
 
+## ✅ Done (2026-04-06)
+
+### Receipt Generation
+- **Status**: ✅ Complete
+- **Description**: Legal Portuguese rental receipt generation system with full compliance formatting
+- **Deliverables**:
+  - `/api/receipts` and `/api/receipts/[id]` - Complete CRUD API for receipt management
+  - `/dashboard/receipts/page.tsx` - Receipt generation interface with tenant selection and form validation
+  - `/dashboard/receipts/[id]/page.tsx` - Professional receipt view with print/PDF functionality
+  - Automatic sequential receipt numbering (YYYYMMDD-XXX format)
+  - Portuguese legal compliance with proper landlord/tenant/property sections
+  - Dashboard navigation integration and responsive design
+  - Receipt schema in database with proper relationships to properties/tenants
+- **Impact**: Landlords can now generate professional legal receipts for rent payments, meeting Portuguese regulatory requirements
+
 ## 📋 Todo
 
 ### Phase: MVP Enhancement (Next)
-- [ ] **Receipt Generation** - Generate legal Portuguese rental receipts
 - [ ] **Tax Report Export** - Export data formatted for Portal das Finanças
 - [ ] **Email Notifications** - Payment reminders and deadline alerts
 
