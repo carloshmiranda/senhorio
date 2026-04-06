@@ -174,6 +174,12 @@ export default function IRS2026GuiaCompleto() {
               <a href="#como-escolher" className="text-blue-600 hover:text-blue-800">6. Como Escolher o Melhor</a>
               <a href="#declaracao" className="text-blue-600 hover:text-blue-800">7. Como Declarar</a>
               <a href="#casos-praticos" className="text-blue-600 hover:text-blue-800">8. Casos Práticos</a>
+              <a href="#efeito-degrau" className="text-blue-600 hover:text-blue-800">9. Efeito Degrau: o Limiar €2.300</a>
+              <a href="#deducoes-permitidas" className="text-blue-600 hover:text-blue-800">10. Deduções Permitidas</a>
+              <a href="#englobamento" className="text-blue-600 hover:text-blue-800">11. Englobamento vs Taxa Autónoma</a>
+              <a href="#isencao-mais-valias" className="text-blue-600 hover:text-blue-800">12. Isenção de Mais-Valias</a>
+              <a href="#prazos-obrigacoes" className="text-blue-600 hover:text-blue-800">13. Prazos e Obrigações</a>
+              <a href="#faq" className="text-blue-600 hover:text-blue-800">14. FAQ</a>
             </div>
           </div>
 
@@ -956,6 +962,338 @@ export default function IRS2026GuiaCompleto() {
               </div>
             </section>
           </div>
+
+          {/* Section 9: Efeito Degrau */}
+          <section id="efeito-degrau" className="mb-12 prose prose-lg max-w-none">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b-2 border-yellow-300 pb-2">
+              9. Efeito Degrau: Por Que Cobrar €2.400 Pode Render Menos Que €2.300
+            </h2>
+            <p className="text-gray-700 mb-6">
+              O limiar dos €2.300 mensais cria um <strong>efeito degrau fiscal</strong>: ao ultrapassar
+              este valor, a taxa aplicável salta de 10% para 25% sobre o total da renda anual. O resultado
+              é que rendas ligeiramente acima de €2.300 geram menos lucro líquido do que rendas de exatamente
+              €2.300.
+            </p>
+            <div className="bg-yellow-50 border border-yellow-300 rounded-xl p-6 mb-6">
+              <h3 className="text-lg font-semibold text-yellow-800 mb-4">⚠️ Simulação do Efeito Degrau</h3>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead className="bg-yellow-100">
+                    <tr>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-yellow-700 uppercase">Renda Mensal</th>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-yellow-700 uppercase">Renda Anual</th>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-yellow-700 uppercase">Taxa IRS</th>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-yellow-700 uppercase">IRS Anual</th>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-yellow-700 uppercase">Lucro Líquido</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-yellow-100">
+                    <tr className="bg-green-50">
+                      <td className="px-4 py-3 font-semibold text-green-800">€2.300 ✅</td>
+                      <td className="px-4 py-3 text-gray-700">€27.600</td>
+                      <td className="px-4 py-3 text-green-700 font-bold">10%</td>
+                      <td className="px-4 py-3 text-green-700">€2.760</td>
+                      <td className="px-4 py-3 text-green-700 font-bold">€24.840</td>
+                    </tr>
+                    <tr className="bg-red-50">
+                      <td className="px-4 py-3 font-semibold text-red-700">€2.400 ❌</td>
+                      <td className="px-4 py-3 text-gray-700">€28.800</td>
+                      <td className="px-4 py-3 text-red-700 font-bold">25%</td>
+                      <td className="px-4 py-3 text-red-700">€7.200</td>
+                      <td className="px-4 py-3 text-red-700 font-bold">€21.600</td>
+                    </tr>
+                    <tr className="bg-red-50">
+                      <td className="px-4 py-3 font-semibold text-red-700">€2.600 ❌</td>
+                      <td className="px-4 py-3 text-gray-700">€31.200</td>
+                      <td className="px-4 py-3 text-red-700 font-bold">25%</td>
+                      <td className="px-4 py-3 text-red-700">€7.800</td>
+                      <td className="px-4 py-3 text-red-700 font-bold">€23.400</td>
+                    </tr>
+                    <tr className="bg-orange-50">
+                      <td className="px-4 py-3 font-semibold text-orange-700">€3.000 ↑</td>
+                      <td className="px-4 py-3 text-gray-700">€36.000</td>
+                      <td className="px-4 py-3 text-orange-700 font-bold">25%</td>
+                      <td className="px-4 py-3 text-orange-700">€9.000</td>
+                      <td className="px-4 py-3 text-orange-700 font-bold">€27.000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p className="text-yellow-700 text-sm mt-4">
+                <strong>Conclusão:</strong> Para recuperar o lucro líquido de €2.300/mês (€24.840/ano), é necessário
+                cobrar pelo menos €2.760/mês — uma diferença de €460. A &quot;zona morta&quot; vai de €2.301 a €2.760/mês.
+              </p>
+            </div>
+            <p className="text-gray-700">
+              Use o{" "}
+              <Link href="/simulador-irs" className="text-green-700 underline hover:text-green-900">
+                simulador IRS
+              </Link>{" "}
+              para calcular exatamente o limiar no seu caso, considerando as suas despesas dedutíveis.
+            </p>
+          </section>
+
+          {/* Section 10: Deduções Permitidas */}
+          <section id="deducoes-permitidas" className="mb-12 prose prose-lg max-w-none">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b-2 border-blue-200 pb-2">
+              10. Deduções Permitidas no Arrendamento 2026
+            </h2>
+            <p className="text-gray-700 mb-6">
+              As deduções reduzem o rendimento tributável antes de aplicar a taxa. No regime geral (25%),
+              as despesas comprovadas são dedutíveis até ao limite de 15% do rendimento bruto.
+              Nos regimes especiais (10% e RSAA) a dedução de despesas é condicionada — confirme na AT.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div className="bg-green-50 border border-green-200 rounded-xl p-5">
+                <h3 className="text-base font-semibold text-green-800 mb-3">✅ Despesas Elegíveis</h3>
+                <ul className="text-sm text-green-700 space-y-2">
+                  <li>• <strong>Obras de conservação e manutenção</strong> (não inclui benfeitorias)</li>
+                  <li>• <strong>Juros de empréstimos</strong> associados ao imóvel arrendado</li>
+                  <li>• <strong>Seguros</strong> de incêndio, multirriscos ou vida ligados ao crédito</li>
+                  <li>• <strong>Condomínio</strong> e despesas administrativas do imóvel</li>
+                  <li>• <strong>Comissões de mediação imobiliária</strong> (com fatura)</li>
+                  <li>• <strong>IMI</strong> pago durante o ano fiscal</li>
+                </ul>
+              </div>
+              <div className="bg-red-50 border border-red-200 rounded-xl p-5">
+                <h3 className="text-base font-semibold text-red-800 mb-3">❌ Despesas Não Elegíveis</h3>
+                <ul className="text-sm text-red-700 space-y-2">
+                  <li>• Amortizações de capital do empréstimo</li>
+                  <li>• Obras de ampliação ou melhoria (revalorizações)</li>
+                  <li>• Despesas pessoais do proprietário</li>
+                  <li>• Mobiliário (salvo casos específicos)</li>
+                  <li>• Despesas sem fatura emitida em nome do proprietário</li>
+                  <li>• Custos de gestão de outros imóveis</li>
+                </ul>
+              </div>
+            </div>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
+              <p className="text-blue-800 text-sm">
+                <strong>Limite prático:</strong> Para um rendimento bruto de €18.000/ano (€1.500/mês),
+                o limite de 15% equivale a €2.700 de despesas dedutíveis. Se tiver mais, o excesso não é deduzido.
+                Guarde <em>todas</em> as faturas com o seu NIF — a AT pode pedir comprovação.
+              </p>
+            </div>
+          </section>
+
+          {/* Section 11: Englobamento vs Taxa Autónoma */}
+          <section id="englobamento" className="mb-12 prose prose-lg max-w-none">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b-2 border-purple-200 pb-2">
+              11. Englobamento vs Tributação Autónoma: Quando Escolher Cada Opção
+            </h2>
+            <p className="text-gray-700 mb-6">
+              Por defeito, os rendimentos prediais são tributados autonomamente (taxa fixa sobre a categoria F).
+              O <strong>englobamento</strong> é uma opção que adiciona os rendimentos de arrendamento ao
+              rendimento global do contribuinte, aplicando as taxas progressivas do IRS (de 13,25% a 53%).
+            </p>
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div className="bg-purple-50 border border-purple-200 rounded-xl p-5">
+                <h3 className="text-base font-semibold text-purple-800 mb-3">📊 Tributação Autónoma (padrão)</h3>
+                <ul className="text-sm text-purple-700 space-y-1">
+                  <li>✅ Taxa fixa e previsível (10% ou 25%)</li>
+                  <li>✅ Não afeta o escalão dos outros rendimentos</li>
+                  <li>✅ Simples de calcular e declarar</li>
+                  <li>❌ Não aproveita deduções pessoais</li>
+                </ul>
+                <p className="text-purple-700 text-xs mt-3">
+                  <strong>Ideal para:</strong> rendimentos médios/altos com outros rendimentos significativos
+                </p>
+              </div>
+              <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-5">
+                <h3 className="text-base font-semibold text-indigo-800 mb-3">📋 Englobamento (opcional)</h3>
+                <ul className="text-sm text-indigo-700 space-y-1">
+                  <li>✅ Pode ser vantajoso com rendimentos totais baixos</li>
+                  <li>✅ Aproveita deduções à coleta (saúde, educação)</li>
+                  <li>❌ Pode elevar o escalão dos restantes rendimentos</li>
+                  <li>❌ Mais complexo de calcular</li>
+                </ul>
+                <p className="text-indigo-700 text-xs mt-3">
+                  <strong>Ideal para:</strong> contribuintes em escalão baixo (até ~€25.000 de rendimento total)
+                </p>
+              </div>
+            </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-5 mb-4">
+              <h3 className="text-base font-semibold text-gray-800 mb-3">Exemplo Comparativo</h3>
+              <p className="text-sm text-gray-700 mb-2">
+                Proprietário com salário de €12.000/ano e rendas de €6.000/ano:
+              </p>
+              <ul className="text-sm text-gray-700 space-y-1">
+                <li>• <strong>Sem englobamento:</strong> rendas tributadas a 10% = €600 de IRS sobre rendas</li>
+                <li>• <strong>Com englobamento:</strong> total €18.000, escalão ~26,5% → IRS sobre rendas ~€1.590</li>
+              </ul>
+              <p className="text-sm text-green-700 mt-2 font-medium">
+                → Neste caso, tributação autónoma é €990 mais barata. O englobamento raramente compensa
+                para quem tem salário médio ou alto.
+              </p>
+            </div>
+            <p className="text-gray-600 text-sm">
+              <strong>Nota:</strong> A opção pelo englobamento aplica-se ao conjunto dos rendimentos
+              da categoria F e é irrevogável para o ano em que é exercida. Simule sempre os dois cenários
+              antes de escolher.
+            </p>
+          </section>
+
+          {/* Section 12: Isenção Mais-Valias */}
+          <section id="isencao-mais-valias" className="mb-12 prose prose-lg max-w-none">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b-2 border-green-200 pb-2">
+              12. Isenção de Mais-Valias em Imóveis Arrendados (2026)
+            </h2>
+            <p className="text-gray-700 mb-6">
+              A isenção de mais-valias é um benefício fiscal relevante para senhorios que vendam imóveis
+              que tenham estado arrendados sob regimes elegíveis. Em 2026, as regras foram clarificadas
+              com incentivos adicionais para proprietários que participem no arrendamento acessível.
+            </p>
+            <div className="bg-green-50 border border-green-200 rounded-xl p-6 mb-6">
+              <h3 className="text-base font-semibold text-green-800 mb-4">🏠 Condições de Isenção</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="text-sm font-medium text-green-700 mb-2">Isenção Total (RSAA):</h4>
+                  <ul className="text-sm text-green-600 space-y-1">
+                    <li>✅ Imóvel arrendado sob regime RSAA</li>
+                    <li>✅ Contrato ativo há pelo menos 3 anos</li>
+                    <li>✅ Venda para o próprio inquilino ou habitação pública</li>
+                    <li>✅ Reinvestimento em habitação acessível</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-sm font-medium text-green-700 mb-2">Redução Parcial:</h4>
+                  <ul className="text-sm text-green-600 space-y-1">
+                    <li>• Coeficiente de desvalorização monetária aplicado</li>
+                    <li>• Exclusão de tributação até 50% se reinvestido em fundos de habitação acessível</li>
+                    <li>• Imóvel com mais de 2 anos de arrendamento ativo: taxa reduzida para 25% sobre a mais-valia</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-5">
+              <h3 className="text-base font-semibold text-yellow-800 mb-2">⚠️ Regime Geral das Mais-Valias</h3>
+              <p className="text-sm text-yellow-700 mb-2">
+                Fora dos casos de isenção, as mais-valias imobiliárias são tributadas a 50% da mais-valia
+                (após aplicar coeficiente de desvalorização), integradas no englobamento e sujeitas às taxas
+                progressivas do IRS. Para imóveis adquiridos antes de 1989 existe isenção total.
+              </p>
+              <p className="text-sm text-yellow-700">
+                <strong>Recomendação:</strong> Antes de qualquer venda, consulte um contabilista para calcular
+                a mais-valia real e avaliar opções de reinvestimento em habitação própria permanente (artigo 10.º CIRS).
+              </p>
+            </div>
+          </section>
+
+          {/* Section 13: Prazos e Obrigações */}
+          <section id="prazos-obrigacoes" className="mb-12 prose prose-lg max-w-none">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b-2 border-red-200 pb-2">
+              13. Prazos e Obrigações Fiscais do Senhorio em 2026
+            </h2>
+            <p className="text-gray-700 mb-6">
+              Para além da declaração anual de IRS, os senhorios têm obrigações contínuas ao longo do ano.
+              O incumprimento pode resultar em coimas e perda de benefícios fiscais.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div className="bg-red-50 border border-red-200 rounded-xl p-5">
+                <h3 className="text-base font-semibold text-red-800 mb-3">📅 Prazos Anuais</h3>
+                <ul className="text-sm text-red-700 space-y-2">
+                  <li><strong>Fevereiro:</strong> Entrega do Modelo 44 (recibos de renda eletrónicos até 31 jan)</li>
+                  <li><strong>Março:</strong> Mapa de Rendas — Modelo 2 na AT (31 de março)</li>
+                  <li><strong>Abril–Junho:</strong> Declaração de IRS (rendimentos do ano anterior)</li>
+                  <li><strong>Setembro–Outubro:</strong> Pagamento do IMI (2.ª prestação)</li>
+                  <li><strong>Dezembro:</strong> Renovação de seguros obrigatórios</li>
+                </ul>
+              </div>
+              <div className="bg-orange-50 border border-orange-200 rounded-xl p-5">
+                <h3 className="text-base font-semibold text-orange-800 mb-3">📋 Obrigações Contínuas</h3>
+                <ul className="text-sm text-orange-700 space-y-2">
+                  <li>• Emitir <strong>recibo de renda eletrónico</strong> até ao 8.º dia do mês seguinte</li>
+                  <li>• Registar contratos na AT em 30 dias após celebração</li>
+                  <li>• Comunicar rendimentos de sub-arrendamento ao senhorio</li>
+                  <li>• Atualizar dados bancários na AT para reembolsos</li>
+                  <li>• Conservar documentos de despesas por 4 anos</li>
+                </ul>
+              </div>
+            </div>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
+              <p className="text-sm text-blue-800">
+                <strong>Coimas por incumprimento:</strong> Falta de emissão de recibo de renda: €150–€3.750.
+                Não registo de contrato: €250–€3.750. Declaração de IRS fora de prazo: coima mínima de €200.
+                Use o{" "}
+                <Link href="/calculadora" className="text-blue-700 underline hover:text-blue-900">
+                  calendário fiscal do Senhorio
+                </Link>{" "}
+                para não perder nenhum prazo.
+              </p>
+            </div>
+          </section>
+
+          {/* Section 14: FAQ */}
+          <section id="faq" className="mb-12 prose prose-lg max-w-none">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b-2 border-gray-300 pb-2">
+              14. FAQ — Perguntas Frequentes sobre IRS 2026
+            </h2>
+            <div className="space-y-4">
+              <div className="bg-white border border-gray-200 rounded-xl p-5">
+                <h3 className="text-base font-semibold text-gray-900 mb-2">
+                  Os contratos antigos (antes de 2026) também beneficiam da taxa 10%?
+                </h3>
+                <p className="text-sm text-gray-700">
+                  Sim. A taxa de 10% aplica-se a <strong>todos</strong> os contratos de arrendamento habitacional
+                  com renda mensal até €2.300, independentemente da data de celebração. Não é necessário
+                  renegociar o contrato — basta que a renda atual seja ≤ €2.300/mês.
+                </p>
+              </div>
+              <div className="bg-white border border-gray-200 rounded-xl p-5">
+                <h3 className="text-base font-semibold text-gray-900 mb-2">
+                  O alojamento local (AL) está excluído da taxa 10%?
+                </h3>
+                <p className="text-sm text-gray-700">
+                  Sim. A taxa de 10% aplica-se exclusivamente a arrendamento habitacional (categoria F).
+                  Os rendimentos de alojamento local são enquadrados na categoria B (atividade empresarial)
+                  e não beneficiam desta redução fiscal. Para AL, as regras são distintas.
+                </p>
+              </div>
+              <div className="bg-white border border-gray-200 rounded-xl p-5">
+                <h3 className="text-base font-semibold text-gray-900 mb-2">
+                  Se tiver múltiplas propriedades, a taxa 10% aplica-se a cada uma individualmente?
+                </h3>
+                <p className="text-sm text-gray-700">
+                  Sim. O limiar de €2.300 é avaliado <strong>por contrato/propriedade</strong>, não pelo
+                  total dos rendimentos. Se tiver 3 imóveis com €1.500/mês cada, todos beneficiam
+                  da taxa 10%, mesmo que o total anual seja €54.000.
+                </p>
+              </div>
+              <div className="bg-white border border-gray-200 rounded-xl p-5">
+                <h3 className="text-base font-semibold text-gray-900 mb-2">
+                  Posso acumular o benefício IRS Jovem com a taxa 10% de arrendamento?
+                </h3>
+                <p className="text-sm text-gray-700">
+                  O IRS Jovem aplica-se a rendimentos da categoria A (trabalho dependente) e categoria B
+                  (trabalho independente) — não à categoria F (rendimentos prediais). Por isso, são regimes
+                  independentes: um jovem pode beneficiar do IRS Jovem nos seus rendimentos de trabalho
+                  e a taxa 10% nos rendimentos de arrendamento em simultâneo.
+                </p>
+              </div>
+              <div className="bg-white border border-gray-200 rounded-xl p-5">
+                <h3 className="text-base font-semibold text-gray-900 mb-2">
+                  Como declarar a taxa 10% no Portal das Finanças?
+                </h3>
+                <p className="text-sm text-gray-700">
+                  Na declaração de IRS (Modelo 3), preencha o <strong>Anexo F</strong>. Indique os
+                  rendimentos elegíveis à taxa 10% no campo correspondente ao regime especial.
+                  O sistema da AT calcula automaticamente o imposto. Não é necessário fazer qualquer
+                  comunicação prévia — basta preencher corretamente o Anexo F.
+                </p>
+              </div>
+              <div className="bg-white border border-gray-200 rounded-xl p-5">
+                <h3 className="text-base font-semibold text-gray-900 mb-2">
+                  A taxa 10% está garantida até quando?
+                </h3>
+                <p className="text-sm text-gray-700">
+                  A legislação atual garante a taxa de 10% para os anos fiscais de <strong>2026 a 2029</strong>
+                  (4 anos). Contratos celebrados durante este período podem beneficiar de uma extensão
+                  adicional, desde que a renda se mantenha no limite elegível. Qualquer alteração
+                  legislativa deverá ser acompanhada no Portal das Finanças.
+                </p>
+              </div>
+            </div>
+          </section>
 
           {/* CTA Section */}
           <div className="mt-16 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-xl p-8 text-center">

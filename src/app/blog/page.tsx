@@ -13,6 +13,14 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    slug: "irs-2026-guia-completo",
+    title: "IRS 2026 para Senhorios: Guia Completo com Simulador",
+    excerpt: "Guia completo IRS 2026 para senhorios: nova taxa 10% para rendas ≤€2.300, regime RSAA 0%, efeito degrau, englobamento vs taxa autónoma, deduções permitidas e simulador fiscal gratuito.",
+    publishedAt: "2026-04-06",
+    readTime: "12 minutos",
+    tags: ["IRS 2026", "Guia Completo"],
+  },
+  {
     slug: "software-gestao-arrendamento-portugal-2026",
     title: "Software de Gestão de Arrendamento em Portugal: O Que Deve Ter em 2026",
     excerpt: "O que um bom software de gestão de arrendamento deve fazer no contexto português. Funcionalidades essenciais, o que evitar ao escolher e como avaliar uma solução antes de a adotar.",
