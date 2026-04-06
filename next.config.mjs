@@ -7,6 +7,11 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+
+  // Fix turbopack root detection
+  turbopack: {
+    root: '.',
+  },
 };
 
 export default nextConfig;

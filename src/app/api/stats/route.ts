@@ -54,7 +54,7 @@ export async function GET() {
       ok: true,
       // Standard Hive metrics format (required by Hive metrics cron)
       views: 0, // page_views not tracked via middleware yet
-      pricing_clicks: Number(pricingStats[0]?.total_clicks || 0),
+      pricing_clicks: Number((pricingStats[0] as any)?.total_clicks || 0),
       affiliate_clicks: 0,
       // Extended stats
       data: {
