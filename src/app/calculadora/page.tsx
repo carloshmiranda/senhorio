@@ -5,6 +5,7 @@ import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import FiscalAlertsCTA from "@/components/FiscalAlertsCTA";
+import EmailCaptureForm from "@/components/email-capture-form";
 import { CALCULATOR_STRUCTURED_DATA } from "@/lib/structured-data";
 
 // Portuguese municipalities with their tax rates (simplified for example)
@@ -552,6 +553,15 @@ export default function TaxCalculatorPage() {
         {/* Fiscal Alerts CTA */}
         <div className="mt-8">
           <FiscalAlertsCTA source="calculadora" />
+        </div>
+
+        {/* Email Capture Form */}
+        <div className="mt-8">
+          <EmailCaptureForm
+            ctaHeading="Junte-se à lista de espera"
+            ctaSubtext="Receba atualizações sobre as novas funcionalidades e seja dos primeiros a aceder à plataforma Senhorio."
+            source="calculadora"
+          />
         </div>
 
         {/* Disclaimer */}

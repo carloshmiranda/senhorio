@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import FiscalAlertsCTA from "@/components/FiscalAlertsCTA";
+import EmailCaptureForm from "@/components/email-capture-form";
 
 interface TaxScenario {
   name: string;
@@ -505,6 +506,15 @@ export default function SimuladorIRSPage() {
         {/* Fiscal Alerts CTA */}
         <div className="mt-8">
           <FiscalAlertsCTA source="simulador-irs" />
+        </div>
+
+        {/* Email Capture Form */}
+        <div className="mt-8">
+          <EmailCaptureForm
+            ctaHeading="Receba o resultado por email"
+            ctaSubtext="Receba o seu relatório fiscal personalizado e alertas sobre mudanças nas leis de arrendamento."
+            source="simulador-irs"
+          />
         </div>
 
         {/* Legal disclaimer */}
