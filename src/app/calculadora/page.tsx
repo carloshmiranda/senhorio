@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
 import SocialShareButtons from "@/components/SocialShareButtons";
+import FiscalAlertsCTA from "@/components/FiscalAlertsCTA";
 import { CALCULATOR_STRUCTURED_DATA } from "@/lib/structured-data";
 
 // Portuguese municipalities with their tax rates (simplified for example)
@@ -546,6 +547,11 @@ export default function TaxCalculatorPage() {
             title="Calculadora IRS 2026 - Nova Taxa 10%"
             description="Compare a nova taxa de 10% com outros regimes fiscais e descubra o incentivo perverso"
           />
+        </div>
+
+        {/* Fiscal Alerts CTA */}
+        <div className="mt-8">
+          <FiscalAlertsCTA source="calculadora" />
         </div>
 
         {/* Disclaimer */}

@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import SocialShareButtons from "@/components/SocialShareButtons";
+import FiscalAlertsCTA from "@/components/FiscalAlertsCTA";
 
 interface TaxScenario {
   name: string;
@@ -499,6 +500,11 @@ export default function SimuladorIRSPage() {
             title="Simulador IRS Arrendamento 2026"
             description="Descubra quanto pode poupar com as novas taxas fiscais de 2026"
           />
+        </div>
+
+        {/* Fiscal Alerts CTA */}
+        <div className="mt-8">
+          <FiscalAlertsCTA source="simulador-irs" />
         </div>
 
         {/* Legal disclaimer */}

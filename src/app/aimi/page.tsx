@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
+import FiscalAlertsCTA from "@/components/FiscalAlertsCTA";
 import { CALCULATOR_STRUCTURED_DATA } from "@/lib/structured-data";
 
 // Portuguese municipalities (mainland districts + islands)
@@ -516,6 +517,11 @@ export default function AIMICalculatorPage() {
               </li>
             ))}
           </ul>
+        </div>
+
+        {/* Fiscal Alerts CTA */}
+        <div className="mt-8">
+          <FiscalAlertsCTA source="aimi" />
         </div>
 
         {/* Disclaimer */}

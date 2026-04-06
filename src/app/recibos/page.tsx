@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { track } from "@vercel/analytics";
 import StructuredData from "@/components/StructuredData";
+import FiscalAlertsCTA from "@/components/FiscalAlertsCTA";
 import { CALCULATOR_STRUCTURED_DATA } from "@/lib/structured-data";
 
 interface ReceiptData {
@@ -698,6 +699,11 @@ export default function ReceiptGeneratorPage() {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Fiscal Alerts CTA */}
+        <div className="mt-16">
+          <FiscalAlertsCTA source="recibos" />
         </div>
 
         {/* More Tools CTA */}
