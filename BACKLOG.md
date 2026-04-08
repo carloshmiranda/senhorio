@@ -181,10 +181,25 @@ _(None)_
   - User guidance for Portal das Finanças submission process
 - **Impact**: Landlords can now export tax-compliant reports directly for Portuguese tax submissions, eliminating manual data preparation
 
+### Email Notification System
+- **Status**: ✅ Complete (PR #86) 
+- **Description**: Comprehensive automated email notification system for payment reminders and deadline alerts
+- **Deliverables**:
+  - Complete notification API with 6 notification types (payment reminders, overdue alerts, monthly summaries, tax deadlines, receipt reminders, test notifications)
+  - Professional Portuguese-localized HTML email templates
+  - Automated cron script (`scripts/process-notifications.js`) with intelligent scheduling
+  - User notification preferences system with enable/disable controls
+  - Dashboard settings page for preference management and notification history
+  - Integration with Resend email service for reliable delivery
+  - Comprehensive setup documentation (`EMAIL_NOTIFICATIONS_SETUP.md`)
+  - Database logging and duplicate prevention
+  - Test notification functionality for verification
+- **Impact**: Landlords receive timely automated reminders about payment due dates, overdue rents, tax obligations, and receipt generation, improving compliance and cash flow management
+
 ## 📋 Todo
 
 ### Phase: MVP Enhancement (Next)
-- [ ] **Email Notifications** - Payment reminders and deadline alerts
+- [x] **Email Notifications** - Payment reminders and deadline alerts (PR #86)
 
 ### Phase: Scale & Optimize (Future)
 - [ ] **Advanced Analytics** - Detailed reporting on portfolio performance
