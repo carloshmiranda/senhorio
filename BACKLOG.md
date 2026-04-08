@@ -166,10 +166,24 @@ _(None)_
   - Receipt schema in database with proper relationships to properties/tenants
 - **Impact**: Landlords can now generate professional legal receipts for rent payments, meeting Portuguese regulatory requirements
 
+## ✅ Done (2026-04-08)
+
+### Tax Report Export
+- **Status**: ✅ Complete
+- **Description**: Export rental income and expense data formatted for Portal das Finanças submission
+- **Deliverables**:
+  - `/api/tax-reports` - Annual tax report generation with property-by-property breakdown
+  - `/api/tax-reports/export` - CSV and JSON export functionality with Portal das Finanças formatting
+  - `/dashboard/tax-reports` - Complete frontend interface with year selection and export buttons
+  - Portuguese column headers and data structure optimized for tax authority requirements
+  - Summary calculations including total income, deductible expenses, and net income
+  - Integration with existing properties, receipts, and expenses data
+  - User guidance for Portal das Finanças submission process
+- **Impact**: Landlords can now export tax-compliant reports directly for Portuguese tax submissions, eliminating manual data preparation
+
 ## 📋 Todo
 
 ### Phase: MVP Enhancement (Next)
-- [ ] **Tax Report Export** - Export data formatted for Portal das Finanças
 - [ ] **Email Notifications** - Payment reminders and deadline alerts
 
 ### Phase: Scale & Optimize (Future)
