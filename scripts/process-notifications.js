@@ -58,6 +58,14 @@ async function main() {
       await processMonthlySummaries();
     }
 
+    if (!SPECIFIC_TYPE || SPECIFIC_TYPE === 'tax_deadline_reminder') {
+      await processTaxDeadlineReminders();
+    }
+
+    if (!SPECIFIC_TYPE || SPECIFIC_TYPE === 'receipt_generation_reminder') {
+      await processReceiptGenerationReminders();
+    }
+
     console.log('✅ Notification processing completed successfully');
   } catch (error) {
     console.error('❌ Error during notification processing:', error);
@@ -560,6 +568,357 @@ function generateMonthlySummaryEmail(userName) {
           </ul>
           <a href="https://senhorio.pt/dashboard" class="button">Ver Resumo Completo</a>
           <p>Continue a acompanhar a sua carteira de imóveis no Senhorio!</p>
+        </div>
+        <div class="footer">
+          <p>Esta é uma notificação automática do Senhorio</p>
+          <p>Se não pretende receber estas notificações, pode <a href="https://senhorio.pt/dashboard/settings">alterar as suas preferências</a></p>
+        </div>
+      </div>
+    </body>
+    </html>
+  `;
+}
+
+async function processTaxDeadlineReminders() {
+  console.log('📋 Processing tax deadline reminders...');
+
+  const today = new Date();
+  const currentMonth = today.getMonth() + 1; // 1-based month
+  const currentDate = today.getDate();
+
+  // Tax deadlines in Portugal:
+  // - IRS Declaration: March 31 (or May 31 if filed online)
+  // - Quarterly payments: July 20, September 20, December 20
+  // Send reminders 7 days before these dates
+  const shouldSendReminder =
+    // IRS deadline reminders (March 24 and May 24)
+    (currentMonth === 3 && currentDate === 24) ||
+    (currentMonth === 5 && currentDate === 24) ||
+    // Quarterly payment reminders (July 13, September 13, December 13)
+    (currentMonth === 7 && currentDate === 13) ||
+    (currentMonth === 9 && currentDate === 13) ||
+    (currentMonth === 12 && currentDate === 13);
+
+  if (!shouldSendReminder && !SPECIFIC_TYPE) {
+    console.log('   Not a tax deadline reminder date, skipping');
+    return;
+  }
+
+  try {
+    const activeOwners = await sql`
+      SELECT DISTINCT
+        c.id as owner_id,
+        c.email as owner_email,
+        c.name as owner_name
+      FROM customers c
+      JOIN properties p ON p.owner_id = c.id
+      WHERE c.status = 'active'
+        AND p.status = 'active'
+    `;
+
+    console.log(`   Found ${activeOwners.length} active property owners`);
+
+    for (const owner of activeOwners) {
+      await processTaxDeadlineNotification(owner);
+    }
+  } catch (error) {
+    console.error('Error processing tax deadline reminders:', error);
+  }
+}
+
+async function processReceiptGenerationReminders() {
+  console.log('📄 Processing receipt generation reminders...');
+
+  // Send receipt reminders on the 5th of each month
+  const today = new Date();
+  if (today.getDate() !== 5 && !SPECIFIC_TYPE) {
+    console.log('   Not the 5th of the month, skipping receipt reminders');
+    return;
+  }
+
+  try {
+    // Find owners who have paid rental payments but no corresponding receipts
+    const ownersWithPendingReceipts = await sql`
+      SELECT DISTINCT
+        c.id as owner_id,
+        c.email as owner_email,
+        c.name as owner_name,
+        COUNT(rp.id) as paid_payments_count
+      FROM customers c
+      JOIN properties p ON p.owner_id = c.id
+      JOIN tenants t ON t.property_id = p.id
+      JOIN rental_payments rp ON rp.tenant_id = t.id
+      LEFT JOIN receipts r ON r.payment_id = rp.id
+      WHERE c.status = 'active'
+        AND p.status = 'active'
+        AND t.status = 'active'
+        AND rp.status = 'paid'
+        AND r.id IS NULL
+        AND rp.paid_date >= date_trunc('month', now()) - interval '2 months'
+      GROUP BY c.id, c.email, c.name
+      HAVING COUNT(rp.id) > 0
+    `;
+
+    if (ownersWithPendingReceipts.length === 0) {
+      console.log('   No owners with pending receipts found');
+      return;
+    }
+
+    console.log(`   Found ${ownersWithPendingReceipts.length} owners with pending receipts`);
+
+    for (const owner of ownersWithPendingReceipts) {
+      await processReceiptGenerationNotification(owner);
+    }
+  } catch (error) {
+    console.error('Error processing receipt generation reminders:', error);
+  }
+}
+
+async function processTaxDeadlineNotification(owner) {
+  try {
+    const preference = await checkNotificationPreference(owner.owner_id, 'tax_deadline_reminder');
+    if (!preference.enabled || !preference.email_enabled) {
+      console.log(`   Skipping ${owner.owner_email} - notification disabled`);
+      return;
+    }
+
+    // Check if we already sent a tax deadline reminder this month
+    const existingNotification = await sql`
+      SELECT id FROM notification_history
+      WHERE user_id = ${owner.owner_id}
+        AND notification_type = 'tax_deadline_reminder'
+        AND sent_at > date_trunc('month', now())
+    `;
+
+    if (existingNotification.length > 0) {
+      console.log(`   Skipping ${owner.owner_email} - reminder already sent this month`);
+      return;
+    }
+
+    const subject = `Senhorio: Lembrete de Obrigações Fiscais`;
+    const bodyHtml = generateTaxDeadlineReminderEmail(owner.owner_name);
+
+    if (DRY_RUN) {
+      console.log(`   [DRY RUN] Would send to ${owner.owner_email}: ${subject}`);
+      return;
+    }
+
+    const result = await resend.emails.send({
+      from: 'Senhorio <notificacoes@senhorio.pt>',
+      to: owner.owner_email,
+      subject,
+      html: bodyHtml,
+    });
+
+    if (result.error) {
+      console.error(`   Error sending to ${owner.owner_email}:`, result.error);
+      return;
+    }
+
+    await sql`
+      INSERT INTO notification_history (
+        user_id,
+        notification_type,
+        recipient_email,
+        subject,
+        resend_message_id,
+        status
+      ) VALUES (
+        ${owner.owner_id},
+        'tax_deadline_reminder',
+        ${owner.owner_email},
+        ${subject},
+        ${result.data?.id},
+        'sent'
+      )
+    `;
+
+    console.log(`   ✅ Sent to ${owner.owner_email}`);
+  } catch (error) {
+    console.error(`   Error processing tax deadline notification for ${owner.owner_email}:`, error);
+  }
+}
+
+async function processReceiptGenerationNotification(owner) {
+  try {
+    const preference = await checkNotificationPreference(owner.owner_id, 'receipt_generation_reminder');
+    if (!preference.enabled || !preference.email_enabled) {
+      console.log(`   Skipping ${owner.owner_email} - notification disabled`);
+      return;
+    }
+
+    // Check if we already sent a receipt generation reminder this month
+    const existingNotification = await sql`
+      SELECT id FROM notification_history
+      WHERE user_id = ${owner.owner_id}
+        AND notification_type = 'receipt_generation_reminder'
+        AND sent_at > date_trunc('month', now())
+    `;
+
+    if (existingNotification.length > 0) {
+      console.log(`   Skipping ${owner.owner_email} - reminder already sent this month`);
+      return;
+    }
+
+    const subject = `Senhorio: ${owner.paid_payments_count} Recibo${owner.paid_payments_count > 1 ? 's' : ''} Pendente${owner.paid_payments_count > 1 ? 's' : ''}`;
+    const bodyHtml = generateReceiptGenerationReminderEmail(owner.owner_name);
+
+    if (DRY_RUN) {
+      console.log(`   [DRY RUN] Would send to ${owner.owner_email}: ${subject}`);
+      return;
+    }
+
+    const result = await resend.emails.send({
+      from: 'Senhorio <notificacoes@senhorio.pt>',
+      to: owner.owner_email,
+      subject,
+      html: bodyHtml,
+    });
+
+    if (result.error) {
+      console.error(`   Error sending to ${owner.owner_email}:`, result.error);
+      return;
+    }
+
+    await sql`
+      INSERT INTO notification_history (
+        user_id,
+        notification_type,
+        recipient_email,
+        subject,
+        resend_message_id,
+        status
+      ) VALUES (
+        ${owner.owner_id},
+        'receipt_generation_reminder',
+        ${owner.owner_email},
+        ${subject},
+        ${result.data?.id},
+        'sent'
+      )
+    `;
+
+    console.log(`   ✅ Sent to ${owner.owner_email}`);
+  } catch (error) {
+    console.error(`   Error processing receipt generation notification for ${owner.owner_email}:`, error);
+  }
+}
+
+function generateTaxDeadlineReminderEmail(userName) {
+  return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background-color: #f59e0b; color: white; padding: 20px; text-align: center; }
+        .content { padding: 20px; }
+        .button {
+          display: inline-block;
+          background-color: #f59e0b;
+          color: white;
+          padding: 10px 20px;
+          text-decoration: none;
+          border-radius: 5px;
+          margin: 10px 0;
+        }
+        .deadline-info { background-color: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin: 15px 0; }
+        .footer { background-color: #f3f4f6; padding: 15px; text-align: center; font-size: 12px; color: #666; }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="header">
+          <h1>Senhorio</h1>
+          <p>📋 Lembrete de Obrigações Fiscais</p>
+        </div>
+        <div class="content">
+          <p>Olá ${userName || 'Senhorio'},</p>
+
+          <div class="deadline-info">
+            <p><strong>Importante:</strong> As obrigações fiscais para senhorios estão a aproximar-se!</p>
+          </div>
+
+          <p>Como senhorio em Portugal, tem várias obrigações fiscais importantes:</p>
+          <ul>
+            <li><strong>Declaração de IRS:</strong> Até 31 de março (ou 31 de maio se submetida online)</li>
+            <li><strong>Pagamentos por conta:</strong> Julho, setembro, e dezembro</li>
+            <li><strong>Recibos de renda:</strong> Devem ser emitidos mensalmente através do Portal das Finanças</li>
+          </ul>
+
+          <p>Use o Senhorio para:</p>
+          <ul>
+            <li>Exportar relatórios fiscais para a sua declaração de IRS</li>
+            <li>Acompanhar despesas dedutíveis</li>
+            <li>Gerar recibos de renda em conformidade</li>
+          </ul>
+
+          <a href="https://senhorio.pt/dashboard/tax-reports" class="button">Ver Relatórios Fiscais</a>
+
+          <p>Mantenha-se em dia com as suas obrigações fiscais!</p>
+        </div>
+        <div class="footer">
+          <p>Esta é uma notificação automática do Senhorio</p>
+          <p>Se não pretende receber estas notificações, pode <a href="https://senhorio.pt/dashboard/settings">alterar as suas preferências</a></p>
+        </div>
+      </div>
+    </body>
+    </html>
+  `;
+}
+
+function generateReceiptGenerationReminderEmail(userName) {
+  return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background-color: #7c3aed; color: white; padding: 20px; text-align: center; }
+        .content { padding: 20px; }
+        .button {
+          display: inline-block;
+          background-color: #7c3aed;
+          color: white;
+          padding: 10px 20px;
+          text-decoration: none;
+          border-radius: 5px;
+          margin: 10px 0;
+        }
+        .reminder { background-color: #f3e8ff; border-left: 4px solid #7c3aed; padding: 15px; margin: 15px 0; }
+        .footer { background-color: #f3f4f6; padding: 15px; text-align: center; font-size: 12px; color: #666; }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="header">
+          <h1>Senhorio</h1>
+          <p>📄 Lembrete de Recibos Pendentes</p>
+        </div>
+        <div class="content">
+          <p>Olá ${userName || 'Senhorio'},</p>
+
+          <div class="reminder">
+            <p><strong>Lembrete:</strong> Tem recibos de renda pendentes de emissão.</p>
+          </div>
+
+          <p>Como senhorio, é obrigatório emitir recibos de renda para todos os pagamentos recebidos. Isto é importante para:</p>
+          <ul>
+            <li>Cumprimento da legislação portuguesa</li>
+            <li>Documentação para a declaração de IRS</li>
+            <li>Transparência com os inquilinos</li>
+            <li>Registo oficial dos rendimentos prediais</li>
+          </ul>
+
+          <p>O Senhorio facilita a geração automática de recibos em conformidade com a legislação portuguesa.</p>
+
+          <a href="https://senhorio.pt/dashboard/receipts" class="button">Gerar Recibos</a>
+
+          <p>Mantenha a sua documentação em dia e evite complicações fiscais!</p>
         </div>
         <div class="footer">
           <p>Esta é uma notificação automática do Senhorio</p>

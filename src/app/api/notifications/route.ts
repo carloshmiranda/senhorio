@@ -109,6 +109,18 @@ export async function POST(req: NextRequest) {
         bodyText = "O seu resumo mensal de rendas e pagamentos está disponível.";
         break;
 
+      case 'tax_deadline_reminder':
+        subject = "Senhorio: Lembrete de Obrigações Fiscais";
+        bodyHtml = generateTaxDeadlineReminderEmail(userInfo.name);
+        bodyText = "Lembrete: As obrigações fiscais para senhorios estão a aproximar-se.";
+        break;
+
+      case 'receipt_generation_reminder':
+        subject = "Senhorio: Lembrete de Recibos Pendentes";
+        bodyHtml = generateReceiptGenerationReminderEmail(userInfo.name);
+        bodyText = "Lembrete: Tem recibos de renda pendentes de emissão.";
+        break;
+
       case 'test_notification':
         subject = "Senhorio: Notificação de Teste";
         bodyHtml = generateTestEmail(userInfo.name);
@@ -373,6 +385,132 @@ function generateTestEmail(userName: string): string {
         </div>
         <div class="footer">
           <p>Esta é uma notificação de teste do Senhorio</p>
+          <p>Se não pretende receber estas notificações, pode <a href="https://senhorio.pt/dashboard/settings">alterar as suas preferências</a></p>
+        </div>
+      </div>
+    </body>
+    </html>
+  `;
+}
+
+function generateTaxDeadlineReminderEmail(userName: string): string {
+  return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background-color: #f59e0b; color: white; padding: 20px; text-align: center; }
+        .content { padding: 20px; }
+        .button {
+          display: inline-block;
+          background-color: #f59e0b;
+          color: white;
+          padding: 10px 20px;
+          text-decoration: none;
+          border-radius: 5px;
+          margin: 10px 0;
+        }
+        .deadline-info { background-color: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin: 15px 0; }
+        .footer { background-color: #f3f4f6; padding: 15px; text-align: center; font-size: 12px; color: #666; }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="header">
+          <h1>Senhorio</h1>
+          <p>📋 Lembrete de Obrigações Fiscais</p>
+        </div>
+        <div class="content">
+          <p>Olá ${userName || 'Senhorio'},</p>
+
+          <div class="deadline-info">
+            <p><strong>Importante:</strong> As obrigações fiscais para senhorios estão a aproximar-se!</p>
+          </div>
+
+          <p>Como senhorio em Portugal, tem várias obrigações fiscais importantes:</p>
+          <ul>
+            <li><strong>Declaração de IRS:</strong> Até 31 de março (ou 31 de maio se submetida online)</li>
+            <li><strong>Pagamentos por conta:</strong> Julho, setembro, e dezembro</li>
+            <li><strong>Recibos de renda:</strong> Devem ser emitidos mensalmente através do Portal das Finanças</li>
+          </ul>
+
+          <p>Use o Senhorio para:</p>
+          <ul>
+            <li>Exportar relatórios fiscais para a sua declaração de IRS</li>
+            <li>Acompanhar despesas dedutíveis</li>
+            <li>Gerar recibos de renda em conformidade</li>
+          </ul>
+
+          <a href="https://senhorio.pt/dashboard/tax-reports" class="button">Ver Relatórios Fiscais</a>
+
+          <p>Mantenha-se em dia com as suas obrigações fiscais!</p>
+        </div>
+        <div class="footer">
+          <p>Esta é uma notificação automática do Senhorio</p>
+          <p>Se não pretende receber estas notificações, pode <a href="https://senhorio.pt/dashboard/settings">alterar as suas preferências</a></p>
+        </div>
+      </div>
+    </body>
+    </html>
+  `;
+}
+
+function generateReceiptGenerationReminderEmail(userName: string): string {
+  return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background-color: #7c3aed; color: white; padding: 20px; text-align: center; }
+        .content { padding: 20px; }
+        .button {
+          display: inline-block;
+          background-color: #7c3aed;
+          color: white;
+          padding: 10px 20px;
+          text-decoration: none;
+          border-radius: 5px;
+          margin: 10px 0;
+        }
+        .reminder { background-color: #f3e8ff; border-left: 4px solid #7c3aed; padding: 15px; margin: 15px 0; }
+        .footer { background-color: #f3f4f6; padding: 15px; text-align: center; font-size: 12px; color: #666; }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="header">
+          <h1>Senhorio</h1>
+          <p>📄 Lembrete de Recibos Pendentes</p>
+        </div>
+        <div class="content">
+          <p>Olá ${userName || 'Senhorio'},</p>
+
+          <div class="reminder">
+            <p><strong>Lembrete:</strong> Tem recibos de renda pendentes de emissão.</p>
+          </div>
+
+          <p>Como senhorio, é obrigatório emitir recibos de renda para todos os pagamentos recebidos. Isto é importante para:</p>
+          <ul>
+            <li>Cumprimento da legislação portuguesa</li>
+            <li>Documentação para a declaração de IRS</li>
+            <li>Transparência com os inquilinos</li>
+            <li>Registo oficial dos rendimentos prediais</li>
+          </ul>
+
+          <p>O Senhorio facilita a geração automática de recibos em conformidade com a legislação portuguesa.</p>
+
+          <a href="https://senhorio.pt/dashboard/receipts" class="button">Gerar Recibos</a>
+
+          <p>Mantenha a sua documentação em dia e evite complicações fiscais!</p>
+        </div>
+        <div class="footer">
+          <p>Esta é uma notificação automática do Senhorio</p>
           <p>Se não pretende receber estas notificações, pode <a href="https://senhorio.pt/dashboard/settings">alterar as suas preferências</a></p>
         </div>
       </div>
