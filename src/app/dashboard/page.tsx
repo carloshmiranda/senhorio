@@ -137,13 +137,24 @@ export default function DashboardPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-2xl font-bold text-gray-900">Painel de Gestão</h1>
-        <Link
-          href="/dashboard/properties"
-          className="px-4 py-2 bg-brand-600 text-white text-sm font-medium rounded-lg hover:bg-brand-700 transition"
-        >
-          + Adicionar Imóvel
-        </Link>
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900">Painel de Gestão</h1>
+          <p className="text-gray-600 mt-1">Gerir o seu portfólio de arrendamento</p>
+        </div>
+        <div className="flex space-x-3">
+          <Link
+            href="/dashboard/tax-reports"
+            className="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition"
+          >
+            📊 Relatórios Fiscais
+          </Link>
+          <Link
+            href="/dashboard/properties"
+            className="px-4 py-2 bg-brand-600 text-white text-sm font-medium rounded-lg hover:bg-brand-700 transition"
+          >
+            + Adicionar Imóvel
+          </Link>
+        </div>
       </div>
 
       {/* Summary cards */}
@@ -165,6 +176,96 @@ export default function DashboardPage() {
             <p className="text-sm text-gray-500 mt-1">{card.label}</p>
           </Link>
         ))}
+      </div>
+
+      {/* Quick Actions */}
+      <div className="mb-6">
+        <h2 className="text-lg font-semibold text-gray-900 mb-4">Ações Rápidas</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">{stats.overduePayments > 0 && (
+          <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-4">
+            <div className="flex items-center space-x-3">
+              <div className="p-2 bg-red-100 rounded-lg">
+                <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <p className="font-medium text-red-900">
+                  {stats.overduePayments} pagamento{stats.overduePayments !== 1 ? 's' : ''} em atraso
+                </p>
+                <p className="text-sm text-red-700">Necessita atenção imediata</p>
+              </div>
+              <Link
+                href="/dashboard/payments"
+                className="px-3 py-1 bg-red-600 text-white text-sm font-medium rounded-md hover:bg-red-700 transition"
+              >
+                Ver
+              </Link>
+            </div>
+          </div>
+        )}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <Link
+          href="/dashboard/properties"
+          className="bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white rounded-xl p-4 flex items-center space-x-3 transition-all duration-200 shadow-sm hover:shadow-md"
+        >
+          <div className="p-2 bg-white/20 rounded-lg">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            </svg>
+          </div>
+          <div>
+            <p className="font-medium">Novo Imóvel</p>
+            <p className="text-xs text-white/80">Adicionar propriedade</p>
+          </div>
+        </Link>
+
+        <Link
+          href="/dashboard/receipts"
+          className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-xl p-4 flex items-center space-x-3 transition-all duration-200 shadow-sm hover:shadow-md"
+        >
+          <div className="p-2 bg-white/20 rounded-lg">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <div>
+            <p className="font-medium">Gerar Recibo</p>
+            <p className="text-xs text-white/80">Recibo de renda</p>
+          </div>
+        </Link>
+
+        <button
+          onClick={() => window.location.href = '/dashboard/analytics'}
+          className="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white rounded-xl p-4 flex items-center space-x-3 transition-all duration-200 shadow-sm hover:shadow-md"
+        >
+          <div className="p-2 bg-white/20 rounded-lg">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+          <div>
+            <p className="font-medium">Analytics</p>
+            <p className="text-xs text-white/80">Ver relatórios</p>
+          </div>
+        </button>
+
+        <Link
+          href="/dashboard/expenses"
+          className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-xl p-4 flex items-center space-x-3 transition-all duration-200 shadow-sm hover:shadow-md"
+        >
+          <div className="p-2 bg-white/20 rounded-lg">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div>
+            <p className="font-medium">Despesas</p>
+            <p className="text-xs text-white/80">Gerir custos</p>
+          </div>
+        </Link>
+        </div>
+      </div>
       </div>
 
       {/* Recent payments */}
