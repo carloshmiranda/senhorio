@@ -196,13 +196,40 @@ _(None)_
   - Test notification functionality for verification
 - **Impact**: Landlords receive timely automated reminders about payment due dates, overdue rents, tax obligations, and receipt generation, improving compliance and cash flow management
 
+### Advanced Analytics
+- **Status**: ✅ Complete
+- **Description**: Comprehensive portfolio analytics and detailed reporting on portfolio performance
+- **Deliverables**:
+  - `/dashboard/analytics` - Advanced analytics dashboard with period selection (3/6/12 months)
+  - `/api/analytics` - Complete backend analytics API with complex queries
+  - Portfolio overview metrics (total properties, monthly income, occupancy rate, average yield)
+  - Income evolution line charts over time periods
+  - Payment status analysis with visual charts (doughnut/pie charts)
+  - Property type distribution with bar charts
+  - Geographic distribution by municipality
+  - Property-by-property performance table with success rates
+  - ROI analysis table based on fiscal value vs rental income
+  - Chart.js integration for professional visualizations
+  - Portuguese localization and responsive design
+- **Impact**: Landlords can analyze portfolio performance, track income trends, identify underperforming properties, and make data-driven investment decisions
+
+### Build Configuration Fix
+- **Status**: ✅ Complete (PR #90)
+- **Description**: Resolved Next.js turbopack build configuration issues preventing successful builds
+- **Deliverables**:
+  - Fixed turbopack.root configuration with explicit __dirname resolution
+  - Ensured builds work consistently across environments 
+  - All 71 pages now compile successfully
+  - Build passes with `npm run build` command
+- **Impact**: Enables reliable CI/CD deployments and removes build blocking issues for development
+
 ## 📋 Todo
 
 ### Phase: MVP Enhancement (Next)
 - [x] **Email Notifications** - Payment reminders and deadline alerts (PR #86)
+- [x] **Advanced Analytics** - Detailed reporting on portfolio performance (Already implemented)
 
 ### Phase: Scale & Optimize (Future)
-- [ ] **Advanced Analytics** - Detailed reporting on portfolio performance
 - [ ] **Mobile App** - Native iOS/Android applications
 - [ ] **API Integration** - Connect with accounting software and banks
 
@@ -216,4 +243,4 @@ _(None currently)_
 
 ---
 
-**Last Updated**: 2026-03-29 by Engineer Agent (Cycle 8)
+**Last Updated**: 2026-04-08 by Engineer Agent (Cycle 9)
