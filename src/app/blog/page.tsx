@@ -13,6 +13,22 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    slug: "contrato-arrendamento-habitacional-2026",
+    title: "Contrato de Arrendamento Habitacional 2026: Cláusulas Obrigatórias e Registo",
+    excerpt: "O que tem de constar obrigatoriamente num contrato de arrendamento habitacional em Portugal. Duração mínima, renovação automática, cláusulas essenciais, o que não pode incluir e como registar na AT.",
+    publishedAt: "2026-04-08",
+    readTime: "13 min",
+    tags: ["Contrato Arrendamento", "Obrigações Legais", "NRAU"],
+  },
+  {
+    slug: "caucao-arrendamento-2026",
+    title: "Caução no Arrendamento 2026: Montante Máximo, Regras e Devolução",
+    excerpt: "Tudo sobre a caução no arrendamento em Portugal. Montante máximo permitido (2 meses), como registar no contrato, o que pode reter ao fim do arrendamento e como devolver corretamente.",
+    publishedAt: "2026-04-08",
+    readTime: "11 min",
+    tags: ["Caução", "Contrato Arrendamento", "Guia 2026"],
+  },
+  {
     slug: "irs-2026-guia-completo",
     title: "IRS 2026 para Senhorios: Guia Completo com Simulador",
     excerpt: "Guia completo IRS 2026 para senhorios: nova taxa 10% para rendas ≤€2.300, regime RSAA 0%, efeito degrau, englobamento vs taxa autónoma, deduções permitidas e simulador fiscal gratuito.",

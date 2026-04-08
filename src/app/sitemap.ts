@@ -56,6 +56,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Blog posts - New practical guides
     {
+      url: `${baseUrl}/blog/contrato-arrendamento-habitacional-2026`,
+      lastModified: new Date("2026-04-08"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog/caucao-arrendamento-2026`,
+      lastModified: new Date("2026-04-08"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog/irs-2026-guia-completo`,
+      lastModified: new Date("2026-04-06"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog/inquilino-nao-paga-renda-o-que-fazer`,
+      lastModified: new Date("2026-04-05"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog/mapa-rendas-modelo-2-arrendamento-2026`,
+      lastModified: new Date("2026-04-05"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/blog/despesas-dedutiveis-arrendamento-2026`,
       lastModified: new Date("2026-04-04"),
       changeFrequency: "monthly",
