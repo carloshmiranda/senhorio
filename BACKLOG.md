@@ -196,13 +196,28 @@ _(None)_
   - Test notification functionality for verification
 - **Impact**: Landlords receive timely automated reminders about payment due dates, overdue rents, tax obligations, and receipt generation, improving compliance and cash flow management
 
+## ✅ Done (2026-04-08)
+
+### Advanced Analytics
+- **Status**: ✅ Complete
+- **Description**: Comprehensive portfolio analytics system with detailed reporting and visualizations
+- **Deliverables**:
+  - `/dashboard/analytics` - Complete analytics dashboard with multiple chart types and metrics
+  - `/api/analytics` - Comprehensive analytics API with portfolio overview, income trends, ROI analysis
+  - Multiple time period support (3, 6, 12 months) with dynamic filtering
+  - Property performance tables with payment success rates and geographic distribution
+  - ROI analysis based on fiscal value vs rental income with gross yield calculations
+  - Income history charts, payment status analysis, and property type distribution
+  - Integration with Chart.js for professional data visualization
+- **Impact**: Landlords can now analyze portfolio performance with detailed insights on income trends, property ROI, occupancy rates, and payment patterns
+
 ## 📋 Todo
 
 ### Phase: MVP Enhancement (Next)
 - [x] **Email Notifications** - Payment reminders and deadline alerts (PR #86)
+- [x] **Advanced Analytics** - Detailed reporting on portfolio performance
 
 ### Phase: Scale & Optimize (Future)
-- [ ] **Advanced Analytics** - Detailed reporting on portfolio performance
 - [ ] **Mobile App** - Native iOS/Android applications
 - [ ] **API Integration** - Connect with accounting software and banks
 
