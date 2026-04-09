@@ -7,6 +7,7 @@ interface DashboardStats {
   totalProperties: number;
   activetenants: number;
   monthlyIncome: number;
+  monthlyExpenses: number;
   pendingPayments: number;
   overduePayments: number;
 }
@@ -16,6 +17,7 @@ export default function DashboardPage() {
     totalProperties: 0,
     activetenants: 0,
     monthlyIncome: 0,
+    monthlyExpenses: 0,
     pendingPayments: 0,
     overduePayments: 0,
   });
@@ -25,13 +27,18 @@ export default function DashboardPage() {
   useEffect(() => {
     async function loadDashboard() {
       try {
-        const [propsRes, paymentsRes] = await Promise.all([
+        const currentMonth = new Date().getMonth() + 1;
+        const currentYear = new Date().getFullYear();
+
+        const [propsRes, paymentsRes, expensesRes] = await Promise.all([
           fetch("/api/properties"),
           fetch("/api/payments"),
+          fetch(`/api/expenses?year=${currentYear}`),
         ]);
 
         const propsData = await propsRes.json();
         const paymentsData = await paymentsRes.json();
+        const expensesData = await expensesRes.json();
 
         if (propsData.ok && propsData.data) {
           const properties = propsData.data;
@@ -50,6 +57,24 @@ export default function DashboardPage() {
             totalProperties,
             activetenants,
             monthlyIncome,
+          }));
+        }
+
+        // Calculate monthly expenses from current month
+        let monthlyExpenses = 0;
+        if (expensesData.ok && expensesData.data) {
+          const expenses = expensesData.data;
+          monthlyExpenses = expenses
+            .filter((exp: any) => {
+              const expenseDate = new Date(exp.date);
+              return expenseDate.getMonth() + 1 === currentMonth &&
+                     expenseDate.getFullYear() === currentYear;
+            })
+            .reduce((sum: number, exp: any) => sum + Number(exp.amount || 0), 0);
+
+          setStats((prev) => ({
+            ...prev,
+            monthlyExpenses,
           }));
         }
 
@@ -76,6 +101,8 @@ export default function DashboardPage() {
     loadDashboard();
   }, []);
 
+  const netIncome = stats.monthlyIncome - stats.monthlyExpenses;
+
   const cards = [
     {
       label: "Imóveis",
@@ -85,18 +112,18 @@ export default function DashboardPage() {
       href: "/dashboard/properties",
     },
     {
-      label: "Receita Mensal",
-      value: `€${stats.monthlyIncome.toLocaleString("pt-PT", { minimumFractionDigits: 2 })}`,
+      label: "Receita Líquida",
+      value: `€${netIncome.toLocaleString("pt-PT", { minimumFractionDigits: 2 })}`,
       icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
-      color: "green",
-      href: "/dashboard/payments",
+      color: netIncome >= 0 ? "green" : "red",
+      href: "/dashboard/analytics",
     },
     {
-      label: "Pagamentos Pendentes",
-      value: stats.pendingPayments,
-      icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
-      color: "yellow",
-      href: "/dashboard/payments",
+      label: "Despesas Mensais",
+      value: `€${stats.monthlyExpenses.toLocaleString("pt-PT", { minimumFractionDigits: 2 })}`,
+      icon: "M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z",
+      color: "orange",
+      href: "/dashboard/expenses",
     },
     {
       label: "Pagamentos em Atraso",
@@ -112,6 +139,7 @@ export default function DashboardPage() {
     green: "bg-green-50 text-green-600",
     yellow: "bg-yellow-50 text-yellow-600",
     red: "bg-red-50 text-red-600",
+    orange: "bg-orange-50 text-orange-600",
   };
 
   const statusLabels: Record<string, { text: string; color: string }> = {
