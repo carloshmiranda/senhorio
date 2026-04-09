@@ -13,6 +13,22 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    slug: "obras-imovel-arrendado-quem-paga-2026",
+    title: "Obras no Imóvel Arrendado: Quem Paga em 2026?",
+    excerpt: "A lei distingue obras de conservação ordinária (inquilino) e extraordinária (senhorio). Saiba quem paga o quê, como agir em obras urgentes, e o que pode deduzir no IRS.",
+    publishedAt: "2026-04-09",
+    readTime: "12 min",
+    tags: ["Obras e Reparações", "Guia Legal", "Arrendamento 2026"],
+  },
+  {
+    slug: "seguro-renda-portugal-2026",
+    title: "Seguro de Renda em Portugal 2026: Como Funciona e Vale a Pena?",
+    excerpt: "O seguro de renda cobre meses em falta, custas legais e danos quando o inquilino não paga. Quanto custa, o que inclui, quando compensa e como deduzir no IRS.",
+    publishedAt: "2026-04-09",
+    readTime: "11 min",
+    tags: ["Proteção Financeira", "Guia Prático", "Senhorios 2026"],
+  },
+  {
     slug: "comunicar-fim-contrato-arrendamento-2026",
     title: "Comunicar Fim de Contrato de Arrendamento: Pré-Aviso, Carta e Prazos em 2026",
     excerpt: "Como comunicar o fim do contrato de arrendamento em Portugal. Prazos de pré-aviso por tipo de contrato, modelo de carta de não renovação, formas de envio válidas e o que fazer se o inquilino não sair.",

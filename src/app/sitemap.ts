@@ -61,8 +61,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/vs/google-sheets`,
+      lastModified: new Date("2026-04-09"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
 
     // Blog posts - New practical guides
+    {
+      url: `${baseUrl}/blog/obras-imovel-arrendado-quem-paga-2026`,
+      lastModified: new Date("2026-04-09"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog/seguro-renda-portugal-2026`,
+      lastModified: new Date("2026-04-09"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
     {
       url: `${baseUrl}/blog/comunicar-fim-contrato-arrendamento-2026`,
       lastModified: new Date("2026-04-09"),
