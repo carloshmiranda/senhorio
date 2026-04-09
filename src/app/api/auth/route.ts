@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 import { hashPassword, verifyPassword, createToken } from "@/lib/auth";
+import { checkRateLimit, createRateLimitResponse, RATE_LIMITS } from "@/lib/rate-limit";
 
 function json(data: any, status = 200) {
   return NextResponse.json(data, { status });
@@ -9,6 +10,17 @@ function json(data: any, status = 200) {
 // POST /api/auth — login or register
 // Body: { action: "login" | "register", email, password, name? }
 export async function POST(req: NextRequest) {
+  // Apply rate limiting for authentication endpoints
+  const rateLimitResult = checkRateLimit(req, 'auth', RATE_LIMITS.AUTH);
+  if (!rateLimitResult.allowed) {
+    return createRateLimitResponse(
+      false,
+      rateLimitResult.remainingRequests,
+      rateLimitResult.resetTime,
+      rateLimitResult.error
+    );
+  }
+
   try {
     const body = await req.json();
     const { action, email, password, name } = body as {

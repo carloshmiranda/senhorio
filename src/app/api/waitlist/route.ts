@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { checkRateLimit, createRateLimitResponse, RATE_LIMITS } from "@/lib/rate-limit";
 
 function json(data: any, status = 200) {
   return NextResponse.json(data, { status });
@@ -8,6 +9,17 @@ const AUDIENCE_NAME = "Senhorio Waitlist";
 
 // POST /api/waitlist — join the waitlist or verify email
 export async function POST(req: NextRequest) {
+  // Apply rate limiting for waitlist endpoints
+  const rateLimitResult = checkRateLimit(req, 'waitlist', RATE_LIMITS.WAITLIST);
+  if (!rateLimitResult.allowed) {
+    return createRateLimitResponse(
+      false,
+      rateLimitResult.remainingRequests,
+      rateLimitResult.resetTime,
+      rateLimitResult.error
+    );
+  }
+
   try {
     const body = await req.json();
     const { email, name, verify_only, source } = body as {

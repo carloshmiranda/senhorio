@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 import { requireAuth } from "@/lib/auth";
+import { checkRateLimit, createRateLimitResponse, RATE_LIMITS } from "@/lib/rate-limit";
 
 function json(data: any, status = 200) {
   return NextResponse.json(data, { status });
@@ -8,6 +9,17 @@ function json(data: any, status = 200) {
 
 // GET /api/properties — list user's properties
 export async function GET(req: NextRequest) {
+  // Apply rate limiting for data read operations
+  const rateLimitResult = checkRateLimit(req, 'properties-read', RATE_LIMITS.DATA_READ);
+  if (!rateLimitResult.allowed) {
+    return createRateLimitResponse(
+      false,
+      rateLimitResult.remainingRequests,
+      rateLimitResult.resetTime,
+      rateLimitResult.error
+    );
+  }
+
   try {
     const user = await requireAuth(req);
     const sql = getDb();
@@ -34,6 +46,17 @@ export async function GET(req: NextRequest) {
 
 // POST /api/properties — create a new property
 export async function POST(req: NextRequest) {
+  // Apply rate limiting for data creation operations
+  const rateLimitResult = checkRateLimit(req, 'properties-create', RATE_LIMITS.DATA_CREATION);
+  if (!rateLimitResult.allowed) {
+    return createRateLimitResponse(
+      false,
+      rateLimitResult.remainingRequests,
+      rateLimitResult.resetTime,
+      rateLimitResult.error
+    );
+  }
+
   try {
     const user = await requireAuth(req);
     const sql = getDb();
