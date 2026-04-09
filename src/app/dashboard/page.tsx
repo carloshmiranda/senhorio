@@ -181,7 +181,8 @@ export default function DashboardPage() {
       {/* Quick Actions */}
       <div className="mb-6">
         <h2 className="text-lg font-semibold text-gray-900 mb-4">Ações Rápidas</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">{stats.overduePayments > 0 && (
+
+        {stats.overduePayments > 0 && (
           <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-4">
             <div className="flex items-center space-x-3">
               <div className="p-2 bg-red-100 rounded-lg">
@@ -204,7 +205,8 @@ export default function DashboardPage() {
             </div>
           </div>
         )}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         <Link
           href="/dashboard/properties"
           className="bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white rounded-xl p-4 flex items-center space-x-3 transition-all duration-200 shadow-sm hover:shadow-md"
@@ -264,8 +266,22 @@ export default function DashboardPage() {
             <p className="text-xs text-white/80">Gerir custos</p>
           </div>
         </Link>
+
+        <Link
+          href="/dashboard/banking"
+          className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl p-4 flex items-center space-x-3 transition-all duration-200 shadow-sm hover:shadow-md"
+        >
+          <div className="p-2 bg-white/20 rounded-lg">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+            </svg>
+          </div>
+          <div>
+            <p className="font-medium">Bancos</p>
+            <p className="text-xs text-white/80">Importação automática</p>
+          </div>
+        </Link>
         </div>
-      </div>
       </div>
 
       {/* Recent payments */}
