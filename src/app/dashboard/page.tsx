@@ -181,7 +181,9 @@ export default function DashboardPage() {
       {/* Quick Actions */}
       <div className="mb-6">
         <h2 className="text-lg font-semibold text-gray-900 mb-4">Ações Rápidas</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">{stats.overduePayments > 0 && (
+
+        {/* Overdue payments alert */}
+        {stats.overduePayments > 0 && (
           <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-4">
             <div className="flex items-center space-x-3">
               <div className="p-2 bg-red-100 rounded-lg">
@@ -204,6 +206,8 @@ export default function DashboardPage() {
             </div>
           </div>
         )}
+
+        {/* Action buttons grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Link
           href="/dashboard/properties"
@@ -235,8 +239,8 @@ export default function DashboardPage() {
           </div>
         </Link>
 
-        <button
-          onClick={() => window.location.href = '/dashboard/analytics'}
+        <Link
+          href="/dashboard/analytics"
           className="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white rounded-xl p-4 flex items-center space-x-3 transition-all duration-200 shadow-sm hover:shadow-md"
         >
           <div className="p-2 bg-white/20 rounded-lg">
@@ -248,7 +252,7 @@ export default function DashboardPage() {
             <p className="font-medium">Analytics</p>
             <p className="text-xs text-white/80">Ver relatórios</p>
           </div>
-        </button>
+        </Link>
 
         <Link
           href="/dashboard/expenses"
@@ -265,7 +269,6 @@ export default function DashboardPage() {
           </div>
         </Link>
         </div>
-      </div>
       </div>
 
       {/* Recent payments */}
