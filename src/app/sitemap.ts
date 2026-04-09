@@ -54,7 +54,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
 
+    // Comparison pages
+    {
+      url: `${baseUrl}/vs/excel`,
+      lastModified: new Date("2026-04-09"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+
     // Blog posts - New practical guides
+    {
+      url: `${baseUrl}/blog/comunicar-fim-contrato-arrendamento-2026`,
+      lastModified: new Date("2026-04-09"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog/alojamento-local-vs-arrendamento-habitacional-2026`,
+      lastModified: new Date("2026-04-09"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
     {
       url: `${baseUrl}/blog/contrato-arrendamento-habitacional-2026`,
       lastModified: new Date("2026-04-08"),

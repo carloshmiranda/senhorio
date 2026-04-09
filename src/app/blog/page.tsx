@@ -13,6 +13,22 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    slug: "comunicar-fim-contrato-arrendamento-2026",
+    title: "Comunicar Fim de Contrato de Arrendamento: Pré-Aviso, Carta e Prazos em 2026",
+    excerpt: "Como comunicar o fim do contrato de arrendamento em Portugal. Prazos de pré-aviso por tipo de contrato, modelo de carta de não renovação, formas de envio válidas e o que fazer se o inquilino não sair.",
+    publishedAt: "2026-04-09",
+    readTime: "11 min",
+    tags: ["Contrato Arrendamento", "Pré-Aviso", "Guia Legal"],
+  },
+  {
+    slug: "alojamento-local-vs-arrendamento-habitacional-2026",
+    title: "Alojamento Local vs Arrendamento Habitacional em Portugal: Qual Rende Mais em 2026?",
+    excerpt: "Comparação honesta com números reais: fiscalidade de cada modelo, custos operacionais que raramente se contam, regulação camarária crescente e o esforço de gestão. Decida com informação.",
+    publishedAt: "2026-04-09",
+    readTime: "15 min",
+    tags: ["Alojamento Local", "Comparação", "Análise Fiscal 2026"],
+  },
+  {
     slug: "contrato-arrendamento-habitacional-2026",
     title: "Contrato de Arrendamento Habitacional 2026: Cláusulas Obrigatórias e Registo",
     excerpt: "O que tem de constar obrigatoriamente num contrato de arrendamento habitacional em Portugal. Duração mínima, renovação automática, cláusulas essenciais, o que não pode incluir e como registar na AT.",
