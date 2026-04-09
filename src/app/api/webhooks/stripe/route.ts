@@ -1,12 +1,19 @@
 import Stripe from "stripe";
 import { headers } from "next/headers";
 import { getDb } from "@/lib/db";
+import { withRateLimit, createRateLimiter } from "@/lib/rate-limit";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "sk_test_placeholder", {
   apiVersion: "2025-02-24.acacia",
 });
 
-export async function POST(req: Request) {
+// Generous rate limiter for webhooks: 1000 requests per 15 minutes (Stripe can send many webhooks)
+const webhookLimiter = createRateLimiter({
+  limit: 1000,
+  windowMs: 15 * 60 * 1000, // 15 minutes
+});
+
+async function handlePOST(req: Request) {
   if (!process.env.STRIPE_SECRET_KEY) {
     return Response.json({ error: "Stripe not configured" }, { status: 503 });
   }
@@ -50,3 +57,6 @@ export async function POST(req: Request) {
 
   return Response.json({ received: true });
 }
+
+// Apply rate limiting to webhook endpoint
+export const POST = withRateLimit(handlePOST, webhookLimiter);

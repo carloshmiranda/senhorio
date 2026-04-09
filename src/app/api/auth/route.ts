@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 import { hashPassword, verifyPassword, createToken } from "@/lib/auth";
+import { withRateLimit, authLimiter, apiLimiter } from "@/lib/rate-limit";
 
 function json(data: any, status = 200) {
   return NextResponse.json(data, { status });
@@ -8,7 +9,7 @@ function json(data: any, status = 200) {
 
 // POST /api/auth — login or register
 // Body: { action: "login" | "register", email, password, name? }
-export async function POST(req: NextRequest) {
+async function handlePOST(req: NextRequest) {
   try {
     const body = await req.json();
     const { action, email, password, name } = body as {
@@ -98,7 +99,7 @@ export async function POST(req: NextRequest) {
 }
 
 // GET /api/auth — check current session
-export async function GET(req: NextRequest) {
+async function handleGET(req: NextRequest) {
   try {
     const token = req.cookies.get("senhorio_token")?.value;
     if (!token) {
@@ -122,3 +123,7 @@ export async function GET(req: NextRequest) {
     return json({ ok: true, user: null });
   }
 }
+
+// Apply rate limiting to auth endpoints
+export const POST = withRateLimit(handlePOST, authLimiter); // Strict: 5 attempts per 15 minutes
+export const GET = withRateLimit(handleGET, apiLimiter); // Lenient: 100 requests per 15 minutes
