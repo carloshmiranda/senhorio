@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { withRateLimit, createRateLimiter } from "@/lib/rate-limit";
 
 function json(data: any, status = 200) {
   return NextResponse.json(data, { status });
@@ -6,8 +7,14 @@ function json(data: any, status = 200) {
 
 const AUDIENCE_NAME = "Senhorio Waitlist";
 
+// Moderate rate limiter for waitlist signups: 10 attempts per 15 minutes
+const waitlistLimiter = createRateLimiter({
+  limit: 10,
+  windowMs: 15 * 60 * 1000, // 15 minutes
+});
+
 // POST /api/waitlist — join the waitlist or verify email
-export async function POST(req: NextRequest) {
+async function handlePOST(req: NextRequest) {
   try {
     const body = await req.json();
     const { email, name, verify_only, source } = body as {
@@ -136,3 +143,6 @@ export async function POST(req: NextRequest) {
     return json({ ok: false, error: "Failed to join waitlist" }, 500);
   }
 }
+
+// Apply rate limiting to waitlist endpoint
+export const POST = withRateLimit(handlePOST, waitlistLimiter);
