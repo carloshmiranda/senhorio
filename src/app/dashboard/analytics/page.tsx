@@ -1,31 +1,63 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Line, Bar, Pie, Doughnut } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement,
-} from "chart.js";
+import { useEffect, useState, useMemo, lazy, Suspense } from "react";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement
-);
+// Dynamically import chart components to reduce initial bundle size
+const LazyLineChart = lazy(async () => {
+  const { Line } = await import("react-chartjs-2");
+  const chartModule = await import("chart.js");
+
+  chartModule.Chart.register(
+    chartModule.CategoryScale,
+    chartModule.LinearScale,
+    chartModule.PointElement,
+    chartModule.LineElement,
+    chartModule.Title,
+    chartModule.Tooltip,
+    chartModule.Legend
+  );
+
+  return { default: Line };
+});
+
+const LazyBarChart = lazy(async () => {
+  const { Bar } = await import("react-chartjs-2");
+  const chartModule = await import("chart.js");
+
+  chartModule.Chart.register(
+    chartModule.CategoryScale,
+    chartModule.LinearScale,
+    chartModule.BarElement,
+    chartModule.Title,
+    chartModule.Tooltip,
+    chartModule.Legend
+  );
+
+  return { default: Bar };
+});
+
+const LazyDoughnutChart = lazy(async () => {
+  const { Doughnut } = await import("react-chartjs-2");
+  const chartModule = await import("chart.js");
+
+  chartModule.Chart.register(
+    chartModule.ArcElement,
+    chartModule.Title,
+    chartModule.Tooltip,
+    chartModule.Legend
+  );
+
+  return { default: Doughnut };
+});
+
+// Chart loading component
+function ChartSkeleton() {
+  return (
+    <div className="animate-pulse">
+      <div className="h-64 bg-gray-200 rounded"></div>
+    </div>
+  );
+}
 
 interface AnalyticsData {
   period: string;
@@ -109,8 +141,8 @@ export default function AnalyticsPage() {
     }
   }
 
-  // Chart configurations
-  const incomeChartData = {
+  // Memoized chart configurations to prevent unnecessary recalculations
+  const incomeChartData = useMemo(() => ({
     labels: analytics?.incomeHistory.map(item => {
       const date = new Date(item.month);
       return date.toLocaleDateString('pt-PT', { month: 'short', year: 'numeric' });
@@ -124,9 +156,9 @@ export default function AnalyticsPage() {
         tension: 0.1,
       },
     ],
-  };
+  }), [analytics?.incomeHistory]);
 
-  const paymentStatusData = {
+  const paymentStatusData = useMemo(() => ({
     labels: analytics?.paymentAnalysis.map(item => {
       const statusLabels: Record<string, string> = {
         paid: 'Pago',
@@ -154,9 +186,9 @@ export default function AnalyticsPage() {
         borderWidth: 2,
       },
     ],
-  };
+  }), [analytics?.paymentAnalysis]);
 
-  const propertyTypeData = {
+  const propertyTypeData = useMemo(() => ({
     labels: analytics?.propertyTypeData.map(item => {
       const typeLabels: Record<string, string> = {
         apartment: 'Apartamento',
@@ -175,9 +207,9 @@ export default function AnalyticsPage() {
         borderWidth: 2,
       },
     ],
-  };
+  }), [analytics?.propertyTypeData]);
 
-  const chartOptions = {
+  const chartOptions = useMemo(() => ({
     responsive: true,
     plugins: {
       legend: {
@@ -194,7 +226,7 @@ export default function AnalyticsPage() {
         }
       }
     },
-  };
+  }), []);
 
   if (loading) {
     return (
@@ -325,7 +357,9 @@ export default function AnalyticsPage() {
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">Evolução do Rendimento</h2>
           {analytics.incomeHistory.length > 0 ? (
-            <Line data={incomeChartData} options={chartOptions} />
+            <Suspense fallback={<ChartSkeleton />}>
+              <LazyLineChart data={incomeChartData} options={chartOptions} />
+            </Suspense>
           ) : (
             <p className="text-center text-gray-500 py-8">Sem dados de rendimento para o período selecionado</p>
           )}
@@ -335,7 +369,9 @@ export default function AnalyticsPage() {
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">Estado dos Pagamentos</h2>
           {analytics.paymentAnalysis.length > 0 ? (
-            <Doughnut data={paymentStatusData} />
+            <Suspense fallback={<ChartSkeleton />}>
+              <LazyDoughnutChart data={paymentStatusData} />
+            </Suspense>
           ) : (
             <p className="text-center text-gray-500 py-8">Sem dados de pagamentos</p>
           )}
@@ -345,7 +381,9 @@ export default function AnalyticsPage() {
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">Distribuição por Tipo</h2>
           {analytics.propertyTypeData.length > 0 ? (
-            <Bar data={propertyTypeData} options={chartOptions} />
+            <Suspense fallback={<ChartSkeleton />}>
+              <LazyBarChart data={propertyTypeData} options={chartOptions} />
+            </Suspense>
           ) : (
             <p className="text-center text-gray-500 py-8">Sem dados de propriedades</p>
           )}
