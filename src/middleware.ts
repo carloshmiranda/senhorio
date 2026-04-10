@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { verifyToken } from "@/lib/auth";
 import { createRateLimiter, getClientIP } from "@/lib/rate-limit";
+import { getDb } from "@/lib/db";
 
 // General API rate limiter: 200 requests per 15 minutes for dashboard APIs
 const apiLimiter = createRateLimiter({
@@ -10,6 +11,31 @@ const apiLimiter = createRateLimiter({
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
+
+  // Track page views for metrics collection (exclude API routes, static files, and auth-protected pages)
+  const shouldTrackPageView = !pathname.startsWith('/api/') &&
+                               !pathname.startsWith('/_next/') &&
+                               !pathname.startsWith('/dashboard') &&
+                               !pathname.includes('.') && // exclude static files
+                               req.method === 'GET';
+
+  if (shouldTrackPageView) {
+    try {
+      const sql = getDb();
+      const clientIP = getClientIP(req);
+      const userAgent = req.headers.get('user-agent') || '';
+      const referer = req.headers.get('referer') || '';
+
+      // Fire-and-forget page view tracking
+      sql`
+        INSERT INTO page_views (path, user_agent, referer, ip)
+        VALUES (${pathname}, ${userAgent}, ${referer}, ${clientIP})
+      `.catch(() => {}); // Silent fail to not break page loads
+    } catch (error) {
+      // Silent fail - page view tracking should not break the site
+      console.error('Page view tracking error:', error);
+    }
+  }
 
   // Apply rate limiting to API routes (excluding specific endpoints with their own rate limiting)
   if (pathname.startsWith('/api/')) {
@@ -81,5 +107,6 @@ export const config = {
   matcher: [
     "/dashboard/:path*", // Dashboard routes (for auth protection)
     "/api/((?!.*\\.).)*", // API routes (for rate limiting, excluding static files)
+    "/((?!_next/static|_next/image|favicon.ico).)*", // All routes for page view tracking (excluding static files)
   ],
 };

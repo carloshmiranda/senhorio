@@ -226,3 +226,18 @@ CREATE TABLE IF NOT EXISTS payment_intents (
 CREATE INDEX IF NOT EXISTS idx_payment_intents_email ON payment_intents(email);
 CREATE INDEX IF NOT EXISTS idx_payment_intents_plan ON payment_intents(plan);
 CREATE INDEX IF NOT EXISTS idx_payment_intents_created_at ON payment_intents(created_at);
+
+-- Page views: tracks page visits for metrics collection
+CREATE TABLE IF NOT EXISTS page_views (
+  id              TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
+  path            TEXT NOT NULL,
+  user_agent      TEXT,
+  referer         TEXT,
+  ip              TEXT,
+  date            DATE NOT NULL DEFAULT CURRENT_DATE,
+  created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_page_views_path ON page_views(path);
+CREATE INDEX IF NOT EXISTS idx_page_views_date ON page_views(date);
+CREATE INDEX IF NOT EXISTS idx_page_views_created_at ON page_views(created_at);
