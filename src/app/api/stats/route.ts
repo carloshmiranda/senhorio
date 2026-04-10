@@ -10,7 +10,7 @@ export async function GET() {
   try {
     const sql = getDb()
 
-    const [waitlistStats, pricingStats, emailStats, customerStats] = await Promise.all([
+    const [waitlistStats, pricingStats, emailStats, customerStats, pageViewStats] = await Promise.all([
       sql`
         SELECT
           COUNT(*) as total_signups,
@@ -48,20 +48,28 @@ export async function GET() {
           COUNT(*) FILTER (WHERE created_at >= NOW() - INTERVAL '30 days') as customers_last_30d
         FROM customers
       `.catch(() => [{}]),
+      sql`
+        SELECT
+          COUNT(*) as total_views,
+          COUNT(*) FILTER (WHERE created_at >= NOW() - INTERVAL '7 days') as views_last_7d,
+          COUNT(*) FILTER (WHERE created_at >= NOW() - INTERVAL '30 days') as views_last_30d
+        FROM page_views
+      `.catch(() => [{}]),
     ])
 
     return NextResponse.json({
       ok: true,
       // Standard Hive metrics format (required by Hive metrics cron)
-      views: 0, // page_views not tracked via middleware yet
+      views: Number((pageViewStats[0] as any)?.total_views || 0),
       pricing_clicks: Number((pricingStats[0] as any)?.total_clicks || 0),
-      affiliate_clicks: 0,
+      affiliate_clicks: 0, // No affiliate system implemented yet
       // Extended stats
       data: {
         waitlist: waitlistStats[0] || {},
         pricing: pricingStats[0] || {},
         email: emailStats[0] || {},
         customers: customerStats[0] || {},
+        pageViews: pageViewStats[0] || {},
         generated_at: new Date().toISOString(),
       },
     })
